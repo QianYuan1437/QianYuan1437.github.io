@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="1、创建fork分支 找到别人的仓库地址，创建fork分支 以https:&#x2F;&#x2F;github.com&#x2F;HKUST-Aerial-Robotics&#x2F;A-LOAM.git为例，创建如下图所示fork：  在个人项目中的src&#x2F;中，下载项目代码并编译（依据个人工作空间环境作出适当修改） 1git clone https:&#x2F;&#x2F;github.com&#x2F;HKUST-Aerial-Robotics&#x2F;A-L">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【技能学习】Git中Clone仓库后更新与推送本人仓库">
+<meta property="og:url" content="http://example.com/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Git%E4%B8%ADClone%E4%BB%93%E5%BA%93%E5%90%8E%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9C%AC%E4%BA%BA%E4%BB%93%E5%BA%93/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1、创建fork分支 找到别人的仓库地址，创建fork分支 以https:&#x2F;&#x2F;github.com&#x2F;HKUST-Aerial-Robotics&#x2F;A-LOAM.git为例，创建如下图所示fork：  在个人项目中的src&#x2F;中，下载项目代码并编译（依据个人工作空间环境作出适当修改） 1git clone https:&#x2F;&#x2F;github.com&#x2F;HKUST-Aerial-Robotics&#x2F;A-L">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223125247243.png">
+<meta property="article:published_time" content="2024-12-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-12-23T08:11:00.754Z">
+<meta property="article:author" content="Zhao Yuan Hang">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="Git">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223125247243.png">
+
+<link rel="canonical" href="http://example.com/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Git%E4%B8%ADClone%E4%BB%93%E5%BA%93%E5%90%8E%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9C%AC%E4%BA%BA%E4%BB%93%E5%BA%93/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【技能学习】Git中Clone仓库后更新与推送本人仓库 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Git%E4%B8%ADClone%E4%BB%93%E5%BA%93%E5%90%8E%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9C%AC%E4%BA%BA%E4%BB%93%E5%BA%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhao Yuan Hang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【技能学习】Git中Clone仓库后更新与推送本人仓库
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-12-23 00:00:00 / 修改时间：16:11:00" itemprop="dateCreated datePublished" datetime="2024-12-23T00:00:00+08:00">2024-12-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">技能学习</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="1、创建fork分支"><a href="#1、创建fork分支" class="headerlink" title="1、创建fork分支"></a>1、创建fork分支</h2><ul>
+<li><p>找到别人的仓库地址，创建fork分支</p>
+<p>以<a target="_blank" rel="noopener" href="https://github.com/HKUST-Aerial-Robotics/A-LOAM.git%E4%B8%BA%E4%BE%8B%EF%BC%8C%E5%88%9B%E5%BB%BA%E5%A6%82%E4%B8%8B%E5%9B%BE%E6%89%80%E7%A4%BAfork%EF%BC%9A">https://github.com/HKUST-Aerial-Robotics/A-LOAM.git为例，创建如下图所示fork：</a><br><img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223125247243.png" alt="image-20241223125247243"></p>
+</li>
+<li><p>在个人项目中的src&#x2F;中，下载项目代码并编译（依据个人工作空间环境作出适当修改）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/HKUST-Aerial-Robotics/A-LOAM.git</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="2、替换子模块的远程地址"><a href="#2、替换子模块的远程地址" class="headerlink" title="2、替换子模块的远程地址"></a>2、替换子模块的远程地址</h2><p>在<code>msfl_ws</code>工作空间中，将<code>A-LOAM-NOTED</code>子模块指向你 Fork 的版本。</p>
+<ul>
+<li>进入<code>A-LOAM-NOTED</code>子模块目录</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> src/A-LOAM-NOTED</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改远程地址</li>
+</ul>
+<p>​	将子模块的远程地址替换为你的 Fork 仓库地址（以下示例使用你的 GitHub 用户名<code>YourUsername</code>）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin https://github.com/YourUsername/A-LOAM-NOTED.git</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>验证远程地址</li>
+</ul>
+<p>​	确认远程地址已被修改：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+
+<p>​	输出应显示类似以下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">origin  https://github.com/YourUsername/A-LOAM-NOTED.git (fetch)</span><br><span class="line">origin  https://github.com/YourUsername/A-LOAM-NOTED.git (push)</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、修改提交到-Fork-仓库"><a href="#3、修改提交到-Fork-仓库" class="headerlink" title="3、修改提交到 Fork 仓库"></a>3、修改提交到 Fork 仓库</h2><ul>
+<li><p>在<code>A-LOAM-NOTED</code>目录中，确认当前分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提交修改</p>
+<p>将本地的修改提交到当前分支，或创建一个新分支来提交：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b ubuntu20.04-mods</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;Adapted A-LOAM-NOTED for Ubuntu 20.04&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>推送到你的 Fork 仓库</p>
+<p>将修改个体到 Fork 仓库的分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin ubuntu20.04-mods</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="4、更新主仓库对子模块的引用"><a href="#4、更新主仓库对子模块的引用" class="headerlink" title="4、更新主仓库对子模块的引用"></a>4、更新主仓库对子模块的引用</h2><p>在主仓库中，更新<code>A-LOAM-NOTED</code>的子引用模块，指向你的 Fork 仓库和分支</p>
+<ul>
+<li><p>返回主仓库目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../..</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新子模块引用</p>
+<p>修改子模块配置，导出指向你的Fork仓库和分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config -f .gitmodules submodule.src/A-LOAM-NOTED.url https://github.com/YourUsername/A-LOAM-NOTED.git</span><br><span class="line">git config -f .gitmodules submodule.src/A-LOAM-NOTED.branch ubuntu20.04-mods</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>同步子模块</p>
+<p>同步子模块的配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule <span class="built_in">sync</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提交更新</p>
+<p>将主仓库对子模块的更新提交：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .gitmodules src/A-LOAM-NOTED</span><br><span class="line">git commit -m <span class="string">&quot;Updated submodule A-LOAM-NOTED to fork repository&quot;</span></span><br><span class="line">git push origin main</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Tips：一般到这里就完成了"><a href="#Tips：一般到这里就完成了" class="headerlink" title="Tips：一般到这里就完成了"></a>Tips：一般到这里就完成了</h2><h2 id="5、验证-Fork-和更新"><a href="#5、验证-Fork-和更新" class="headerlink" title="5、验证 Fork 和更新"></a>5、验证 Fork 和更新</h2><ul>
+<li><p>验证主仓库对子模块的引用</p>
+<p>运行以下命令，确认子模块已指向你的Fork仓库和分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule status</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证远程仓库同步</p>
+<p>在其他工作空间中克隆主仓库时，确保正确取模块：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --recursive https://github.com/YourUsername/msfl_ws.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果已存在本地仓库，更新子模块：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule update --init --recursive</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+              <a href="/tags/Git/" rel="tag"># Git</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu%E9%85%8D%E7%BD%AEPicgo+Typora/" rel="prev" title="【技能学习】Ubuntu配置Picgo+Typora">
+      <i class="fa fa-chevron-left"></i> 【技能学习】Ubuntu配置Picgo+Typora
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/12/23/%E3%80%90%E6%80%9D%E8%80%83%E6%9D%82%E8%B0%88%E3%80%91%E8%AE%A1%E5%88%92%E4%B8%89%E4%B8%A4%E4%BA%8B/" rel="next" title="【思考杂谈】计划三两事">
+      【思考杂谈】计划三两事 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%88%9B%E5%BB%BAfork%E5%88%86%E6%94%AF"><span class="nav-number">1.</span> <span class="nav-text">1、创建fork分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E6%9B%BF%E6%8D%A2%E5%AD%90%E6%A8%A1%E5%9D%97%E7%9A%84%E8%BF%9C%E7%A8%8B%E5%9C%B0%E5%9D%80"><span class="nav-number">2.</span> <span class="nav-text">2、替换子模块的远程地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E4%BF%AE%E6%94%B9%E6%8F%90%E4%BA%A4%E5%88%B0-Fork-%E4%BB%93%E5%BA%93"><span class="nav-number">3.</span> <span class="nav-text">3、修改提交到 Fork 仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81%E6%9B%B4%E6%96%B0%E4%B8%BB%E4%BB%93%E5%BA%93%E5%AF%B9%E5%AD%90%E6%A8%A1%E5%9D%97%E7%9A%84%E5%BC%95%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">4、更新主仓库对子模块的引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tips%EF%BC%9A%E4%B8%80%E8%88%AC%E5%88%B0%E8%BF%99%E9%87%8C%E5%B0%B1%E5%AE%8C%E6%88%90%E4%BA%86"><span class="nav-number">5.</span> <span class="nav-text">Tips：一般到这里就完成了</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81%E9%AA%8C%E8%AF%81-Fork-%E5%92%8C%E6%9B%B4%E6%96%B0"><span class="nav-number">6.</span> <span class="nav-text">5、验证 Fork 和更新</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Zhao Yuan Hang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhao Yuan Hang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
