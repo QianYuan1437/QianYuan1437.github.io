@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2024/12/23/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>【MSFL】1：A-LOAM：从安装到测试</title>
+    <url>/2024/12/24/%E3%80%90MSFL%E3%80%911%EF%BC%9AA-LOAM%EF%BC%9A%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<h2 id="1、安装依赖项"><a href="#1、安装依赖项" class="headerlink" title="1、安装依赖项"></a>1、安装依赖项</h2><ul>
+<li>参考之前的博客：【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</li>
+<li>注意！仅需顺序执行之前博客操作即可，不需要自行再次源码安装诸如eigen3之类的软件包（通过<code>sudo apt-get</code>安装即可）</li>
+</ul>
+<h2 id="2、修改代码内容"><a href="#2、修改代码内容" class="headerlink" title="2、修改代码内容"></a>2、修改代码内容</h2><ul>
+<li>将四个<code>.cpp</code>文件中的<code>/camera_init</code>修改为<code>camera_init</code></li>
+<li>将<code>scanRegistration.cpp中的 #include &lt;opencv/cv.h&gt;</code> 修改为<code>#include &lt;opencv2/imgproc.hpp&gt;</code></li>
+<li>修改<code>kittiHelper.cpp</code>中 <code>CV_LOAD_IMAGE_GRAYSCALE</code>为 <code>cv::IMREAD_GRAYSCALE</code></li>
+<li>无论之前是否已经<code>catkin_make</code>编译过，都需要重新编译，即删除<code>build/</code>和<code>devel/</code>文件夹后重新执行<code>catkin_make</code>以使上方的<code>ceres</code>库生效</li>
+<li>若版本是<code>ubuntu20.04 ros-noetic</code>，也可以使用我修改后的fork仓库：<a href="https://github.com/QianYuan1437/A-LOAM-NOTED.git">https://github.com/QianYuan1437/A-LOAM-NOTED.git</a> 注意branch</li>
+</ul>
+<h2 id="3、测试与保存"><a href="#3、测试与保存" class="headerlink" title="3、测试与保存"></a>3、测试与保存</h2><ul>
+<li>下载测试<code>ROSBAG</code>：<a href="https://drive.google.com/file/d/1s05tBQOLNEDDurlg48KiUWxCp-YqYyGH/view">https://drive.google.com/file/d/1s05tBQOLNEDDurlg48KiUWxCp-YqYyGH/view</a></li>
+<li>开启三个终端：注意运行顺序，先1再2最后3<ul>
+<li>1、<code>roscore</code></li>
+<li>2、<code>roslaunch aloam_velodyne aloam_velodyne_VLP_16.launch</code></li>
+<li>3、<code>rosbag play nsh_indoor_outdoor.bag</code></li>
+</ul>
+</li>
+<li>如果需要保存点云信息，则需开启第四个终端<ul>
+<li>4、有以下两种方法，但注意运行顺序为1,2,4,3<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#另起终端用bag_to_pcd方法保存点云图</span><br><span class="line">rosrun pcl_ros bag_to_pcd xxx.bag /laser_cloud_surround pcd</span><br></pre></td></tr></table></figure>
+运行结束，可以看到生成了一个pcd文件夹，将里面的文件按照修改时间排序，最新的就是最后的点云地图pcd文件。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#另起终端，用pointcloud_to_pcd方法保存点云图</span><br><span class="line">mkdir pcd</span><br><span class="line">cd pcd</span><br><span class="line">rosrun pcl_ros pointcloud_to_pcd input:=/laser_cloud_surround</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>点云地图查看：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pcl_viewer xxx.pcd</span><br></pre></td></tr></table></figure>
+pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pcl_pcd2ply xxx.pcd xxxxxxx.ply</span><br></pre></td></tr></table></figure>
+当我们需要用第三方软件（MatLab&#x2F;MeshLab）对点云地图进行处理时就需要将pcd转为ply，其中MeshLab必须使用由pointcloud_to_pcd方法创建pcd转成的ply格式点云！</li>
+</ul>
+<h2 id="4、参考链接"><a href="#4、参考链接" class="headerlink" title="4、参考链接"></a>4、参考链接</h2><ul>
+<li><a href="https://blog.csdn.net/studentu/article/details/119634149">https://blog.csdn.net/studentu/article/details/119634149</a></li>
+<li><a href="https://blog.csdn.net/weixin_43910370/article/details/120736760">https://blog.csdn.net/weixin_43910370/article/details/120736760</a></li>
+<li><a href="https://blog.csdn.net/weixin_43807148/article/details/113739347">https://blog.csdn.net/weixin_43807148/article/details/113739347</a></li>
+<li><a href="https://blog.csdn.net/weixin_44156680/article/details/117705830">https://blog.csdn.net/weixin_44156680/article/details/117705830</a></li>
+</ul>
+<h2 id="5、MSFL测试参考链接"><a href="#5、MSFL测试参考链接" class="headerlink" title="5、MSFL测试参考链接"></a>5、MSFL测试参考链接</h2><ul>
+<li><a href="https://blog.csdn.net/qq_53004665/article/details/141674630">https://blog.csdn.net/qq_53004665/article/details/141674630</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>MSFL</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+        <tag>MSFL</tag>
+        <tag>A-LOAM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</title>
+    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/</url>
+    <content><![CDATA[<h2 id="1、依赖安装"><a href="#1、依赖安装" class="headerlink" title="1、依赖安装"></a>1、依赖安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install  liblapack-dev libsuitesparse-dev libcxsparse3 libgflags-dev libgoogle-glog-dev libgtest-dev</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、包下载与安装"><a href="#2、包下载与安装" class="headerlink" title="2、包下载与安装"></a>2、包下载与安装</h2><ul>
+<li>下载安装包：<a href="http://ceres-solver.org/ceres-solver-2.0.0.tar.gz">http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</a><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#1. 下载ceres2.0版本</span><br><span class="line"># 地址为 http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</span><br><span class="line">#2. 解压</span><br><span class="line">#3. 进入目录，然后编译</span><br><span class="line">cd ceres-solver</span><br><span class="line">mkdir build &amp;&amp; cd build </span><br><span class="line">cmake ..</span><br><span class="line">make -j3</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3、参考链接"><a href="#3、参考链接" class="headerlink" title="3、参考链接"></a>3、参考链接</h2><p><a href="https://blog.csdn.net/little_white138/article/details/142443296">https://blog.csdn.net/little_white138/article/details/142443296</a></p>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+        <tag>A-LOAM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【安装学习】ubuntu环境配置AMD显卡驱动</title>
+    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEAMD%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</url>
+    <content><![CDATA[<h1 id="ubuntu环境配置AMD显卡驱动"><a href="#ubuntu环境配置AMD显卡驱动" class="headerlink" title="ubuntu环境配置AMD显卡驱动"></a>ubuntu环境配置AMD显卡驱动</h1><p>本人买的AMD显卡，最近要在ubuntu环境做python深度学习，所以必须折腾一番，结果发现还不复杂。本人的系统是Ubuntu 20.04.6，显卡是RX6600，亲测有效。</p>
+<ul>
+<li><p>针对GEM12 MAX 板载的显卡680M，应当选择6.1版本的.deb文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://repo.radeon.com/amdgpu-install/6.1/ubuntu/focal/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对应的pytorch安装命令，应当修改为：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/rocm6.1</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="0-如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始："><a href="#0-如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始：" class="headerlink" title="(0) 如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始："></a>(0) 如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始：</h4><figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">~$ sudo amdgpu-install <span class="comment">--uninstall</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-在AMD官网下载需要的驱动包："><a href="#1-在AMD官网下载需要的驱动包：" class="headerlink" title="(1) 在AMD官网下载需要的驱动包："></a>(1) 在AMD官网下载需要的驱动包：</h4><p><a href="https://link.csdn.net/?target=https://www.amd.com/en/support/kb/release-notes/rn-amdgpu-unified-linux-22-20?login=from_csdn">驱动包链接</a><br>得到amdgpu-install_xxx_all.deb（xxx是版本号）</p>
+<h4 id="2-cd到驱动包路径下，安装驱动包："><a href="#2-cd到驱动包路径下，安装驱动包：" class="headerlink" title="(2) cd到驱动包路径下，安装驱动包："></a>(2) cd到驱动包路径下，安装驱动包：</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> apt install ./amdgpu-install_xxx_all.deb</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-更新软件："><a href="#3-更新软件：" class="headerlink" title="(3) 更新软件："></a>(3) 更新软件：</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>sudo apt update</span><br><span class="line">~<span class="variable">$ </span>sudo apt upgrade -y</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-安装驱动："><a href="#4-安装驱动：" class="headerlink" title="(4) 安装驱动："></a>(4) 安装驱动：</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>sudo amdgpu-install --no-dkms</span><br><span class="line">~<span class="variable">$ </span>sudo apt install rocm-dev</span><br><span class="line">~<span class="variable">$ </span>sudo reboot</span><br><span class="line"><span class="comment"># 等待重启</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="5-配置环境："><a href="#5-配置环境：" class="headerlink" title="(5)配置环境："></a>(5)配置环境：</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">ls</span> -l /dev/dri/render*</span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> usermod -a -G render <span class="variable">$LOGNAME</span></span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> usermod -a -G video <span class="variable">$LOGNAME</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="variable">$LOGNAME</span>不需要修改</span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> reboot</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">等待重启</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="6-理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证"><a href="#6-理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证" class="headerlink" title="(6) 理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证"></a>(6) 理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>rocm-smi</span><br><span class="line"><span class="comment"># 监控GPU性能</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~$ <span class="regexp">/opt/</span>rocm<span class="regexp">/bin/</span>rocminfo</span><br><span class="line"><span class="comment"># 可以查询到CPU、GPU信息</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~$ <span class="regexp">/opt/</span>rocm<span class="regexp">/opencl/</span>bin/clinfo</span><br><span class="line"><span class="comment"># 可以查询到GPU信息</span></span><br></pre></td></tr></table></figure>
+
+<p>若以上三条命令都有正常输出，便是配置成功了</p>
+<h4 id="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："><a href="#（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：" class="headerlink" title="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："></a>（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：</h4><figure class="highlight python-repl"><table><tr><td class="code"><pre><span class="line">python3</span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python"><span class="keyword">import</span> torch</span></span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">torch.cuda.is_available()</span></span><br></pre></td></tr></table></figure>
+
+<p>返回True就说明成功啦</p>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【安装学习】安装Cartographer ROS（noetic）</title>
+    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85Cartographer%20ROS%EF%BC%88noetic%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="【安装学习】安装Cartographer-ROS（noetic）"><a href="#【安装学习】安装Cartographer-ROS（noetic）" class="headerlink" title="【安装学习】安装Cartographer ROS（noetic）"></a>【安装学习】安装Cartographer ROS（noetic）</h1><p> 参考链接：<a href="https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html">https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html</a></p>
+<h2 id="1、创建工作空间"><a href="#1、创建工作空间" class="headerlink" title="1、创建工作空间"></a>1、创建工作空间</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/catkin_google_ws/src</span><br><span class="line"><span class="built_in">cd</span> catkin_google_ws/src</span><br><span class="line">catkin_init_workspace</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、安装工具"><a href="#2、安装工具" class="headerlink" title="2、安装工具"></a>2、安装工具</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install -y python3-wstool python3-rosdep ninja-build stow</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、初始化工作空间"><a href="#3、初始化工作空间" class="headerlink" title="3、初始化工作空间"></a>3、初始化工作空间</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> catkin_google_ws</span><br><span class="line">wstool init src</span><br><span class="line">wstool merge -t src https://raw.githubusercontent.com/cartographer-project/cartographer_ros/master/cartographer_ros.rosinstall</span><br><span class="line">wstool update -t src</span><br></pre></td></tr></table></figure>
+
+<h2 id="4、安装依赖"><a href="#4、安装依赖" class="headerlink" title="4、安装依赖"></a>4、安装依赖</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pip install rosdepc</span><br><span class="line"><span class="built_in">sudo</span> rosdepc init</span><br><span class="line">rosdepc update</span><br></pre></td></tr></table></figure>
+
+<h2 id="5、Libabsl-dev处理"><a href="#5、Libabsl-dev处理" class="headerlink" title="5、Libabsl-dev处理"></a>5、Libabsl-dev处理</h2><p>进行XML文件修改，路径为</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cartographer_ws/src/cartographer/package.xml</span><br></pre></td></tr></table></figure>
+
+<p>找到第46行<code>&lt;depend&gt;libabsl-dev&lt;/depend&gt;</code>删掉</p>
+<h2 id="6、执行rosdep-install命令"><a href="#6、执行rosdep-install命令" class="headerlink" title="6、执行rosdep install命令"></a>6、执行rosdep install命令</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosdep update</span><br><span class="line">rosdep install --from-paths src --ignore-src --rosdistro=$&#123;ROS_DISTRO&#125; -y</span><br></pre></td></tr></table></figure>
+
+<h2 id="7、安装abseil库"><a href="#7、安装abseil库" class="headerlink" title="7、安装abseil库"></a>7、安装abseil库</h2><ul>
+<li><p>先删除本地abseil库</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get remove ros-<span class="variable">$&#123;ROS_DISTRO&#125;</span>-abseil-cpp</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>再运行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">src/cartographer/scripts/install_abseil.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这时发现可能会报错，类型如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">* existing target is neither a <span class="built_in">link</span> nor a directory: include/absl/base/internal/sysinfo.h</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定位到上方.sh脚本运行后下载的文件夹，与src文件夹同级，进行如下操作：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/path/to/abseil-cpp</span><br><span class="line"><span class="built_in">mkdir</span> build &amp;&amp; <span class="built_in">cd</span> build</span><br><span class="line">cmake -DCMAKE_POSITION_INDEPENDENT_CODE=TRUE -DCMAKE_BUILD_TYPE=Release ..</span><br><span class="line">make -j$(<span class="built_in">nproc</span>)</span><br><span class="line"><span class="built_in">sudo</span> make install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>确保编译器可以找到安装的 <code>abseil-cpp</code> 库。检查 <code>LD_LIBRARY_PATH</code> 和 <code>CMAKE_PREFIX_PATH</code> 中是否包含 <code>/usr/local/lib</code> 和 <code>/usr/local</code>，以确保 CMake 和 linker 能找到 <code>abseil-cpp</code> 库。请在终端中执行下方命令，以将这些变量永久添加到 <code>~/.bashrc</code> 里：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export CMAKE_PREFIX_PATH=/usr/local:$CMAKE_PREFIX_PATH&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="8、构建"><a href="#8、构建" class="headerlink" title="8、构建"></a>8、构建</h2><p>在 <code>catkin_ws</code> 中清理 <code>build_isolated</code> 和 <code>devel_isolated</code> 文件夹后重新构建：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/WS/catkin_ws</span><br><span class="line"><span class="built_in">rm</span> -rf build_isolated devel_isolated install_isolated</span><br><span class="line">catkin_make_isolated --install --use-ninja</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【安装学习】安装OpenSSH服务</title>
+    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85OpenSSH%E6%9C%8D%E5%8A%A1/</url>
+    <content><![CDATA[<ul>
+<li><p>安装服务端</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install openssh-server </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查是否开启服务</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ps -e | grep ssh</span><br></pre></td></tr></table></figure>
+
+<p>有输出则证明开启，没有的话手动开启</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> service ssh start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看IP地址</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ifconfig </span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【安装学习】安装ROS包LIO-SAM(noetic)</title>
+    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85ROS%E5%8C%85LIO-SAM(noetic)/</url>
+    <content><![CDATA[<h2 id="1、参考"><a href="#1、参考" class="headerlink" title="1、参考"></a>1、参考</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://github.com/TixiaoShan/LIO-SAM</span><br><span class="line"></span><br><span class="line">https://blog.csdn.net/qq_41690864/article/details/118711743</span><br><span class="line">（标题名：3维SLAM入门 LIO-SAM的安装与运行 ubuntu18.04+ros melodic）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="2、操作流程"><a href="#2、操作流程" class="headerlink" title="2、操作流程"></a>2、操作流程</h2><ul>
+<li><p>安装依赖程序，参考issues#206</p>
+</li>
+<li><p><strong>Step 1：</strong> Install GTSAM 4.0.3 binary</p>
+</li>
+<li><p><strong>Step 2：</strong> Configure the utility.h to use<br><code>#include &lt;opencv2/opencv.hpp&gt;</code> instead of <code>#include &lt;opencv/cv.h&gt;</code></p>
+</li>
+<li><p><strong>Step 3：</strong> Configure CMakeLists.txt to use<br><code>set(CMAKE_CXX_FLAGS &quot;-std=c++14&quot;)</code> instead of <code>set(CMAKE_CXX_FLAGS &quot;-std=c++11&quot;)</code></p>
+</li>
+<li><p><strong>Step 4：</strong>Move <code>#include &lt;opencv2/opencv.hpp&gt;</code> after the <code>pcl</code> headers</p>
+</li>
+<li><pre><code># 进行Step1的安装
+cd ~/catkin_ws/src
+git clone https://github.com/TixiaoShan/LIO-SAM.git
+# 进行如上Step2~4的修改
+cd ..
+catkin_make
+echo &quot;source ~/你的工作空间/devel/setup.bash&quot; &gt;&gt; ~/.bashrc
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">## 3、验证操作</span><br><span class="line"></span><br><span class="line">- **Step 1：**下载数据集rosbag文件</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+https://drive.google.com/drive/folders/1gJHwfdHCRdjP7vuT556pv8atqrCJPbUq
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- **Step 2：**运行roslaunch，另开一个窗口播放rosbag</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+roslaunch lio-sam run.launch
+rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- **Step3：**保存pcd建图结果</span><br><span class="line"></span><br><span class="line">  - 首先，需要修改params.yaml中的参数。params.yaml在~/catkin_ws/src/LIO-SAM/config文件夹下。修改该文件中SavePCD：true 和保存地址。</span><br><span class="line"></span><br><span class="line">  - 然后，为了避免保存还没完成，ros就已经关闭了节点，需要设置_TIMEOUT_SIGINT的值。按如下命令打开文件：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  sudo gedit /opt/ros/melodic/lib/python2.7/dist-packages/roslaunch/nodeprocess.py
+</code></pre>
+<p>  在文件中找到_TIMEOUT_SIGINT，并设置为100秒。这样，在命令窗口中按下Ctrl+C来结束run.launch的运行时，便会自动将pcd文件保存到指定地址。</p>
+</li>
+</ul>
+<h2 id="4、pointcloud-to-laserscan"><a href="#4、pointcloud-to-laserscan" class="headerlink" title="4、pointcloud_to_laserscan"></a>4、pointcloud_to_laserscan</h2><ul>
+<li>注意从github下载的源码要选择luner版本的</li>
+</ul>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【安装学习】设置对.mkv视频的播放支持</title>
+    <url>/2024/12/24/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E8%AE%BE%E7%BD%AE%E5%AF%B9.mkv%E8%A7%86%E9%A2%91%E7%9A%84%E6%92%AD%E6%94%BE%E6%94%AF%E6%8C%81/</url>
+    <content><![CDATA[<h2 id="1、安装依赖"><a href="#1、安装依赖" class="headerlink" title="1、安装依赖"></a>1、安装依赖</h2><p>安装 <code>ubuntu-restricted-extras</code>，<code>ubuntu-restricted-extras</code> 包含常用的多媒体编解码器，包括支持 MKV 格式的解码器。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install ubuntu-restricted-extras</span><br></pre></td></tr></table></figure>
+
+<p>注意！Ubuntu终端显示文本让选择确定，OK等等：首先按下”TAB”键,会看到选中文本”确定”,”OK”然后按下回车键,即可!</p>
+<h2 id="2、成功"><a href="#2、成功" class="headerlink" title="2、成功"></a>2、成功</h2><h2 id="3、变速保存"><a href="#3、变速保存" class="headerlink" title="3、变速保存"></a>3、变速保存</h2><p>可以使用 ffmpeg 将视频转换为3倍速播放的 mp4 格式。以下是具体操作步骤</p>
+<p>在终端中执行以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i 2024-12-24_15-32-53.mkv -filter:v &quot;setpts=PTS/3&quot; -an -c:v libx264 -preset fast -crf 23 2024-12-24_15-32-53_3x.mp4</span><br></pre></td></tr></table></figure>
+
+<p>解释</p>
+<ul>
+<li><strong><code>-i 2024-12-24_15-32-53.mkv</code></strong>: 指定输入文件。</li>
+<li><strong><code>-filter:v &quot;setpts=PTS/3&quot;</code></strong>: 使用 <code>setpts</code> 过滤器将视频播放速度调整为原来的3倍速。<code>PTS/3</code> 表示时间戳变为原来的1&#x2F;3。</li>
+<li><strong><code>-an</code></strong>: 删除音频轨道。如果需要加快音频速度，见下方。</li>
+<li><strong><code>-c:v libx264</code></strong>: 使用 H.264 编解码器。</li>
+<li><strong><code>-preset fast</code></strong>: 选择快速编码预设。</li>
+<li><strong><code>-crf 23</code></strong>: 设置视频质量，<code>23</code> 为默认值，数值越小质量越高（如需要更高质量可以调低）。</li>
+<li><strong><code>2024-12-24_15-32-53_3x.mp4</code></strong>: 指定输出文件名。</li>
+</ul>
+<hr>
+<p>如果需要保留并加速音频，音频也需要同步加速，可以使用以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i 2024-12-24_15-32-53.mkv -filter_complex &quot;[0:v]setpts=PTS/3[v];[0:a]atempo=3[a]&quot; -map &quot;[v]&quot; -map &quot;[a]&quot; -c:v libx264 -preset fast -crf 23 2024-12-24_15-32-53_3x.mp4</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong><code>[0:v]setpts=PTS/3[v]</code></strong>: 设置视频为3倍速。</li>
+<li><strong><code>[0:a]atempo=3[a]</code></strong>: 将音频加速3倍。<code>atempo</code> 最大支持2倍速，可多次链式叠加（例如 6倍速可用 <code>atempo=2,atempo=3</code>）。</li>
+</ul>
+<hr>
+<p>最终文件检查：转码完成后，可以使用以下命令检查输出文件信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i 2024-12-24_15-32-53_3x.mp4</span><br></pre></td></tr></table></figure>
+
+<p>这样可以确认视频和音频是否按预期处理。如果还有其他需求，随时告诉我！ 😊</p>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+        <tag>mkv</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【思考杂谈】计划三两事</title>
+    <url>/2024/12/23/%E3%80%90%E6%80%9D%E8%80%83%E6%9D%82%E8%B0%88%E3%80%91%E8%AE%A1%E5%88%92%E4%B8%89%E4%B8%A4%E4%BA%8B/</url>
+    <content><![CDATA[<h2 id="你好"><a href="#你好" class="headerlink" title="你好"></a>你好</h2><ul>
+<li>我是谁？</li>
+<li>我很好</li>
+</ul>
+]]></content>
+      <categories>
+        <category>思考杂谈</category>
+      </categories>
+      <tags>
+        <tag>计划</tag>
+        <tag>思考</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【技能学习】Blogs上传新文章</title>
+    <url>/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Blogs%E4%B8%8A%E4%BC%A0%E6%96%B0%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<h2 id="1、Blogs搭建操作"><a href="#1、Blogs搭建操作" class="headerlink" title="1、Blogs搭建操作"></a>1、Blogs搭建操作</h2><h2 id="2、主题替换与设置"><a href="#2、主题替换与设置" class="headerlink" title="2、主题替换与设置"></a>2、主题替换与设置</h2><h2 id="3、分类和标签设置"><a href="#3、分类和标签设置" class="headerlink" title="3、分类和标签设置"></a>3、分类和标签设置</h2><h2 id="4、书写笔记和上传"><a href="#4、书写笔记和上传" class="headerlink" title="4、书写笔记和上传"></a>4、书写笔记和上传</h2><ul>
+<li>在路径<code>/source</code>下添加<code>.md</code>新文件，复制抬头中的<code>categories</code>和<code>tags</code>等信息，具体如下：  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">layout: 【技能学习】Blogs上传新文章</span><br><span class="line">title: 【技能学习】Blogs上传新文章</span><br><span class="line">date: 2024-12-23</span><br><span class="line">categories:</span><br><span class="line">  - 技能学习</span><br><span class="line">tags:</span><br><span class="line">  - Blogs</span><br><span class="line">  - 学习</span><br><span class="line">---</span><br></pre></td></tr></table></figure></li>
+<li>终端运行如下指令，进行静态资源生成和上载至Git仓库  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>技能学习</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>Blogs</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【技能学习】Git中Clone仓库后更新与推送本人仓库</title>
+    <url>/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Git%E4%B8%ADClone%E4%BB%93%E5%BA%93%E5%90%8E%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9C%AC%E4%BA%BA%E4%BB%93%E5%BA%93/</url>
+    <content><![CDATA[<h2 id="1、创建fork分支"><a href="#1、创建fork分支" class="headerlink" title="1、创建fork分支"></a>1、创建fork分支</h2><ul>
+<li><p>找到别人的仓库地址，创建fork分支</p>
+<p>以<a href="https://github.com/HKUST-Aerial-Robotics/A-LOAM.git%E4%B8%BA%E4%BE%8B%EF%BC%8C%E5%88%9B%E5%BB%BA%E5%A6%82%E4%B8%8B%E5%9B%BE%E6%89%80%E7%A4%BAfork%EF%BC%9A">https://github.com/HKUST-Aerial-Robotics/A-LOAM.git为例，创建如下图所示fork：</a><br><img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223125247243.png" alt="image-20241223125247243"></p>
+</li>
+<li><p>在个人项目中的src&#x2F;中，下载项目代码并编译（依据个人工作空间环境作出适当修改）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/HKUST-Aerial-Robotics/A-LOAM.git</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="2、替换子模块的远程地址"><a href="#2、替换子模块的远程地址" class="headerlink" title="2、替换子模块的远程地址"></a>2、替换子模块的远程地址</h2><p>在<code>msfl_ws</code>工作空间中，将<code>A-LOAM-NOTED</code>子模块指向你 Fork 的版本。</p>
+<ul>
+<li>进入<code>A-LOAM-NOTED</code>子模块目录</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> src/A-LOAM-NOTED</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改远程地址</li>
+</ul>
+<p>​	将子模块的远程地址替换为你的 Fork 仓库地址（以下示例使用你的 GitHub 用户名<code>YourUsername</code>）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote set-url origin https://github.com/YourUsername/A-LOAM-NOTED.git</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>验证远程地址</li>
+</ul>
+<p>​	确认远程地址已被修改：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+
+<p>​	输出应显示类似以下内容：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">origin  https://github.com/YourUsername/A-LOAM-NOTED.git (fetch)</span><br><span class="line">origin  https://github.com/YourUsername/A-LOAM-NOTED.git (push)</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、修改提交到-Fork-仓库"><a href="#3、修改提交到-Fork-仓库" class="headerlink" title="3、修改提交到 Fork 仓库"></a>3、修改提交到 Fork 仓库</h2><ul>
+<li><p>在<code>A-LOAM-NOTED</code>目录中，确认当前分支：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提交修改</p>
+<p>将本地的修改提交到当前分支，或创建一个新分支来提交：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git checkout -b ubuntu20.04-mods</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;Adapted A-LOAM-NOTED for Ubuntu 20.04&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>推送到你的 Fork 仓库</p>
+<p>将修改个体到 Fork 仓库的分支：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git push origin ubuntu20.04-mods</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="4、更新主仓库对子模块的引用"><a href="#4、更新主仓库对子模块的引用" class="headerlink" title="4、更新主仓库对子模块的引用"></a>4、更新主仓库对子模块的引用</h2><p>在主仓库中，更新<code>A-LOAM-NOTED</code>的子引用模块，指向你的 Fork 仓库和分支</p>
+<ul>
+<li><p>返回主仓库目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../..</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新子模块引用</p>
+<p>修改子模块配置，导出指向你的Fork仓库和分支：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config -f .gitmodules submodule.src/A-LOAM-NOTED.url https://github.com/YourUsername/A-LOAM-NOTED.git</span><br><span class="line">git config -f .gitmodules submodule.src/A-LOAM-NOTED.branch ubuntu20.04-mods</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>同步子模块</p>
+<p>同步子模块的配置：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git submodule <span class="built_in">sync</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提交更新</p>
+<p>将主仓库对子模块的更新提交：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add .gitmodules src/A-LOAM-NOTED</span><br><span class="line">git commit -m <span class="string">&quot;Updated submodule A-LOAM-NOTED to fork repository&quot;</span></span><br><span class="line">git push origin main</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Tips：一般到这里就完成了"><a href="#Tips：一般到这里就完成了" class="headerlink" title="Tips：一般到这里就完成了"></a>Tips：一般到这里就完成了</h2><h2 id="5、验证-Fork-和更新"><a href="#5、验证-Fork-和更新" class="headerlink" title="5、验证 Fork 和更新"></a>5、验证 Fork 和更新</h2><ul>
+<li><p>验证主仓库对子模块的引用</p>
+<p>运行以下命令，确认子模块已指向你的Fork仓库和分支：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git submodule status</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证远程仓库同步</p>
+<p>在其他工作空间中克隆主仓库时，确保正确取模块：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --recursive https://github.com/YourUsername/msfl_ws.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果已存在本地仓库，更新子模块：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git submodule update --init --recursive</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>技能学习</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【技能学习】Ubuntu配置Picgo+Typora</title>
+    <url>/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu%E9%85%8D%E7%BD%AEPicgo+Typora/</url>
+    <content><![CDATA[<h2 id="1、AppImage下载与安装"><a href="#1、AppImage下载与安装" class="headerlink" title="1、AppImage下载与安装"></a>1、AppImage下载与安装</h2><ul>
+<li><p>从下方链接下载：</p>
+<p><a href="https://github.com/Molunerfinn/PicGo/releases/download/v2.4.0-beta.9/PicGo-2.4.0-beta.9.AppImage">https://github.com/Molunerfinn/PicGo/releases/download/v2.4.0-beta.9/PicGo-2.4.0-beta.9.AppImage</a></p>
+<p>下载后右键选择允许以应用程序形式打开：</p>
+<img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223131705271.png" alt="image-20241223131705271" style="zoom:50%;" />
+
+<p>设置完成后，右键点击运行，即可弹出小方块，在方块上右键打开主界面：</p>
+<img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223131812517.png" alt="image-20241223131812517" style="zoom:67%;" />
+
+<p>注意先点击“图片上传-阿里云OSS-Default”，切换到自己的配置项，可在左侧PicGo设置中选择展示哪些图床，我选择阿里云，便宜大碗🤪</p>
+</li>
+</ul>
+<h2 id="2、阿里云OSS控制台账号获取"><a href="#2、阿里云OSS控制台账号获取" class="headerlink" title="2、阿里云OSS控制台账号获取"></a>2、阿里云OSS控制台账号获取</h2><ul>
+<li><p>参考下方链接操作，获取ID和Key，必须保存一下，仅显示一次！</p>
+<p><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E9%98%BF%E9%87%8C%E4%BA%91oss">https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E9%98%BF%E9%87%8C%E4%BA%91oss</a></p>
+<p><img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223131442808.png" alt="image-20241223131442808"></p>
+</li>
+<li><p>参考上方链接，配置接下来的OSS-Bucket等信息：</p>
+<img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223132115503.png" alt="image-20241223132115503" style="zoom: 67%;" />
+
+<p>确认完成后，返回主界面可以测试一下上传是否成功即可。</p>
+</li>
+</ul>
+<h2 id="3、Typora安装与配置"><a href="#3、Typora安装与配置" class="headerlink" title="3、Typora安装与配置"></a>3、Typora安装与配置</h2><ul>
+<li><p>安装：最后一版免费Typora，感谢鱼香ROS大佬保存！</p>
+<p><a href="https://fishros.org.cn/forum/topic/23/%E5%AE%89%E8%A3%85typora%E6%9C%80%E5%90%8E%E7%9A%84%E5%85%8D%E8%B4%B9%E7%89%88">https://fishros.org.cn/forum/topic/23/%E5%AE%89%E8%A3%85typora%E6%9C%80%E5%90%8E%E7%9A%84%E5%85%8D%E8%B4%B9%E7%89%88</a></p>
+</li>
+<li><p>打开Typora，点击：文件-偏好设置-图像，如下图所示：</p>
+<p><img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223132432287.png" alt="image-20241223132432287"></p>
+</li>
+<li><p>选择配置如上图所示，上传服务选择Core，然后点击下载（需要网络），下载完成后点击“打开配置文件”，复制上方安装的PicGo中的配置信息，完全粘贴到刚刚打开的配置文件中，保存</p>
+<p><img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223132635641.png" alt="image-20241223132635641"></p>
+</li>
+<li><p>修改后，点击“验证图片上传选项”，测试成功即可！</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>技能学习</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>Picgo</tag>
+        <tag>Typora</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【知识补充】卡尔曼滤波相关问题</title>
+    <url>/2024/12/23/%E3%80%90%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85%E3%80%91%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<ul>
+<li>卡尔曼滤波 Kalman Filter 之美在于什么？ - 自动驾驶之心的回答 - 知乎<br><a href="https://www.zhihu.com/question/281995386/answer/3371567219">https://www.zhihu.com/question/281995386/answer/3371567219</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>知识补充</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>卡尔曼滤波</tag>
+      </tags>
+  </entry>
+</search>
