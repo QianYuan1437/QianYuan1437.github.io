@@ -28,7 +28,7 @@
 <meta property="og:description" content="1、安装依赖安装 ubuntu-restricted-extras，ubuntu-restricted-extras 包含常用的多媒体编解码器，包括支持 MKV 格式的解码器。 12sudo apt updatesudo apt install ubuntu-restricted-extras  注意！Ubuntu终端显示文本让选择确定，OK等等：首先按下”TAB”键,会看到选中文本”确定”,”O">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-12-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-12-24T07:46:58.072Z">
+<meta property="article:modified_time" content="2024-12-24T08:07:34.757Z">
 <meta property="article:author" content="Zhao Yuan Hang">
 <meta property="article:tag" content="安装">
 <meta property="article:tag" content="学习">
@@ -183,7 +183,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-12-24 00:00:00 / 修改时间：15:46:58" itemprop="dateCreated datePublished" datetime="2024-12-24T00:00:00+08:00">2024-12-24</time>
+              <time title="创建时间：2024-12-24 00:00:00 / 修改时间：16:07:34" itemprop="dateCreated datePublished" datetime="2024-12-24T00:00:00+08:00">2024-12-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -210,7 +210,34 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install ubuntu-restricted-extras</span><br></pre></td></tr></table></figure>
 
 <p>注意！Ubuntu终端显示文本让选择确定，OK等等：首先按下”TAB”键,会看到选中文本”确定”,”OK”然后按下回车键,即可!</p>
-<h2 id="2、成功"><a href="#2、成功" class="headerlink" title="2、成功"></a>2、成功</h2>
+<h2 id="2、成功"><a href="#2、成功" class="headerlink" title="2、成功"></a>2、成功</h2><h2 id="3、变速保存"><a href="#3、变速保存" class="headerlink" title="3、变速保存"></a>3、变速保存</h2><p>可以使用 ffmpeg 将视频转换为3倍速播放的 mp4 格式。以下是具体操作步骤</p>
+<p>在终端中执行以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i 2024-12-24_15-32-53.mkv -filter:v &quot;setpts=PTS/3&quot; -an -c:v libx264 -preset fast -crf 23 2024-12-24_15-32-53_3x.mp4</span><br></pre></td></tr></table></figure>
+
+<p>解释</p>
+<ul>
+<li><strong><code>-i 2024-12-24_15-32-53.mkv</code></strong>: 指定输入文件。</li>
+<li><strong><code>-filter:v &quot;setpts=PTS/3&quot;</code></strong>: 使用 <code>setpts</code> 过滤器将视频播放速度调整为原来的3倍速。<code>PTS/3</code> 表示时间戳变为原来的1&#x2F;3。</li>
+<li><strong><code>-an</code></strong>: 删除音频轨道。如果需要加快音频速度，见下方。</li>
+<li><strong><code>-c:v libx264</code></strong>: 使用 H.264 编解码器。</li>
+<li><strong><code>-preset fast</code></strong>: 选择快速编码预设。</li>
+<li><strong><code>-crf 23</code></strong>: 设置视频质量，<code>23</code> 为默认值，数值越小质量越高（如需要更高质量可以调低）。</li>
+<li><strong><code>2024-12-24_15-32-53_3x.mp4</code></strong>: 指定输出文件名。</li>
+</ul>
+<hr>
+<p>如果需要保留并加速音频，音频也需要同步加速，可以使用以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i 2024-12-24_15-32-53.mkv -filter_complex &quot;[0:v]setpts=PTS/3[v];[0:a]atempo=3[a]&quot; -map &quot;[v]&quot; -map &quot;[a]&quot; -c:v libx264 -preset fast -crf 23 2024-12-24_15-32-53_3x.mp4</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong><code>[0:v]setpts=PTS/3[v]</code></strong>: 设置视频为3倍速。</li>
+<li><strong><code>[0:a]atempo=3[a]</code></strong>: 将音频加速3倍。<code>atempo</code> 最大支持2倍速，可多次链式叠加（例如 6倍速可用 <code>atempo=2,atempo=3</code>）。</li>
+</ul>
+<hr>
+<p>最终文件检查：转码完成后，可以使用以下命令检查输出文件信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i 2024-12-24_15-32-53_3x.mp4</span><br></pre></td></tr></table></figure>
+
+<p>这样可以确认视频和音频是否按预期处理。如果还有其他需求，随时告诉我！ 😊</p>
+
     </div>
 
     
@@ -296,7 +323,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="nav-number">1.</span> <span class="nav-text">1、安装依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E6%88%90%E5%8A%9F"><span class="nav-number">2.</span> <span class="nav-text">2、成功</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="nav-number">1.</span> <span class="nav-text">1、安装依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E6%88%90%E5%8A%9F"><span class="nav-number">2.</span> <span class="nav-text">2、成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E5%8F%98%E9%80%9F%E4%BF%9D%E5%AD%98"><span class="nav-number">3.</span> <span class="nav-text">3、变速保存</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
