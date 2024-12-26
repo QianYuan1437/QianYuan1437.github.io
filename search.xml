@@ -116,7 +116,14 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
 <p>运行结果如下</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">zhao@zhao:~/WS/msfl_ws$ roslaunch lidar_align lidar_align.launch </span><br><span class="line">... logging to /home/zhao/.ros/log/24f28d9c-c332-11ef-a81b-25d9e051409d/roslaunch-zhao-83450.<span class="built_in">log</span></span><br><span class="line">Checking <span class="built_in">log</span> directory <span class="keyword">for</span> disk usage. This may take a <span class="keyword">while</span>.</span><br><span class="line">Press Ctrl-C to interrupt</span><br><span class="line">Done checking <span class="built_in">log</span> file disk usage. Usage is &lt;1GB.</span><br><span class="line"></span><br><span class="line">started roslaunch server http://zhao:41241/</span><br><span class="line"></span><br><span class="line">SUMMARY</span><br><span class="line">========</span><br><span class="line"></span><br><span class="line">PARAMETERS</span><br><span class="line"> * /lidar_align/input_bag_path: /home/zhao/WS/msf...</span><br><span class="line"> * /lidar_align/input_csv_path: PATH/TO/YOUR.csv</span><br><span class="line"> * /lidar_align/output_calibration_path: /home/zhao/WS/msf...</span><br><span class="line"> * /lidar_align/output_pointcloud_path: /home/zhao/WS/msf...</span><br><span class="line"> * /lidar_align/transforms_from_csv: False</span><br><span class="line"> * /rosdistro: noetic</span><br><span class="line"> * /rosversion: 1.17.0</span><br><span class="line"></span><br><span class="line">NODES</span><br><span class="line">  /</span><br><span class="line">    lidar_align (lidar_align/lidar_align_node)</span><br><span class="line"></span><br><span class="line">ROS_MASTER_URI=http://localhost:11311</span><br><span class="line"></span><br><span class="line">process[lidar_align-1]: started with pid [83464]</span><br><span class="line">[ INFO] [1735198105.395046732]: Loading Pointcloud Data...</span><br><span class="line">[ INFO] [1735198107.504482765]: Loading Transformation Data...                                </span><br><span class="line">[ INFO] [1735198107.640942368]: Interpolating Transformation Data...                          </span><br><span class="line">[ INFO] [1735198109.247437244]: Performing Global Optimization...                             </span><br><span class="line">[ INFO] [1735198300.233199926]: Performing Local Optimization...                                </span><br><span class="line">[ INFO] [1735198309.992561542]: Saving Aligned Pointcloud...                                     eration: 204</span><br><span class="line">[ INFO] [1735198310.543539562]: Saving Calibration File...                                </span><br><span class="line">[ INFO] [1735198310.543604514]: Final Calibration:                                </span><br><span class="line">Active Transformation Vector (x,y,z,rx,ry,rz) from the Pose Sensor Frame to  the Lidar Frame:</span><br><span class="line">[0, 0, 0, -1.39626, 0.465421, 0]</span><br><span class="line"></span><br><span class="line">Active Transformation Matrix from the Pose Sensor Frame to  the Lidar Frame:</span><br><span class="line"> 0.909884 -0.270347  0.314679         0</span><br><span class="line">-0.270347  0.188959  0.944038         0</span><br><span class="line">-0.314679 -0.944038 0.0988438         0</span><br><span class="line">        0         0         0         1</span><br><span class="line"></span><br><span class="line">Active Translation Vector (x,y,z) from the Pose Sensor Frame to  the Lidar Frame:</span><br><span class="line">[0, 0, 0]</span><br><span class="line"></span><br><span class="line">Active Hamiltonen Quaternion (w,x,y,z) the Pose Sensor Frame to  the Lidar Frame:</span><br><span class="line">[0.74123, -0.636805, 0.212268, 0]</span><br><span class="line"></span><br><span class="line">Time offset that must be added to lidar timestamps <span class="keyword">in</span> seconds:</span><br><span class="line">0</span><br><span class="line"></span><br><span class="line">ROS Static TF Publisher: &lt;node pkg=<span class="string">&quot;tf&quot;</span> <span class="built_in">type</span>=<span class="string">&quot;static_transform_publisher&quot;</span> name=<span class="string">&quot;pose_lidar_broadcaster&quot;</span> args=<span class="string">&quot;0 0 0 -0.636805 0.212268 0 0.74123 POSE_FRAME LIDAR_FRAME 100&quot;</span> /&gt;</span><br><span class="line">[lidar_align-1] process has finished cleanly</span><br><span class="line"><span class="built_in">log</span> file: /home/zhao/.ros/log/24f28d9c-c332-11ef-a81b-25d9e051409d/lidar_align-1*.<span class="built_in">log</span></span><br><span class="line">all processes on machine have died, roslaunch will <span class="built_in">exit</span></span><br><span class="line">shutting down processing monitor...</span><br><span class="line">... shutting down processing monitor complete</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
 
-]]></content>
+<h1 id="2、对比调试数据发布信息"><a href="#2、对比调试数据发布信息" class="headerlink" title="2、对比调试数据发布信息"></a>2、对比调试数据发布信息</h1><h2 id="1、检查rosbag中的topic"><a href="#1、检查rosbag中的topic" class="headerlink" title="1、检查rosbag中的topic"></a>1、检查<code>rosbag</code>中的<code>topic</code></h2><p>检查LIO-SAM开源数据包与个人实际录制数据包中的<code>topic</code>信息，发现<code>imu</code>这一消息类型中，个人录制数据包中四元数错误</p>
+<img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241226222051020.png" alt="image-20241226222051020" style="zoom:67%;" />
+
+<p>此图为<code>walking_dataset.bag</code>中<code>/imu_raw</code>话题的输出结果，可以看到<code>orientation</code>这一个四元数是正确的</p>
+<img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241226222319709.png" alt="image-20241226222319709" style="zoom:67%;" />
+
+<p>此图为<code>msfl.bag</code>中的<code>/imu</code>话题的输出结果，可以看到<code>orientation</code>这个四元数是错误的</p>
+<h2 id="2、中继发布-imu数据"><a href="#2、中继发布-imu数据" class="headerlink" title="2、中继发布/imu数据"></a>2、中继发布<code>/imu</code>数据</h2>]]></content>
       <categories>
         <category>MSFL</category>
       </categories>
@@ -191,6 +198,32 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </tags>
   </entry>
   <entry>
+    <title>【安装学习】安装OpenSSH服务</title>
+    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85OpenSSH%E6%9C%8D%E5%8A%A1/</url>
+    <content><![CDATA[<ul>
+<li><p>安装服务端</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install openssh-server </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查是否开启服务</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ps -e | grep ssh</span><br></pre></td></tr></table></figure>
+
+<p>有输出则证明开启，没有的话手动开启</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> service ssh start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看IP地址</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ifconfig </span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【安装学习】安装Cartographer ROS（noetic）</title>
     <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85Cartographer%20ROS%EF%BC%88noetic%EF%BC%89/</url>
     <content><![CDATA[<h1 id="【安装学习】安装Cartographer-ROS（noetic）"><a href="#【安装学习】安装Cartographer-ROS（noetic）" class="headerlink" title="【安装学习】安装Cartographer ROS（noetic）"></a>【安装学习】安装Cartographer ROS（noetic）</h1><p> 参考链接：<a href="https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html">https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html</a></p>
@@ -226,32 +259,6 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
 </ul>
 <h2 id="8、构建"><a href="#8、构建" class="headerlink" title="8、构建"></a>8、构建</h2><p>在 <code>catkin_ws</code> 中清理 <code>build_isolated</code> 和 <code>devel_isolated</code> 文件夹后重新构建：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/WS/catkin_ws</span><br><span class="line"><span class="built_in">rm</span> -rf build_isolated devel_isolated install_isolated</span><br><span class="line">catkin_make_isolated --install --use-ninja</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>安装学习</category>
-      </categories>
-      <tags>
-        <tag>安装</tag>
-        <tag>学习</tag>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【安装学习】安装OpenSSH服务</title>
-    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85OpenSSH%E6%9C%8D%E5%8A%A1/</url>
-    <content><![CDATA[<ul>
-<li><p>安装服务端</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install openssh-server </span><br></pre></td></tr></table></figure>
-</li>
-<li><p>检查是否开启服务</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ps -e | grep ssh</span><br></pre></td></tr></table></figure>
-
-<p>有输出则证明开启，没有的话手动开启</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> service ssh start</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看IP地址</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ifconfig </span><br></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
       <categories>
         <category>安装学习</category>
       </categories>
