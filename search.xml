@@ -19,6 +19,26 @@
 ]]></content>
   </entry>
   <entry>
+    <title>【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</title>
+    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/</url>
+    <content><![CDATA[<h2 id="1、依赖安装"><a href="#1、依赖安装" class="headerlink" title="1、依赖安装"></a>1、依赖安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install  liblapack-dev libsuitesparse-dev libcxsparse3 libgflags-dev libgoogle-glog-dev libgtest-dev</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、包下载与安装"><a href="#2、包下载与安装" class="headerlink" title="2、包下载与安装"></a>2、包下载与安装</h2><ul>
+<li>下载安装包：<a href="http://ceres-solver.org/ceres-solver-2.0.0.tar.gz">http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</a><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#1. 下载ceres2.0版本</span><br><span class="line"># 地址为 http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</span><br><span class="line">#2. 解压</span><br><span class="line">#3. 进入目录，然后编译</span><br><span class="line">cd ceres-solver</span><br><span class="line">mkdir build &amp;&amp; cd build </span><br><span class="line">cmake ..</span><br><span class="line">make -j3</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3、参考链接"><a href="#3、参考链接" class="headerlink" title="3、参考链接"></a>3、参考链接</h2><p><a href="https://blog.csdn.net/little_white138/article/details/142443296">https://blog.csdn.net/little_white138/article/details/142443296</a></p>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+        <tag>A-LOAM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【MSFL】1：A-LOAM：从安装到测试</title>
     <url>/2024/12/24/%E3%80%90MSFL%E3%80%911%EF%BC%9AA-LOAM%EF%BC%9A%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<h2 id="1、安装依赖项"><a href="#1、安装依赖项" class="headerlink" title="1、安装依赖项"></a>1、安装依赖项</h2><ul>
@@ -66,28 +86,8 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
         <tag>安装</tag>
         <tag>学习</tag>
         <tag>Ubuntu</tag>
+        <tag>A-LOAM</tag>
         <tag>MSFL</tag>
-        <tag>A-LOAM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</title>
-    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/</url>
-    <content><![CDATA[<h2 id="1、依赖安装"><a href="#1、依赖安装" class="headerlink" title="1、依赖安装"></a>1、依赖安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install  liblapack-dev libsuitesparse-dev libcxsparse3 libgflags-dev libgoogle-glog-dev libgtest-dev</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、包下载与安装"><a href="#2、包下载与安装" class="headerlink" title="2、包下载与安装"></a>2、包下载与安装</h2><ul>
-<li>下载安装包：<a href="http://ceres-solver.org/ceres-solver-2.0.0.tar.gz">http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</a><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#1. 下载ceres2.0版本</span><br><span class="line"># 地址为 http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</span><br><span class="line">#2. 解压</span><br><span class="line">#3. 进入目录，然后编译</span><br><span class="line">cd ceres-solver</span><br><span class="line">mkdir build &amp;&amp; cd build </span><br><span class="line">cmake ..</span><br><span class="line">make -j3</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="3、参考链接"><a href="#3、参考链接" class="headerlink" title="3、参考链接"></a>3、参考链接</h2><p><a href="https://blog.csdn.net/little_white138/article/details/142443296">https://blog.csdn.net/little_white138/article/details/142443296</a></p>
-]]></content>
-      <categories>
-        <category>安装学习</category>
-      </categories>
-      <tags>
-        <tag>安装</tag>
-        <tag>学习</tag>
-        <tag>Ubuntu</tag>
-        <tag>A-LOAM</tag>
       </tags>
   </entry>
   <entry>
@@ -470,6 +470,24 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
       <tags>
         <tag>学习</tag>
         <tag>卡尔曼滤波</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【系统修复】Ubuntu20.04解决关机慢问题</title>
+    <url>/2024/12/26/%E3%80%90%E7%B3%BB%E7%BB%9F%E4%BF%AE%E5%A4%8D%E3%80%91Ubuntu20.04%E8%A7%A3%E5%86%B3%E5%85%B3%E6%9C%BA%E6%85%A2%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1、问题描述："><a href="#1、问题描述：" class="headerlink" title="1、问题描述："></a>1、问题描述：</h2><p>Linux：关机慢等待 90 秒提示 a stop job is running for XXX</p>
+<h2 id="2、解决方法："><a href="#2、解决方法：" class="headerlink" title="2、解决方法："></a>2、解决方法：</h2><ul>
+<li>编辑配置文件：  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/systemd/system.conf</span><br></pre></td></tr></table></figure>
+  修改以下两个参数，比如改为 5s  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DefaultTimeoutStartSec=5s</span><br><span class="line">DefaultTimeoutStopSec=5s</span><br></pre></td></tr></table></figure></li>
+<li>重启服务：  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>系统修复</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu20.04</tag>
+        <tag>关机</tag>
       </tags>
   </entry>
 </search>

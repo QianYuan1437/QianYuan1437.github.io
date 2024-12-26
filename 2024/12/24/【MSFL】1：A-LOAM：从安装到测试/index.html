@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="1、安装依赖项 参考之前的博客：【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver 注意！仅需顺序执行之前博客操作即可，不需要自行再次源码安装诸如eigen3之类的软件包（通过sudo apt-get安装即可）  2、修改代码内容 将四个.cpp文件中的&#x2F;camera_init修改为camera_init 将scanRegistration.cpp中的 #incl">
@@ -33,8 +33,8 @@
 <meta property="article:tag" content="安装">
 <meta property="article:tag" content="学习">
 <meta property="article:tag" content="Ubuntu">
-<meta property="article:tag" content="MSFL">
 <meta property="article:tag" content="A-LOAM">
+<meta property="article:tag" content="MSFL">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://example.com/2024/12/24/%E3%80%90MSFL%E3%80%911%EF%BC%9AA-LOAM%EF%BC%9A%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E6%B5%8B%E8%AF%95/">
@@ -225,6 +225,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -284,8 +291,8 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
               <a href="/tags/%E5%AE%89%E8%A3%85/" rel="tag"># 安装</a>
               <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
               <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
-              <a href="/tags/MSFL/" rel="tag"># MSFL</a>
               <a href="/tags/A-LOAM/" rel="tag"># A-LOAM</a>
+              <a href="/tags/MSFL/" rel="tag"># MSFL</a>
           </div>
 
         
@@ -297,7 +304,10 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
     <a href="/2024/12/24/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E8%AE%BE%E7%BD%AE%E5%AF%B9.mkv%E8%A7%86%E9%A2%91%E7%9A%84%E6%92%AD%E6%94%BE%E6%94%AF%E6%8C%81/" rel="prev" title="【安装学习】设置对.mkv视频的播放支持">
       <i class="fa fa-chevron-left"></i> 【安装学习】设置对.mkv视频的播放支持
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2024/12/26/%E3%80%90%E7%B3%BB%E7%BB%9F%E4%BF%AE%E5%A4%8D%E3%80%91Ubuntu20.04%E8%A7%A3%E5%86%B3%E5%85%B3%E6%9C%BA%E6%85%A2%E9%97%AE%E9%A2%98/" rel="next" title="【系统修复】Ubuntu20.04解决关机慢问题">
+      【系统修复】Ubuntu20.04解决关机慢问题 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -370,19 +380,19 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -419,6 +429,26 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
   </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
