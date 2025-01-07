@@ -282,10 +282,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-12-26 00:00:00 / 修改时间：22:40:05" itemprop="dateCreated datePublished" datetime="2024-12-26T00:00:00+08:00">2024-12-26</time>
+              <time title="创建时间：2024-12-26 00:00:00" itemprop="dateCreated datePublished" datetime="2024-12-26T00:00:00+08:00">2024-12-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-01-07 23:28:41" itemprop="dateModified" datetime="2025-01-07T23:28:41+08:00">2025-01-07</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -357,7 +363,10 @@
 <img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241226222319709.png" alt="image-20241226222319709" style="zoom:67%;" />
 
 <p>此图为<code>msfl.bag</code>中的<code>/imu</code>话题的输出结果，可以看到<code>orientation</code>这个四元数是错误的</p>
-<h2 id="2、中继发布-imu数据"><a href="#2、中继发布-imu数据" class="headerlink" title="2、中继发布/imu数据"></a>2、中继发布<code>/imu</code>数据</h2>
+<h2 id="2、中继发布-imu数据"><a href="#2、中继发布-imu数据" class="headerlink" title="2、中继发布/imu数据"></a>2、中继发布<code>/imu</code>数据</h2><h2 id="3、注意到IMU的内参也要标定"><a href="#3、注意到IMU的内参也要标定" class="headerlink" title="3、注意到IMU的内参也要标定"></a>3、注意到IMU的内参也要标定</h2><ul>
+<li>参考链接：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://blog.csdn.net/qq_43112859/article/details/132879387</span><br></pre></td></tr></table></figure></li>
+</ul>
+
       
     </div>
 
@@ -721,85 +730,6 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Zhao Yuan Hang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/" class="post-title-link" itemprop="url">【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-12-23 00:00:00" itemprop="dateCreated datePublished" datetime="2024-12-23T00:00:00+08:00">2024-12-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-12-24 08:33:09" itemprop="dateModified" datetime="2024-12-24T08:33:09+08:00">2024-12-24</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">安装学习</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1、依赖安装"><a href="#1、依赖安装" class="headerlink" title="1、依赖安装"></a>1、依赖安装</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install  liblapack-dev libsuitesparse-dev libcxsparse3 libgflags-dev libgoogle-glog-dev libgtest-dev</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、包下载与安装"><a href="#2、包下载与安装" class="headerlink" title="2、包下载与安装"></a>2、包下载与安装</h2><ul>
-<li>下载安装包：<a target="_blank" rel="noopener" href="http://ceres-solver.org/ceres-solver-2.0.0.tar.gz">http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</a><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#1. 下载ceres2.0版本</span><br><span class="line"># 地址为 http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</span><br><span class="line">#2. 解压</span><br><span class="line">#3. 进入目录，然后编译</span><br><span class="line">cd ceres-solver</span><br><span class="line">mkdir build &amp;&amp; cd build </span><br><span class="line">cmake ..</span><br><span class="line">make -j3</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="3、参考链接"><a href="#3、参考链接" class="headerlink" title="3、参考链接"></a>3、参考链接</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/little_white138/article/details/142443296">https://blog.csdn.net/little_white138/article/details/142443296</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEAMD%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -877,6 +807,85 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
 <h4 id="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："><a href="#（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：" class="headerlink" title="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："></a>（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：</h4><figure class="highlight python-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python3</span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python"><span class="keyword">import</span> torch</span></span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">torch.cuda.is_available()</span></span><br></pre></td></tr></table></figure>
 
 <p>返回True就说明成功啦</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhao Yuan Hang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/" class="post-title-link" itemprop="url">【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-23 00:00:00" itemprop="dateCreated datePublished" datetime="2024-12-23T00:00:00+08:00">2024-12-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-12-24 08:33:09" itemprop="dateModified" datetime="2024-12-24T08:33:09+08:00">2024-12-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">安装学习</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1、依赖安装"><a href="#1、依赖安装" class="headerlink" title="1、依赖安装"></a>1、依赖安装</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install  liblapack-dev libsuitesparse-dev libcxsparse3 libgflags-dev libgoogle-glog-dev libgtest-dev</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、包下载与安装"><a href="#2、包下载与安装" class="headerlink" title="2、包下载与安装"></a>2、包下载与安装</h2><ul>
+<li>下载安装包：<a target="_blank" rel="noopener" href="http://ceres-solver.org/ceres-solver-2.0.0.tar.gz">http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</a><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#1. 下载ceres2.0版本</span><br><span class="line"># 地址为 http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</span><br><span class="line">#2. 解压</span><br><span class="line">#3. 进入目录，然后编译</span><br><span class="line">cd ceres-solver</span><br><span class="line">mkdir build &amp;&amp; cd build </span><br><span class="line">cmake ..</span><br><span class="line">make -j3</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3、参考链接"><a href="#3、参考链接" class="headerlink" title="3、参考链接"></a>3、参考链接</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/little_white138/article/details/142443296">https://blog.csdn.net/little_white138/article/details/142443296</a></p>
 
       
     </div>

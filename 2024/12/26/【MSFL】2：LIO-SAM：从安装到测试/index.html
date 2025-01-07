@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241226222051020.png">
 <meta property="og:image" content="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241226222319709.png">
 <meta property="article:published_time" content="2024-12-25T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-12-26T14:40:05.581Z">
+<meta property="article:modified_time" content="2025-01-07T15:28:41.680Z">
 <meta property="article:author" content="Zhao Yuan Hang">
 <meta property="article:tag" content="安装">
 <meta property="article:tag" content="学习">
@@ -213,10 +213,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-12-26 00:00:00 / 修改时间：22:40:05" itemprop="dateCreated datePublished" datetime="2024-12-26T00:00:00+08:00">2024-12-26</time>
+              <time title="创建时间：2024-12-26 00:00:00" itemprop="dateCreated datePublished" datetime="2024-12-26T00:00:00+08:00">2024-12-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-01-07 23:28:41" itemprop="dateModified" datetime="2025-01-07T23:28:41+08:00">2025-01-07</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -295,7 +301,10 @@
 <img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241226222319709.png" alt="image-20241226222319709" style="zoom:67%;" />
 
 <p>此图为<code>msfl.bag</code>中的<code>/imu</code>话题的输出结果，可以看到<code>orientation</code>这个四元数是错误的</p>
-<h2 id="2、中继发布-imu数据"><a href="#2、中继发布-imu数据" class="headerlink" title="2、中继发布/imu数据"></a>2、中继发布<code>/imu</code>数据</h2>
+<h2 id="2、中继发布-imu数据"><a href="#2、中继发布-imu数据" class="headerlink" title="2、中继发布/imu数据"></a>2、中继发布<code>/imu</code>数据</h2><h2 id="3、注意到IMU的内参也要标定"><a href="#3、注意到IMU的内参也要标定" class="headerlink" title="3、注意到IMU的内参也要标定"></a>3、注意到IMU的内参也要标定</h2><ul>
+<li>参考链接：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://blog.csdn.net/qq_43112859/article/details/132879387</span><br></pre></td></tr></table></figure></li>
+</ul>
+
     </div>
 
     
@@ -382,7 +391,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1%E3%80%81%E6%A0%87%E5%AE%9AIMU-LiDAR"><span class="nav-text">1、标定IMU+LiDAR</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%BD%95%E5%88%B6ROS%E5%8C%85"><span class="nav-text">1、录制ROS包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E9%A1%B9"><span class="nav-text">2、安装依赖项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E4%BF%AE%E6%94%B9%E6%BA%90%E7%A0%81"><span class="nav-text">3、修改源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81%E8%BF%90%E8%A1%8C%E4%BB%A3%E7%A0%81"><span class="nav-text">4、运行代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2%E3%80%81%E5%AF%B9%E6%AF%94%E8%B0%83%E8%AF%95%E6%95%B0%E6%8D%AE%E5%8F%91%E5%B8%83%E4%BF%A1%E6%81%AF"><span class="nav-text">2、对比调试数据发布信息</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E6%A3%80%E6%9F%A5rosbag%E4%B8%AD%E7%9A%84topic"><span class="nav-text">1、检查rosbag中的topic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E4%B8%AD%E7%BB%A7%E5%8F%91%E5%B8%83-imu%E6%95%B0%E6%8D%AE"><span class="nav-text">2、中继发布&#x2F;imu数据</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1%E3%80%81%E6%A0%87%E5%AE%9AIMU-LiDAR"><span class="nav-text">1、标定IMU+LiDAR</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%BD%95%E5%88%B6ROS%E5%8C%85"><span class="nav-text">1、录制ROS包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E9%A1%B9"><span class="nav-text">2、安装依赖项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E4%BF%AE%E6%94%B9%E6%BA%90%E7%A0%81"><span class="nav-text">3、修改源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81%E8%BF%90%E8%A1%8C%E4%BB%A3%E7%A0%81"><span class="nav-text">4、运行代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2%E3%80%81%E5%AF%B9%E6%AF%94%E8%B0%83%E8%AF%95%E6%95%B0%E6%8D%AE%E5%8F%91%E5%B8%83%E4%BF%A1%E6%81%AF"><span class="nav-text">2、对比调试数据发布信息</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E6%A3%80%E6%9F%A5rosbag%E4%B8%AD%E7%9A%84topic"><span class="nav-text">1、检查rosbag中的topic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E4%B8%AD%E7%BB%A7%E5%8F%91%E5%B8%83-imu%E6%95%B0%E6%8D%AE"><span class="nav-text">2、中继发布&#x2F;imu数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E6%B3%A8%E6%84%8F%E5%88%B0IMU%E7%9A%84%E5%86%85%E5%8F%82%E4%B9%9F%E8%A6%81%E6%A0%87%E5%AE%9A"><span class="nav-text">3、注意到IMU的内参也要标定</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
