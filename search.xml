@@ -71,26 +71,6 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </tags>
   </entry>
   <entry>
-    <title>【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</title>
-    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/</url>
-    <content><![CDATA[<h2 id="1、依赖安装"><a href="#1、依赖安装" class="headerlink" title="1、依赖安装"></a>1、依赖安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install  liblapack-dev libsuitesparse-dev libcxsparse3 libgflags-dev libgoogle-glog-dev libgtest-dev</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、包下载与安装"><a href="#2、包下载与安装" class="headerlink" title="2、包下载与安装"></a>2、包下载与安装</h2><ul>
-<li>下载安装包：<a href="http://ceres-solver.org/ceres-solver-2.0.0.tar.gz">http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</a><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#1. 下载ceres2.0版本</span><br><span class="line"># 地址为 http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</span><br><span class="line">#2. 解压</span><br><span class="line">#3. 进入目录，然后编译</span><br><span class="line">cd ceres-solver</span><br><span class="line">mkdir build &amp;&amp; cd build </span><br><span class="line">cmake ..</span><br><span class="line">make -j3</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="3、参考链接"><a href="#3、参考链接" class="headerlink" title="3、参考链接"></a>3、参考链接</h2><p><a href="https://blog.csdn.net/little_white138/article/details/142443296">https://blog.csdn.net/little_white138/article/details/142443296</a></p>
-]]></content>
-      <categories>
-        <category>安装学习</category>
-      </categories>
-      <tags>
-        <tag>安装</tag>
-        <tag>学习</tag>
-        <tag>Ubuntu</tag>
-        <tag>A-LOAM</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【MSFL】2：LIO-SAM：从安装到测试</title>
     <url>/2024/12/26/%E3%80%90MSFL%E3%80%912%EF%BC%9ALIO-SAM%EF%BC%9A%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<h1 id="1、标定IMU-LiDAR"><a href="#1、标定IMU-LiDAR" class="headerlink" title="1、标定IMU+LiDAR"></a>1、标定IMU+LiDAR</h1><h2 id="1、录制ROS包"><a href="#1、录制ROS包" class="headerlink" title="1、录制ROS包"></a>1、录制ROS包</h2><ul>
@@ -156,6 +136,26 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </tags>
   </entry>
   <entry>
+    <title>【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</title>
+    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/</url>
+    <content><![CDATA[<h2 id="1、依赖安装"><a href="#1、依赖安装" class="headerlink" title="1、依赖安装"></a>1、依赖安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install  liblapack-dev libsuitesparse-dev libcxsparse3 libgflags-dev libgoogle-glog-dev libgtest-dev</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、包下载与安装"><a href="#2、包下载与安装" class="headerlink" title="2、包下载与安装"></a>2、包下载与安装</h2><ul>
+<li>下载安装包：<a href="http://ceres-solver.org/ceres-solver-2.0.0.tar.gz">http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</a><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#1. 下载ceres2.0版本</span><br><span class="line"># 地址为 http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</span><br><span class="line">#2. 解压</span><br><span class="line">#3. 进入目录，然后编译</span><br><span class="line">cd ceres-solver</span><br><span class="line">mkdir build &amp;&amp; cd build </span><br><span class="line">cmake ..</span><br><span class="line">make -j3</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3、参考链接"><a href="#3、参考链接" class="headerlink" title="3、参考链接"></a>3、参考链接</h2><p><a href="https://blog.csdn.net/little_white138/article/details/142443296">https://blog.csdn.net/little_white138/article/details/142443296</a></p>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+        <tag>A-LOAM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【安装学习】ubuntu环境配置AMD显卡驱动</title>
     <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEAMD%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</url>
     <content><![CDATA[<h1 id="ubuntu环境配置AMD显卡驱动"><a href="#ubuntu环境配置AMD显卡驱动" class="headerlink" title="ubuntu环境配置AMD显卡驱动"></a>ubuntu环境配置AMD显卡驱动</h1><p>本人买的AMD显卡，最近要在ubuntu环境做python深度学习，所以必须折腾一番，结果发现还不复杂。本人的系统是Ubuntu 20.04.6，显卡是RX6600，亲测有效。</p>
@@ -187,32 +187,6 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
 <h4 id="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："><a href="#（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：" class="headerlink" title="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："></a>（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：</h4><figure class="highlight python-repl"><table><tr><td class="code"><pre><span class="line">python3</span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python"><span class="keyword">import</span> torch</span></span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">torch.cuda.is_available()</span></span><br></pre></td></tr></table></figure>
 
 <p>返回True就说明成功啦</p>
-]]></content>
-      <categories>
-        <category>安装学习</category>
-      </categories>
-      <tags>
-        <tag>安装</tag>
-        <tag>学习</tag>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【安装学习】安装OpenSSH服务</title>
-    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85OpenSSH%E6%9C%8D%E5%8A%A1/</url>
-    <content><![CDATA[<ul>
-<li><p>安装服务端</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install openssh-server </span><br></pre></td></tr></table></figure>
-</li>
-<li><p>检查是否开启服务</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ps -e | grep ssh</span><br></pre></td></tr></table></figure>
-
-<p>有输出则证明开启，没有的话手动开启</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> service ssh start</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看IP地址</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ifconfig </span><br></pre></td></tr></table></figure></li>
-</ul>
 ]]></content>
       <categories>
         <category>安装学习</category>
@@ -259,6 +233,32 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
 </ul>
 <h2 id="8、构建"><a href="#8、构建" class="headerlink" title="8、构建"></a>8、构建</h2><p>在 <code>catkin_ws</code> 中清理 <code>build_isolated</code> 和 <code>devel_isolated</code> 文件夹后重新构建：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/WS/catkin_ws</span><br><span class="line"><span class="built_in">rm</span> -rf build_isolated devel_isolated install_isolated</span><br><span class="line">catkin_make_isolated --install --use-ninja</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【安装学习】安装OpenSSH服务</title>
+    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85OpenSSH%E6%9C%8D%E5%8A%A1/</url>
+    <content><![CDATA[<ul>
+<li><p>安装服务端</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install openssh-server </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查是否开启服务</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ps -e | grep ssh</span><br></pre></td></tr></table></figure>
+
+<p>有输出则证明开启，没有的话手动开启</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> service ssh start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看IP地址</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ifconfig </span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
       <categories>
         <category>安装学习</category>
       </categories>
@@ -391,55 +391,6 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
       </tags>
   </entry>
   <entry>
-    <title>【技能学习】Ubuntu配置Picgo+Typora</title>
-    <url>/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu%E9%85%8D%E7%BD%AEPicgo+Typora/</url>
-    <content><![CDATA[<h2 id="1、AppImage下载与安装"><a href="#1、AppImage下载与安装" class="headerlink" title="1、AppImage下载与安装"></a>1、AppImage下载与安装</h2><ul>
-<li><p>从下方链接下载：</p>
-<p><a href="https://github.com/Molunerfinn/PicGo/releases/download/v2.4.0-beta.9/PicGo-2.4.0-beta.9.AppImage">https://github.com/Molunerfinn/PicGo/releases/download/v2.4.0-beta.9/PicGo-2.4.0-beta.9.AppImage</a></p>
-<p>下载后右键选择允许以应用程序形式打开：</p>
-<img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223131705271.png" alt="image-20241223131705271" style="zoom:50%;" />
-
-<p>设置完成后，右键点击运行，即可弹出小方块，在方块上右键打开主界面：</p>
-<img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223131812517.png" alt="image-20241223131812517" style="zoom:67%;" />
-
-<p>注意先点击“图片上传-阿里云OSS-Default”，切换到自己的配置项，可在左侧PicGo设置中选择展示哪些图床，我选择阿里云，便宜大碗🤪</p>
-</li>
-</ul>
-<h2 id="2、阿里云OSS控制台账号获取"><a href="#2、阿里云OSS控制台账号获取" class="headerlink" title="2、阿里云OSS控制台账号获取"></a>2、阿里云OSS控制台账号获取</h2><ul>
-<li><p>参考下方链接操作，获取ID和Key，必须保存一下，仅显示一次！</p>
-<p><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E9%98%BF%E9%87%8C%E4%BA%91oss">https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E9%98%BF%E9%87%8C%E4%BA%91oss</a></p>
-<p><img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223131442808.png" alt="image-20241223131442808"></p>
-</li>
-<li><p>参考上方链接，配置接下来的OSS-Bucket等信息：</p>
-<img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223132115503.png" alt="image-20241223132115503" style="zoom: 67%;" />
-
-<p>确认完成后，返回主界面可以测试一下上传是否成功即可。</p>
-</li>
-</ul>
-<h2 id="3、Typora安装与配置"><a href="#3、Typora安装与配置" class="headerlink" title="3、Typora安装与配置"></a>3、Typora安装与配置</h2><ul>
-<li><p>安装：最后一版免费Typora，感谢鱼香ROS大佬保存！</p>
-<p><a href="https://fishros.org.cn/forum/topic/23/%E5%AE%89%E8%A3%85typora%E6%9C%80%E5%90%8E%E7%9A%84%E5%85%8D%E8%B4%B9%E7%89%88">https://fishros.org.cn/forum/topic/23/%E5%AE%89%E8%A3%85typora%E6%9C%80%E5%90%8E%E7%9A%84%E5%85%8D%E8%B4%B9%E7%89%88</a></p>
-</li>
-<li><p>打开Typora，点击：文件-偏好设置-图像，如下图所示：</p>
-<p><img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223132432287.png" alt="image-20241223132432287"></p>
-</li>
-<li><p>选择配置如上图所示，上传服务选择Core，然后点击下载（需要网络），下载完成后点击“打开配置文件”，复制上方安装的PicGo中的配置信息，完全粘贴到刚刚打开的配置文件中，保存</p>
-<p><img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223132635641.png" alt="image-20241223132635641"></p>
-</li>
-<li><p>修改后，点击“验证图片上传选项”，测试成功即可！</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>技能学习</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
-        <tag>Picgo</tag>
-        <tag>Typora</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【技能学习】Git中Clone仓库后更新与推送本人仓库</title>
     <url>/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Git%E4%B8%ADClone%E4%BB%93%E5%BA%93%E5%90%8E%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9C%AC%E4%BA%BA%E4%BB%93%E5%BA%93/</url>
     <content><![CDATA[<h2 id="1、创建fork分支"><a href="#1、创建fork分支" class="headerlink" title="1、创建fork分支"></a>1、创建fork分支</h2><ul>
@@ -511,6 +462,17 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
 <li><p>如果已存在本地仓库，更新子模块：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git submodule update --init --recursive</span><br></pre></td></tr></table></figure></li>
 </ul>
+<h2 id="Tips：修改branch及同步"><a href="#Tips：修改branch及同步" class="headerlink" title="Tips：修改branch及同步"></a>Tips：修改branch及同步</h2><ul>
+<li><p>远程仓库设置：当<code>fork</code>的分支使用的是<code>master</code>等名称时，需要进入到项目的设置中，选择<code>branch</code>，点击<code>rename</code></p>
+</li>
+<li><p>本地仓库设置：在本地的子模块中，首先进行分支重命名，执行如下指令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch -m master main</span><br></pre></td></tr></table></figure>
+
+<p>运行后执行<code>git branch</code>操作，输出会显示<code>*main</code>表示已经成功重命名本地分支，后续进行<code>push</code>操作即可</p>
+</li>
+<li><p>注意如果运行<code>git push</code>操作等其他操作时让你重新输出用户名和密码，证明之前检查<code>git remote -v</code>的输出是<code>https</code>链接的，已经被<code>github</code>弃用了，但之前肯定你配置了<code>ssh</code>链接，那就不需要重新配置，只需运行下述指令，重新将本地库链接修改为以<code>git</code>链接的即可，即修改下方的<code>QianYuan1437/LIO-SAM-Modified.git</code>为自己的<code>fork</code>仓库，其余信息与上方操作2提到的一致</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote set-url origin git@github.com:QianYuan1437/LIO-SAM-Modified.git</span><br></pre></td></tr></table></figure></li>
+</ul>
 ]]></content>
       <categories>
         <category>技能学习</category>
@@ -518,6 +480,55 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
       <tags>
         <tag>学习</tag>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【技能学习】Ubuntu配置Picgo+Typora</title>
+    <url>/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu%E9%85%8D%E7%BD%AEPicgo+Typora/</url>
+    <content><![CDATA[<h2 id="1、AppImage下载与安装"><a href="#1、AppImage下载与安装" class="headerlink" title="1、AppImage下载与安装"></a>1、AppImage下载与安装</h2><ul>
+<li><p>从下方链接下载：</p>
+<p><a href="https://github.com/Molunerfinn/PicGo/releases/download/v2.4.0-beta.9/PicGo-2.4.0-beta.9.AppImage">https://github.com/Molunerfinn/PicGo/releases/download/v2.4.0-beta.9/PicGo-2.4.0-beta.9.AppImage</a></p>
+<p>下载后右键选择允许以应用程序形式打开：</p>
+<img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223131705271.png" alt="image-20241223131705271" style="zoom:50%;" />
+
+<p>设置完成后，右键点击运行，即可弹出小方块，在方块上右键打开主界面：</p>
+<img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223131812517.png" alt="image-20241223131812517" style="zoom:67%;" />
+
+<p>注意先点击“图片上传-阿里云OSS-Default”，切换到自己的配置项，可在左侧PicGo设置中选择展示哪些图床，我选择阿里云，便宜大碗🤪</p>
+</li>
+</ul>
+<h2 id="2、阿里云OSS控制台账号获取"><a href="#2、阿里云OSS控制台账号获取" class="headerlink" title="2、阿里云OSS控制台账号获取"></a>2、阿里云OSS控制台账号获取</h2><ul>
+<li><p>参考下方链接操作，获取ID和Key，必须保存一下，仅显示一次！</p>
+<p><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E9%98%BF%E9%87%8C%E4%BA%91oss">https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E9%98%BF%E9%87%8C%E4%BA%91oss</a></p>
+<p><img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223131442808.png" alt="image-20241223131442808"></p>
+</li>
+<li><p>参考上方链接，配置接下来的OSS-Bucket等信息：</p>
+<img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223132115503.png" alt="image-20241223132115503" style="zoom: 67%;" />
+
+<p>确认完成后，返回主界面可以测试一下上传是否成功即可。</p>
+</li>
+</ul>
+<h2 id="3、Typora安装与配置"><a href="#3、Typora安装与配置" class="headerlink" title="3、Typora安装与配置"></a>3、Typora安装与配置</h2><ul>
+<li><p>安装：最后一版免费Typora，感谢鱼香ROS大佬保存！</p>
+<p><a href="https://fishros.org.cn/forum/topic/23/%E5%AE%89%E8%A3%85typora%E6%9C%80%E5%90%8E%E7%9A%84%E5%85%8D%E8%B4%B9%E7%89%88">https://fishros.org.cn/forum/topic/23/%E5%AE%89%E8%A3%85typora%E6%9C%80%E5%90%8E%E7%9A%84%E5%85%8D%E8%B4%B9%E7%89%88</a></p>
+</li>
+<li><p>打开Typora，点击：文件-偏好设置-图像，如下图所示：</p>
+<p><img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223132432287.png" alt="image-20241223132432287"></p>
+</li>
+<li><p>选择配置如上图所示，上传服务选择Core，然后点击下载（需要网络），下载完成后点击“打开配置文件”，复制上方安装的PicGo中的配置信息，完全粘贴到刚刚打开的配置文件中，保存</p>
+<p><img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223132635641.png" alt="image-20241223132635641"></p>
+</li>
+<li><p>修改后，点击“验证图片上传选项”，测试成功即可！</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>技能学习</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>Picgo</tag>
+        <tag>Typora</tag>
       </tags>
   </entry>
   <entry>
