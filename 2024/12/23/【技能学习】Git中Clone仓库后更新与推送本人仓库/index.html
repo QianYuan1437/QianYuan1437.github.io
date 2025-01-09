@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"qianyuan1437.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="1、创建fork分支 找到别人的仓库地址，创建fork分支 以https:&#x2F;&#x2F;github.com&#x2F;HKUST-Aerial-Robotics&#x2F;A-LOAM.git为例，创建如下图所示fork：  在个人项目中的src&#x2F;中，下载项目代码并编译（依据个人工作空间环境作出适当修改） 1git clone https:&#x2F;&#x2F;github.com&#x2F;HKUST-Aerial-Robotics&#x2F;A-L">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【技能学习】Git中Clone仓库后更新与推送本人仓库">
-<meta property="og:url" content="http://example.com/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Git%E4%B8%ADClone%E4%BB%93%E5%BA%93%E5%90%8E%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9C%AC%E4%BA%BA%E4%BB%93%E5%BA%93/index.html">
+<meta property="og:url" content="https://qianyuan1437.github.io/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Git%E4%B8%ADClone%E4%BB%93%E5%BA%93%E5%90%8E%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9C%AC%E4%BA%BA%E4%BB%93%E5%BA%93/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1、创建fork分支 找到别人的仓库地址，创建fork分支 以https:&#x2F;&#x2F;github.com&#x2F;HKUST-Aerial-Robotics&#x2F;A-LOAM.git为例，创建如下图所示fork：  在个人项目中的src&#x2F;中，下载项目代码并编译（依据个人工作空间环境作出适当修改） 1git clone https:&#x2F;&#x2F;github.com&#x2F;HKUST-Aerial-Robotics&#x2F;A-L">
 <meta property="og:locale" content="zh_CN">
@@ -36,7 +36,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223125247243.png">
 
-<link rel="canonical" href="http://example.com/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Git%E4%B8%ADClone%E4%BB%93%E5%BA%93%E5%90%8E%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9C%AC%E4%BA%BA%E4%BB%93%E5%BA%93/">
+<link rel="canonical" href="https://qianyuan1437.github.io/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Git%E4%B8%ADClone%E4%BB%93%E5%BA%93%E5%90%8E%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9C%AC%E4%BA%BA%E4%BB%93%E5%BA%93/">
 
 
 <script id="page-configurations">
@@ -187,7 +187,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Git%E4%B8%ADClone%E4%BB%93%E5%BA%93%E5%90%8E%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9C%AC%E4%BA%BA%E4%BB%93%E5%BA%93/">
+    <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Git%E4%B8%ADClone%E4%BB%93%E5%BA%93%E5%90%8E%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9C%AC%E4%BA%BA%E4%BB%93%E5%BA%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -365,6 +365,7 @@
 
           </div>
           
+    <div class="comments" id="utterances-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -547,6 +548,21 @@
   
 
   
+
+<script>
+NexT.utils.loadComments(document.querySelector('#utterances-container'), () => {
+    // if (typeof parcelRequire === 'function') { return; }
+    var js = document.createElement('script');
+    js.type = 'text/javascript';
+    js.src = 'https://utteranc.es/client.js';
+    js.async = true;
+    js.crossorigin = 'anonymous';
+    js.setAttribute('repo', 'QianYuan1437/blog-commit');
+    js.setAttribute('issue-term', 'pathname');
+    js.setAttribute('theme', 'github-light');
+    document.getElementById('utterances-container').appendChild(js);
+});
+</script>
 
 </body>
 </html>

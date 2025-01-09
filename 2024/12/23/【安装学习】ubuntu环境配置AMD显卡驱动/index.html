@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"qianyuan1437.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="ubuntu环境配置AMD显卡驱动本人买的AMD显卡，最近要在ubuntu环境做python深度学习，所以必须折腾一番，结果发现还不复杂。本人的系统是Ubuntu 20.04.6，显卡是RX6600，亲测有效。  针对GEM12 MAX 板载的显卡680M，应当选择6.1版本的.deb文件 1https:&#x2F;&#x2F;repo.radeon.com&#x2F;amdgpu-install&#x2F;6.1&#x2F;ubuntu&#x2F;foc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【安装学习】ubuntu环境配置AMD显卡驱动">
-<meta property="og:url" content="http://example.com/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEAMD%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/index.html">
+<meta property="og:url" content="https://qianyuan1437.github.io/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEAMD%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="ubuntu环境配置AMD显卡驱动本人买的AMD显卡，最近要在ubuntu环境做python深度学习，所以必须折腾一番，结果发现还不复杂。本人的系统是Ubuntu 20.04.6，显卡是RX6600，亲测有效。  针对GEM12 MAX 板载的显卡680M，应当选择6.1版本的.deb文件 1https:&#x2F;&#x2F;repo.radeon.com&#x2F;amdgpu-install&#x2F;6.1&#x2F;ubuntu&#x2F;foc">
 <meta property="og:locale" content="zh_CN">
@@ -35,7 +35,7 @@
 <meta property="article:tag" content="Ubuntu">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEAMD%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/">
+<link rel="canonical" href="https://qianyuan1437.github.io/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEAMD%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/">
 
 
 <script id="page-configurations">
@@ -186,7 +186,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEAMD%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/">
+    <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEAMD%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -289,12 +289,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/" rel="prev" title="【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver">
-      <i class="fa fa-chevron-left"></i> 【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver
+    <a href="/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85OpenSSH%E6%9C%8D%E5%8A%A1/" rel="prev" title="【安装学习】安装OpenSSH服务">
+      <i class="fa fa-chevron-left"></i> 【安装学习】安装OpenSSH服务
     </a></div>
       <div class="post-nav-item">
-    <a href="/2024/12/23/hello-world/" rel="next" title="Hello World">
-      Hello World <i class="fa fa-chevron-right"></i>
+    <a href="/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85Cartographer%20ROS%EF%BC%88noetic%EF%BC%89/" rel="next" title="【安装学习】安装Cartographer ROS（noetic）">
+      【安装学习】安装Cartographer ROS（noetic） <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -308,6 +308,7 @@
 
           </div>
           
+    <div class="comments" id="utterances-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -490,6 +491,21 @@
   
 
   
+
+<script>
+NexT.utils.loadComments(document.querySelector('#utterances-container'), () => {
+    // if (typeof parcelRequire === 'function') { return; }
+    var js = document.createElement('script');
+    js.type = 'text/javascript';
+    js.src = 'https://utteranc.es/client.js';
+    js.async = true;
+    js.crossorigin = 'anonymous';
+    js.setAttribute('repo', 'QianYuan1437/blog-commit');
+    js.setAttribute('issue-term', 'pathname');
+    js.setAttribute('theme', 'github-light');
+    document.getElementById('utterances-container').appendChild(js);
+});
+</script>
 
 </body>
 </html>

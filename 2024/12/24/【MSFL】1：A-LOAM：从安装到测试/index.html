@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"qianyuan1437.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="1、安装依赖项 参考之前的博客：【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver 注意！仅需顺序执行之前博客操作即可，不需要自行再次源码安装诸如eigen3之类的软件包（通过sudo apt-get安装即可）  2、修改代码内容 将四个.cpp文件中的&#x2F;camera_init修改为camera_init 将scanRegistration.cpp中的 #incl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【MSFL】1：A-LOAM：从安装到测试">
-<meta property="og:url" content="http://example.com/2024/12/24/%E3%80%90MSFL%E3%80%911%EF%BC%9AA-LOAM%EF%BC%9A%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E6%B5%8B%E8%AF%95/index.html">
+<meta property="og:url" content="https://qianyuan1437.github.io/2024/12/24/%E3%80%90MSFL%E3%80%911%EF%BC%9AA-LOAM%EF%BC%9A%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E6%B5%8B%E8%AF%95/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1、安装依赖项 参考之前的博客：【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver 注意！仅需顺序执行之前博客操作即可，不需要自行再次源码安装诸如eigen3之类的软件包（通过sudo apt-get安装即可）  2、修改代码内容 将四个.cpp文件中的&#x2F;camera_init修改为camera_init 将scanRegistration.cpp中的 #incl">
 <meta property="og:locale" content="zh_CN">
@@ -37,7 +37,7 @@
 <meta property="article:tag" content="A-LOAM">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2024/12/24/%E3%80%90MSFL%E3%80%911%EF%BC%9AA-LOAM%EF%BC%9A%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E6%B5%8B%E8%AF%95/">
+<link rel="canonical" href="https://qianyuan1437.github.io/2024/12/24/%E3%80%90MSFL%E3%80%911%EF%BC%9AA-LOAM%EF%BC%9A%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E6%B5%8B%E8%AF%95/">
 
 
 <script id="page-configurations">
@@ -188,7 +188,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/24/%E3%80%90MSFL%E3%80%911%EF%BC%9AA-LOAM%EF%BC%9A%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E6%B5%8B%E8%AF%95/">
+    <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2024/12/24/%E3%80%90MSFL%E3%80%911%EF%BC%9AA-LOAM%EF%BC%9A%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E6%B5%8B%E8%AF%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -320,6 +320,7 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
 
           </div>
           
+    <div class="comments" id="utterances-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -502,6 +503,21 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
   
 
   
+
+<script>
+NexT.utils.loadComments(document.querySelector('#utterances-container'), () => {
+    // if (typeof parcelRequire === 'function') { return; }
+    var js = document.createElement('script');
+    js.type = 'text/javascript';
+    js.src = 'https://utteranc.es/client.js';
+    js.async = true;
+    js.crossorigin = 'anonymous';
+    js.setAttribute('repo', 'QianYuan1437/blog-commit');
+    js.setAttribute('issue-term', 'pathname');
+    js.setAttribute('theme', 'github-light');
+    document.getElementById('utterances-container').appendChild(js);
+});
+</script>
 
 </body>
 </html>
