@@ -394,25 +394,6 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
       </tags>
   </entry>
   <entry>
-    <title>【技能学习】ROS使用Ctrl+C关闭太慢怎么解决</title>
-    <url>/2025/01/06/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91ROS%E4%BD%BF%E7%94%A8Ctrl+C%E5%85%B3%E9%97%AD%E5%A4%AA%E6%85%A2%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3/</url>
-    <content><![CDATA[<ul>
-<li><p>红色警告信息：</p>
-</li>
-<li><p>终端运行如下指令</p>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/noetic/lib/python3/dist-packages/roslaunch/nodeprocess.py </span><br></pre></td></tr></table></figure>
-<p>  将其中的<code>_TIMEOUT_SIGINT</code>后缀的数字15，修改为更短的时间即可</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>技能学习</category>
-      </categories>
-      <tags>
-        <tag>ROS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【技能学习】Git中Clone仓库后更新与推送本人仓库</title>
     <url>/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Git%E4%B8%ADClone%E4%BB%93%E5%BA%93%E5%90%8E%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9C%AC%E4%BA%BA%E4%BB%93%E5%BA%93/</url>
     <content><![CDATA[<h2 id="1、创建fork分支"><a href="#1、创建fork分支" class="headerlink" title="1、创建fork分支"></a>1、创建fork分支</h2><ul>
@@ -505,6 +486,25 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
       </tags>
   </entry>
   <entry>
+    <title>【技能学习】ROS使用Ctrl+C关闭太慢怎么解决</title>
+    <url>/2025/01/06/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91ROS%E4%BD%BF%E7%94%A8Ctrl+C%E5%85%B3%E9%97%AD%E5%A4%AA%E6%85%A2%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3/</url>
+    <content><![CDATA[<ul>
+<li><p>红色警告信息：</p>
+</li>
+<li><p>终端运行如下指令</p>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/noetic/lib/python3/dist-packages/roslaunch/nodeprocess.py </span><br></pre></td></tr></table></figure>
+<p>  将其中的<code>_TIMEOUT_SIGINT</code>后缀的数字15，修改为更短的时间即可</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>技能学习</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【技能学习】Ubuntu配置Picgo+Typora</title>
     <url>/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu%E9%85%8D%E7%BD%AEPicgo+Typora/</url>
     <content><![CDATA[<h2 id="1、AppImage下载与安装"><a href="#1、AppImage下载与安装" class="headerlink" title="1、AppImage下载与安装"></a>1、AppImage下载与安装</h2><ul>
@@ -551,6 +551,52 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
         <tag>学习</tag>
         <tag>Picgo</tag>
         <tag>Typora</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【技能学习】Ubuntu音频切换失败解决方案</title>
+    <url>/2025/01/13/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu%E9%9F%B3%E9%A2%91%E5%88%87%E6%8D%A2%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<p>如果Ubuntu没有声音输出，可以尝试以下几种解决方法：</p>
+<ol>
+<li>检查音量设置：确保音量没有被静音或调到最低。点击系统菜单栏上的音量图标，调整音量设置。</li>
+<li>检查音频设备连接：确保音频设备（例如扬声器、耳机等）已正确连接到计算机，并且没有松动或断开。</li>
+<li>检查音频输出设备设置：点击系统菜单栏上的音量图标，选择“Sound Settings”（声音设置），在“Output”（输出）选项卡中，确保选择了正确的音频输出设备。</li>
+<li>更新驱动程序：打开终端，运行以下命令更新系统的软件包和驱动程序：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
+
+<h2 id="1、重启-PulseAudio-服务："><a href="#1、重启-PulseAudio-服务：" class="headerlink" title="1、重启 PulseAudio 服务："></a>1、重启 PulseAudio 服务：</h2><p>在终端中运行以下命令以重启 PulseAudio 服务：（本人尝试这个方法后成功切换）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pulseaudio -k</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>然后，重启电脑，看看是否有声音输出（重启电脑这一步我没有操作，可自行看是否需要重启电脑）</li>
+</ul>
+<h2 id="2、检查默认音频设备："><a href="#2、检查默认音频设备：" class="headerlink" title="2、检查默认音频设备："></a>2、检查默认音频设备：</h2><p>打开终端，运行以下命令以查看默认音频设备：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">aplay -l</span><br></pre></td></tr></table></figure>
+
+<p>然后，编辑 PulseAudio 配置文件，运行以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/pulse/default.pa</span><br></pre></td></tr></table></figure>
+
+<p>找到以下行并取消注释（删除行前的“#”符号）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">load-module module-alsa-sink device=&lt;默认音频设备&gt;</span><br></pre></td></tr></table></figure>
+
+<p>将 <code>&lt;默认音频设备&gt;</code> 替换为 <code>aplay -l</code> 命令中显示的默认音频设备的标识符。保存文件并重启电脑。</p>
+<h2 id="3、安装和配置-ALSA-驱动程序："><a href="#3、安装和配置-ALSA-驱动程序：" class="headerlink" title="3、安装和配置 ALSA 驱动程序："></a>3、安装和配置 ALSA 驱动程序：</h2><p>打开终端，运行以下命令以安装 ALSA 驱动程序：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install alsa-utils</span><br></pre></td></tr></table></figure>
+
+<p>然后，运行以下命令以配置 ALSA 驱动程序：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo alsa force-reload</span><br></pre></td></tr></table></figure>
+
+<p>重启电脑后，看看是否有声音输出。</p>
+<p>如果上述方法仍然无法解决问题，可能需要更深入的故障排除或考虑使用其他音频设备。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">https://www.yisu.com/ask/26427066.html</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技能学习</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+        <tag>音频切换</tag>
       </tags>
   </entry>
   <entry>
