@@ -174,6 +174,109 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2025/01/13/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu%E5%88%A0%E9%99%A4%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhao Yuan Hang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/01/13/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu%E5%88%A0%E9%99%A4%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">【技能学习】Ubuntu删除应用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-01-13 00:00:00 / 修改时间：13:16:26" itemprop="dateCreated datePublished" datetime="2025-01-13T00:00:00+08:00">2025-01-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">技能学习</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="从-Ubuntu-系统中卸载-ImageMagick-及相关依赖"><a href="#从-Ubuntu-系统中卸载-ImageMagick-及相关依赖" class="headerlink" title="从 Ubuntu 系统中卸载 ImageMagick 及相关依赖"></a>从 Ubuntu 系统中卸载 <code>ImageMagick</code> 及相关依赖</h1><p>在某些情况下，系统中可能安装了 <code>ImageMagick</code> 和其他 KDE 或图像处理相关的软件包，而这些应用程序可能不再需要或者是未曾手动安装的。本文记录了如何在 Ubuntu 系统中卸载 <code>ImageMagick</code> 及其相关依赖。</p>
+<h2 id="步骤-1：查找并列出-ImageMagick-相关包"><a href="#步骤-1：查找并列出-ImageMagick-相关包" class="headerlink" title="步骤 1：查找并列出 ImageMagick 相关包"></a>步骤 1：查找并列出 <code>ImageMagick</code> 相关包</h2><p>首先，使用以下命令查看系统中已安装的与 <code>ImageMagick</code> 相关的软件包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -l | grep -i imagemagick</span><br></pre></td></tr></table></figure>
+
+<p>如果系统中确实安装了 <code>ImageMagick</code>，你将看到类似如下的输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ii  imagemagick-6-common                        8:6.9.10.23+dfsg-2.1ubuntu11.10       all          image manipulation programs -- infrastructure</span><br><span class="line">ii  imagemagick-6.q16                           8:6.9.10.23+dfsg-2.1ubuntu11.10       amd64        image manipulation programs -- quantum depth Q16</span><br><span class="line">ii  libmagick++-6.q16-8:amd64                   8:6.9.10.23+dfsg-2.1ubuntu11.10       amd64        C++ interface to ImageMagick -- quantum depth Q16</span><br></pre></td></tr></table></figure>
+
+<h2 id="步骤-2：卸载-ImageMagick-相关包"><a href="#步骤-2：卸载-ImageMagick-相关包" class="headerlink" title="步骤 2：卸载 ImageMagick 相关包"></a>步骤 2：卸载 <code>ImageMagick</code> 相关包</h2><p>接下来，使用 <code>apt-get purge</code> 命令卸载上述软件包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get purge imagemagick-6-common imagemagick-6.q16 libmagick++-6.q16-8</span><br></pre></td></tr></table></figure>
+
+<p>该命令将彻底删除这些包及其相关配置文件。</p>
+<h2 id="步骤-3：清理无用的依赖和残留文件"><a href="#步骤-3：清理无用的依赖和残留文件" class="headerlink" title="步骤 3：清理无用的依赖和残留文件"></a>步骤 3：清理无用的依赖和残留文件</h2><p>卸载软件包后，运行以下命令清理不再需要的依赖和残留文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt autoremove --purge</span><br></pre></td></tr></table></figure>
+
+<p>此命令会自动删除那些与 <code>ImageMagick</code> 相关的、已不再需要的依赖包。</p>
+<h2 id="步骤-4：更新系统的应用菜单"><a href="#步骤-4：更新系统的应用菜单" class="headerlink" title="步骤 4：更新系统的应用菜单"></a>步骤 4：更新系统的应用菜单</h2><p>为了确保卸载后的应用不再显示在应用程序栏中，可以更新系统的应用菜单：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> update-desktop-database</span><br></pre></td></tr></table></figure>
+
+<h2 id="步骤-5：重启系统"><a href="#步骤-5：重启系统" class="headerlink" title="步骤 5：重启系统"></a>步骤 5：重启系统</h2><p>最后，建议重启系统以确保所有更改生效：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> reboot</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过以上步骤，你可以从 Ubuntu 系统中成功卸载 <code>ImageMagick</code> 及其相关的所有组件，同时清理系统中的多余依赖和配置文件。这些步骤可以帮助你更好地管理系统中不再需要的应用程序，释放系统空间。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2025/01/13/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu%E9%9F%B3%E9%A2%91%E5%88%87%E6%8D%A2%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1123,119 +1226,6 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85Cartographer%20ROS%EF%BC%88noetic%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Zhao Yuan Hang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85Cartographer%20ROS%EF%BC%88noetic%EF%BC%89/" class="post-title-link" itemprop="url">【安装学习】安装Cartographer ROS（noetic）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2024-12-23 00:00:00 / 修改时间：16:09:01" itemprop="dateCreated datePublished" datetime="2024-12-23T00:00:00+08:00">2024-12-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">安装学习</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="【安装学习】安装Cartographer-ROS（noetic）"><a href="#【安装学习】安装Cartographer-ROS（noetic）" class="headerlink" title="【安装学习】安装Cartographer ROS（noetic）"></a>【安装学习】安装Cartographer ROS（noetic）</h1><p> 参考链接：<a target="_blank" rel="noopener" href="https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html">https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html</a></p>
-<h2 id="1、创建工作空间"><a href="#1、创建工作空间" class="headerlink" title="1、创建工作空间"></a>1、创建工作空间</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/catkin_google_ws/src</span><br><span class="line"><span class="built_in">cd</span> catkin_google_ws/src</span><br><span class="line">catkin_init_workspace</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、安装工具"><a href="#2、安装工具" class="headerlink" title="2、安装工具"></a>2、安装工具</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install -y python3-wstool python3-rosdep ninja-build stow</span><br></pre></td></tr></table></figure>
-
-<h2 id="3、初始化工作空间"><a href="#3、初始化工作空间" class="headerlink" title="3、初始化工作空间"></a>3、初始化工作空间</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> catkin_google_ws</span><br><span class="line">wstool init src</span><br><span class="line">wstool merge -t src https://raw.githubusercontent.com/cartographer-project/cartographer_ros/master/cartographer_ros.rosinstall</span><br><span class="line">wstool update -t src</span><br></pre></td></tr></table></figure>
-
-<h2 id="4、安装依赖"><a href="#4、安装依赖" class="headerlink" title="4、安装依赖"></a>4、安装依赖</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pip install rosdepc</span><br><span class="line"><span class="built_in">sudo</span> rosdepc init</span><br><span class="line">rosdepc update</span><br></pre></td></tr></table></figure>
-
-<h2 id="5、Libabsl-dev处理"><a href="#5、Libabsl-dev处理" class="headerlink" title="5、Libabsl-dev处理"></a>5、Libabsl-dev处理</h2><p>进行XML文件修改，路径为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cartographer_ws/src/cartographer/package.xml</span><br></pre></td></tr></table></figure>
-
-<p>找到第46行<code>&lt;depend&gt;libabsl-dev&lt;/depend&gt;</code>删掉</p>
-<h2 id="6、执行rosdep-install命令"><a href="#6、执行rosdep-install命令" class="headerlink" title="6、执行rosdep install命令"></a>6、执行rosdep install命令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rosdep update</span><br><span class="line">rosdep install --from-paths src --ignore-src --rosdistro=$&#123;ROS_DISTRO&#125; -y</span><br></pre></td></tr></table></figure>
-
-<h2 id="7、安装abseil库"><a href="#7、安装abseil库" class="headerlink" title="7、安装abseil库"></a>7、安装abseil库</h2><ul>
-<li><p>先删除本地abseil库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get remove ros-<span class="variable">$&#123;ROS_DISTRO&#125;</span>-abseil-cpp</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>再运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src/cartographer/scripts/install_abseil.sh</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>这时发现可能会报错，类型如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* existing target is neither a <span class="built_in">link</span> nor a directory: include/absl/base/internal/sysinfo.h</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>定位到上方.sh脚本运行后下载的文件夹，与src文件夹同级，进行如下操作：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/path/to/abseil-cpp</span><br><span class="line"><span class="built_in">mkdir</span> build &amp;&amp; <span class="built_in">cd</span> build</span><br><span class="line">cmake -DCMAKE_POSITION_INDEPENDENT_CODE=TRUE -DCMAKE_BUILD_TYPE=Release ..</span><br><span class="line">make -j$(<span class="built_in">nproc</span>)</span><br><span class="line"><span class="built_in">sudo</span> make install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>确保编译器可以找到安装的 <code>abseil-cpp</code> 库。检查 <code>LD_LIBRARY_PATH</code> 和 <code>CMAKE_PREFIX_PATH</code> 中是否包含 <code>/usr/local/lib</code> 和 <code>/usr/local</code>，以确保 CMake 和 linker 能找到 <code>abseil-cpp</code> 库。请在终端中执行下方命令，以将这些变量永久添加到 <code>~/.bashrc</code> 里：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export CMAKE_PREFIX_PATH=/usr/local:$CMAKE_PREFIX_PATH&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="8、构建"><a href="#8、构建" class="headerlink" title="8、构建"></a>8、构建</h2><p>在 <code>catkin_ws</code> 中清理 <code>build_isolated</code> 和 <code>devel_isolated</code> 文件夹后重新构建：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/WS/catkin_ws</span><br><span class="line"><span class="built_in">rm</span> -rf build_isolated devel_isolated install_isolated</span><br><span class="line">catkin_make_isolated --install --use-ninja</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1305,7 +1295,7 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1317,7 +1307,7 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1361,13 +1351,13 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">23k</span>
+    <span title="站点总字数">24k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">21 分钟</span>
+    <span title="站点阅读时长">22 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

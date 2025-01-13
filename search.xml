@@ -71,6 +71,26 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </tags>
   </entry>
   <entry>
+    <title>【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</title>
+    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/</url>
+    <content><![CDATA[<h2 id="1、依赖安装"><a href="#1、依赖安装" class="headerlink" title="1、依赖安装"></a>1、依赖安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install  liblapack-dev libsuitesparse-dev libcxsparse3 libgflags-dev libgoogle-glog-dev libgtest-dev</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、包下载与安装"><a href="#2、包下载与安装" class="headerlink" title="2、包下载与安装"></a>2、包下载与安装</h2><ul>
+<li>下载安装包：<a href="http://ceres-solver.org/ceres-solver-2.0.0.tar.gz">http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</a><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#1. 下载ceres2.0版本</span><br><span class="line"># 地址为 http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</span><br><span class="line">#2. 解压</span><br><span class="line">#3. 进入目录，然后编译</span><br><span class="line">cd ceres-solver</span><br><span class="line">mkdir build &amp;&amp; cd build </span><br><span class="line">cmake ..</span><br><span class="line">make -j3</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3、参考链接"><a href="#3、参考链接" class="headerlink" title="3、参考链接"></a>3、参考链接</h2><p><a href="https://blog.csdn.net/little_white138/article/details/142443296">https://blog.csdn.net/little_white138/article/details/142443296</a></p>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+        <tag>A-LOAM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【MSFL】2：LIO-SAM：从安装到测试</title>
     <url>/2024/12/26/%E3%80%90MSFL%E3%80%912%EF%BC%9ALIO-SAM%EF%BC%9A%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<h1 id="1、标定IMU-LiDAR"><a href="#1、标定IMU-LiDAR" class="headerlink" title="1、标定IMU+LiDAR"></a>1、标定IMU+LiDAR</h1><h2 id="1、录制ROS包"><a href="#1、录制ROS包" class="headerlink" title="1、录制ROS包"></a>1、录制ROS包</h2><ul>
@@ -136,26 +156,6 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
         <tag>Ubuntu</tag>
         <tag>MSFL</tag>
         <tag>LIO-SAM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</title>
-    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/</url>
-    <content><![CDATA[<h2 id="1、依赖安装"><a href="#1、依赖安装" class="headerlink" title="1、依赖安装"></a>1、依赖安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install  liblapack-dev libsuitesparse-dev libcxsparse3 libgflags-dev libgoogle-glog-dev libgtest-dev</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、包下载与安装"><a href="#2、包下载与安装" class="headerlink" title="2、包下载与安装"></a>2、包下载与安装</h2><ul>
-<li>下载安装包：<a href="http://ceres-solver.org/ceres-solver-2.0.0.tar.gz">http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</a><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#1. 下载ceres2.0版本</span><br><span class="line"># 地址为 http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</span><br><span class="line">#2. 解压</span><br><span class="line">#3. 进入目录，然后编译</span><br><span class="line">cd ceres-solver</span><br><span class="line">mkdir build &amp;&amp; cd build </span><br><span class="line">cmake ..</span><br><span class="line">make -j3</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="3、参考链接"><a href="#3、参考链接" class="headerlink" title="3、参考链接"></a>3、参考链接</h2><p><a href="https://blog.csdn.net/little_white138/article/details/142443296">https://blog.csdn.net/little_white138/article/details/142443296</a></p>
-]]></content>
-      <categories>
-        <category>安装学习</category>
-      </categories>
-      <tags>
-        <tag>安装</tag>
-        <tag>学习</tag>
-        <tag>Ubuntu</tag>
-        <tag>A-LOAM</tag>
       </tags>
   </entry>
   <entry>
@@ -505,6 +505,41 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
       </tags>
   </entry>
   <entry>
+    <title>【技能学习】Ubuntu删除应用</title>
+    <url>/2025/01/13/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu%E5%88%A0%E9%99%A4%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="从-Ubuntu-系统中卸载-ImageMagick-及相关依赖"><a href="#从-Ubuntu-系统中卸载-ImageMagick-及相关依赖" class="headerlink" title="从 Ubuntu 系统中卸载 ImageMagick 及相关依赖"></a>从 Ubuntu 系统中卸载 <code>ImageMagick</code> 及相关依赖</h1><p>在某些情况下，系统中可能安装了 <code>ImageMagick</code> 和其他 KDE 或图像处理相关的软件包，而这些应用程序可能不再需要或者是未曾手动安装的。本文记录了如何在 Ubuntu 系统中卸载 <code>ImageMagick</code> 及其相关依赖。</p>
+<h2 id="步骤-1：查找并列出-ImageMagick-相关包"><a href="#步骤-1：查找并列出-ImageMagick-相关包" class="headerlink" title="步骤 1：查找并列出 ImageMagick 相关包"></a>步骤 1：查找并列出 <code>ImageMagick</code> 相关包</h2><p>首先，使用以下命令查看系统中已安装的与 <code>ImageMagick</code> 相关的软件包：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dpkg -l | grep -i imagemagick</span><br></pre></td></tr></table></figure>
+
+<p>如果系统中确实安装了 <code>ImageMagick</code>，你将看到类似如下的输出：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ii  imagemagick-6-common                        8:6.9.10.23+dfsg-2.1ubuntu11.10       all          image manipulation programs -- infrastructure</span><br><span class="line">ii  imagemagick-6.q16                           8:6.9.10.23+dfsg-2.1ubuntu11.10       amd64        image manipulation programs -- quantum depth Q16</span><br><span class="line">ii  libmagick++-6.q16-8:amd64                   8:6.9.10.23+dfsg-2.1ubuntu11.10       amd64        C++ interface to ImageMagick -- quantum depth Q16</span><br></pre></td></tr></table></figure>
+
+<h2 id="步骤-2：卸载-ImageMagick-相关包"><a href="#步骤-2：卸载-ImageMagick-相关包" class="headerlink" title="步骤 2：卸载 ImageMagick 相关包"></a>步骤 2：卸载 <code>ImageMagick</code> 相关包</h2><p>接下来，使用 <code>apt-get purge</code> 命令卸载上述软件包：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get purge imagemagick-6-common imagemagick-6.q16 libmagick++-6.q16-8</span><br></pre></td></tr></table></figure>
+
+<p>该命令将彻底删除这些包及其相关配置文件。</p>
+<h2 id="步骤-3：清理无用的依赖和残留文件"><a href="#步骤-3：清理无用的依赖和残留文件" class="headerlink" title="步骤 3：清理无用的依赖和残留文件"></a>步骤 3：清理无用的依赖和残留文件</h2><p>卸载软件包后，运行以下命令清理不再需要的依赖和残留文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt autoremove --purge</span><br></pre></td></tr></table></figure>
+
+<p>此命令会自动删除那些与 <code>ImageMagick</code> 相关的、已不再需要的依赖包。</p>
+<h2 id="步骤-4：更新系统的应用菜单"><a href="#步骤-4：更新系统的应用菜单" class="headerlink" title="步骤 4：更新系统的应用菜单"></a>步骤 4：更新系统的应用菜单</h2><p>为了确保卸载后的应用不再显示在应用程序栏中，可以更新系统的应用菜单：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> update-desktop-database</span><br></pre></td></tr></table></figure>
+
+<h2 id="步骤-5：重启系统"><a href="#步骤-5：重启系统" class="headerlink" title="步骤 5：重启系统"></a>步骤 5：重启系统</h2><p>最后，建议重启系统以确保所有更改生效：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> reboot</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过以上步骤，你可以从 Ubuntu 系统中成功卸载 <code>ImageMagick</code> 及其相关的所有组件，同时清理系统中的多余依赖和配置文件。这些步骤可以帮助你更好地管理系统中不再需要的应用程序，释放系统空间。</p>
+]]></content>
+      <categories>
+        <category>技能学习</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+        <tag>卸载应用</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【技能学习】Ubuntu配置Picgo+Typora</title>
     <url>/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu%E9%85%8D%E7%BD%AEPicgo+Typora/</url>
     <content><![CDATA[<h2 id="1、AppImage下载与安装"><a href="#1、AppImage下载与安装" class="headerlink" title="1、AppImage下载与安装"></a>1、AppImage下载与安装</h2><ul>
@@ -554,6 +589,21 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
       </tags>
   </entry>
   <entry>
+    <title>【知识补充】卡尔曼滤波相关问题</title>
+    <url>/2024/12/23/%E3%80%90%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85%E3%80%91%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<ul>
+<li>卡尔曼滤波 Kalman Filter 之美在于什么？ - 自动驾驶之心的回答 - 知乎<br><a href="https://www.zhihu.com/question/281995386/answer/3371567219">https://www.zhihu.com/question/281995386/answer/3371567219</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>知识补充</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>卡尔曼滤波</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【技能学习】Ubuntu音频切换失败解决方案</title>
     <url>/2025/01/13/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu%E9%9F%B3%E9%A2%91%E5%88%87%E6%8D%A2%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<p>如果Ubuntu没有声音输出，可以尝试以下几种解决方法：</p>
@@ -597,21 +647,6 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
         <tag>学习</tag>
         <tag>Ubuntu</tag>
         <tag>音频切换</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【知识补充】卡尔曼滤波相关问题</title>
-    <url>/2024/12/23/%E3%80%90%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85%E3%80%91%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<ul>
-<li>卡尔曼滤波 Kalman Filter 之美在于什么？ - 自动驾驶之心的回答 - 知乎<br><a href="https://www.zhihu.com/question/281995386/answer/3371567219">https://www.zhihu.com/question/281995386/answer/3371567219</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>知识补充</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
-        <tag>卡尔曼滤波</tag>
       </tags>
   </entry>
   <entry>
