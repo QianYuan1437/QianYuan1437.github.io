@@ -53,26 +53,6 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </tags>
   </entry>
   <entry>
-    <title>【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</title>
-    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/</url>
-    <content><![CDATA[<h2 id="1、依赖安装"><a href="#1、依赖安装" class="headerlink" title="1、依赖安装"></a>1、依赖安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install  liblapack-dev libsuitesparse-dev libcxsparse3 libgflags-dev libgoogle-glog-dev libgtest-dev</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、包下载与安装"><a href="#2、包下载与安装" class="headerlink" title="2、包下载与安装"></a>2、包下载与安装</h2><ul>
-<li>下载安装包：<a href="http://ceres-solver.org/ceres-solver-2.0.0.tar.gz">http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</a><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#1. 下载ceres2.0版本</span><br><span class="line"># 地址为 http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</span><br><span class="line">#2. 解压</span><br><span class="line">#3. 进入目录，然后编译</span><br><span class="line">cd ceres-solver</span><br><span class="line">mkdir build &amp;&amp; cd build </span><br><span class="line">cmake ..</span><br><span class="line">make -j3</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="3、参考链接"><a href="#3、参考链接" class="headerlink" title="3、参考链接"></a>3、参考链接</h2><p><a href="https://blog.csdn.net/little_white138/article/details/142443296">https://blog.csdn.net/little_white138/article/details/142443296</a></p>
-]]></content>
-      <categories>
-        <category>安装学习</category>
-      </categories>
-      <tags>
-        <tag>安装</tag>
-        <tag>学习</tag>
-        <tag>Ubuntu</tag>
-        <tag>A-LOAM</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【MSFL】2：LIO-SAM：从安装到测试</title>
     <url>/2024/12/26/%E3%80%90MSFL%E3%80%912%EF%BC%9ALIO-SAM%EF%BC%9A%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<h1 id="1、标定IMU-LiDAR"><a href="#1、标定IMU-LiDAR" class="headerlink" title="1、标定IMU+LiDAR"></a>1、标定IMU+LiDAR</h1><h2 id="1、录制ROS包"><a href="#1、录制ROS包" class="headerlink" title="1、录制ROS包"></a>1、录制ROS包</h2><ul>
@@ -138,6 +118,26 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
         <tag>Ubuntu</tag>
         <tag>MSFL</tag>
         <tag>LIO-SAM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</title>
+    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/</url>
+    <content><![CDATA[<h2 id="1、依赖安装"><a href="#1、依赖安装" class="headerlink" title="1、依赖安装"></a>1、依赖安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install  liblapack-dev libsuitesparse-dev libcxsparse3 libgflags-dev libgoogle-glog-dev libgtest-dev</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、包下载与安装"><a href="#2、包下载与安装" class="headerlink" title="2、包下载与安装"></a>2、包下载与安装</h2><ul>
+<li>下载安装包：<a href="http://ceres-solver.org/ceres-solver-2.0.0.tar.gz">http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</a><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#1. 下载ceres2.0版本</span><br><span class="line"># 地址为 http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</span><br><span class="line">#2. 解压</span><br><span class="line">#3. 进入目录，然后编译</span><br><span class="line">cd ceres-solver</span><br><span class="line">mkdir build &amp;&amp; cd build </span><br><span class="line">cmake ..</span><br><span class="line">make -j3</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3、参考链接"><a href="#3、参考链接" class="headerlink" title="3、参考链接"></a>3、参考链接</h2><p><a href="https://blog.csdn.net/little_white138/article/details/142443296">https://blog.csdn.net/little_white138/article/details/142443296</a></p>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+        <tag>A-LOAM</tag>
       </tags>
   </entry>
   <entry>
@@ -376,6 +376,25 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
       </tags>
   </entry>
   <entry>
+    <title>【技能学习】ROS使用Ctrl+C关闭太慢怎么解决</title>
+    <url>/2025/01/06/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91ROS%E4%BD%BF%E7%94%A8Ctrl+C%E5%85%B3%E9%97%AD%E5%A4%AA%E6%85%A2%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3/</url>
+    <content><![CDATA[<ul>
+<li><p>红色警告信息：</p>
+</li>
+<li><p>终端运行如下指令</p>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/noetic/lib/python3/dist-packages/roslaunch/nodeprocess.py </span><br></pre></td></tr></table></figure>
+<p>  将其中的<code>_TIMEOUT_SIGINT</code>后缀的数字15，修改为更短的时间即可</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>技能学习</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【技能学习】Git中Clone仓库后更新与推送本人仓库</title>
     <url>/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Git%E4%B8%ADClone%E4%BB%93%E5%BA%93%E5%90%8E%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9C%AC%E4%BA%BA%E4%BB%93%E5%BA%93/</url>
     <content><![CDATA[<h2 id="1、创建fork分支"><a href="#1、创建fork分支" class="headerlink" title="1、创建fork分支"></a>1、创建fork分支</h2><ul>
@@ -465,25 +484,6 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
       <tags>
         <tag>学习</tag>
         <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【技能学习】ROS使用Ctrl+C关闭太慢怎么解决</title>
-    <url>/2025/01/06/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91ROS%E4%BD%BF%E7%94%A8Ctrl+C%E5%85%B3%E9%97%AD%E5%A4%AA%E6%85%A2%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3/</url>
-    <content><![CDATA[<ul>
-<li><p>红色警告信息：</p>
-</li>
-<li><p>终端运行如下指令</p>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/noetic/lib/python3/dist-packages/roslaunch/nodeprocess.py </span><br></pre></td></tr></table></figure>
-<p>  将其中的<code>_TIMEOUT_SIGINT</code>后缀的数字15，修改为更短的时间即可</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>技能学习</category>
-      </categories>
-      <tags>
-        <tag>ROS</tag>
       </tags>
   </entry>
   <entry>
