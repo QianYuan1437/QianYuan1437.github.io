@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2024/12/23/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>【MSFL】1：A-LOAM：从安装到测试</title>
     <url>/2024/12/24/%E3%80%90MSFL%E3%80%911%EF%BC%9AA-LOAM%EF%BC%9A%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<h2 id="1、安装依赖项"><a href="#1、安装依赖项" class="headerlink" title="1、安装依赖项"></a>1、安装依赖项</h2><ul>
@@ -69,6 +51,24 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
         <tag>MSFL</tag>
         <tag>A-LOAM</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2025/02/24/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>【MSFL】2：LIO-SAM：从安装到测试</title>
@@ -159,48 +159,6 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </tags>
   </entry>
   <entry>
-    <title>【安装学习】ubuntu环境配置AMD显卡驱动</title>
-    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEAMD%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</url>
-    <content><![CDATA[<h1 id="ubuntu环境配置AMD显卡驱动"><a href="#ubuntu环境配置AMD显卡驱动" class="headerlink" title="ubuntu环境配置AMD显卡驱动"></a>ubuntu环境配置AMD显卡驱动</h1><p>本人买的AMD显卡，最近要在ubuntu环境做python深度学习，所以必须折腾一番，结果发现还不复杂。本人的系统是Ubuntu 20.04.6，显卡是RX6600，亲测有效。</p>
-<ul>
-<li><p>针对GEM12 MAX 板载的显卡680M，应当选择6.1版本的.deb文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://repo.radeon.com/amdgpu-install/6.1/ubuntu/focal/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>对应的pytorch安装命令，应当修改为：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/rocm6.1</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="0-如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始："><a href="#0-如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始：" class="headerlink" title="(0) 如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始："></a>(0) 如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始：</h4><figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">~$ sudo amdgpu-install <span class="comment">--uninstall</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="1-在AMD官网下载需要的驱动包："><a href="#1-在AMD官网下载需要的驱动包：" class="headerlink" title="(1) 在AMD官网下载需要的驱动包："></a>(1) 在AMD官网下载需要的驱动包：</h4><p><a href="https://link.csdn.net/?target=https://www.amd.com/en/support/kb/release-notes/rn-amdgpu-unified-linux-22-20?login=from_csdn">驱动包链接</a><br>得到amdgpu-install_xxx_all.deb（xxx是版本号）</p>
-<h4 id="2-cd到驱动包路径下，安装驱动包："><a href="#2-cd到驱动包路径下，安装驱动包：" class="headerlink" title="(2) cd到驱动包路径下，安装驱动包："></a>(2) cd到驱动包路径下，安装驱动包：</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> apt install ./amdgpu-install_xxx_all.deb</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="3-更新软件："><a href="#3-更新软件：" class="headerlink" title="(3) 更新软件："></a>(3) 更新软件：</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>sudo apt update</span><br><span class="line">~<span class="variable">$ </span>sudo apt upgrade -y</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-安装驱动："><a href="#4-安装驱动：" class="headerlink" title="(4) 安装驱动："></a>(4) 安装驱动：</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>sudo amdgpu-install --no-dkms</span><br><span class="line">~<span class="variable">$ </span>sudo apt install rocm-dev</span><br><span class="line">~<span class="variable">$ </span>sudo reboot</span><br><span class="line"><span class="comment"># 等待重启</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="5-配置环境："><a href="#5-配置环境：" class="headerlink" title="(5)配置环境："></a>(5)配置环境：</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">ls</span> -l /dev/dri/render*</span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> usermod -a -G render <span class="variable">$LOGNAME</span></span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> usermod -a -G video <span class="variable">$LOGNAME</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="variable">$LOGNAME</span>不需要修改</span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> reboot</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">等待重启</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="6-理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证"><a href="#6-理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证" class="headerlink" title="(6) 理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证"></a>(6) 理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>rocm-smi</span><br><span class="line"><span class="comment"># 监控GPU性能</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~$ <span class="regexp">/opt/</span>rocm<span class="regexp">/bin/</span>rocminfo</span><br><span class="line"><span class="comment"># 可以查询到CPU、GPU信息</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~$ <span class="regexp">/opt/</span>rocm<span class="regexp">/opencl/</span>bin/clinfo</span><br><span class="line"><span class="comment"># 可以查询到GPU信息</span></span><br></pre></td></tr></table></figure>
-
-<p>若以上三条命令都有正常输出，便是配置成功了</p>
-<h4 id="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："><a href="#（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：" class="headerlink" title="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："></a>（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：</h4><figure class="highlight python-repl"><table><tr><td class="code"><pre><span class="line">python3</span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python"><span class="keyword">import</span> torch</span></span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">torch.cuda.is_available()</span></span><br></pre></td></tr></table></figure>
-
-<p>返回True就说明成功啦</p>
-]]></content>
-      <categories>
-        <category>安装学习</category>
-      </categories>
-      <tags>
-        <tag>安装</tag>
-        <tag>学习</tag>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【安装学习】安装Cartographer ROS（noetic）</title>
     <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85Cartographer%20ROS%EF%BC%88noetic%EF%BC%89/</url>
     <content><![CDATA[<h1 id="【安装学习】安装Cartographer-ROS（noetic）"><a href="#【安装学习】安装Cartographer-ROS（noetic）" class="headerlink" title="【安装学习】安装Cartographer ROS（noetic）"></a>【安装学习】安装Cartographer ROS（noetic）</h1><p> 参考链接：<a href="https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html">https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html</a></p>
@@ -246,6 +204,48 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </tags>
   </entry>
   <entry>
+    <title>【安装学习】ubuntu环境配置AMD显卡驱动</title>
+    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEAMD%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</url>
+    <content><![CDATA[<h1 id="ubuntu环境配置AMD显卡驱动"><a href="#ubuntu环境配置AMD显卡驱动" class="headerlink" title="ubuntu环境配置AMD显卡驱动"></a>ubuntu环境配置AMD显卡驱动</h1><p>本人买的AMD显卡，最近要在ubuntu环境做python深度学习，所以必须折腾一番，结果发现还不复杂。本人的系统是Ubuntu 20.04.6，显卡是RX6600，亲测有效。</p>
+<ul>
+<li><p>针对GEM12 MAX 板载的显卡680M，应当选择6.1版本的.deb文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://repo.radeon.com/amdgpu-install/6.1/ubuntu/focal/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对应的pytorch安装命令，应当修改为：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/rocm6.1</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="0-如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始："><a href="#0-如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始：" class="headerlink" title="(0) 如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始："></a>(0) 如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始：</h4><figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">~$ sudo amdgpu-install <span class="comment">--uninstall</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-在AMD官网下载需要的驱动包："><a href="#1-在AMD官网下载需要的驱动包：" class="headerlink" title="(1) 在AMD官网下载需要的驱动包："></a>(1) 在AMD官网下载需要的驱动包：</h4><p><a href="https://link.csdn.net/?target=https://www.amd.com/en/support/kb/release-notes/rn-amdgpu-unified-linux-22-20?login=from_csdn">驱动包链接</a><br>得到amdgpu-install_xxx_all.deb（xxx是版本号）</p>
+<h4 id="2-cd到驱动包路径下，安装驱动包："><a href="#2-cd到驱动包路径下，安装驱动包：" class="headerlink" title="(2) cd到驱动包路径下，安装驱动包："></a>(2) cd到驱动包路径下，安装驱动包：</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> apt install ./amdgpu-install_xxx_all.deb</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-更新软件："><a href="#3-更新软件：" class="headerlink" title="(3) 更新软件："></a>(3) 更新软件：</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>sudo apt update</span><br><span class="line">~<span class="variable">$ </span>sudo apt upgrade -y</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-安装驱动："><a href="#4-安装驱动：" class="headerlink" title="(4) 安装驱动："></a>(4) 安装驱动：</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>sudo amdgpu-install --no-dkms</span><br><span class="line">~<span class="variable">$ </span>sudo apt install rocm-dev</span><br><span class="line">~<span class="variable">$ </span>sudo reboot</span><br><span class="line"><span class="comment"># 等待重启</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="5-配置环境："><a href="#5-配置环境：" class="headerlink" title="(5)配置环境："></a>(5)配置环境：</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">ls</span> -l /dev/dri/render*</span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> usermod -a -G render <span class="variable">$LOGNAME</span></span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> usermod -a -G video <span class="variable">$LOGNAME</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="variable">$LOGNAME</span>不需要修改</span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> reboot</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">等待重启</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="6-理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证"><a href="#6-理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证" class="headerlink" title="(6) 理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证"></a>(6) 理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>rocm-smi</span><br><span class="line"><span class="comment"># 监控GPU性能</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~$ <span class="regexp">/opt/</span>rocm<span class="regexp">/bin/</span>rocminfo</span><br><span class="line"><span class="comment"># 可以查询到CPU、GPU信息</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~$ <span class="regexp">/opt/</span>rocm<span class="regexp">/opencl/</span>bin/clinfo</span><br><span class="line"><span class="comment"># 可以查询到GPU信息</span></span><br></pre></td></tr></table></figure>
+
+<p>若以上三条命令都有正常输出，便是配置成功了</p>
+<h4 id="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："><a href="#（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：" class="headerlink" title="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："></a>（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：</h4><figure class="highlight python-repl"><table><tr><td class="code"><pre><span class="line">python3</span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python"><span class="keyword">import</span> torch</span></span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">torch.cuda.is_available()</span></span><br></pre></td></tr></table></figure>
+
+<p>返回True就说明成功啦</p>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【安装学习】安装OpenSSH服务</title>
     <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85OpenSSH%E6%9C%8D%E5%8A%A1/</url>
     <content><![CDATA[<ul>
@@ -260,6 +260,53 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
 </li>
 <li><p>查看IP地址</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ifconfig </span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【安装学习】安装ROS包LIO-SAM(noetic)</title>
+    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85ROS%E5%8C%85LIO-SAM(noetic)/</url>
+    <content><![CDATA[<h2 id="1、参考"><a href="#1、参考" class="headerlink" title="1、参考"></a>1、参考</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://github.com/TixiaoShan/LIO-SAM</span><br><span class="line"></span><br><span class="line">https://blog.csdn.net/qq_41690864/article/details/118711743</span><br><span class="line">（标题名：3维SLAM入门 LIO-SAM的安装与运行 ubuntu18.04+ros melodic）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="2、操作流程"><a href="#2、操作流程" class="headerlink" title="2、操作流程"></a>2、操作流程</h2><ul>
+<li><p>安装依赖程序，参考issues#206</p>
+</li>
+<li><p><strong>Step 1：</strong> Install GTSAM 4.0.3 binary</p>
+</li>
+<li><p><strong>Step 2：</strong> Configure the utility.h to use<br><code>#include &lt;opencv2/opencv.hpp&gt;</code> instead of <code>#include &lt;opencv/cv.h&gt;</code></p>
+</li>
+<li><p><strong>Step 3：</strong> Configure CMakeLists.txt to use<br><code>set(CMAKE_CXX_FLAGS &quot;-std=c++14&quot;)</code> instead of <code>set(CMAKE_CXX_FLAGS &quot;-std=c++11&quot;)</code></p>
+</li>
+<li><p><strong>Step 4：</strong>Move <code>#include &lt;opencv2/opencv.hpp&gt;</code> after the <code>pcl</code> headers</p>
+</li>
+<li><pre><code># 进行Step1的安装
+cd ~/catkin_ws/src
+git clone https://github.com/TixiaoShan/LIO-SAM.git
+# 进行如上Step2~4的修改
+cd ..
+catkin_make
+echo &quot;source ~/你的工作空间/devel/setup.bash&quot; &gt;&gt; ~/.bashrc
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">## 3、验证操作</span><br><span class="line"></span><br><span class="line">- **Step 1：**下载数据集rosbag文件</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+https://drive.google.com/drive/folders/1gJHwfdHCRdjP7vuT556pv8atqrCJPbUq
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- **Step 2：**运行roslaunch，另开一个窗口播放rosbag</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+roslaunch lio-sam run.launch
+rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- **Step3：**保存pcd建图结果</span><br><span class="line"></span><br><span class="line">  - 首先，需要修改params.yaml中的参数。params.yaml在~/catkin_ws/src/LIO-SAM/config文件夹下。修改该文件中SavePCD：true 和保存地址。</span><br><span class="line"></span><br><span class="line">  - 然后，为了避免保存还没完成，ros就已经关闭了节点，需要设置_TIMEOUT_SIGINT的值。按如下命令打开文件：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  sudo gedit /opt/ros/melodic/lib/python2.7/dist-packages/roslaunch/nodeprocess.py
+</code></pre>
+<p>  在文件中找到_TIMEOUT_SIGINT，并设置为100秒。这样，在命令窗口中按下Ctrl+C来结束run.launch的运行时，便会自动将pcd文件保存到指定地址。</p>
+</li>
+</ul>
+<h2 id="4、pointcloud-to-laserscan"><a href="#4、pointcloud-to-laserscan" class="headerlink" title="4、pointcloud_to_laserscan"></a>4、pointcloud_to_laserscan</h2><ul>
+<li>注意从github下载的源码要选择luner版本的</li>
 </ul>
 ]]></content>
       <categories>
@@ -314,53 +361,6 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
         <tag>学习</tag>
         <tag>Ubuntu</tag>
         <tag>mkv</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【安装学习】安装ROS包LIO-SAM(noetic)</title>
-    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85ROS%E5%8C%85LIO-SAM(noetic)/</url>
-    <content><![CDATA[<h2 id="1、参考"><a href="#1、参考" class="headerlink" title="1、参考"></a>1、参考</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://github.com/TixiaoShan/LIO-SAM</span><br><span class="line"></span><br><span class="line">https://blog.csdn.net/qq_41690864/article/details/118711743</span><br><span class="line">（标题名：3维SLAM入门 LIO-SAM的安装与运行 ubuntu18.04+ros melodic）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="2、操作流程"><a href="#2、操作流程" class="headerlink" title="2、操作流程"></a>2、操作流程</h2><ul>
-<li><p>安装依赖程序，参考issues#206</p>
-</li>
-<li><p><strong>Step 1：</strong> Install GTSAM 4.0.3 binary</p>
-</li>
-<li><p><strong>Step 2：</strong> Configure the utility.h to use<br><code>#include &lt;opencv2/opencv.hpp&gt;</code> instead of <code>#include &lt;opencv/cv.h&gt;</code></p>
-</li>
-<li><p><strong>Step 3：</strong> Configure CMakeLists.txt to use<br><code>set(CMAKE_CXX_FLAGS &quot;-std=c++14&quot;)</code> instead of <code>set(CMAKE_CXX_FLAGS &quot;-std=c++11&quot;)</code></p>
-</li>
-<li><p><strong>Step 4：</strong>Move <code>#include &lt;opencv2/opencv.hpp&gt;</code> after the <code>pcl</code> headers</p>
-</li>
-<li><pre><code># 进行Step1的安装
-cd ~/catkin_ws/src
-git clone https://github.com/TixiaoShan/LIO-SAM.git
-# 进行如上Step2~4的修改
-cd ..
-catkin_make
-echo &quot;source ~/你的工作空间/devel/setup.bash&quot; &gt;&gt; ~/.bashrc
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">## 3、验证操作</span><br><span class="line"></span><br><span class="line">- **Step 1：**下载数据集rosbag文件</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-https://drive.google.com/drive/folders/1gJHwfdHCRdjP7vuT556pv8atqrCJPbUq
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- **Step 2：**运行roslaunch，另开一个窗口播放rosbag</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-roslaunch lio-sam run.launch
-rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- **Step3：**保存pcd建图结果</span><br><span class="line"></span><br><span class="line">  - 首先，需要修改params.yaml中的参数。params.yaml在~/catkin_ws/src/LIO-SAM/config文件夹下。修改该文件中SavePCD：true 和保存地址。</span><br><span class="line"></span><br><span class="line">  - 然后，为了避免保存还没完成，ros就已经关闭了节点，需要设置_TIMEOUT_SIGINT的值。按如下命令打开文件：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-  sudo gedit /opt/ros/melodic/lib/python2.7/dist-packages/roslaunch/nodeprocess.py
-</code></pre>
-<p>  在文件中找到_TIMEOUT_SIGINT，并设置为100秒。这样，在命令窗口中按下Ctrl+C来结束run.launch的运行时，便会自动将pcd文件保存到指定地址。</p>
-</li>
-</ul>
-<h2 id="4、pointcloud-to-laserscan"><a href="#4、pointcloud-to-laserscan" class="headerlink" title="4、pointcloud_to_laserscan"></a>4、pointcloud_to_laserscan</h2><ul>
-<li>注意从github下载的源码要选择luner版本的</li>
-</ul>
-]]></content>
-      <categories>
-        <category>安装学习</category>
-      </categories>
-      <tags>
-        <tag>安装</tag>
-        <tag>学习</tag>
-        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -632,6 +632,64 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
         <tag>学习</tag>
         <tag>Ubuntu</tag>
         <tag>音频切换</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【技能学习】迁移Blogs到其他Ubuntu系统.md</title>
+    <url>/2025/02/24/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91%E8%BF%81%E7%A7%BBBlogs%E5%88%B0%E5%85%B6%E4%BB%96Ubuntu%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<h2 id="1、问题描述"><a href="#1、问题描述" class="headerlink" title="1、问题描述"></a>1、问题描述</h2><p>在 Ubuntu 旧环境下，博客文件夹位于 <code>/home/zhao/Blog</code>，该目录已连接到 GitHub 仓库，并包含 Hexo 相关的配置文件和依赖。希望在 <strong>新 Ubuntu 系统</strong> 下重建该博客环境，并确保与 GitHub 仓库保持同步。然而，在执行 <code>hexo</code> 相关命令时遇到了一些问题，主要包括：</p>
+<ol>
+<li><code>.gitignore</code> 配置可能导致部分文件未被同步。</li>
+<li><code>npx hexo generate</code> 报错 <code>TypeError: Object.fromEntries is not a function</code>，怀疑是 <strong>Node.js 版本过旧</strong>。</li>
+<li><code>hexo clean</code> 报错 <code>Command &#39;hexo&#39; not found</code>，怀疑是 <strong>Hexo 未全局安装</strong>。</li>
+</ol>
+<hr>
+<h2 id="2、问题分析与解决方案"><a href="#2、问题分析与解决方案" class="headerlink" title="2、问题分析与解决方案"></a>2、问题分析与解决方案</h2><h3 id="2-1-gitignore-配置检查"><a href="#2-1-gitignore-配置检查" class="headerlink" title="2.1 .gitignore 配置检查"></a><strong>2.1 .gitignore 配置检查</strong></h3><p>在 <code>.gitignore</code> 文件中，以下内容可能影响同步：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">.DS_Store</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Thumbs.db</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">db.json</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">*.<span class="built_in">log</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">node_modules/</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">public/</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">.deploy*/</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">_multiconfig.yml</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>node_modules/</code> 和 <code>public/</code> 目录可以忽略，因为它们可以通过 <code>npm install</code> 和 <code>hexo generate</code> 重新生成。</li>
+<li><code>db.json</code> 可能包含 Hexo 的数据缓存，忽略它不会影响博客功能。</li>
+</ul>
+<p><strong>结论</strong>：<code>.gitignore</code> 并未影响关键文件的同步，因此问题可能出现在 Node.js 版本或 Hexo 安装上。</p>
+<hr>
+<h3 id="2-2-解决-Node-js-版本过旧问题"><a href="#2-2-解决-Node-js-版本过旧问题" class="headerlink" title="2.2 解决 Node.js 版本过旧问题"></a><strong>2.2 解决 Node.js 版本过旧问题</strong></h3><p><strong>错误信息：</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">TypeError: Object.fromEntries is not a function</span><br></pre></td></tr></table></figure>
+
+<p><strong>原因：</strong> <code>Object.fromEntries</code> 需要 Node.js 12+，而旧版本 Node.js 可能低于 12.0.0。</p>
+<p><strong>解决方案：</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">检查当前 Node.js 版本</span></span><br><span class="line">node -v</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新 Node.js（推荐使用官方 PPA）</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y curl</span><br><span class="line">curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -</span><br><span class="line">sudo apt install -y nodejs</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">确保安装成功</span></span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="2-3-解决-Hexo-未全局安装问题"><a href="#2-3-解决-Hexo-未全局安装问题" class="headerlink" title="2.3 解决 Hexo 未全局安装问题"></a><strong>2.3 解决 Hexo 未全局安装问题</strong></h3><p><strong>错误信息：</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Command &#x27;hexo&#x27; not found</span><br></pre></td></tr></table></figure>
+
+<p><strong>原因：</strong> Hexo 可能只作为 <strong>本地依赖</strong> 存在于 <code>node_modules/</code> 目录中，而没有全局安装。</p>
+<p><strong>解决方案 1（推荐）：使用 <code>npx</code> 运行 Hexo</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npx hexo clean</span><br><span class="line">npx hexo generate</span><br><span class="line">npx hexo server</span><br></pre></td></tr></table></figure>
+
+<p><strong>解决方案 2（可选）：全局安装 Hexo</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">确保安装成功</span></span><br><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3、完整的博客环境恢复步骤"><a href="#3、完整的博客环境恢复步骤" class="headerlink" title="3、完整的博客环境恢复步骤"></a>3、完整的博客环境恢复步骤</h2><ol>
+<li><strong>安装 Node.js 和 npm</strong>（参考 2.2 章节）。</li>
+<li><strong>进入博客目录</strong> 并安装依赖： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /home/zhao/Blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></li>
+<li><strong>清理缓存并重新生成博客</strong>： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure></li>
+<li><strong>本地访问博客</strong>：<br> 在浏览器中打开 <code>http://localhost:4000</code>，检查博客是否正常显示。</li>
+<li><strong>同步 GitHub 远程仓库（可选）</strong>： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git remote -v  # 确保远程仓库正确</span><br><span class="line">git pull origin main  # 拉取最新代码</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<h2 id="4、总结"><a href="#4、总结" class="headerlink" title="4、总结"></a>4、总结</h2><p>在新 Ubuntu 系统下迁移 Hexo 博客时，可能会遇到 <strong>Node.js 版本过旧</strong> 和 <strong>Hexo 未全局安装</strong> 的问题。通过升级 Node.js、安装 Hexo 依赖以及正确执行 Hexo 命令，可以成功恢复博客环境并同步 GitHub 仓库。</p>
+<p>至此，Hexo 博客已成功在新系统下恢复并可正常使用！🎉</p>
+]]></content>
+      <categories>
+        <category>技能学习</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>Blogs</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
