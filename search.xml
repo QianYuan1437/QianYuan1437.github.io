@@ -159,6 +159,48 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </tags>
   </entry>
   <entry>
+    <title>【安装学习】ubuntu环境配置AMD显卡驱动</title>
+    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEAMD%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</url>
+    <content><![CDATA[<h1 id="ubuntu环境配置AMD显卡驱动"><a href="#ubuntu环境配置AMD显卡驱动" class="headerlink" title="ubuntu环境配置AMD显卡驱动"></a>ubuntu环境配置AMD显卡驱动</h1><p>本人买的AMD显卡，最近要在ubuntu环境做python深度学习，所以必须折腾一番，结果发现还不复杂。本人的系统是Ubuntu 20.04.6，显卡是RX6600，亲测有效。</p>
+<ul>
+<li><p>针对GEM12 MAX 板载的显卡680M，应当选择6.1版本的.deb文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://repo.radeon.com/amdgpu-install/6.1/ubuntu/focal/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对应的pytorch安装命令，应当修改为：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/rocm6.1</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="0-如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始："><a href="#0-如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始：" class="headerlink" title="(0) 如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始："></a>(0) 如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始：</h4><figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">~$ sudo amdgpu-install <span class="comment">--uninstall</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-在AMD官网下载需要的驱动包："><a href="#1-在AMD官网下载需要的驱动包：" class="headerlink" title="(1) 在AMD官网下载需要的驱动包："></a>(1) 在AMD官网下载需要的驱动包：</h4><p><a href="https://link.csdn.net/?target=https://www.amd.com/en/support/kb/release-notes/rn-amdgpu-unified-linux-22-20?login=from_csdn">驱动包链接</a><br>得到amdgpu-install_xxx_all.deb（xxx是版本号）</p>
+<h4 id="2-cd到驱动包路径下，安装驱动包："><a href="#2-cd到驱动包路径下，安装驱动包：" class="headerlink" title="(2) cd到驱动包路径下，安装驱动包："></a>(2) cd到驱动包路径下，安装驱动包：</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> apt install ./amdgpu-install_xxx_all.deb</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-更新软件："><a href="#3-更新软件：" class="headerlink" title="(3) 更新软件："></a>(3) 更新软件：</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>sudo apt update</span><br><span class="line">~<span class="variable">$ </span>sudo apt upgrade -y</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-安装驱动："><a href="#4-安装驱动：" class="headerlink" title="(4) 安装驱动："></a>(4) 安装驱动：</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>sudo amdgpu-install --no-dkms</span><br><span class="line">~<span class="variable">$ </span>sudo apt install rocm-dev</span><br><span class="line">~<span class="variable">$ </span>sudo reboot</span><br><span class="line"><span class="comment"># 等待重启</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="5-配置环境："><a href="#5-配置环境：" class="headerlink" title="(5)配置环境："></a>(5)配置环境：</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">ls</span> -l /dev/dri/render*</span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> usermod -a -G render <span class="variable">$LOGNAME</span></span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> usermod -a -G video <span class="variable">$LOGNAME</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="variable">$LOGNAME</span>不需要修改</span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> reboot</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">等待重启</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="6-理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证"><a href="#6-理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证" class="headerlink" title="(6) 理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证"></a>(6) 理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>rocm-smi</span><br><span class="line"><span class="comment"># 监控GPU性能</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~$ <span class="regexp">/opt/</span>rocm<span class="regexp">/bin/</span>rocminfo</span><br><span class="line"><span class="comment"># 可以查询到CPU、GPU信息</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~$ <span class="regexp">/opt/</span>rocm<span class="regexp">/opencl/</span>bin/clinfo</span><br><span class="line"><span class="comment"># 可以查询到GPU信息</span></span><br></pre></td></tr></table></figure>
+
+<p>若以上三条命令都有正常输出，便是配置成功了</p>
+<h4 id="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："><a href="#（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：" class="headerlink" title="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："></a>（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：</h4><figure class="highlight python-repl"><table><tr><td class="code"><pre><span class="line">python3</span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python"><span class="keyword">import</span> torch</span></span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">torch.cuda.is_available()</span></span><br></pre></td></tr></table></figure>
+
+<p>返回True就说明成功啦</p>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【安装学习】安装Cartographer ROS（noetic）</title>
     <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85Cartographer%20ROS%EF%BC%88noetic%EF%BC%89/</url>
     <content><![CDATA[<h1 id="【安装学习】安装Cartographer-ROS（noetic）"><a href="#【安装学习】安装Cartographer-ROS（noetic）" class="headerlink" title="【安装学习】安装Cartographer ROS（noetic）"></a>【安装学习】安装Cartographer ROS（noetic）</h1><p> 参考链接：<a href="https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html">https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html</a></p>
@@ -194,48 +236,6 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
 </ul>
 <h2 id="8、构建"><a href="#8、构建" class="headerlink" title="8、构建"></a>8、构建</h2><p>在 <code>catkin_ws</code> 中清理 <code>build_isolated</code> 和 <code>devel_isolated</code> 文件夹后重新构建：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/WS/catkin_ws</span><br><span class="line"><span class="built_in">rm</span> -rf build_isolated devel_isolated install_isolated</span><br><span class="line">catkin_make_isolated --install --use-ninja</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>安装学习</category>
-      </categories>
-      <tags>
-        <tag>安装</tag>
-        <tag>学习</tag>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【安装学习】ubuntu环境配置AMD显卡驱动</title>
-    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEAMD%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</url>
-    <content><![CDATA[<h1 id="ubuntu环境配置AMD显卡驱动"><a href="#ubuntu环境配置AMD显卡驱动" class="headerlink" title="ubuntu环境配置AMD显卡驱动"></a>ubuntu环境配置AMD显卡驱动</h1><p>本人买的AMD显卡，最近要在ubuntu环境做python深度学习，所以必须折腾一番，结果发现还不复杂。本人的系统是Ubuntu 20.04.6，显卡是RX6600，亲测有效。</p>
-<ul>
-<li><p>针对GEM12 MAX 板载的显卡680M，应当选择6.1版本的.deb文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://repo.radeon.com/amdgpu-install/6.1/ubuntu/focal/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>对应的pytorch安装命令，应当修改为：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/rocm6.1</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="0-如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始："><a href="#0-如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始：" class="headerlink" title="(0) 如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始："></a>(0) 如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始：</h4><figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">~$ sudo amdgpu-install <span class="comment">--uninstall</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="1-在AMD官网下载需要的驱动包："><a href="#1-在AMD官网下载需要的驱动包：" class="headerlink" title="(1) 在AMD官网下载需要的驱动包："></a>(1) 在AMD官网下载需要的驱动包：</h4><p><a href="https://link.csdn.net/?target=https://www.amd.com/en/support/kb/release-notes/rn-amdgpu-unified-linux-22-20?login=from_csdn">驱动包链接</a><br>得到amdgpu-install_xxx_all.deb（xxx是版本号）</p>
-<h4 id="2-cd到驱动包路径下，安装驱动包："><a href="#2-cd到驱动包路径下，安装驱动包：" class="headerlink" title="(2) cd到驱动包路径下，安装驱动包："></a>(2) cd到驱动包路径下，安装驱动包：</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> apt install ./amdgpu-install_xxx_all.deb</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="3-更新软件："><a href="#3-更新软件：" class="headerlink" title="(3) 更新软件："></a>(3) 更新软件：</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>sudo apt update</span><br><span class="line">~<span class="variable">$ </span>sudo apt upgrade -y</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-安装驱动："><a href="#4-安装驱动：" class="headerlink" title="(4) 安装驱动："></a>(4) 安装驱动：</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>sudo amdgpu-install --no-dkms</span><br><span class="line">~<span class="variable">$ </span>sudo apt install rocm-dev</span><br><span class="line">~<span class="variable">$ </span>sudo reboot</span><br><span class="line"><span class="comment"># 等待重启</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="5-配置环境："><a href="#5-配置环境：" class="headerlink" title="(5)配置环境："></a>(5)配置环境：</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">ls</span> -l /dev/dri/render*</span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> usermod -a -G render <span class="variable">$LOGNAME</span></span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> usermod -a -G video <span class="variable">$LOGNAME</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="variable">$LOGNAME</span>不需要修改</span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> reboot</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">等待重启</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="6-理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证"><a href="#6-理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证" class="headerlink" title="(6) 理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证"></a>(6) 理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>rocm-smi</span><br><span class="line"><span class="comment"># 监控GPU性能</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~$ <span class="regexp">/opt/</span>rocm<span class="regexp">/bin/</span>rocminfo</span><br><span class="line"><span class="comment"># 可以查询到CPU、GPU信息</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~$ <span class="regexp">/opt/</span>rocm<span class="regexp">/opencl/</span>bin/clinfo</span><br><span class="line"><span class="comment"># 可以查询到GPU信息</span></span><br></pre></td></tr></table></figure>
-
-<p>若以上三条命令都有正常输出，便是配置成功了</p>
-<h4 id="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："><a href="#（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：" class="headerlink" title="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："></a>（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：</h4><figure class="highlight python-repl"><table><tr><td class="code"><pre><span class="line">python3</span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python"><span class="keyword">import</span> torch</span></span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">torch.cuda.is_available()</span></span><br></pre></td></tr></table></figure>
-
-<p>返回True就说明成功啦</p>
-]]></content>
       <categories>
         <category>安装学习</category>
       </categories>
@@ -319,20 +319,6 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
       </tags>
   </entry>
   <entry>
-    <title>【思考杂谈】计划三两事</title>
-    <url>/2024/12/23/%E3%80%90%E6%80%9D%E8%80%83%E6%9D%82%E8%B0%88%E3%80%91%E8%AE%A1%E5%88%92%E4%B8%89%E4%B8%A4%E4%BA%8B/</url>
-    <content><![CDATA[<h2 id="VGICP"><a href="#VGICP" class="headerlink" title="VGICP"></a>VGICP</h2><p>看到说是更高级的ICP匹配方法，没试过，不知道和NDP匹配相比哪个强一些</p>
-<h2 id="LIO-SAM"><a href="#LIO-SAM" class="headerlink" title="LIO-SAM"></a>LIO-SAM</h2><p>今天才发现之前的IMU偏移问题是因为我仿真的是6轴的IMU，真的我哭死</p>
-]]></content>
-      <categories>
-        <category>思考杂谈</category>
-      </categories>
-      <tags>
-        <tag>计划</tag>
-        <tag>思考</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【安装学习】设置对.mkv视频的播放支持</title>
     <url>/2024/12/24/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E8%AE%BE%E7%BD%AE%E5%AF%B9.mkv%E8%A7%86%E9%A2%91%E7%9A%84%E6%92%AD%E6%94%BE%E6%94%AF%E6%8C%81/</url>
     <content><![CDATA[<h2 id="1、安装依赖"><a href="#1、安装依赖" class="headerlink" title="1、安装依赖"></a>1、安装依赖</h2><p>安装 <code>ubuntu-restricted-extras</code>，<code>ubuntu-restricted-extras</code> 包含常用的多媒体编解码器，包括支持 MKV 格式的解码器。</p>
@@ -375,6 +361,20 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
         <tag>学习</tag>
         <tag>Ubuntu</tag>
         <tag>mkv</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【思考杂谈】计划三两事</title>
+    <url>/2024/12/23/%E3%80%90%E6%80%9D%E8%80%83%E6%9D%82%E8%B0%88%E3%80%91%E8%AE%A1%E5%88%92%E4%B8%89%E4%B8%A4%E4%BA%8B/</url>
+    <content><![CDATA[<h2 id="VGICP"><a href="#VGICP" class="headerlink" title="VGICP"></a>VGICP</h2><p>看到说是更高级的ICP匹配方法，没试过，不知道和NDP匹配相比哪个强一些</p>
+<h2 id="LIO-SAM"><a href="#LIO-SAM" class="headerlink" title="LIO-SAM"></a>LIO-SAM</h2><p>今天才发现之前的IMU偏移问题是因为我仿真的是6轴的IMU，真的我哭死</p>
+]]></content>
+      <categories>
+        <category>思考杂谈</category>
+      </categories>
+      <tags>
+        <tag>计划</tag>
+        <tag>思考</tag>
       </tags>
   </entry>
   <entry>
