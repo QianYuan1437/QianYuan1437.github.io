@@ -71,6 +71,26 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </tags>
   </entry>
   <entry>
+    <title>【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</title>
+    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/</url>
+    <content><![CDATA[<h2 id="1、依赖安装"><a href="#1、依赖安装" class="headerlink" title="1、依赖安装"></a>1、依赖安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install  liblapack-dev libsuitesparse-dev libcxsparse3 libgflags-dev libgoogle-glog-dev libgtest-dev</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、包下载与安装"><a href="#2、包下载与安装" class="headerlink" title="2、包下载与安装"></a>2、包下载与安装</h2><ul>
+<li>下载安装包：<a href="http://ceres-solver.org/ceres-solver-2.0.0.tar.gz">http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</a><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#1. 下载ceres2.0版本</span><br><span class="line"># 地址为 http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</span><br><span class="line">#2. 解压</span><br><span class="line">#3. 进入目录，然后编译</span><br><span class="line">cd ceres-solver</span><br><span class="line">mkdir build &amp;&amp; cd build </span><br><span class="line">cmake ..</span><br><span class="line">make -j3</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3、参考链接"><a href="#3、参考链接" class="headerlink" title="3、参考链接"></a>3、参考链接</h2><p><a href="https://blog.csdn.net/little_white138/article/details/142443296">https://blog.csdn.net/little_white138/article/details/142443296</a></p>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+        <tag>A-LOAM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【MSFL】2：LIO-SAM：从安装到测试</title>
     <url>/2024/12/26/%E3%80%90MSFL%E3%80%912%EF%BC%9ALIO-SAM%EF%BC%9A%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<h1 id="1、标定IMU-LiDAR"><a href="#1、标定IMU-LiDAR" class="headerlink" title="1、标定IMU+LiDAR"></a>1、标定IMU+LiDAR</h1><h2 id="1、录制ROS包"><a href="#1、录制ROS包" class="headerlink" title="1、录制ROS包"></a>1、录制ROS包</h2><ul>
@@ -136,26 +156,6 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
         <tag>Ubuntu</tag>
         <tag>MSFL</tag>
         <tag>LIO-SAM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</title>
-    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/</url>
-    <content><![CDATA[<h2 id="1、依赖安装"><a href="#1、依赖安装" class="headerlink" title="1、依赖安装"></a>1、依赖安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install  liblapack-dev libsuitesparse-dev libcxsparse3 libgflags-dev libgoogle-glog-dev libgtest-dev</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、包下载与安装"><a href="#2、包下载与安装" class="headerlink" title="2、包下载与安装"></a>2、包下载与安装</h2><ul>
-<li>下载安装包：<a href="http://ceres-solver.org/ceres-solver-2.0.0.tar.gz">http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</a><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#1. 下载ceres2.0版本</span><br><span class="line"># 地址为 http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</span><br><span class="line">#2. 解压</span><br><span class="line">#3. 进入目录，然后编译</span><br><span class="line">cd ceres-solver</span><br><span class="line">mkdir build &amp;&amp; cd build </span><br><span class="line">cmake ..</span><br><span class="line">make -j3</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="3、参考链接"><a href="#3、参考链接" class="headerlink" title="3、参考链接"></a>3、参考链接</h2><p><a href="https://blog.csdn.net/little_white138/article/details/142443296">https://blog.csdn.net/little_white138/article/details/142443296</a></p>
-]]></content>
-      <categories>
-        <category>安装学习</category>
-      </categories>
-      <tags>
-        <tag>安装</tag>
-        <tag>学习</tag>
-        <tag>Ubuntu</tag>
-        <tag>A-LOAM</tag>
       </tags>
   </entry>
   <entry>
@@ -319,6 +319,20 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
       </tags>
   </entry>
   <entry>
+    <title>【思考杂谈】计划三两事</title>
+    <url>/2024/12/23/%E3%80%90%E6%80%9D%E8%80%83%E6%9D%82%E8%B0%88%E3%80%91%E8%AE%A1%E5%88%92%E4%B8%89%E4%B8%A4%E4%BA%8B/</url>
+    <content><![CDATA[<h2 id="VGICP"><a href="#VGICP" class="headerlink" title="VGICP"></a>VGICP</h2><p>看到说是更高级的ICP匹配方法，没试过，不知道和NDP匹配相比哪个强一些</p>
+<h2 id="LIO-SAM"><a href="#LIO-SAM" class="headerlink" title="LIO-SAM"></a>LIO-SAM</h2><p>今天才发现之前的IMU偏移问题是因为我仿真的是6轴的IMU，真的我哭死</p>
+]]></content>
+      <categories>
+        <category>思考杂谈</category>
+      </categories>
+      <tags>
+        <tag>计划</tag>
+        <tag>思考</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【安装学习】设置对.mkv视频的播放支持</title>
     <url>/2024/12/24/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E8%AE%BE%E7%BD%AE%E5%AF%B9.mkv%E8%A7%86%E9%A2%91%E7%9A%84%E6%92%AD%E6%94%BE%E6%94%AF%E6%8C%81/</url>
     <content><![CDATA[<h2 id="1、安装依赖"><a href="#1、安装依赖" class="headerlink" title="1、安装依赖"></a>1、安装依赖</h2><p>安装 <code>ubuntu-restricted-extras</code>，<code>ubuntu-restricted-extras</code> 包含常用的多媒体编解码器，包括支持 MKV 格式的解码器。</p>
@@ -361,20 +375,6 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
         <tag>学习</tag>
         <tag>Ubuntu</tag>
         <tag>mkv</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【思考杂谈】计划三两事</title>
-    <url>/2024/12/23/%E3%80%90%E6%80%9D%E8%80%83%E6%9D%82%E8%B0%88%E3%80%91%E8%AE%A1%E5%88%92%E4%B8%89%E4%B8%A4%E4%BA%8B/</url>
-    <content><![CDATA[<h2 id="VGICP"><a href="#VGICP" class="headerlink" title="VGICP"></a>VGICP</h2><p>看到说是更高级的ICP匹配方法，没试过，不知道和NDP匹配相比哪个强一些</p>
-<h2 id="LIO-SAM"><a href="#LIO-SAM" class="headerlink" title="LIO-SAM"></a>LIO-SAM</h2><p>今天才发现之前的IMU偏移问题是因为我仿真的是6轴的IMU，真的我哭死</p>
-]]></content>
-      <categories>
-        <category>思考杂谈</category>
-      </categories>
-      <tags>
-        <tag>计划</tag>
-        <tag>思考</tag>
       </tags>
   </entry>
   <entry>
