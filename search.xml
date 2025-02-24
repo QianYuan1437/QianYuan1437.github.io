@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2025/02/24/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>【MSFL】1：A-LOAM：从安装到测试</title>
     <url>/2024/12/24/%E3%80%90MSFL%E3%80%911%EF%BC%9AA-LOAM%EF%BC%9A%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<h2 id="1、安装依赖项"><a href="#1、安装依赖项" class="headerlink" title="1、安装依赖项"></a>1、安装依赖项</h2><ul>
@@ -678,6 +660,7 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
 <li><strong>清理缓存并重新生成博客</strong>： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure></li>
 <li><strong>本地访问博客</strong>：<br> 在浏览器中打开 <code>http://localhost:4000</code>，检查博客是否正常显示。</li>
 <li><strong>同步 GitHub 远程仓库（可选）</strong>： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git remote -v  # 确保远程仓库正确</span><br><span class="line">git pull origin main  # 拉取最新代码</span><br></pre></td></tr></table></figure></li>
+<li><strong>配置DNS解析</strong><br> 添加CNAME文件到仓库中，内容书写个人网站，此处我的为<code>zhaoyuanhangblogs.top</code>，然后进入仓库设置，选择<code>Pages</code>选项，下滑到DNS解析部分，开启强制HTTPS，并在上方添加同样的网站地址，然后Save，就会自动解析</li>
 </ol>
 <hr>
 <h2 id="4、总结"><a href="#4、总结" class="headerlink" title="4、总结"></a>4、总结</h2><p>在新 Ubuntu 系统下迁移 Hexo 博客时，可能会遇到 <strong>Node.js 版本过旧</strong> 和 <strong>Hexo 未全局安装</strong> 的问题。通过升级 Node.js、安装 Hexo 依赖以及正确执行 Hexo 命令，可以成功恢复博客环境并同步 GitHub 仓库。</p>
