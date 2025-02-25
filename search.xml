@@ -1,58 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>【MSFL】1：A-LOAM：从安装到测试</title>
-    <url>/2024/12/24/%E3%80%90MSFL%E3%80%911%EF%BC%9AA-LOAM%EF%BC%9A%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E6%B5%8B%E8%AF%95/</url>
-    <content><![CDATA[<h2 id="1、安装依赖项"><a href="#1、安装依赖项" class="headerlink" title="1、安装依赖项"></a>1、安装依赖项</h2><ul>
-<li>参考之前的博客：【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</li>
-<li>注意！仅需顺序执行之前博客操作即可，不需要自行再次源码安装诸如eigen3之类的软件包（通过<code>sudo apt-get</code>安装即可）</li>
-</ul>
-<h2 id="2、修改代码内容"><a href="#2、修改代码内容" class="headerlink" title="2、修改代码内容"></a>2、修改代码内容</h2><ul>
-<li>将四个<code>.cpp</code>文件中的<code>/camera_init</code>修改为<code>camera_init</code></li>
-<li>将<code>scanRegistration.cpp中的 #include &lt;opencv/cv.h&gt;</code> 修改为<code>#include &lt;opencv2/imgproc.hpp&gt;</code></li>
-<li>修改<code>kittiHelper.cpp</code>中 <code>CV_LOAD_IMAGE_GRAYSCALE</code>为 <code>cv::IMREAD_GRAYSCALE</code></li>
-<li>无论之前是否已经<code>catkin_make</code>编译过，都需要重新编译，即删除<code>build/</code>和<code>devel/</code>文件夹后重新执行<code>catkin_make</code>以使上方的<code>ceres</code>库生效</li>
-<li>若版本是<code>ubuntu20.04 ros-noetic</code>，也可以使用我修改后的fork仓库：<a href="https://github.com/QianYuan1437/A-LOAM-NOTED.git">https://github.com/QianYuan1437/A-LOAM-NOTED.git</a> 注意branch</li>
-</ul>
-<h2 id="3、测试与保存"><a href="#3、测试与保存" class="headerlink" title="3、测试与保存"></a>3、测试与保存</h2><ul>
-<li>下载测试<code>ROSBAG</code>：<a href="https://drive.google.com/file/d/1s05tBQOLNEDDurlg48KiUWxCp-YqYyGH/view">https://drive.google.com/file/d/1s05tBQOLNEDDurlg48KiUWxCp-YqYyGH/view</a></li>
-<li>开启三个终端：注意运行顺序，先1再2最后3<ul>
-<li>1、<code>roscore</code></li>
-<li>2、<code>roslaunch aloam_velodyne aloam_velodyne_VLP_16.launch</code></li>
-<li>3、<code>rosbag play nsh_indoor_outdoor.bag</code></li>
-</ul>
-</li>
-<li>如果需要保存点云信息，则需开启第四个终端<ul>
-<li>4、有以下两种方法，但注意运行顺序为1,2,4,3<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#另起终端用bag_to_pcd方法保存点云图</span><br><span class="line">rosrun pcl_ros bag_to_pcd xxx.bag /laser_cloud_surround pcd</span><br></pre></td></tr></table></figure>
-运行结束，可以看到生成了一个pcd文件夹，将里面的文件按照修改时间排序，最新的就是最后的点云地图pcd文件。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#另起终端，用pointcloud_to_pcd方法保存点云图</span><br><span class="line">mkdir pcd</span><br><span class="line">cd pcd</span><br><span class="line">rosrun pcl_ros pointcloud_to_pcd input:=/laser_cloud_surround</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>点云地图查看：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pcl_viewer xxx.pcd</span><br></pre></td></tr></table></figure>
-pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pcl_pcd2ply xxx.pcd xxxxxxx.ply</span><br></pre></td></tr></table></figure>
-当我们需要用第三方软件（MatLab&#x2F;MeshLab）对点云地图进行处理时就需要将pcd转为ply，其中MeshLab必须使用由pointcloud_to_pcd方法创建pcd转成的ply格式点云！</li>
-</ul>
-<h2 id="4、参考链接"><a href="#4、参考链接" class="headerlink" title="4、参考链接"></a>4、参考链接</h2><ul>
-<li><a href="https://blog.csdn.net/studentu/article/details/119634149">https://blog.csdn.net/studentu/article/details/119634149</a></li>
-<li><a href="https://blog.csdn.net/weixin_43910370/article/details/120736760">https://blog.csdn.net/weixin_43910370/article/details/120736760</a></li>
-<li><a href="https://blog.csdn.net/weixin_43807148/article/details/113739347">https://blog.csdn.net/weixin_43807148/article/details/113739347</a></li>
-<li><a href="https://blog.csdn.net/weixin_44156680/article/details/117705830">https://blog.csdn.net/weixin_44156680/article/details/117705830</a></li>
-</ul>
-<h2 id="5、MSFL测试参考链接"><a href="#5、MSFL测试参考链接" class="headerlink" title="5、MSFL测试参考链接"></a>5、MSFL测试参考链接</h2><ul>
-<li><a href="https://blog.csdn.net/qq_53004665/article/details/141674630">https://blog.csdn.net/qq_53004665/article/details/141674630</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>MSFL</category>
-      </categories>
-      <tags>
-        <tag>安装</tag>
-        <tag>学习</tag>
-        <tag>Ubuntu</tag>
-        <tag>MSFL</tag>
-        <tag>A-LOAM</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【MSFL】2：LIO-SAM：从安装到测试</title>
     <url>/2024/12/26/%E3%80%90MSFL%E3%80%912%EF%BC%9ALIO-SAM%EF%BC%9A%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<h1 id="1、标定IMU-LiDAR"><a href="#1、标定IMU-LiDAR" class="headerlink" title="1、标定IMU+LiDAR"></a>1、标定IMU+LiDAR</h1><h2 id="1、录制ROS包"><a href="#1、录制ROS包" class="headerlink" title="1、录制ROS包"></a>1、录制ROS包</h2><ul>
@@ -137,6 +85,58 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
         <tag>安装</tag>
         <tag>学习</tag>
         <tag>Ubuntu</tag>
+        <tag>A-LOAM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【MSFL】1：A-LOAM：从安装到测试</title>
+    <url>/2024/12/24/%E3%80%90MSFL%E3%80%911%EF%BC%9AA-LOAM%EF%BC%9A%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<h2 id="1、安装依赖项"><a href="#1、安装依赖项" class="headerlink" title="1、安装依赖项"></a>1、安装依赖项</h2><ul>
+<li>参考之前的博客：【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</li>
+<li>注意！仅需顺序执行之前博客操作即可，不需要自行再次源码安装诸如eigen3之类的软件包（通过<code>sudo apt-get</code>安装即可）</li>
+</ul>
+<h2 id="2、修改代码内容"><a href="#2、修改代码内容" class="headerlink" title="2、修改代码内容"></a>2、修改代码内容</h2><ul>
+<li>将四个<code>.cpp</code>文件中的<code>/camera_init</code>修改为<code>camera_init</code></li>
+<li>将<code>scanRegistration.cpp中的 #include &lt;opencv/cv.h&gt;</code> 修改为<code>#include &lt;opencv2/imgproc.hpp&gt;</code></li>
+<li>修改<code>kittiHelper.cpp</code>中 <code>CV_LOAD_IMAGE_GRAYSCALE</code>为 <code>cv::IMREAD_GRAYSCALE</code></li>
+<li>无论之前是否已经<code>catkin_make</code>编译过，都需要重新编译，即删除<code>build/</code>和<code>devel/</code>文件夹后重新执行<code>catkin_make</code>以使上方的<code>ceres</code>库生效</li>
+<li>若版本是<code>ubuntu20.04 ros-noetic</code>，也可以使用我修改后的fork仓库：<a href="https://github.com/QianYuan1437/A-LOAM-NOTED.git">https://github.com/QianYuan1437/A-LOAM-NOTED.git</a> 注意branch</li>
+</ul>
+<h2 id="3、测试与保存"><a href="#3、测试与保存" class="headerlink" title="3、测试与保存"></a>3、测试与保存</h2><ul>
+<li>下载测试<code>ROSBAG</code>：<a href="https://drive.google.com/file/d/1s05tBQOLNEDDurlg48KiUWxCp-YqYyGH/view">https://drive.google.com/file/d/1s05tBQOLNEDDurlg48KiUWxCp-YqYyGH/view</a></li>
+<li>开启三个终端：注意运行顺序，先1再2最后3<ul>
+<li>1、<code>roscore</code></li>
+<li>2、<code>roslaunch aloam_velodyne aloam_velodyne_VLP_16.launch</code></li>
+<li>3、<code>rosbag play nsh_indoor_outdoor.bag</code></li>
+</ul>
+</li>
+<li>如果需要保存点云信息，则需开启第四个终端<ul>
+<li>4、有以下两种方法，但注意运行顺序为1,2,4,3<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#另起终端用bag_to_pcd方法保存点云图</span><br><span class="line">rosrun pcl_ros bag_to_pcd xxx.bag /laser_cloud_surround pcd</span><br></pre></td></tr></table></figure>
+运行结束，可以看到生成了一个pcd文件夹，将里面的文件按照修改时间排序，最新的就是最后的点云地图pcd文件。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#另起终端，用pointcloud_to_pcd方法保存点云图</span><br><span class="line">mkdir pcd</span><br><span class="line">cd pcd</span><br><span class="line">rosrun pcl_ros pointcloud_to_pcd input:=/laser_cloud_surround</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>点云地图查看：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pcl_viewer xxx.pcd</span><br></pre></td></tr></table></figure>
+pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pcl_pcd2ply xxx.pcd xxxxxxx.ply</span><br></pre></td></tr></table></figure>
+当我们需要用第三方软件（MatLab&#x2F;MeshLab）对点云地图进行处理时就需要将pcd转为ply，其中MeshLab必须使用由pointcloud_to_pcd方法创建pcd转成的ply格式点云！</li>
+</ul>
+<h2 id="4、参考链接"><a href="#4、参考链接" class="headerlink" title="4、参考链接"></a>4、参考链接</h2><ul>
+<li><a href="https://blog.csdn.net/studentu/article/details/119634149">https://blog.csdn.net/studentu/article/details/119634149</a></li>
+<li><a href="https://blog.csdn.net/weixin_43910370/article/details/120736760">https://blog.csdn.net/weixin_43910370/article/details/120736760</a></li>
+<li><a href="https://blog.csdn.net/weixin_43807148/article/details/113739347">https://blog.csdn.net/weixin_43807148/article/details/113739347</a></li>
+<li><a href="https://blog.csdn.net/weixin_44156680/article/details/117705830">https://blog.csdn.net/weixin_44156680/article/details/117705830</a></li>
+</ul>
+<h2 id="5、MSFL测试参考链接"><a href="#5、MSFL测试参考链接" class="headerlink" title="5、MSFL测试参考链接"></a>5、MSFL测试参考链接</h2><ul>
+<li><a href="https://blog.csdn.net/qq_53004665/article/details/141674630">https://blog.csdn.net/qq_53004665/article/details/141674630</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>MSFL</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+        <tag>MSFL</tag>
         <tag>A-LOAM</tag>
       </tags>
   </entry>
@@ -487,41 +487,6 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
       </tags>
   </entry>
   <entry>
-    <title>【技能学习】Ubuntu删除应用</title>
-    <url>/2025/01/13/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu%E5%88%A0%E9%99%A4%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="从-Ubuntu-系统中卸载-ImageMagick-及相关依赖"><a href="#从-Ubuntu-系统中卸载-ImageMagick-及相关依赖" class="headerlink" title="从 Ubuntu 系统中卸载 ImageMagick 及相关依赖"></a>从 Ubuntu 系统中卸载 <code>ImageMagick</code> 及相关依赖</h1><p>在某些情况下，系统中可能安装了 <code>ImageMagick</code> 和其他 KDE 或图像处理相关的软件包，而这些应用程序可能不再需要或者是未曾手动安装的。本文记录了如何在 Ubuntu 系统中卸载 <code>ImageMagick</code> 及其相关依赖。</p>
-<h2 id="步骤-1：查找并列出-ImageMagick-相关包"><a href="#步骤-1：查找并列出-ImageMagick-相关包" class="headerlink" title="步骤 1：查找并列出 ImageMagick 相关包"></a>步骤 1：查找并列出 <code>ImageMagick</code> 相关包</h2><p>首先，使用以下命令查看系统中已安装的与 <code>ImageMagick</code> 相关的软件包：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dpkg -l | grep -i imagemagick</span><br></pre></td></tr></table></figure>
-
-<p>如果系统中确实安装了 <code>ImageMagick</code>，你将看到类似如下的输出：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ii  imagemagick-6-common                        8:6.9.10.23+dfsg-2.1ubuntu11.10       all          image manipulation programs -- infrastructure</span><br><span class="line">ii  imagemagick-6.q16                           8:6.9.10.23+dfsg-2.1ubuntu11.10       amd64        image manipulation programs -- quantum depth Q16</span><br><span class="line">ii  libmagick++-6.q16-8:amd64                   8:6.9.10.23+dfsg-2.1ubuntu11.10       amd64        C++ interface to ImageMagick -- quantum depth Q16</span><br></pre></td></tr></table></figure>
-
-<h2 id="步骤-2：卸载-ImageMagick-相关包"><a href="#步骤-2：卸载-ImageMagick-相关包" class="headerlink" title="步骤 2：卸载 ImageMagick 相关包"></a>步骤 2：卸载 <code>ImageMagick</code> 相关包</h2><p>接下来，使用 <code>apt-get purge</code> 命令卸载上述软件包：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get purge imagemagick-6-common imagemagick-6.q16 libmagick++-6.q16-8</span><br></pre></td></tr></table></figure>
-
-<p>该命令将彻底删除这些包及其相关配置文件。</p>
-<h2 id="步骤-3：清理无用的依赖和残留文件"><a href="#步骤-3：清理无用的依赖和残留文件" class="headerlink" title="步骤 3：清理无用的依赖和残留文件"></a>步骤 3：清理无用的依赖和残留文件</h2><p>卸载软件包后，运行以下命令清理不再需要的依赖和残留文件：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt autoremove --purge</span><br></pre></td></tr></table></figure>
-
-<p>此命令会自动删除那些与 <code>ImageMagick</code> 相关的、已不再需要的依赖包。</p>
-<h2 id="步骤-4：更新系统的应用菜单"><a href="#步骤-4：更新系统的应用菜单" class="headerlink" title="步骤 4：更新系统的应用菜单"></a>步骤 4：更新系统的应用菜单</h2><p>为了确保卸载后的应用不再显示在应用程序栏中，可以更新系统的应用菜单：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> update-desktop-database</span><br></pre></td></tr></table></figure>
-
-<h2 id="步骤-5：重启系统"><a href="#步骤-5：重启系统" class="headerlink" title="步骤 5：重启系统"></a>步骤 5：重启系统</h2><p>最后，建议重启系统以确保所有更改生效：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> reboot</span><br></pre></td></tr></table></figure>
-
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过以上步骤，你可以从 Ubuntu 系统中成功卸载 <code>ImageMagick</code> 及其相关的所有组件，同时清理系统中的多余依赖和配置文件。这些步骤可以帮助你更好地管理系统中不再需要的应用程序，释放系统空间。</p>
-]]></content>
-      <categories>
-        <category>技能学习</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
-        <tag>Ubuntu</tag>
-        <tag>卸载应用</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【技能学习】Ubuntu配置Picgo+Typora</title>
     <url>/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu%E9%85%8D%E7%BD%AEPicgo+Typora/</url>
     <content><![CDATA[<h2 id="1、AppImage下载与安装"><a href="#1、AppImage下载与安装" class="headerlink" title="1、AppImage下载与安装"></a>1、AppImage下载与安装</h2><ul>
@@ -571,49 +536,38 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
       </tags>
   </entry>
   <entry>
-    <title>【技能学习】Ubuntu音频切换失败解决方案</title>
-    <url>/2025/01/13/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu%E9%9F%B3%E9%A2%91%E5%88%87%E6%8D%A2%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<p>如果Ubuntu没有声音输出，可以尝试以下几种解决方法：</p>
-<ol>
-<li>检查音量设置：确保音量没有被静音或调到最低。点击系统菜单栏上的音量图标，调整音量设置。</li>
-<li>检查音频设备连接：确保音频设备（例如扬声器、耳机等）已正确连接到计算机，并且没有松动或断开。</li>
-<li>检查音频输出设备设置：点击系统菜单栏上的音量图标，选择“Sound Settings”（声音设置），在“Output”（输出）选项卡中，确保选择了正确的音频输出设备。</li>
-<li>更新驱动程序：打开终端，运行以下命令更新系统的软件包和驱动程序：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
+    <title>【技能学习】Ubuntu删除应用</title>
+    <url>/2025/01/13/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu%E5%88%A0%E9%99%A4%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="从-Ubuntu-系统中卸载-ImageMagick-及相关依赖"><a href="#从-Ubuntu-系统中卸载-ImageMagick-及相关依赖" class="headerlink" title="从 Ubuntu 系统中卸载 ImageMagick 及相关依赖"></a>从 Ubuntu 系统中卸载 <code>ImageMagick</code> 及相关依赖</h1><p>在某些情况下，系统中可能安装了 <code>ImageMagick</code> 和其他 KDE 或图像处理相关的软件包，而这些应用程序可能不再需要或者是未曾手动安装的。本文记录了如何在 Ubuntu 系统中卸载 <code>ImageMagick</code> 及其相关依赖。</p>
+<h2 id="步骤-1：查找并列出-ImageMagick-相关包"><a href="#步骤-1：查找并列出-ImageMagick-相关包" class="headerlink" title="步骤 1：查找并列出 ImageMagick 相关包"></a>步骤 1：查找并列出 <code>ImageMagick</code> 相关包</h2><p>首先，使用以下命令查看系统中已安装的与 <code>ImageMagick</code> 相关的软件包：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dpkg -l | grep -i imagemagick</span><br></pre></td></tr></table></figure>
 
-<h2 id="1、重启-PulseAudio-服务："><a href="#1、重启-PulseAudio-服务：" class="headerlink" title="1、重启 PulseAudio 服务："></a>1、重启 PulseAudio 服务：</h2><p>在终端中运行以下命令以重启 PulseAudio 服务：（本人尝试这个方法后成功切换）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pulseaudio -k</span><br></pre></td></tr></table></figure>
+<p>如果系统中确实安装了 <code>ImageMagick</code>，你将看到类似如下的输出：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ii  imagemagick-6-common                        8:6.9.10.23+dfsg-2.1ubuntu11.10       all          image manipulation programs -- infrastructure</span><br><span class="line">ii  imagemagick-6.q16                           8:6.9.10.23+dfsg-2.1ubuntu11.10       amd64        image manipulation programs -- quantum depth Q16</span><br><span class="line">ii  libmagick++-6.q16-8:amd64                   8:6.9.10.23+dfsg-2.1ubuntu11.10       amd64        C++ interface to ImageMagick -- quantum depth Q16</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>然后，重启电脑，看看是否有声音输出（重启电脑这一步我没有操作，可自行看是否需要重启电脑）</li>
-</ul>
-<h2 id="2、检查默认音频设备："><a href="#2、检查默认音频设备：" class="headerlink" title="2、检查默认音频设备："></a>2、检查默认音频设备：</h2><p>打开终端，运行以下命令以查看默认音频设备：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">aplay -l</span><br></pre></td></tr></table></figure>
+<h2 id="步骤-2：卸载-ImageMagick-相关包"><a href="#步骤-2：卸载-ImageMagick-相关包" class="headerlink" title="步骤 2：卸载 ImageMagick 相关包"></a>步骤 2：卸载 <code>ImageMagick</code> 相关包</h2><p>接下来，使用 <code>apt-get purge</code> 命令卸载上述软件包：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get purge imagemagick-6-common imagemagick-6.q16 libmagick++-6.q16-8</span><br></pre></td></tr></table></figure>
 
-<p>然后，编辑 PulseAudio 配置文件，运行以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/pulse/default.pa</span><br></pre></td></tr></table></figure>
+<p>该命令将彻底删除这些包及其相关配置文件。</p>
+<h2 id="步骤-3：清理无用的依赖和残留文件"><a href="#步骤-3：清理无用的依赖和残留文件" class="headerlink" title="步骤 3：清理无用的依赖和残留文件"></a>步骤 3：清理无用的依赖和残留文件</h2><p>卸载软件包后，运行以下命令清理不再需要的依赖和残留文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt autoremove --purge</span><br></pre></td></tr></table></figure>
 
-<p>找到以下行并取消注释（删除行前的“#”符号）：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">load-module module-alsa-sink device=&lt;默认音频设备&gt;</span><br></pre></td></tr></table></figure>
+<p>此命令会自动删除那些与 <code>ImageMagick</code> 相关的、已不再需要的依赖包。</p>
+<h2 id="步骤-4：更新系统的应用菜单"><a href="#步骤-4：更新系统的应用菜单" class="headerlink" title="步骤 4：更新系统的应用菜单"></a>步骤 4：更新系统的应用菜单</h2><p>为了确保卸载后的应用不再显示在应用程序栏中，可以更新系统的应用菜单：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> update-desktop-database</span><br></pre></td></tr></table></figure>
 
-<p>将 <code>&lt;默认音频设备&gt;</code> 替换为 <code>aplay -l</code> 命令中显示的默认音频设备的标识符。保存文件并重启电脑。</p>
-<h2 id="3、安装和配置-ALSA-驱动程序："><a href="#3、安装和配置-ALSA-驱动程序：" class="headerlink" title="3、安装和配置 ALSA 驱动程序："></a>3、安装和配置 ALSA 驱动程序：</h2><p>打开终端，运行以下命令以安装 ALSA 驱动程序：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install alsa-utils</span><br></pre></td></tr></table></figure>
+<h2 id="步骤-5：重启系统"><a href="#步骤-5：重启系统" class="headerlink" title="步骤 5：重启系统"></a>步骤 5：重启系统</h2><p>最后，建议重启系统以确保所有更改生效：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> reboot</span><br></pre></td></tr></table></figure>
 
-<p>然后，运行以下命令以配置 ALSA 驱动程序：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo alsa force-reload</span><br></pre></td></tr></table></figure>
-
-<p>重启电脑后，看看是否有声音输出。</p>
-<p>如果上述方法仍然无法解决问题，可能需要更深入的故障排除或考虑使用其他音频设备。</p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">https://www.yisu.com/ask/26427066.html</span><br></pre></td></tr></table></figure>]]></content>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过以上步骤，你可以从 Ubuntu 系统中成功卸载 <code>ImageMagick</code> 及其相关的所有组件，同时清理系统中的多余依赖和配置文件。这些步骤可以帮助你更好地管理系统中不再需要的应用程序，释放系统空间。</p>
+]]></content>
       <categories>
         <category>技能学习</category>
       </categories>
       <tags>
         <tag>学习</tag>
         <tag>Ubuntu</tag>
-        <tag>音频切换</tag>
+        <tag>卸载应用</tag>
       </tags>
   </entry>
   <entry>
@@ -673,6 +627,52 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
         <tag>学习</tag>
         <tag>Blogs</tag>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【技能学习】Ubuntu音频切换失败解决方案</title>
+    <url>/2025/01/13/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu%E9%9F%B3%E9%A2%91%E5%88%87%E6%8D%A2%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<p>如果Ubuntu没有声音输出，可以尝试以下几种解决方法：</p>
+<ol>
+<li>检查音量设置：确保音量没有被静音或调到最低。点击系统菜单栏上的音量图标，调整音量设置。</li>
+<li>检查音频设备连接：确保音频设备（例如扬声器、耳机等）已正确连接到计算机，并且没有松动或断开。</li>
+<li>检查音频输出设备设置：点击系统菜单栏上的音量图标，选择“Sound Settings”（声音设置），在“Output”（输出）选项卡中，确保选择了正确的音频输出设备。</li>
+<li>更新驱动程序：打开终端，运行以下命令更新系统的软件包和驱动程序：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
+
+<h2 id="1、重启-PulseAudio-服务："><a href="#1、重启-PulseAudio-服务：" class="headerlink" title="1、重启 PulseAudio 服务："></a>1、重启 PulseAudio 服务：</h2><p>在终端中运行以下命令以重启 PulseAudio 服务：（本人尝试这个方法后成功切换）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pulseaudio -k</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>然后，重启电脑，看看是否有声音输出（重启电脑这一步我没有操作，可自行看是否需要重启电脑）</li>
+</ul>
+<h2 id="2、检查默认音频设备："><a href="#2、检查默认音频设备：" class="headerlink" title="2、检查默认音频设备："></a>2、检查默认音频设备：</h2><p>打开终端，运行以下命令以查看默认音频设备：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">aplay -l</span><br></pre></td></tr></table></figure>
+
+<p>然后，编辑 PulseAudio 配置文件，运行以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/pulse/default.pa</span><br></pre></td></tr></table></figure>
+
+<p>找到以下行并取消注释（删除行前的“#”符号）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">load-module module-alsa-sink device=&lt;默认音频设备&gt;</span><br></pre></td></tr></table></figure>
+
+<p>将 <code>&lt;默认音频设备&gt;</code> 替换为 <code>aplay -l</code> 命令中显示的默认音频设备的标识符。保存文件并重启电脑。</p>
+<h2 id="3、安装和配置-ALSA-驱动程序："><a href="#3、安装和配置-ALSA-驱动程序：" class="headerlink" title="3、安装和配置 ALSA 驱动程序："></a>3、安装和配置 ALSA 驱动程序：</h2><p>打开终端，运行以下命令以安装 ALSA 驱动程序：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install alsa-utils</span><br></pre></td></tr></table></figure>
+
+<p>然后，运行以下命令以配置 ALSA 驱动程序：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo alsa force-reload</span><br></pre></td></tr></table></figure>
+
+<p>重启电脑后，看看是否有声音输出。</p>
+<p>如果上述方法仍然无法解决问题，可能需要更深入的故障排除或考虑使用其他音频设备。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">https://www.yisu.com/ask/26427066.html</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技能学习</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+        <tag>音频切换</tag>
       </tags>
   </entry>
   <entry>
