@@ -174,6 +174,193 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2025/02/25/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu20.04%E5%AE%89%E8%A3%85ORB_SLAM2%E7%9A%84ROS%E7%89%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhao Yuan Hang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/02/25/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu20.04%E5%AE%89%E8%A3%85ORB_SLAM2%E7%9A%84ROS%E7%89%88/" class="post-title-link" itemprop="url">【安装学习】Ubuntu20.04安装ORB_SLAM2的ROS版</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-02-25 00:00:00 / 修改时间：14:54:31" itemprop="dateCreated datePublished" datetime="2025-02-25T00:00:00+08:00">2025-02-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">安装学习</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Ubuntu-20-04完整安装ORB-SLAM2及配置对应ROS"><a href="#Ubuntu-20-04完整安装ORB-SLAM2及配置对应ROS" class="headerlink" title="Ubuntu 20.04完整安装ORB_SLAM2及配置对应ROS"></a>Ubuntu 20.04完整安装ORB_SLAM2及配置对应ROS</h2><h3 id="0、创建包路径"><a href="#0、创建包路径" class="headerlink" title="0、创建包路径"></a>0、创建包路径</h3><ul>
+<li>强烈建议，先在终端创建路径<code>Packages</code>，然后在这个文件夹下进行后续的1、2、3、这三个包的安装</li>
+</ul>
+<h3 id="1、安装Opencv4-2-0"><a href="#1、安装Opencv4-2-0" class="headerlink" title="1、安装Opencv4.2.0"></a>1、安装Opencv4.2.0</h3><ul>
+<li><p>下载压缩包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/opencv/opencv/archive/4.2.0.zip</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用<code>unzip -x opencv4.2.0.zip </code>解压，进入文件夹后依次运行如下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 依赖库安装</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install build-essential cmake git </span><br><span class="line"><span class="built_in">sudo</span> apt-get install libgtk2.0-dev pkg-config libavcodec-dev</span><br><span class="line"><span class="built_in">sudo</span> apt-get install libavformat-dev libswscale-dev</span><br><span class="line"><span class="built_in">sudo</span> apt-get install python-dev python-numpy python3-dev python3-numpy</span><br><span class="line"><span class="built_in">sudo</span> apt-get install libtbb2 libtbb-dev libjasper-dev libdc1394-22-dev</span><br><span class="line"><span class="built_in">sudo</span> apt-get install libjpeg-dev libpng-dev libtiff-dev</span><br><span class="line"><span class="comment"># 正式安装</span></span><br><span class="line"><span class="built_in">mkdir</span> build &amp;&amp; <span class="built_in">cd</span> build </span><br><span class="line">cmake -D CMAKE_INSTALL_PREFIX=/usr/local/opencv4 -D CMAKE_BUILD_TYPE=<span class="string">&quot;Release&quot;</span> -D OPENCV_GENERATE_PKGCONFIG=ON ..</span><br><span class="line">make -j4</span><br><span class="line"><span class="built_in">sudo</span> make install</span><br><span class="line"><span class="comment"># 检查安装</span></span><br><span class="line"><span class="built_in">sudo</span> gedit /etc/ld.so.conf.d/opencv.conf</span><br><span class="line"><span class="comment"># 进入编辑页面后输入</span></span><br><span class="line">/usr/local/opencv4/lib</span><br><span class="line"><span class="comment"># 然后ctrl+s保存，关闭gedit页面后还在这个终端下运行</span></span><br><span class="line"><span class="built_in">sudo</span> ldconfig</span><br><span class="line"><span class="comment"># 编辑bashrc文件，运行</span></span><br><span class="line"><span class="built_in">sudo</span> gedit ~/.bashrc</span><br><span class="line"><span class="comment"># 在文件最后添加</span></span><br><span class="line"><span class="comment">#opencv-4.2.0</span></span><br><span class="line"><span class="built_in">export</span> PKG_CONFIG_PATH=<span class="variable">$&#123;PKG_CONFIG_PATH&#125;</span>:/usr/local/opencv4/lib/pkgconfig</span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=<span class="variable">$&#123;LD_LIBRARY_PATH&#125;</span>:./usr/local/opencv4/lib</span><br><span class="line"><span class="comment"># 然后ctrl+s保存，关闭gedit页面后还在这个终端下运行</span></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br><span class="line"><span class="comment"># 最终检查，依次运行下列命令</span></span><br><span class="line">pkg-config --modversion opencv4</span><br><span class="line">pkg-config --cflags opencv4</span><br><span class="line">pkg-config --libs   opencv4</span><br><span class="line"><span class="comment"># 均有正常输出即可，其中第一个命令输出为4.2.0</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2、安装依赖Pangolin"><a href="#2、安装依赖Pangolin" class="headerlink" title="2、安装依赖Pangolin"></a>2、安装依赖Pangolin</h3><ul>
+<li><p>安装依赖项</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install libglew-dev libboost-dev libboost-thread-dev libboost-filesystem-dev</span><br><span class="line"><span class="built_in">sudo</span> apt-get install ffmpeg libavcodec-dev libavutil-dev libavformat-dev libswscale-dev libpng-dev</span><br></pre></td></tr></table></figure>
+
+<p>安装Pangolin 0.6(稳定版)（<a target="_blank" rel="noopener" href="https://github.com/stevenlovegrove/Pangolin/archive/refs/tags/v0.6.zip">官网下载地址</a>)，不要下载最新master版，编译的时候可能有错误）</p>
+</li>
+<li><p>配置并编译</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> Pangolin </span><br><span class="line"><span class="built_in">mkdir</span> build &amp;&amp; <span class="built_in">cd</span> build</span><br><span class="line">cmake -DCPP11_NO_BOOST=1 ..</span><br><span class="line">make</span><br><span class="line"><span class="built_in">sudo</span> make install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../examples/HelloPangolin</span><br><span class="line"><span class="built_in">mkdir</span> build &amp;&amp; <span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br><span class="line">make</span><br><span class="line">./HelloPangolin</span><br></pre></td></tr></table></figure>
+
+<p>成功后会弹出一个终端，里面是一个立方体有三色，关闭即可。</p>
+</li>
+</ul>
+<h3 id="3、安装依赖Eigen3"><a href="#3、安装依赖Eigen3" class="headerlink" title="3、安装依赖Eigen3"></a>3、安装依赖Eigen3</h3><ul>
+<li><p>方案一：直接安装</p>
+<p>Eigen3是一个纯头文件的库，这个特点让使用者省去了很多安装和环境配置的麻烦，可以直接安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install libeigen3-dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方案二：源码安装</p>
+<p>源码（<a target="_blank" rel="noopener" href="https://github.com/eigenteam/eigen-git-mirror">地址</a>）安装，执行以下指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> eigen3</span><br><span class="line"><span class="built_in">mkdir</span> build &amp;&amp; <span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br><span class="line">make</span><br><span class="line"><span class="built_in">sudo</span> make install</span><br></pre></td></tr></table></figure>
+
+<p>安装后头文件在：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/include/eigen3/</span><br></pre></td></tr></table></figure>
+
+<p>复制头文件到<code>/usr/local/include</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> -r /usr/local/include/eigen3/Eigen /usr/local/include</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="4、安装ORB-SLAM2"><a href="#4、安装ORB-SLAM2" class="headerlink" title="4、安装ORB_SLAM2"></a>4、安装ORB_SLAM2</h3><ul>
+<li><p>使用鱼香ROS的一键配置命令，配置<code>rosdepc</code>，终端执行下列命令，然后输入密码，选择rosdepc，然后配置好了之后会提示让rosdep init之类的命令，执行命令就好了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://fishros.com/install -O fishros &amp;&amp; . fishros</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入到自己的ROS工作空间的<code>src</code>文件夹下，下载并解压<a target="_blank" rel="noopener" href="https://github.com/raulmur/ORB_SLAM2">源文件</a>，然后打开，此处我的工作空间地址为：<code>/home/zhao/WS/Now/ant_ws/src/ORB_SLAM2</code></p>
+</li>
+<li><p>修改各个CMakeLists.txt，将其中关于OpenCV的部分做如下修改：</p>
+<p>1、主目录ORB_SLAM2下的CMakeLists.txt</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注释掉下面这7行，类似的也是把涉及到的部分注释调</span></span><br><span class="line"><span class="comment"># find_package(OpenCV 3.0 QUIET)</span></span><br><span class="line"><span class="comment"># if(NOT OpenCV_FOUND)</span></span><br><span class="line"><span class="comment">#    find_package(OpenCV 2.4.3 QUIET)</span></span><br><span class="line"><span class="comment">#    if(NOT OpenCV_FOUND)</span></span><br><span class="line"><span class="comment">#       message(FATAL_ERROR &quot;OpenCV &gt; 2.4.3 not found.&quot;)</span></span><br><span class="line"><span class="comment">#    endif()</span></span><br><span class="line"><span class="comment"># endif()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后添加这两行</span></span><br><span class="line"><span class="built_in">set</span>(CMAKE_PREFIX_PATH <span class="string">&quot;/usr/local/opencv4&quot;</span>) </span><br><span class="line">find_package(OpenCV 4.0 QUIET)</span><br></pre></td></tr></table></figure>
+
+<p>2、<code>ORB_SLAM2/Thirdparty/DBoW2</code>文件夹下的CMakeLists.txt</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># find_package(OpenCV 3.0 QUIET)</span></span><br><span class="line"><span class="comment"># if(NOT OpenCV_FOUND)</span></span><br><span class="line"><span class="comment">#    find_package(OpenCV 2.4.3 QUIET)</span></span><br><span class="line"><span class="comment">#    if(NOT OpenCV_FOUND)</span></span><br><span class="line"><span class="comment">#       message(FATAL_ERROR &quot;OpenCV &gt; 2.4.3 not found.&quot;)</span></span><br><span class="line"><span class="comment">#    endif()</span></span><br><span class="line"><span class="comment"># endif()</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span>(CMAKE_PREFIX_PATH <span class="string">&quot;/usr/local/opencv4&quot;</span>) </span><br><span class="line">find_package(OpenCV 4.0 QUIET)</span><br></pre></td></tr></table></figure>
+
+<p>3、<code>ORB_SLAM2/Examples/ROS/ORB_SLAM2</code>文件夹下的CMakeLists.txt</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># find_package(OpenCV 3.0 QUIET)</span></span><br><span class="line"><span class="comment"># if(NOT OpenCV_FOUND)</span></span><br><span class="line"><span class="comment">#    find_package(OpenCV 2.4.3 QUIET)</span></span><br><span class="line"><span class="comment">#    if(NOT OpenCV_FOUND)</span></span><br><span class="line"><span class="comment">#      message(FATAL_ERROR &quot;OpenCV &gt; 2.4.3 not found.&quot;)</span></span><br><span class="line"><span class="comment">#    endif()</span></span><br><span class="line"><span class="comment"># endif()</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span>(CMAKE_PREFIX_PATH <span class="string">&quot;/usr/local/opencv4&quot;</span>) </span><br><span class="line">find_package(OpenCV 4.0 QUIET)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改ros示例源文件，为<code>Examples/ROS/ORB_SLAM2/src</code>路径下的所有.cc文件添加头文件</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将<code>ORB_SLAM2/Examples/</code>文件夹下的所有示例源文件中导入图像数据的参数 <code>CV_LOAD_IMAGE_UNCHANGED</code> 修改为下列表述，建议在这个文件夹下使用<code>code . </code>命令开启vscode，使用侧边栏的搜索，然后全局替换(应该是6个)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv::IMREAD_UNCHANGED</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把ORB-SLAM2源码目录中<code>include/LoopClosing.h</code>文件中的</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> map&lt;KeyFrame*,g2o::Sim3,std::less&lt;KeyFrame*&gt;,</span><br><span class="line">        Eigen::aligned_allocator&lt;std::pair&lt;<span class="type">const</span> KeyFrame*, g2o::Sim3&gt; &gt; &gt; KeyFrameAndPose;</span><br></pre></td></tr></table></figure>
+
+<p>修改成：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> map&lt;KeyFrame*,g2o::Sim3,std::less&lt;KeyFrame*&gt;,</span><br><span class="line">        Eigen::aligned_allocator&lt;std::pair&lt;KeyFrame *<span class="type">const</span>, g2o::Sim3&gt; &gt; &gt; KeyFrameAndPose;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解压<a target="_blank" rel="noopener" href="https://github.com/raulmur/ORB_SLAM2">源文件</a>，在该文件夹下打开终端：</p>
+<p>这里建议使用记事本打开build.sh，然后逐个命令执行，方便检查错误，且注意！每次运行到最后的make命令如果失败了，在修复了之后需要依次删除对应的build文件夹，重新创建并编译！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ORB_SLAM2</span><br><span class="line"><span class="built_in">chmod</span> +x build.sh</span><br><span class="line">./build.sh</span><br></pre></td></tr></table></figure>
+
+<p>如果在运行时出现问题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error: ’usleep’ was not declared <span class="keyword">in</span> this scope</span><br></pre></td></tr></table></figure>
+
+<p>那么找到对应的<code>.cc</code>文件，在其开头的<code>#include</code>部分添加内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;unistd.h&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后，需要对照着<code>build.sh</code>中的内容，将涉及到的所有<code>build</code>文件夹全部删除并重新开始！</p>
+</li>
+<li><p>在终端添加ROS路径，执行以下两行命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export ROS_PACKAGE_PATH=$&#123;ROS_PACKAGE_PATH&#125;:&#x27;</span><span class="string">&quot;`pwd`/Examples/ROS&quot;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译ros节点，此时便不再会出现问题了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./build_ros.sh</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="5、Reference"><a href="#5、Reference" class="headerlink" title="5、Reference"></a>5、Reference</h3><ul>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zardforever123/article/details/125044004/">https://blog.csdn.net/zardforever123/article/details/125044004/</a></p>
+<ul>
+<li>这个超级全面，而且包含了测试部分的<code>rosbag</code>内容，就是有点混乱，如果你的初衷就是在ROS中实现运行，建议按照我的流程走，然后有问题再参考这个链接的内容！在此感谢此大佬，解救我于水火中！</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_49164258/article/details/129375322">https://blog.csdn.net/qq_49164258/article/details/129375322</a></p>
+<ul>
+<li>这个里面也包含了<code>rosbag</code>数据集，在验证数据集部分比较详细</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43693946/article/details/127538660">https://blog.csdn.net/weixin_43693946/article/details/127538660</a></p>
+<ul>
+<li><p>此中提到一个python默认是2的问题，应修改为默认的<code>python 3.8.10</code>，可以参照评论区的建议，执行命令后，重新运行<code>./build_ros.sh</code>即可，注意重新运行时建议先阅读此<code>sh</code>脚本内容，将对应的<code>build</code>文件夹先删除再运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install python-is-python3</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Robot_Starscream/article/details/89435642">https://blog.csdn.net/Robot_Starscream/article/details/89435642</a></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2025/02/24/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91%E8%BF%81%E7%A7%BBBlogs%E5%88%B0%E5%85%B6%E4%BB%96Ubuntu%E7%B3%BB%E7%BB%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1159,116 +1346,6 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEAMD%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Zhao Yuan Hang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEAMD%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/" class="post-title-link" itemprop="url">【安装学习】ubuntu环境配置AMD显卡驱动</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2024-12-23 00:00:00 / 修改时间：16:09:36" itemprop="dateCreated datePublished" datetime="2024-12-23T00:00:00+08:00">2024-12-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">安装学习</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="ubuntu环境配置AMD显卡驱动"><a href="#ubuntu环境配置AMD显卡驱动" class="headerlink" title="ubuntu环境配置AMD显卡驱动"></a>ubuntu环境配置AMD显卡驱动</h1><p>本人买的AMD显卡，最近要在ubuntu环境做python深度学习，所以必须折腾一番，结果发现还不复杂。本人的系统是Ubuntu 20.04.6，显卡是RX6600，亲测有效。</p>
-<ul>
-<li><p>针对GEM12 MAX 板载的显卡680M，应当选择6.1版本的.deb文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://repo.radeon.com/amdgpu-install/6.1/ubuntu/focal/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>对应的pytorch安装命令，应当修改为：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/rocm6.1</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="0-如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始："><a href="#0-如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始：" class="headerlink" title="(0) 如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始："></a>(0) 如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始：</h4><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~$ sudo amdgpu-install <span class="comment">--uninstall</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="1-在AMD官网下载需要的驱动包："><a href="#1-在AMD官网下载需要的驱动包：" class="headerlink" title="(1) 在AMD官网下载需要的驱动包："></a>(1) 在AMD官网下载需要的驱动包：</h4><p><a href="https://link.csdn.net/?target=https://www.amd.com/en/support/kb/release-notes/rn-amdgpu-unified-linux-22-20?login=from_csdn">驱动包链接</a><br>得到amdgpu-install_xxx_all.deb（xxx是版本号）</p>
-<h4 id="2-cd到驱动包路径下，安装驱动包："><a href="#2-cd到驱动包路径下，安装驱动包：" class="headerlink" title="(2) cd到驱动包路径下，安装驱动包："></a>(2) cd到驱动包路径下，安装驱动包：</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> apt install ./amdgpu-install_xxx_all.deb</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="3-更新软件："><a href="#3-更新软件：" class="headerlink" title="(3) 更新软件："></a>(3) 更新软件：</h4><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~<span class="variable">$ </span>sudo apt update</span><br><span class="line">~<span class="variable">$ </span>sudo apt upgrade -y</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-安装驱动："><a href="#4-安装驱动：" class="headerlink" title="(4) 安装驱动："></a>(4) 安装驱动：</h4><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">~<span class="variable">$ </span>sudo amdgpu-install --no-dkms</span><br><span class="line">~<span class="variable">$ </span>sudo apt install rocm-dev</span><br><span class="line">~<span class="variable">$ </span>sudo reboot</span><br><span class="line"><span class="comment"># 等待重启</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="5-配置环境："><a href="#5-配置环境：" class="headerlink" title="(5)配置环境："></a>(5)配置环境：</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">ls</span> -l /dev/dri/render*</span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> usermod -a -G render <span class="variable">$LOGNAME</span></span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> usermod -a -G video <span class="variable">$LOGNAME</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="variable">$LOGNAME</span>不需要修改</span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> reboot</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">等待重启</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="6-理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证"><a href="#6-理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证" class="headerlink" title="(6) 理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证"></a>(6) 理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证</h4><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~<span class="variable">$ </span>rocm-smi</span><br><span class="line"><span class="comment"># 监控GPU性能</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ <span class="regexp">/opt/</span>rocm<span class="regexp">/bin/</span>rocminfo</span><br><span class="line"><span class="comment"># 可以查询到CPU、GPU信息</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ <span class="regexp">/opt/</span>rocm<span class="regexp">/opencl/</span>bin/clinfo</span><br><span class="line"><span class="comment"># 可以查询到GPU信息</span></span><br></pre></td></tr></table></figure>
-
-<p>若以上三条命令都有正常输出，便是配置成功了</p>
-<h4 id="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："><a href="#（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：" class="headerlink" title="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："></a>（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：</h4><figure class="highlight python-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python3</span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python"><span class="keyword">import</span> torch</span></span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">torch.cuda.is_available()</span></span><br></pre></td></tr></table></figure>
-
-<p>返回True就说明成功啦</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1338,7 +1415,7 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1350,7 +1427,7 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1394,13 +1471,13 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">26k</span>
+    <span title="站点总字数">30k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">23 分钟</span>
+    <span title="站点阅读时长">28 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

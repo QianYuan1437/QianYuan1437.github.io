@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"qianyuan1437.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Ubuntu 20.04完整安装ORB_SLAM2及配置对应ROS0、创建包路径 强烈建议，先在终端创建路径Packages，然后在这个文件夹下进行后续的1、2、3、这三个包的安装  1、安装Opencv4.2.0 下载压缩包 1https:&#x2F;&#x2F;github.com&#x2F;opencv&#x2F;opencv&#x2F;archive&#x2F;4.2.0.zip  使用unzip -x opencv4.2.0.zip 解压，进入文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【安装学习】Ubuntu20.04安装ORB_SLAM2的ROS版">
+<meta property="og:url" content="https://qianyuan1437.github.io/2025/02/25/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu20.04%E5%AE%89%E8%A3%85ORB_SLAM2%E7%9A%84ROS%E7%89%88/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Ubuntu 20.04完整安装ORB_SLAM2及配置对应ROS0、创建包路径 强烈建议，先在终端创建路径Packages，然后在这个文件夹下进行后续的1、2、3、这三个包的安装  1、安装Opencv4.2.0 下载压缩包 1https:&#x2F;&#x2F;github.com&#x2F;opencv&#x2F;opencv&#x2F;archive&#x2F;4.2.0.zip  使用unzip -x opencv4.2.0.zip 解压，进入文">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-02-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-02-25T06:54:31.548Z">
+<meta property="article:author" content="Zhao Yuan Hang">
+<meta property="article:tag" content="安装">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="ORB_SLAM2">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://qianyuan1437.github.io/2025/02/25/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu20.04%E5%AE%89%E8%A3%85ORB_SLAM2%E7%9A%84ROS%E7%89%88/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【安装学习】Ubuntu20.04安装ORB_SLAM2的ROS版 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2025/02/25/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu20.04%E5%AE%89%E8%A3%85ORB_SLAM2%E7%9A%84ROS%E7%89%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhao Yuan Hang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【安装学习】Ubuntu20.04安装ORB_SLAM2的ROS版
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-02-25 00:00:00 / 修改时间：14:54:31" itemprop="dateCreated datePublished" datetime="2025-02-25T00:00:00+08:00">2025-02-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">安装学习</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Ubuntu-20-04完整安装ORB-SLAM2及配置对应ROS"><a href="#Ubuntu-20-04完整安装ORB-SLAM2及配置对应ROS" class="headerlink" title="Ubuntu 20.04完整安装ORB_SLAM2及配置对应ROS"></a>Ubuntu 20.04完整安装ORB_SLAM2及配置对应ROS</h2><h3 id="0、创建包路径"><a href="#0、创建包路径" class="headerlink" title="0、创建包路径"></a>0、创建包路径</h3><ul>
+<li>强烈建议，先在终端创建路径<code>Packages</code>，然后在这个文件夹下进行后续的1、2、3、这三个包的安装</li>
+</ul>
+<h3 id="1、安装Opencv4-2-0"><a href="#1、安装Opencv4-2-0" class="headerlink" title="1、安装Opencv4.2.0"></a>1、安装Opencv4.2.0</h3><ul>
+<li><p>下载压缩包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/opencv/opencv/archive/4.2.0.zip</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用<code>unzip -x opencv4.2.0.zip </code>解压，进入文件夹后依次运行如下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 依赖库安装</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install build-essential cmake git </span><br><span class="line"><span class="built_in">sudo</span> apt-get install libgtk2.0-dev pkg-config libavcodec-dev</span><br><span class="line"><span class="built_in">sudo</span> apt-get install libavformat-dev libswscale-dev</span><br><span class="line"><span class="built_in">sudo</span> apt-get install python-dev python-numpy python3-dev python3-numpy</span><br><span class="line"><span class="built_in">sudo</span> apt-get install libtbb2 libtbb-dev libjasper-dev libdc1394-22-dev</span><br><span class="line"><span class="built_in">sudo</span> apt-get install libjpeg-dev libpng-dev libtiff-dev</span><br><span class="line"><span class="comment"># 正式安装</span></span><br><span class="line"><span class="built_in">mkdir</span> build &amp;&amp; <span class="built_in">cd</span> build </span><br><span class="line">cmake -D CMAKE_INSTALL_PREFIX=/usr/local/opencv4 -D CMAKE_BUILD_TYPE=<span class="string">&quot;Release&quot;</span> -D OPENCV_GENERATE_PKGCONFIG=ON ..</span><br><span class="line">make -j4</span><br><span class="line"><span class="built_in">sudo</span> make install</span><br><span class="line"><span class="comment"># 检查安装</span></span><br><span class="line"><span class="built_in">sudo</span> gedit /etc/ld.so.conf.d/opencv.conf</span><br><span class="line"><span class="comment"># 进入编辑页面后输入</span></span><br><span class="line">/usr/local/opencv4/lib</span><br><span class="line"><span class="comment"># 然后ctrl+s保存，关闭gedit页面后还在这个终端下运行</span></span><br><span class="line"><span class="built_in">sudo</span> ldconfig</span><br><span class="line"><span class="comment"># 编辑bashrc文件，运行</span></span><br><span class="line"><span class="built_in">sudo</span> gedit ~/.bashrc</span><br><span class="line"><span class="comment"># 在文件最后添加</span></span><br><span class="line"><span class="comment">#opencv-4.2.0</span></span><br><span class="line"><span class="built_in">export</span> PKG_CONFIG_PATH=<span class="variable">$&#123;PKG_CONFIG_PATH&#125;</span>:/usr/local/opencv4/lib/pkgconfig</span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=<span class="variable">$&#123;LD_LIBRARY_PATH&#125;</span>:./usr/local/opencv4/lib</span><br><span class="line"><span class="comment"># 然后ctrl+s保存，关闭gedit页面后还在这个终端下运行</span></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br><span class="line"><span class="comment"># 最终检查，依次运行下列命令</span></span><br><span class="line">pkg-config --modversion opencv4</span><br><span class="line">pkg-config --cflags opencv4</span><br><span class="line">pkg-config --libs   opencv4</span><br><span class="line"><span class="comment"># 均有正常输出即可，其中第一个命令输出为4.2.0</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2、安装依赖Pangolin"><a href="#2、安装依赖Pangolin" class="headerlink" title="2、安装依赖Pangolin"></a>2、安装依赖Pangolin</h3><ul>
+<li><p>安装依赖项</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install libglew-dev libboost-dev libboost-thread-dev libboost-filesystem-dev</span><br><span class="line"><span class="built_in">sudo</span> apt-get install ffmpeg libavcodec-dev libavutil-dev libavformat-dev libswscale-dev libpng-dev</span><br></pre></td></tr></table></figure>
+
+<p>安装Pangolin 0.6(稳定版)（<a target="_blank" rel="noopener" href="https://github.com/stevenlovegrove/Pangolin/archive/refs/tags/v0.6.zip">官网下载地址</a>)，不要下载最新master版，编译的时候可能有错误）</p>
+</li>
+<li><p>配置并编译</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> Pangolin </span><br><span class="line"><span class="built_in">mkdir</span> build &amp;&amp; <span class="built_in">cd</span> build</span><br><span class="line">cmake -DCPP11_NO_BOOST=1 ..</span><br><span class="line">make</span><br><span class="line"><span class="built_in">sudo</span> make install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../examples/HelloPangolin</span><br><span class="line"><span class="built_in">mkdir</span> build &amp;&amp; <span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br><span class="line">make</span><br><span class="line">./HelloPangolin</span><br></pre></td></tr></table></figure>
+
+<p>成功后会弹出一个终端，里面是一个立方体有三色，关闭即可。</p>
+</li>
+</ul>
+<h3 id="3、安装依赖Eigen3"><a href="#3、安装依赖Eigen3" class="headerlink" title="3、安装依赖Eigen3"></a>3、安装依赖Eigen3</h3><ul>
+<li><p>方案一：直接安装</p>
+<p>Eigen3是一个纯头文件的库，这个特点让使用者省去了很多安装和环境配置的麻烦，可以直接安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install libeigen3-dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方案二：源码安装</p>
+<p>源码（<a target="_blank" rel="noopener" href="https://github.com/eigenteam/eigen-git-mirror">地址</a>）安装，执行以下指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> eigen3</span><br><span class="line"><span class="built_in">mkdir</span> build &amp;&amp; <span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br><span class="line">make</span><br><span class="line"><span class="built_in">sudo</span> make install</span><br></pre></td></tr></table></figure>
+
+<p>安装后头文件在：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/include/eigen3/</span><br></pre></td></tr></table></figure>
+
+<p>复制头文件到<code>/usr/local/include</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> -r /usr/local/include/eigen3/Eigen /usr/local/include</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="4、安装ORB-SLAM2"><a href="#4、安装ORB-SLAM2" class="headerlink" title="4、安装ORB_SLAM2"></a>4、安装ORB_SLAM2</h3><ul>
+<li><p>使用鱼香ROS的一键配置命令，配置<code>rosdepc</code>，终端执行下列命令，然后输入密码，选择rosdepc，然后配置好了之后会提示让rosdep init之类的命令，执行命令就好了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://fishros.com/install -O fishros &amp;&amp; . fishros</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入到自己的ROS工作空间的<code>src</code>文件夹下，下载并解压<a target="_blank" rel="noopener" href="https://github.com/raulmur/ORB_SLAM2">源文件</a>，然后打开，此处我的工作空间地址为：<code>/home/zhao/WS/Now/ant_ws/src/ORB_SLAM2</code></p>
+</li>
+<li><p>修改各个CMakeLists.txt，将其中关于OpenCV的部分做如下修改：</p>
+<p>1、主目录ORB_SLAM2下的CMakeLists.txt</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注释掉下面这7行，类似的也是把涉及到的部分注释调</span></span><br><span class="line"><span class="comment"># find_package(OpenCV 3.0 QUIET)</span></span><br><span class="line"><span class="comment"># if(NOT OpenCV_FOUND)</span></span><br><span class="line"><span class="comment">#    find_package(OpenCV 2.4.3 QUIET)</span></span><br><span class="line"><span class="comment">#    if(NOT OpenCV_FOUND)</span></span><br><span class="line"><span class="comment">#       message(FATAL_ERROR &quot;OpenCV &gt; 2.4.3 not found.&quot;)</span></span><br><span class="line"><span class="comment">#    endif()</span></span><br><span class="line"><span class="comment"># endif()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后添加这两行</span></span><br><span class="line"><span class="built_in">set</span>(CMAKE_PREFIX_PATH <span class="string">&quot;/usr/local/opencv4&quot;</span>) </span><br><span class="line">find_package(OpenCV 4.0 QUIET)</span><br></pre></td></tr></table></figure>
+
+<p>2、<code>ORB_SLAM2/Thirdparty/DBoW2</code>文件夹下的CMakeLists.txt</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># find_package(OpenCV 3.0 QUIET)</span></span><br><span class="line"><span class="comment"># if(NOT OpenCV_FOUND)</span></span><br><span class="line"><span class="comment">#    find_package(OpenCV 2.4.3 QUIET)</span></span><br><span class="line"><span class="comment">#    if(NOT OpenCV_FOUND)</span></span><br><span class="line"><span class="comment">#       message(FATAL_ERROR &quot;OpenCV &gt; 2.4.3 not found.&quot;)</span></span><br><span class="line"><span class="comment">#    endif()</span></span><br><span class="line"><span class="comment"># endif()</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span>(CMAKE_PREFIX_PATH <span class="string">&quot;/usr/local/opencv4&quot;</span>) </span><br><span class="line">find_package(OpenCV 4.0 QUIET)</span><br></pre></td></tr></table></figure>
+
+<p>3、<code>ORB_SLAM2/Examples/ROS/ORB_SLAM2</code>文件夹下的CMakeLists.txt</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># find_package(OpenCV 3.0 QUIET)</span></span><br><span class="line"><span class="comment"># if(NOT OpenCV_FOUND)</span></span><br><span class="line"><span class="comment">#    find_package(OpenCV 2.4.3 QUIET)</span></span><br><span class="line"><span class="comment">#    if(NOT OpenCV_FOUND)</span></span><br><span class="line"><span class="comment">#      message(FATAL_ERROR &quot;OpenCV &gt; 2.4.3 not found.&quot;)</span></span><br><span class="line"><span class="comment">#    endif()</span></span><br><span class="line"><span class="comment"># endif()</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span>(CMAKE_PREFIX_PATH <span class="string">&quot;/usr/local/opencv4&quot;</span>) </span><br><span class="line">find_package(OpenCV 4.0 QUIET)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改ros示例源文件，为<code>Examples/ROS/ORB_SLAM2/src</code>路径下的所有.cc文件添加头文件</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将<code>ORB_SLAM2/Examples/</code>文件夹下的所有示例源文件中导入图像数据的参数 <code>CV_LOAD_IMAGE_UNCHANGED</code> 修改为下列表述，建议在这个文件夹下使用<code>code . </code>命令开启vscode，使用侧边栏的搜索，然后全局替换(应该是6个)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv::IMREAD_UNCHANGED</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把ORB-SLAM2源码目录中<code>include/LoopClosing.h</code>文件中的</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> map&lt;KeyFrame*,g2o::Sim3,std::less&lt;KeyFrame*&gt;,</span><br><span class="line">        Eigen::aligned_allocator&lt;std::pair&lt;<span class="type">const</span> KeyFrame*, g2o::Sim3&gt; &gt; &gt; KeyFrameAndPose;</span><br></pre></td></tr></table></figure>
+
+<p>修改成：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> map&lt;KeyFrame*,g2o::Sim3,std::less&lt;KeyFrame*&gt;,</span><br><span class="line">        Eigen::aligned_allocator&lt;std::pair&lt;KeyFrame *<span class="type">const</span>, g2o::Sim3&gt; &gt; &gt; KeyFrameAndPose;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解压<a target="_blank" rel="noopener" href="https://github.com/raulmur/ORB_SLAM2">源文件</a>，在该文件夹下打开终端：</p>
+<p>这里建议使用记事本打开build.sh，然后逐个命令执行，方便检查错误，且注意！每次运行到最后的make命令如果失败了，在修复了之后需要依次删除对应的build文件夹，重新创建并编译！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ORB_SLAM2</span><br><span class="line"><span class="built_in">chmod</span> +x build.sh</span><br><span class="line">./build.sh</span><br></pre></td></tr></table></figure>
+
+<p>如果在运行时出现问题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error: ’usleep’ was not declared <span class="keyword">in</span> this scope</span><br></pre></td></tr></table></figure>
+
+<p>那么找到对应的<code>.cc</code>文件，在其开头的<code>#include</code>部分添加内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;unistd.h&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后，需要对照着<code>build.sh</code>中的内容，将涉及到的所有<code>build</code>文件夹全部删除并重新开始！</p>
+</li>
+<li><p>在终端添加ROS路径，执行以下两行命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export ROS_PACKAGE_PATH=$&#123;ROS_PACKAGE_PATH&#125;:&#x27;</span><span class="string">&quot;`pwd`/Examples/ROS&quot;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译ros节点，此时便不再会出现问题了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./build_ros.sh</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="5、Reference"><a href="#5、Reference" class="headerlink" title="5、Reference"></a>5、Reference</h3><ul>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zardforever123/article/details/125044004/">https://blog.csdn.net/zardforever123/article/details/125044004/</a></p>
+<ul>
+<li>这个超级全面，而且包含了测试部分的<code>rosbag</code>内容，就是有点混乱，如果你的初衷就是在ROS中实现运行，建议按照我的流程走，然后有问题再参考这个链接的内容！在此感谢此大佬，解救我于水火中！</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_49164258/article/details/129375322">https://blog.csdn.net/qq_49164258/article/details/129375322</a></p>
+<ul>
+<li>这个里面也包含了<code>rosbag</code>数据集，在验证数据集部分比较详细</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43693946/article/details/127538660">https://blog.csdn.net/weixin_43693946/article/details/127538660</a></p>
+<ul>
+<li><p>此中提到一个python默认是2的问题，应修改为默认的<code>python 3.8.10</code>，可以参照评论区的建议，执行命令后，重新运行<code>./build_ros.sh</code>即可，注意重新运行时建议先阅读此<code>sh</code>脚本内容，将对应的<code>build</code>文件夹先删除再运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install python-is-python3</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Robot_Starscream/article/details/89435642">https://blog.csdn.net/Robot_Starscream/article/details/89435642</a></p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Zhao Yuan Hang
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://qianyuan1437.github.io/2025/02/25/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu20.04%E5%AE%89%E8%A3%85ORB_SLAM2%E7%9A%84ROS%E7%89%88/" title="【安装学习】Ubuntu20.04安装ORB_SLAM2的ROS版">https://qianyuan1437.github.io/2025/02/25/【安装学习】Ubuntu20.04安装ORB_SLAM2的ROS版/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AE%89%E8%A3%85/" rel="tag"># 安装</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+              <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+              <a href="/tags/ORB-SLAM2/" rel="tag"># ORB_SLAM2</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/02/24/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91%E8%BF%81%E7%A7%BBBlogs%E5%88%B0%E5%85%B6%E4%BB%96Ubuntu%E7%B3%BB%E7%BB%9F/" rel="prev" title="【技能学习】迁移Blogs到其他Ubuntu系统.md">
+      <i class="fa fa-chevron-left"></i> 【技能学习】迁移Blogs到其他Ubuntu系统.md
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="utterances-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu-20-04%E5%AE%8C%E6%95%B4%E5%AE%89%E8%A3%85ORB-SLAM2%E5%8F%8A%E9%85%8D%E7%BD%AE%E5%AF%B9%E5%BA%94ROS"><span class="nav-text">Ubuntu 20.04完整安装ORB_SLAM2及配置对应ROS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0%E3%80%81%E5%88%9B%E5%BB%BA%E5%8C%85%E8%B7%AF%E5%BE%84"><span class="nav-text">0、创建包路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%AE%89%E8%A3%85Opencv4-2-0"><span class="nav-text">1、安装Opencv4.2.0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96Pangolin"><span class="nav-text">2、安装依赖Pangolin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96Eigen3"><span class="nav-text">3、安装依赖Eigen3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%AE%89%E8%A3%85ORB-SLAM2"><span class="nav-text">4、安装ORB_SLAM2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81Reference"><span class="nav-text">5、Reference</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Zhao Yuan Hang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhao Yuan Hang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">30k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">28 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+NexT.utils.loadComments(document.querySelector('#utterances-container'), () => {
+    // if (typeof parcelRequire === 'function') { return; }
+    var js = document.createElement('script');
+    js.type = 'text/javascript';
+    js.src = 'https://utteranc.es/client.js';
+    js.async = true;
+    js.crossorigin = 'anonymous';
+    js.setAttribute('repo', 'QianYuan1437/blog-commit');
+    js.setAttribute('issue-term', 'pathname');
+    js.setAttribute('theme', 'github-light');
+    document.getElementById('utterances-container').appendChild(js);
+});
+</script>
+
+</body>
+</html>
