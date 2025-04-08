@@ -20,23 +20,27 @@
     var CONFIG = {"hostname":"qianyuan1437.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1、安装依赖安装 ubuntu-restricted-extras，ubuntu-restricted-extras 包含常用的多媒体编解码器，包括支持 MKV 格式的解码器。 12sudo apt updatesudo apt install ubuntu-restricted-extras  注意！Ubuntu终端显示文本让选择确定，OK等等：首先按下”TAB”键,会看到选中文本”确定”,”O">
+  <meta name="description" content="1、Gitclone对应仓库并编译 从下方链接下载： https:&#x2F;&#x2F;github.com&#x2F;XidianLemon&#x2F;calibration_camera_lidar 下载后到自己项目的src中，然后正常catkin_make编译： 提示遇到错误，运行命令sudo apt install ros-noetic-jsk-recognition-msgs即可 12345Could not find a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【安装学习】设置对.mkv视频的播放支持">
-<meta property="og:url" content="https://qianyuan1437.github.io/2024/12/24/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E8%AE%BE%E7%BD%AE%E5%AF%B9.mkv%E8%A7%86%E9%A2%91%E7%9A%84%E6%92%AD%E6%94%BE%E6%94%AF%E6%8C%81/index.html">
+<meta property="og:title" content="【技能学习】Ubuntu20.04实现LiDAR+CAMERA标定">
+<meta property="og:url" content="https://qianyuan1437.github.io/2025/04/03/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu20.04%E5%AE%9E%E7%8E%B0LiDAR+CAMERA%E6%A0%87%E5%AE%9A/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1、安装依赖安装 ubuntu-restricted-extras，ubuntu-restricted-extras 包含常用的多媒体编解码器，包括支持 MKV 格式的解码器。 12sudo apt updatesudo apt install ubuntu-restricted-extras  注意！Ubuntu终端显示文本让选择确定，OK等等：首先按下”TAB”键,会看到选中文本”确定”,”O">
+<meta property="og:description" content="1、Gitclone对应仓库并编译 从下方链接下载： https:&#x2F;&#x2F;github.com&#x2F;XidianLemon&#x2F;calibration_camera_lidar 下载后到自己项目的src中，然后正常catkin_make编译： 提示遇到错误，运行命令sudo apt install ros-noetic-jsk-recognition-msgs即可 12345Could not find a">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-12-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-12-24T08:07:34.000Z">
+<meta property="og:image" content="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223131442808.png">
+<meta property="og:image" content="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223132115503.png">
+<meta property="og:image" content="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223132432287.png">
+<meta property="og:image" content="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223132635641.png">
+<meta property="article:published_time" content="2025-04-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-03T07:01:47.217Z">
 <meta property="article:author" content="Zhao Yuan Hang">
-<meta property="article:tag" content="安装">
 <meta property="article:tag" content="学习">
-<meta property="article:tag" content="Ubuntu">
-<meta property="article:tag" content="mkv">
+<meta property="article:tag" content="ROS">
+<meta property="article:tag" content="Calibration">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223131442808.png">
 
-<link rel="canonical" href="https://qianyuan1437.github.io/2024/12/24/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E8%AE%BE%E7%BD%AE%E5%AF%B9.mkv%E8%A7%86%E9%A2%91%E7%9A%84%E6%92%AD%E6%94%BE%E6%94%AF%E6%8C%81/">
+<link rel="canonical" href="https://qianyuan1437.github.io/2025/04/03/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu20.04%E5%AE%9E%E7%8E%B0LiDAR+CAMERA%E6%A0%87%E5%AE%9A/">
 
 
 <script id="page-configurations">
@@ -49,7 +53,7 @@
   };
 </script>
 
-  <title>【安装学习】设置对.mkv视频的播放支持 | Hexo</title>
+  <title>【技能学习】Ubuntu20.04实现LiDAR+CAMERA标定 | Hexo</title>
   
 
 
@@ -183,7 +187,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2024/12/24/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E8%AE%BE%E7%BD%AE%E5%AF%B9.mkv%E8%A7%86%E9%A2%91%E7%9A%84%E6%92%AD%E6%94%BE%E6%94%AF%E6%8C%81/">
+    <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2025/04/03/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu20.04%E5%AE%9E%E7%8E%B0LiDAR+CAMERA%E6%A0%87%E5%AE%9A/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -196,7 +200,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【安装学习】设置对.mkv视频的播放支持
+          【技能学习】Ubuntu20.04实现LiDAR+CAMERA标定
         </h1>
 
         <div class="post-meta">
@@ -207,7 +211,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-12-24 00:00:00 / 修改时间：16:07:34" itemprop="dateCreated datePublished" datetime="2024-12-24T00:00:00+08:00">2024-12-24</time>
+              <time title="创建时间：2025-04-03 00:00:00 / 修改时间：15:01:47" itemprop="dateCreated datePublished" datetime="2025-04-03T00:00:00+08:00">2025-04-03</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -215,7 +219,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">安装学习</span></a>
+                  <a href="/categories/%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">技能学习</span></a>
                 </span>
             </span>
 
@@ -232,7 +236,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -251,37 +255,47 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1、安装依赖"><a href="#1、安装依赖" class="headerlink" title="1、安装依赖"></a>1、安装依赖</h2><p>安装 <code>ubuntu-restricted-extras</code>，<code>ubuntu-restricted-extras</code> 包含常用的多媒体编解码器，包括支持 MKV 格式的解码器。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install ubuntu-restricted-extras</span><br></pre></td></tr></table></figure>
-
-<p>注意！Ubuntu终端显示文本让选择确定，OK等等：首先按下”TAB”键,会看到选中文本”确定”,”OK”然后按下回车键,即可!</p>
-<h2 id="2、成功"><a href="#2、成功" class="headerlink" title="2、成功"></a>2、成功</h2><h2 id="3、变速保存"><a href="#3、变速保存" class="headerlink" title="3、变速保存"></a>3、变速保存</h2><p>可以使用 ffmpeg 将视频转换为3倍速播放的 mp4 格式。以下是具体操作步骤</p>
-<p>在终端中执行以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i 2024-12-24_15-32-53.mkv -filter:v &quot;setpts=PTS/3&quot; -an -c:v libx264 -preset fast -crf 23 2024-12-24_15-32-53_3x.mp4</span><br></pre></td></tr></table></figure>
-
-<p>解释</p>
-<ul>
-<li><strong><code>-i 2024-12-24_15-32-53.mkv</code></strong>: 指定输入文件。</li>
-<li><strong><code>-filter:v &quot;setpts=PTS/3&quot;</code></strong>: 使用 <code>setpts</code> 过滤器将视频播放速度调整为原来的3倍速。<code>PTS/3</code> 表示时间戳变为原来的1&#x2F;3。</li>
-<li><strong><code>-an</code></strong>: 删除音频轨道。如果需要加快音频速度，见下方。</li>
-<li><strong><code>-c:v libx264</code></strong>: 使用 H.264 编解码器。</li>
-<li><strong><code>-preset fast</code></strong>: 选择快速编码预设。</li>
-<li><strong><code>-crf 23</code></strong>: 设置视频质量，<code>23</code> 为默认值，数值越小质量越高（如需要更高质量可以调低）。</li>
-<li><strong><code>2024-12-24_15-32-53_3x.mp4</code></strong>: 指定输出文件名。</li>
+        <h2 id="1、Gitclone对应仓库并编译"><a href="#1、Gitclone对应仓库并编译" class="headerlink" title="1、Gitclone对应仓库并编译"></a>1、Gitclone对应仓库并编译</h2><ul>
+<li><p>从下方链接下载：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/XidianLemon/calibration_camera_lidar">https://github.com/XidianLemon/calibration_camera_lidar</a></p>
+<p>下载后到自己项目的<code>src</code>中，然后正常<code>catkin_make</code>编译：</p>
+<p>提示遇到错误，运行命令<code>sudo apt install ros-noetic-jsk-recognition-msgs</code>即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Could not find a package configuration file provided by</span><br><span class="line">  &quot;jsk_recognition_msgs&quot; with any of the following names:</span><br><span class="line"></span><br><span class="line">    jsk_recognition_msgsConfig.cmake</span><br><span class="line">    jsk_recognition_msgs-config.cmake</span><br></pre></td></tr></table></figure></li>
 </ul>
-<hr>
-<p>如果需要保留并加速音频，音频也需要同步加速，可以使用以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i 2024-12-24_15-32-53.mkv -filter_complex &quot;[0:v]setpts=PTS/3[v];[0:a]atempo=3[a]&quot; -map &quot;[v]&quot; -map &quot;[a]&quot; -c:v libx264 -preset fast -crf 23 2024-12-24_15-32-53_3x.mp4</span><br></pre></td></tr></table></figure>
+<h2 id="2、仿真中进行录制"><a href="#2、仿真中进行录制" class="headerlink" title="2、仿真中进行录制"></a>2、仿真中进行录制</h2><ul>
+<li><p>参考链接博文，下载场景，并自行导入自己的小车模型，然后开启小车的仿真，录制<code>rosbag</code></p>
+<p>模型的下载地址：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://pan.baidu.com/s/1H314s6Hn-bY1qFphinnNrg?pwd=2022</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><strong><code>[0:v]setpts=PTS/3[v]</code></strong>: 设置视频为3倍速。</li>
-<li><strong><code>[0:a]atempo=3[a]</code></strong>: 将音频加速3倍。<code>atempo</code> 最大支持2倍速，可多次链式叠加（例如 6倍速可用 <code>atempo=2,atempo=3</code>）。</li>
+<p>博客的链接地址：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://blog.csdn.net/weixin_43807148/article/details/114241862</span><br></pre></td></tr></table></figure>
+</li>
+<li></li>
 </ul>
-<hr>
-<p>最终文件检查：转码完成后，可以使用以下命令检查输出文件信息：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i 2024-12-24_15-32-53_3x.mp4</span><br></pre></td></tr></table></figure>
+<h2 id="2、阿里云OSS控制台账号获取"><a href="#2、阿里云OSS控制台账号获取" class="headerlink" title="2、阿里云OSS控制台账号获取"></a>2、阿里云OSS控制台账号获取</h2><ul>
+<li><p>参考下方链接操作，获取ID和Key，必须保存一下，仅显示一次！</p>
+<p><a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E9%98%BF%E9%87%8C%E4%BA%91oss">https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E9%98%BF%E9%87%8C%E4%BA%91oss</a></p>
+<p><img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223131442808.png" alt="image-20241223131442808"></p>
+</li>
+<li><p>参考上方链接，配置接下来的OSS-Bucket等信息：</p>
+<img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223132115503.png" alt="image-20241223132115503" style="zoom: 67%;" />
 
-<p>这样可以确认视频和音频是否按预期处理。如果还有其他需求，随时告诉我！ 😊</p>
+<p>确认完成后，返回主界面可以测试一下上传是否成功即可。</p>
+</li>
+</ul>
+<h2 id="3、Typora安装与配置"><a href="#3、Typora安装与配置" class="headerlink" title="3、Typora安装与配置"></a>3、Typora安装与配置</h2><ul>
+<li><p>安装：最后一版免费Typora，感谢鱼香ROS大佬保存！</p>
+<p><a target="_blank" rel="noopener" href="https://fishros.org.cn/forum/topic/23/%E5%AE%89%E8%A3%85typora%E6%9C%80%E5%90%8E%E7%9A%84%E5%85%8D%E8%B4%B9%E7%89%88">https://fishros.org.cn/forum/topic/23/%E5%AE%89%E8%A3%85typora%E6%9C%80%E5%90%8E%E7%9A%84%E5%85%8D%E8%B4%B9%E7%89%88</a></p>
+</li>
+<li><p>打开Typora，点击：文件-偏好设置-图像，如下图所示：</p>
+<p><img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223132432287.png" alt="image-20241223132432287"></p>
+</li>
+<li><p>选择配置如上图所示，上传服务选择Core，然后点击下载（需要网络），下载完成后点击“打开配置文件”，复制上方安装的PicGo中的配置信息，完全粘贴到刚刚打开的配置文件中，保存</p>
+<p><img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223132635641.png" alt="image-20241223132635641"></p>
+</li>
+<li><p>修改后，点击“验证图片上传选项”，测试成功即可！</p>
+</li>
+</ul>
 
     </div>
 
@@ -297,7 +311,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://qianyuan1437.github.io/2024/12/24/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E8%AE%BE%E7%BD%AE%E5%AF%B9.mkv%E8%A7%86%E9%A2%91%E7%9A%84%E6%92%AD%E6%94%BE%E6%94%AF%E6%8C%81/" title="【安装学习】设置对.mkv视频的播放支持">https://qianyuan1437.github.io/2024/12/24/【安装学习】设置对.mkv视频的播放支持/</a>
+    <a href="https://qianyuan1437.github.io/2025/04/03/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu20.04%E5%AE%9E%E7%8E%B0LiDAR+CAMERA%E6%A0%87%E5%AE%9A/" title="【技能学习】Ubuntu20.04实现LiDAR+CAMERA标定">https://qianyuan1437.github.io/2025/04/03/【技能学习】Ubuntu20.04实现LiDAR+CAMERA标定/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -308,10 +322,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%AE%89%E8%A3%85/" rel="tag"># 安装</a>
               <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
-              <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
-              <a href="/tags/mkv/" rel="tag"># mkv</a>
+              <a href="/tags/ROS/" rel="tag"># ROS</a>
+              <a href="/tags/Calibration/" rel="tag"># Calibration</a>
           </div>
 
         
@@ -320,13 +333,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/" rel="prev" title="【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver">
-      <i class="fa fa-chevron-left"></i> 【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver
+    <a href="/2025/02/25/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu20.04%E5%AE%89%E8%A3%85ORB_SLAM2%E7%9A%84ROS%E7%89%88/" rel="prev" title="【安装学习】Ubuntu20.04安装ORB_SLAM2的ROS版">
+      <i class="fa fa-chevron-left"></i> 【安装学习】Ubuntu20.04安装ORB_SLAM2的ROS版
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2024/12/24/%E3%80%90MSFL%E3%80%911%EF%BC%9AA-LOAM%EF%BC%9A%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E6%B5%8B%E8%AF%95/" rel="next" title="【MSFL】1：A-LOAM：从安装到测试">
-      【MSFL】1：A-LOAM：从安装到测试 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -386,7 +396,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="nav-text">1、安装依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E6%88%90%E5%8A%9F"><span class="nav-text">2、成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E5%8F%98%E9%80%9F%E4%BF%9D%E5%AD%98"><span class="nav-text">3、变速保存</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81Gitclone%E5%AF%B9%E5%BA%94%E4%BB%93%E5%BA%93%E5%B9%B6%E7%BC%96%E8%AF%91"><span class="nav-text">1、Gitclone对应仓库并编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E4%BB%BF%E7%9C%9F%E4%B8%AD%E8%BF%9B%E8%A1%8C%E5%BD%95%E5%88%B6"><span class="nav-text">2、仿真中进行录制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E9%98%BF%E9%87%8C%E4%BA%91OSS%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%B4%A6%E5%8F%B7%E8%8E%B7%E5%8F%96"><span class="nav-text">2、阿里云OSS控制台账号获取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81Typora%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="nav-text">3、Typora安装与配置</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
