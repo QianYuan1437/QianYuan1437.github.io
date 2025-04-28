@@ -20,22 +20,22 @@
     var CONFIG = {"hostname":"qianyuan1437.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1、问题描述在 Ubuntu 旧环境下，博客文件夹位于 &#x2F;home&#x2F;zhao&#x2F;Blog，该目录已连接到 GitHub 仓库，并包含 Hexo 相关的配置文件和依赖。希望在 新 Ubuntu 系统 下重建该博客环境，并确保与 GitHub 仓库保持同步。然而，在执行 hexo 相关命令时遇到了一些问题，主要包括：  .gitignore 配置可能导致部分文件未被同步。 npx hexo genera">
+  <meta name="description" content="CMake 3.26 和 GCC 11 安装总结1. 手动从源码安装 CMake 3.26 版本为了安装 CMake 3.26，可以通过以下步骤手动编译安装： 1.1 下载 CMake 源码首先，访问 CMake GitHub releases 页面 或者使用 wget 下载 CMake 3.26 的源码包： 1wget https:&#x2F;&#x2F;github.com&#x2F;Kitware&#x2F;CMake&#x2F;relea">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【技能学习】迁移Blogs到其他Ubuntu系统.md">
-<meta property="og:url" content="https://qianyuan1437.github.io/2025/02/24/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91%E8%BF%81%E7%A7%BBBlogs%E5%88%B0%E5%85%B6%E4%BB%96Ubuntu%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:title" content="【安装学习】安装cmake-3.26">
+<meta property="og:url" content="https://qianyuan1437.github.io/2025/04/28/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85cmake-3.26/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1、问题描述在 Ubuntu 旧环境下，博客文件夹位于 &#x2F;home&#x2F;zhao&#x2F;Blog，该目录已连接到 GitHub 仓库，并包含 Hexo 相关的配置文件和依赖。希望在 新 Ubuntu 系统 下重建该博客环境，并确保与 GitHub 仓库保持同步。然而，在执行 hexo 相关命令时遇到了一些问题，主要包括：  .gitignore 配置可能导致部分文件未被同步。 npx hexo genera">
+<meta property="og:description" content="CMake 3.26 和 GCC 11 安装总结1. 手动从源码安装 CMake 3.26 版本为了安装 CMake 3.26，可以通过以下步骤手动编译安装： 1.1 下载 CMake 源码首先，访问 CMake GitHub releases 页面 或者使用 wget 下载 CMake 3.26 的源码包： 1wget https:&#x2F;&#x2F;github.com&#x2F;Kitware&#x2F;CMake&#x2F;relea">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-02-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-02-24T12:53:10.534Z">
+<meta property="article:published_time" content="2025-04-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-28T06:30:30.684Z">
 <meta property="article:author" content="Zhao Yuan Hang">
+<meta property="article:tag" content="安装">
 <meta property="article:tag" content="学习">
-<meta property="article:tag" content="Blogs">
-<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Ubuntu">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://qianyuan1437.github.io/2025/02/24/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91%E8%BF%81%E7%A7%BBBlogs%E5%88%B0%E5%85%B6%E4%BB%96Ubuntu%E7%B3%BB%E7%BB%9F/">
+<link rel="canonical" href="https://qianyuan1437.github.io/2025/04/28/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85cmake-3.26/">
 
 
 <script id="page-configurations">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>【技能学习】迁移Blogs到其他Ubuntu系统.md | Hexo</title>
+  <title>【安装学习】安装cmake-3.26 | Hexo</title>
   
 
 
@@ -182,7 +182,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2025/02/24/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91%E8%BF%81%E7%A7%BBBlogs%E5%88%B0%E5%85%B6%E4%BB%96Ubuntu%E7%B3%BB%E7%BB%9F/">
+    <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2025/04/28/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85cmake-3.26/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -195,7 +195,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【技能学习】迁移Blogs到其他Ubuntu系统.md
+          【安装学习】安装cmake-3.26
         </h1>
 
         <div class="post-meta">
@@ -206,7 +206,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-02-24 00:00:00 / 修改时间：20:53:10" itemprop="dateCreated datePublished" datetime="2025-02-24T00:00:00+08:00">2025-02-24</time>
+              <time title="创建时间：2025-04-28 00:00:00 / 修改时间：14:30:30" itemprop="dateCreated datePublished" datetime="2025-04-28T00:00:00+08:00">2025-04-28</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -214,7 +214,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">技能学习</span></a>
+                  <a href="/categories/%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">安装学习</span></a>
                 </span>
             </span>
 
@@ -231,7 +231,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -250,52 +250,50 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1、问题描述"><a href="#1、问题描述" class="headerlink" title="1、问题描述"></a>1、问题描述</h2><p>在 Ubuntu 旧环境下，博客文件夹位于 <code>/home/zhao/Blog</code>，该目录已连接到 GitHub 仓库，并包含 Hexo 相关的配置文件和依赖。希望在 <strong>新 Ubuntu 系统</strong> 下重建该博客环境，并确保与 GitHub 仓库保持同步。然而，在执行 <code>hexo</code> 相关命令时遇到了一些问题，主要包括：</p>
-<ol>
-<li><code>.gitignore</code> 配置可能导致部分文件未被同步。</li>
-<li><code>npx hexo generate</code> 报错 <code>TypeError: Object.fromEntries is not a function</code>，怀疑是 <strong>Node.js 版本过旧</strong>。</li>
-<li><code>hexo clean</code> 报错 <code>Command &#39;hexo&#39; not found</code>，怀疑是 <strong>Hexo 未全局安装</strong>。</li>
-</ol>
-<hr>
-<h2 id="2、问题分析与解决方案"><a href="#2、问题分析与解决方案" class="headerlink" title="2、问题分析与解决方案"></a>2、问题分析与解决方案</h2><h3 id="2-1-gitignore-配置检查"><a href="#2-1-gitignore-配置检查" class="headerlink" title="2.1 .gitignore 配置检查"></a><strong>2.1 .gitignore 配置检查</strong></h3><p>在 <code>.gitignore</code> 文件中，以下内容可能影响同步：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">.DS_Store</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Thumbs.db</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">db.json</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">*.<span class="built_in">log</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">node_modules/</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">public/</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">.deploy*/</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">_multiconfig.yml</span></span><br></pre></td></tr></table></figure>
+        <h1 id="CMake-3-26-和-GCC-11-安装总结"><a href="#CMake-3-26-和-GCC-11-安装总结" class="headerlink" title="CMake 3.26 和 GCC 11 安装总结"></a>CMake 3.26 和 GCC 11 安装总结</h1><h2 id="1-手动从源码安装-CMake-3-26-版本"><a href="#1-手动从源码安装-CMake-3-26-版本" class="headerlink" title="1. 手动从源码安装 CMake 3.26 版本"></a>1. 手动从源码安装 CMake 3.26 版本</h2><p>为了安装 CMake 3.26，可以通过以下步骤手动编译安装：</p>
+<h3 id="1-1-下载-CMake-源码"><a href="#1-1-下载-CMake-源码" class="headerlink" title="1.1 下载 CMake 源码"></a>1.1 下载 CMake 源码</h3><p>首先，访问 <a target="_blank" rel="noopener" href="https://github.com/Kitware/CMake/releases">CMake GitHub releases 页面</a> 或者使用 <code>wget</code> 下载 CMake 3.26 的源码包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/Kitware/CMake/releases/download/v3.26.0/cmake-3.26.0.tar.gz</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><code>node_modules/</code> 和 <code>public/</code> 目录可以忽略，因为它们可以通过 <code>npm install</code> 和 <code>hexo generate</code> 重新生成。</li>
-<li><code>db.json</code> 可能包含 Hexo 的数据缓存，忽略它不会影响博客功能。</li>
+<h3 id="1-2-解压源码包"><a href="#1-2-解压源码包" class="headerlink" title="1.2 解压源码包"></a>1.2 解压源码包</h3><p>下载完成后，解压文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf cmake-3.26.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> cmake-3.26.0</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-编译并安装"><a href="#1-3-编译并安装" class="headerlink" title="1.3 编译并安装"></a>1.3 编译并安装</h3><p>运行以下命令来编译并安装 CMake：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./bootstrap</span><br><span class="line">make</span><br><span class="line"><span class="built_in">sudo</span> make install</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这可能需要一些时间来完成编译。</p>
+</blockquote>
+<h3 id="1-4-验证安装"><a href="#1-4-验证安装" class="headerlink" title="1.4 验证安装"></a>1.4 验证安装</h3><p>安装完成后，使用以下命令验证 CMake 是否已成功安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake --version</span><br></pre></td></tr></table></figure>
+
+<p>你应该看到类似以下的输出，表示已安装 CMake 3.26：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake version 3.26.x</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="2-升级到-GCC-11"><a href="#2-升级到-GCC-11" class="headerlink" title="2. 升级到 GCC 11"></a>2. 升级到 GCC 11</h2><h3 id="2-1-安装-GCC-11"><a href="#2-1-安装-GCC-11" class="headerlink" title="2.1 安装 GCC 11"></a>2.1 安装 GCC 11</h3><p>为了在 Ubuntu 中安装 GCC 11，你可以通过 APT 包管理器来进行安装。首先更新 APT 包管理器，并安装 GCC 11：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install gcc-11 g++-11</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-切换默认-GCC-版本"><a href="#2-2-切换默认-GCC-版本" class="headerlink" title="2.2 切换默认 GCC 版本"></a>2.2 切换默认 GCC 版本</h3><p>安装完成后，你可以使用 <code>update-alternatives</code> 工具来选择使用 GCC 11 作为默认编译器。运行以下命令来配置默认的 GCC 和 G++ 版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> update-alternatives --config gcc</span><br></pre></td></tr></table></figure>
+
+<p>在提示选择时，输入对应的数字（例如选择 <code>gcc-11</code>），然后按回车。</p>
+<p>同样，对于 G++，使用以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> update-alternatives --config g++</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-验证-GCC-版本"><a href="#2-3-验证-GCC-版本" class="headerlink" title="2.3 验证 GCC 版本"></a>2.3 验证 GCC 版本</h3><p>安装并切换完成后，使用以下命令检查当前的 GCC 版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc --version</span><br><span class="line">g++ --version</span><br></pre></td></tr></table></figure>
+
+<p>输出应该显示 GCC 和 G++ 版本为 11.x.x。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc (Ubuntu 11.x.x) ...</span><br><span class="line">g++ (Ubuntu 11.x.x) ...</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>通过从源码安装 CMake 3.26 版本，你可以确保获得最新的稳定版本。</li>
+<li>GCC 11 的安装和切换是为了确保支持现代 C++ 特性，如 <code>&lt;ranges&gt;</code> 等。</li>
+<li>在完成这两个工具的安装和配置后，你的开发环境将能够支持更高级的 CMake 和 GCC 功能。</li>
 </ul>
-<p><strong>结论</strong>：<code>.gitignore</code> 并未影响关键文件的同步，因此问题可能出现在 Node.js 版本或 Hexo 安装上。</p>
-<hr>
-<h3 id="2-2-解决-Node-js-版本过旧问题"><a href="#2-2-解决-Node-js-版本过旧问题" class="headerlink" title="2.2 解决 Node.js 版本过旧问题"></a><strong>2.2 解决 Node.js 版本过旧问题</strong></h3><p><strong>错误信息：</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: Object.fromEntries is not a function</span><br></pre></td></tr></table></figure>
-
-<p><strong>原因：</strong> <code>Object.fromEntries</code> 需要 Node.js 12+，而旧版本 Node.js 可能低于 12.0.0。</p>
-<p><strong>解决方案：</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">检查当前 Node.js 版本</span></span><br><span class="line">node -v</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新 Node.js（推荐使用官方 PPA）</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y curl</span><br><span class="line">curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -</span><br><span class="line">sudo apt install -y nodejs</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">确保安装成功</span></span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="2-3-解决-Hexo-未全局安装问题"><a href="#2-3-解决-Hexo-未全局安装问题" class="headerlink" title="2.3 解决 Hexo 未全局安装问题"></a><strong>2.3 解决 Hexo 未全局安装问题</strong></h3><p><strong>错误信息：</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Command &#x27;hexo&#x27; not found</span><br></pre></td></tr></table></figure>
-
-<p><strong>原因：</strong> Hexo 可能只作为 <strong>本地依赖</strong> 存在于 <code>node_modules/</code> 目录中，而没有全局安装。</p>
-<p><strong>解决方案 1（推荐）：使用 <code>npx</code> 运行 Hexo</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npx hexo clean</span><br><span class="line">npx hexo generate</span><br><span class="line">npx hexo server</span><br></pre></td></tr></table></figure>
-
-<p><strong>解决方案 2（可选）：全局安装 Hexo</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">确保安装成功</span></span><br><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="3、完整的博客环境恢复步骤"><a href="#3、完整的博客环境恢复步骤" class="headerlink" title="3、完整的博客环境恢复步骤"></a>3、完整的博客环境恢复步骤</h2><ol>
-<li><strong>安装 Node.js 和 npm</strong>（参考 2.2 章节）。</li>
-<li><strong>进入博客目录</strong> 并安装依赖： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /home/zhao/Blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></li>
-<li><strong>清理缓存并重新生成博客</strong>： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure></li>
-<li><strong>本地访问博客</strong>：<br> 在浏览器中打开 <code>http://localhost:4000</code>，检查博客是否正常显示。</li>
-<li><strong>同步 GitHub 远程仓库（可选）</strong>： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote -v  # 确保远程仓库正确</span><br><span class="line">git pull origin main  # 拉取最新代码</span><br></pre></td></tr></table></figure></li>
-<li><strong>配置DNS解析</strong><br> 添加CNAME文件到仓库中，内容书写个人网站，此处我的为<code>zhaoyuanhangblogs.top</code>，然后进入仓库设置，选择<code>Pages</code>选项，下滑到DNS解析部分，开启强制HTTPS，并在上方添加同样的网站地址，然后Save，就会自动解析</li>
-</ol>
-<hr>
-<h2 id="4、总结"><a href="#4、总结" class="headerlink" title="4、总结"></a>4、总结</h2><p>在新 Ubuntu 系统下迁移 Hexo 博客时，可能会遇到 <strong>Node.js 版本过旧</strong> 和 <strong>Hexo 未全局安装</strong> 的问题。通过升级 Node.js、安装 Hexo 依赖以及正确执行 Hexo 命令，可以成功恢复博客环境并同步 GitHub 仓库。</p>
-<p>至此，Hexo 博客已成功在新系统下恢复并可正常使用！🎉</p>
+<pre><code>
+</code></pre>
 
     </div>
 
@@ -311,7 +309,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://qianyuan1437.github.io/2025/02/24/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91%E8%BF%81%E7%A7%BBBlogs%E5%88%B0%E5%85%B6%E4%BB%96Ubuntu%E7%B3%BB%E7%BB%9F/" title="【技能学习】迁移Blogs到其他Ubuntu系统.md">https://qianyuan1437.github.io/2025/02/24/【技能学习】迁移Blogs到其他Ubuntu系统/</a>
+    <a href="https://qianyuan1437.github.io/2025/04/28/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85cmake-3.26/" title="【安装学习】安装cmake-3.26">https://qianyuan1437.github.io/2025/04/28/【安装学习】安装cmake-3.26/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -322,9 +320,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
+              <a href="/tags/%E5%AE%89%E8%A3%85/" rel="tag"># 安装</a>
               <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
-              <a href="/tags/Blogs/" rel="tag"># Blogs</a>
-              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
           </div>
 
         
@@ -333,13 +331,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2025/01/13/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu%E5%88%A0%E9%99%A4%E5%BA%94%E7%94%A8/" rel="prev" title="【技能学习】Ubuntu删除应用">
-      <i class="fa fa-chevron-left"></i> 【技能学习】Ubuntu删除应用
+    <a href="/2025/04/03/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu20.04%E5%AE%9E%E7%8E%B0LiDAR+CAMERA%E6%A0%87%E5%AE%9A/" rel="prev" title="【技能学习】Ubuntu20.04实现LiDAR+CAMERA标定">
+      <i class="fa fa-chevron-left"></i> 【技能学习】Ubuntu20.04实现LiDAR+CAMERA标定
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2025/02/25/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu20.04%E5%AE%89%E8%A3%85ORB_SLAM2%E7%9A%84ROS%E7%89%88/" rel="next" title="【安装学习】Ubuntu20.04安装ORB_SLAM2的ROS版">
-      【安装学习】Ubuntu20.04安装ORB_SLAM2的ROS版 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -399,7 +394,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-text">1、问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">2、问题分析与解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-gitignore-%E9%85%8D%E7%BD%AE%E6%A3%80%E6%9F%A5"><span class="nav-text">2.1 .gitignore 配置检查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E8%A7%A3%E5%86%B3-Node-js-%E7%89%88%E6%9C%AC%E8%BF%87%E6%97%A7%E9%97%AE%E9%A2%98"><span class="nav-text">2.2 解决 Node.js 版本过旧问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E8%A7%A3%E5%86%B3-Hexo-%E6%9C%AA%E5%85%A8%E5%B1%80%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98"><span class="nav-text">2.3 解决 Hexo 未全局安装问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E5%AE%8C%E6%95%B4%E7%9A%84%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83%E6%81%A2%E5%A4%8D%E6%AD%A5%E9%AA%A4"><span class="nav-text">3、完整的博客环境恢复步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81%E6%80%BB%E7%BB%93"><span class="nav-text">4、总结</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CMake-3-26-%E5%92%8C-GCC-11-%E5%AE%89%E8%A3%85%E6%80%BB%E7%BB%93"><span class="nav-text">CMake 3.26 和 GCC 11 安装总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%89%8B%E5%8A%A8%E4%BB%8E%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85-CMake-3-26-%E7%89%88%E6%9C%AC"><span class="nav-text">1. 手动从源码安装 CMake 3.26 版本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E4%B8%8B%E8%BD%BD-CMake-%E6%BA%90%E7%A0%81"><span class="nav-text">1.1 下载 CMake 源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E8%A7%A3%E5%8E%8B%E6%BA%90%E7%A0%81%E5%8C%85"><span class="nav-text">1.2 解压源码包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E7%BC%96%E8%AF%91%E5%B9%B6%E5%AE%89%E8%A3%85"><span class="nav-text">1.3 编译并安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85"><span class="nav-text">1.4 验证安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%8D%87%E7%BA%A7%E5%88%B0-GCC-11"><span class="nav-text">2. 升级到 GCC 11</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%AE%89%E8%A3%85-GCC-11"><span class="nav-text">2.1 安装 GCC 11</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E5%88%87%E6%8D%A2%E9%BB%98%E8%AE%A4-GCC-%E7%89%88%E6%9C%AC"><span class="nav-text">2.2 切换默认 GCC 版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E9%AA%8C%E8%AF%81-GCC-%E7%89%88%E6%9C%AC"><span class="nav-text">2.3 验证 GCC 版本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
