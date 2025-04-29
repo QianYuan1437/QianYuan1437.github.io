@@ -949,4 +949,36 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
         <tag>Ubuntu</tag>
       </tags>
   </entry>
+  <entry>
+    <title>【安装学习】安装PCL点云处理软件</title>
+    <url>/2024/04/29/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85PCL%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E8%BD%AF%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="1、安装CloudCompare"><a href="#1、安装CloudCompare" class="headerlink" title="1、安装CloudCompare"></a>1、安装CloudCompare</h2><ul>
+<li><p>使用flatpack安装</p>
+</li>
+<li><p><strong>Step 1：</strong> 添加软件仓库<br><code>sudo apt install flatpak</code><br><code>sudo apt install gnome-software-plugin-flatpak</code><br><code>flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo</code></p>
+</li>
+<li><p><strong>Step 2：</strong> 安装软件<br><code>flatpak install flathub org.cloudcompare.CloudCompare</code></p>
+</li>
+<li><p><strong>Step 3：</strong> Configure CMakeLists.txt to use<br><code>set(CMAKE_CXX_FLAGS &quot;-std=c++14&quot;)</code> instead of <code>set(CMAKE_CXX_FLAGS &quot;-std=c++11&quot;)</code></p>
+</li>
+</ul>
+<h2 id="2、安装MeshLab"><a href="#2、安装MeshLab" class="headerlink" title="2、安装MeshLab"></a>2、安装MeshLab</h2><ul>
+<li><p><strong>Step 1：</strong>下载flatpack格式的安装包</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://flathub.org/apps/details/net.meshlab.MeshLab</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Step 2：</strong>终端打开到安装包下载地址，运行安装命令<br><code>flatpak install net.meshlab.MeshLab.flatpakref</code></p>
+</li>
+<li><p><strong>Step3：</strong>记得对Ubuntu20.04的sudo apt install安装说一句Fuck!</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
 </search>

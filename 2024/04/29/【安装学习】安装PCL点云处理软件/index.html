@@ -20,22 +20,22 @@
     var CONFIG = {"hostname":"qianyuan1437.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1、参考12345https:&#x2F;&#x2F;github.com&#x2F;TixiaoShan&#x2F;LIO-SAMhttps:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_41690864&#x2F;article&#x2F;details&#x2F;118711743（标题名：3维SLAM入门 LIO-SAM的安装与运行 ubuntu18.04+ros melodic）  2、操作流程 安装依赖程序，参考issues#206  Step 1： Insta">
+  <meta name="description" content="1、安装CloudCompare 使用flatpack安装  Step 1： 添加软件仓库sudo apt install flatpaksudo apt install gnome-software-plugin-flatpakflatpak remote-add --if-not-exists flathub https:&#x2F;&#x2F;flathub.org&#x2F;repo&#x2F;flathub.flatpakre">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【安装学习】安装ROS包LIO-SAM(noetic)">
-<meta property="og:url" content="https://qianyuan1437.github.io/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85ROS%E5%8C%85LIO-SAM(noetic)/index.html">
+<meta property="og:title" content="【安装学习】安装PCL点云处理软件">
+<meta property="og:url" content="https://qianyuan1437.github.io/2024/04/29/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85PCL%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E8%BD%AF%E4%BB%B6/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1、参考12345https:&#x2F;&#x2F;github.com&#x2F;TixiaoShan&#x2F;LIO-SAMhttps:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_41690864&#x2F;article&#x2F;details&#x2F;118711743（标题名：3维SLAM入门 LIO-SAM的安装与运行 ubuntu18.04+ros melodic）  2、操作流程 安装依赖程序，参考issues#206  Step 1： Insta">
+<meta property="og:description" content="1、安装CloudCompare 使用flatpack安装  Step 1： 添加软件仓库sudo apt install flatpaksudo apt install gnome-software-plugin-flatpakflatpak remote-add --if-not-exists flathub https:&#x2F;&#x2F;flathub.org&#x2F;repo&#x2F;flathub.flatpakre">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-12-22T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-12-23T08:10:16.000Z">
+<meta property="article:published_time" content="2024-04-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-29T15:05:35.442Z">
 <meta property="article:author" content="Zhao Yuan Hang">
 <meta property="article:tag" content="安装">
 <meta property="article:tag" content="学习">
 <meta property="article:tag" content="Ubuntu">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://qianyuan1437.github.io/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85ROS%E5%8C%85LIO-SAM(noetic)/">
+<link rel="canonical" href="https://qianyuan1437.github.io/2024/04/29/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85PCL%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E8%BD%AF%E4%BB%B6/">
 
 
 <script id="page-configurations">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>【安装学习】安装ROS包LIO-SAM(noetic) | Hexo</title>
+  <title>【安装学习】安装PCL点云处理软件 | Hexo</title>
   
 
 
@@ -182,7 +182,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85ROS%E5%8C%85LIO-SAM(noetic)/">
+    <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2024/04/29/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85PCL%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E8%BD%AF%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -195,7 +195,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【安装学习】安装ROS包LIO-SAM(noetic)
+          【安装学习】安装PCL点云处理软件
         </h1>
 
         <div class="post-meta">
@@ -204,10 +204,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-12-23 00:00:00 / 修改时间：16:10:16" itemprop="dateCreated datePublished" datetime="2024-12-23T00:00:00+08:00">2024-12-23</time>
+              <time title="创建时间：2024-04-29 00:00:00" itemprop="dateCreated datePublished" datetime="2024-04-29T00:00:00+08:00">2024-04-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-04-29 23:05:35" itemprop="dateModified" datetime="2025-04-29T23:05:35+08:00">2025-04-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -231,7 +237,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
+              <span>574</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -250,39 +256,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1、参考"><a href="#1、参考" class="headerlink" title="1、参考"></a>1、参考</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/TixiaoShan/LIO-SAM</span><br><span class="line"></span><br><span class="line">https://blog.csdn.net/qq_41690864/article/details/118711743</span><br><span class="line">（标题名：3维SLAM入门 LIO-SAM的安装与运行 ubuntu18.04+ros melodic）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="2、操作流程"><a href="#2、操作流程" class="headerlink" title="2、操作流程"></a>2、操作流程</h2><ul>
-<li><p>安装依赖程序，参考issues#206</p>
+        <h2 id="1、安装CloudCompare"><a href="#1、安装CloudCompare" class="headerlink" title="1、安装CloudCompare"></a>1、安装CloudCompare</h2><ul>
+<li><p>使用flatpack安装</p>
 </li>
-<li><p><strong>Step 1：</strong> Install GTSAM 4.0.3 binary</p>
+<li><p><strong>Step 1：</strong> 添加软件仓库<br><code>sudo apt install flatpak</code><br><code>sudo apt install gnome-software-plugin-flatpak</code><br><code>flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo</code></p>
 </li>
-<li><p><strong>Step 2：</strong> Configure the utility.h to use<br><code>#include &lt;opencv2/opencv.hpp&gt;</code> instead of <code>#include &lt;opencv/cv.h&gt;</code></p>
+<li><p><strong>Step 2：</strong> 安装软件<br><code>flatpak install flathub org.cloudcompare.CloudCompare</code></p>
 </li>
 <li><p><strong>Step 3：</strong> Configure CMakeLists.txt to use<br><code>set(CMAKE_CXX_FLAGS &quot;-std=c++14&quot;)</code> instead of <code>set(CMAKE_CXX_FLAGS &quot;-std=c++11&quot;)</code></p>
 </li>
-<li><p><strong>Step 4：</strong>Move <code>#include &lt;opencv2/opencv.hpp&gt;</code> after the <code>pcl</code> headers</p>
-</li>
-<li><pre><code># 进行Step1的安装
-cd ~/catkin_ws/src
-git clone https://github.com/TixiaoShan/LIO-SAM.git
-# 进行如上Step2~4的修改
-cd ..
-catkin_make
-echo &quot;source ~/你的工作空间/devel/setup.bash&quot; &gt;&gt; ~/.bashrc
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 3、验证操作</span><br><span class="line"></span><br><span class="line">- **Step 1：**下载数据集rosbag文件</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-https://drive.google.com/drive/folders/1gJHwfdHCRdjP7vuT556pv8atqrCJPbUq
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- **Step 2：**运行roslaunch，另开一个窗口播放rosbag</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-roslaunch lio-sam run.launch
-rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- **Step3：**保存pcd建图结果</span><br><span class="line"></span><br><span class="line">  - 首先，需要修改params.yaml中的参数。params.yaml在~/catkin_ws/src/LIO-SAM/config文件夹下。修改该文件中SavePCD：true 和保存地址。</span><br><span class="line"></span><br><span class="line">  - 然后，为了避免保存还没完成，ros就已经关闭了节点，需要设置_TIMEOUT_SIGINT的值。按如下命令打开文件：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-  sudo gedit /opt/ros/melodic/lib/python2.7/dist-packages/roslaunch/nodeprocess.py
-</code></pre>
-<p>  在文件中找到_TIMEOUT_SIGINT，并设置为100秒。这样，在命令窗口中按下Ctrl+C来结束run.launch的运行时，便会自动将pcd文件保存到指定地址。</p>
-</li>
 </ul>
-<h2 id="4、pointcloud-to-laserscan"><a href="#4、pointcloud-to-laserscan" class="headerlink" title="4、pointcloud_to_laserscan"></a>4、pointcloud_to_laserscan</h2><ul>
-<li>注意从github下载的源码要选择luner版本的</li>
+<h2 id="2、安装MeshLab"><a href="#2、安装MeshLab" class="headerlink" title="2、安装MeshLab"></a>2、安装MeshLab</h2><ul>
+<li><p><strong>Step 1：</strong>下载flatpack格式的安装包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://flathub.org/apps/details/net.meshlab.MeshLab</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Step 2：</strong>终端打开到安装包下载地址，运行安装命令<br><code>flatpak install net.meshlab.MeshLab.flatpakref</code></p>
+</li>
+<li><p><strong>Step3：</strong>记得对Ubuntu20.04的sudo apt install安装说一句Fuck!</p>
+</li>
 </ul>
 
     </div>
@@ -299,7 +290,7 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://qianyuan1437.github.io/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85ROS%E5%8C%85LIO-SAM(noetic)/" title="【安装学习】安装ROS包LIO-SAM(noetic)">https://qianyuan1437.github.io/2024/12/23/【安装学习】安装ROS包LIO-SAM(noetic)/</a>
+    <a href="https://qianyuan1437.github.io/2024/04/29/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85PCL%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E8%BD%AF%E4%BB%B6/" title="【安装学习】安装PCL点云处理软件">https://qianyuan1437.github.io/2024/04/29/【安装学习】安装PCL点云处理软件/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -320,13 +311,10 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
 
         
     <div class="post-nav">
+      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2024/12/23/%E3%80%90%E6%80%9D%E8%80%83%E6%9D%82%E8%B0%88%E3%80%91%E8%AE%A1%E5%88%92%E4%B8%89%E4%B8%A4%E4%BA%8B/" rel="prev" title="【思考杂谈】计划三两事">
-      <i class="fa fa-chevron-left"></i> 【思考杂谈】计划三两事
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85OpenSSH%E6%9C%8D%E5%8A%A1/" rel="next" title="【安装学习】安装OpenSSH服务">
-      【安装学习】安装OpenSSH服务 <i class="fa fa-chevron-right"></i>
+    <a href="/2024/12/23/%E3%80%90%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85%E3%80%91%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" rel="next" title="【知识补充】卡尔曼滤波相关问题">
+      【知识补充】卡尔曼滤波相关问题 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -387,7 +375,7 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%8F%82%E8%80%83"><span class="nav-text">1、参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-text">2、操作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81pointcloud-to-laserscan"><span class="nav-text">4、pointcloud_to_laserscan</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%AE%89%E8%A3%85CloudCompare"><span class="nav-text">1、安装CloudCompare</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E5%AE%89%E8%A3%85MeshLab"><span class="nav-text">2、安装MeshLab</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

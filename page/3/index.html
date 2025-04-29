@@ -254,6 +254,112 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2024/04/29/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85PCL%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E8%BD%AF%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhao Yuan Hang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/04/29/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85PCL%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E8%BD%AF%E4%BB%B6/" class="post-title-link" itemprop="url">【安装学习】安装PCL点云处理软件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-04-29 00:00:00" itemprop="dateCreated datePublished" datetime="2024-04-29T00:00:00+08:00">2024-04-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-04-29 23:05:35" itemprop="dateModified" datetime="2025-04-29T23:05:35+08:00">2025-04-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">安装学习</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>574</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1、安装CloudCompare"><a href="#1、安装CloudCompare" class="headerlink" title="1、安装CloudCompare"></a>1、安装CloudCompare</h2><ul>
+<li><p>使用flatpack安装</p>
+</li>
+<li><p><strong>Step 1：</strong> 添加软件仓库<br><code>sudo apt install flatpak</code><br><code>sudo apt install gnome-software-plugin-flatpak</code><br><code>flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo</code></p>
+</li>
+<li><p><strong>Step 2：</strong> 安装软件<br><code>flatpak install flathub org.cloudcompare.CloudCompare</code></p>
+</li>
+<li><p><strong>Step 3：</strong> Configure CMakeLists.txt to use<br><code>set(CMAKE_CXX_FLAGS &quot;-std=c++14&quot;)</code> instead of <code>set(CMAKE_CXX_FLAGS &quot;-std=c++11&quot;)</code></p>
+</li>
+</ul>
+<h2 id="2、安装MeshLab"><a href="#2、安装MeshLab" class="headerlink" title="2、安装MeshLab"></a>2、安装MeshLab</h2><ul>
+<li><p><strong>Step 1：</strong>下载flatpack格式的安装包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://flathub.org/apps/details/net.meshlab.MeshLab</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Step 2：</strong>终端打开到安装包下载地址，运行安装命令<br><code>flatpak install net.meshlab.MeshLab.flatpakref</code></p>
+</li>
+<li><p><strong>Step3：</strong>记得对Ubuntu20.04的sudo apt install安装说一句Fuck!</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -323,7 +429,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
