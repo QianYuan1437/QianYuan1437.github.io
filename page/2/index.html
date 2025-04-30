@@ -174,6 +174,124 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2024/12/24/%E3%80%90MSFL%E3%80%911%EF%BC%9AA-LOAM%EF%BC%9A%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E6%B5%8B%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhao Yuan Hang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/12/24/%E3%80%90MSFL%E3%80%911%EF%BC%9AA-LOAM%EF%BC%9A%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">【MSFL】1：A-LOAM：从安装到测试</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-12-24 00:00:00 / 修改时间：15:09:51" itemprop="dateCreated datePublished" datetime="2024-12-24T00:00:00+08:00">2024-12-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MSFL/" itemprop="url" rel="index"><span itemprop="name">MSFL</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1、安装依赖项"><a href="#1、安装依赖项" class="headerlink" title="1、安装依赖项"></a>1、安装依赖项</h2><ul>
+<li>参考之前的博客：【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</li>
+<li>注意！仅需顺序执行之前博客操作即可，不需要自行再次源码安装诸如eigen3之类的软件包（通过<code>sudo apt-get</code>安装即可）</li>
+</ul>
+<h2 id="2、修改代码内容"><a href="#2、修改代码内容" class="headerlink" title="2、修改代码内容"></a>2、修改代码内容</h2><ul>
+<li>将四个<code>.cpp</code>文件中的<code>/camera_init</code>修改为<code>camera_init</code></li>
+<li>将<code>scanRegistration.cpp中的 #include &lt;opencv/cv.h&gt;</code> 修改为<code>#include &lt;opencv2/imgproc.hpp&gt;</code></li>
+<li>修改<code>kittiHelper.cpp</code>中 <code>CV_LOAD_IMAGE_GRAYSCALE</code>为 <code>cv::IMREAD_GRAYSCALE</code></li>
+<li>无论之前是否已经<code>catkin_make</code>编译过，都需要重新编译，即删除<code>build/</code>和<code>devel/</code>文件夹后重新执行<code>catkin_make</code>以使上方的<code>ceres</code>库生效</li>
+<li>若版本是<code>ubuntu20.04 ros-noetic</code>，也可以使用我修改后的fork仓库：<a target="_blank" rel="noopener" href="https://github.com/QianYuan1437/A-LOAM-NOTED.git">https://github.com/QianYuan1437/A-LOAM-NOTED.git</a> 注意branch</li>
+</ul>
+<h2 id="3、测试与保存"><a href="#3、测试与保存" class="headerlink" title="3、测试与保存"></a>3、测试与保存</h2><ul>
+<li>下载测试<code>ROSBAG</code>：<a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1s05tBQOLNEDDurlg48KiUWxCp-YqYyGH/view">https://drive.google.com/file/d/1s05tBQOLNEDDurlg48KiUWxCp-YqYyGH/view</a></li>
+<li>开启三个终端：注意运行顺序，先1再2最后3<ul>
+<li>1、<code>roscore</code></li>
+<li>2、<code>roslaunch aloam_velodyne aloam_velodyne_VLP_16.launch</code></li>
+<li>3、<code>rosbag play nsh_indoor_outdoor.bag</code></li>
+</ul>
+</li>
+<li>如果需要保存点云信息，则需开启第四个终端<ul>
+<li>4、有以下两种方法，但注意运行顺序为1,2,4,3<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#另起终端用bag_to_pcd方法保存点云图</span><br><span class="line">rosrun pcl_ros bag_to_pcd xxx.bag /laser_cloud_surround pcd</span><br></pre></td></tr></table></figure>
+运行结束，可以看到生成了一个pcd文件夹，将里面的文件按照修改时间排序，最新的就是最后的点云地图pcd文件。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#另起终端，用pointcloud_to_pcd方法保存点云图</span><br><span class="line">mkdir pcd</span><br><span class="line">cd pcd</span><br><span class="line">rosrun pcl_ros pointcloud_to_pcd input:=/laser_cloud_surround</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>点云地图查看：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pcl_viewer xxx.pcd</span><br></pre></td></tr></table></figure>
+pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pcl_pcd2ply xxx.pcd xxxxxxx.ply</span><br></pre></td></tr></table></figure>
+当我们需要用第三方软件（MatLab&#x2F;MeshLab）对点云地图进行处理时就需要将pcd转为ply，其中MeshLab必须使用由pointcloud_to_pcd方法创建pcd转成的ply格式点云！</li>
+</ul>
+<h2 id="4、参考链接"><a href="#4、参考链接" class="headerlink" title="4、参考链接"></a>4、参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/studentu/article/details/119634149">https://blog.csdn.net/studentu/article/details/119634149</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43910370/article/details/120736760">https://blog.csdn.net/weixin_43910370/article/details/120736760</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43807148/article/details/113739347">https://blog.csdn.net/weixin_43807148/article/details/113739347</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44156680/article/details/117705830">https://blog.csdn.net/weixin_44156680/article/details/117705830</a></li>
+</ul>
+<h2 id="5、MSFL测试参考链接"><a href="#5、MSFL测试参考链接" class="headerlink" title="5、MSFL测试参考链接"></a>5、MSFL测试参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53004665/article/details/141674630">https://blog.csdn.net/qq_53004665/article/details/141674630</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2024/12/24/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E8%AE%BE%E7%BD%AE%E5%AF%B9.mkv%E8%A7%86%E9%A2%91%E7%9A%84%E6%92%AD%E6%94%BE%E6%94%AF%E6%8C%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1160,123 +1278,6 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu%E9%85%8D%E7%BD%AEPicgo+Typora/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Zhao Yuan Hang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu%E9%85%8D%E7%BD%AEPicgo+Typora/" class="post-title-link" itemprop="url">【技能学习】Ubuntu配置Picgo+Typora</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2024-12-23 00:00:00 / 修改时间：16:11:14" itemprop="dateCreated datePublished" datetime="2024-12-23T00:00:00+08:00">2024-12-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">技能学习</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>723</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1、AppImage下载与安装"><a href="#1、AppImage下载与安装" class="headerlink" title="1、AppImage下载与安装"></a>1、AppImage下载与安装</h2><ul>
-<li><p>从下方链接下载：</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo/releases/download/v2.4.0-beta.9/PicGo-2.4.0-beta.9.AppImage">https://github.com/Molunerfinn/PicGo/releases/download/v2.4.0-beta.9/PicGo-2.4.0-beta.9.AppImage</a></p>
-<p>下载后右键选择允许以应用程序形式打开：</p>
-<img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223131705271.png" alt="image-20241223131705271" style="zoom:50%;" />
-
-<p>设置完成后，右键点击运行，即可弹出小方块，在方块上右键打开主界面：</p>
-<img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223131812517.png" alt="image-20241223131812517" style="zoom:67%;" />
-
-<p>注意先点击“图片上传-阿里云OSS-Default”，切换到自己的配置项，可在左侧PicGo设置中选择展示哪些图床，我选择阿里云，便宜大碗🤪</p>
-</li>
-</ul>
-<h2 id="2、阿里云OSS控制台账号获取"><a href="#2、阿里云OSS控制台账号获取" class="headerlink" title="2、阿里云OSS控制台账号获取"></a>2、阿里云OSS控制台账号获取</h2><ul>
-<li><p>参考下方链接操作，获取ID和Key，必须保存一下，仅显示一次！</p>
-<p><a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E9%98%BF%E9%87%8C%E4%BA%91oss">https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E9%98%BF%E9%87%8C%E4%BA%91oss</a></p>
-<p><img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223131442808.png" alt="image-20241223131442808"></p>
-</li>
-<li><p>参考上方链接，配置接下来的OSS-Bucket等信息：</p>
-<img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223132115503.png" alt="image-20241223132115503" style="zoom: 67%;" />
-
-<p>确认完成后，返回主界面可以测试一下上传是否成功即可。</p>
-</li>
-</ul>
-<h2 id="3、Typora安装与配置"><a href="#3、Typora安装与配置" class="headerlink" title="3、Typora安装与配置"></a>3、Typora安装与配置</h2><ul>
-<li><p>安装：最后一版免费Typora，感谢鱼香ROS大佬保存！</p>
-<p><a target="_blank" rel="noopener" href="https://fishros.org.cn/forum/topic/23/%E5%AE%89%E8%A3%85typora%E6%9C%80%E5%90%8E%E7%9A%84%E5%85%8D%E8%B4%B9%E7%89%88">https://fishros.org.cn/forum/topic/23/%E5%AE%89%E8%A3%85typora%E6%9C%80%E5%90%8E%E7%9A%84%E5%85%8D%E8%B4%B9%E7%89%88</a></p>
-</li>
-<li><p>打开Typora，点击：文件-偏好设置-图像，如下图所示：</p>
-<p><img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223132432287.png" alt="image-20241223132432287"></p>
-</li>
-<li><p>选择配置如上图所示，上传服务选择Core，然后点击下载（需要网络），下载完成后点击“打开配置文件”，复制上方安装的PicGo中的配置信息，完全粘贴到刚刚打开的配置文件中，保存</p>
-<p><img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223132635641.png" alt="image-20241223132635641"></p>
-</li>
-<li><p>修改后，点击“验证图片上传选项”，测试成功即可！</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1346,7 +1347,7 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1358,7 +1359,7 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1402,13 +1403,13 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">33k</span>
+    <span title="站点总字数">34k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">30 分钟</span>
+    <span title="站点阅读时长">31 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

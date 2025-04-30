@@ -20,15 +20,23 @@
     var CONFIG = {"hostname":"qianyuan1437.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://qianyuan1437.github.io/tags/%E9%9F%B3%E9%A2%91%E5%88%87%E6%8D%A2/index.html">
+  <meta name="description" content="1、前期准备 下载并解压缩KITTI中关于3D物体的数据集  Step 1： 下载数据集wget https:&#x2F;&#x2F;s3.eu-central-1.amazonaws.com&#x2F;avg-kitti&#x2F;data_object_velodyne.zipwget https:&#x2F;&#x2F;s3.eu-central-1.amazonaws.com&#x2F;avg-kitti&#x2F;data_object_label_2.zipwge">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【安装学习】从KITTI数据集中处理-1">
+<meta property="og:url" content="https://qianyuan1437.github.io/2025/04/30/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E4%BB%8EKITTI%E6%95%B0%E6%8D%AE%E9%9B%86%E4%B8%AD%E5%A4%84%E7%90%86-1/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1、前期准备 下载并解压缩KITTI中关于3D物体的数据集  Step 1： 下载数据集wget https:&#x2F;&#x2F;s3.eu-central-1.amazonaws.com&#x2F;avg-kitti&#x2F;data_object_velodyne.zipwget https:&#x2F;&#x2F;s3.eu-central-1.amazonaws.com&#x2F;avg-kitti&#x2F;data_object_label_2.zipwge">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-04-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-30T06:17:09.202Z">
 <meta property="article:author" content="Zhao Yuan Hang">
+<meta property="article:tag" content="安装">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="pytorch">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://qianyuan1437.github.io/tags/%E9%9F%B3%E9%A2%91%E5%88%87%E6%8D%A2/">
+<link rel="canonical" href="https://qianyuan1437.github.io/2025/04/30/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E4%BB%8EKITTI%E6%95%B0%E6%8D%AE%E9%9B%86%E4%B8%AD%E5%A4%84%E7%90%86-1/">
 
 
 <script id="page-configurations">
@@ -36,12 +44,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: 音频切换 | Hexo</title>
+  <title>【安装学习】从KITTI数据集中处理-1 | Hexo</title>
   
 
 
@@ -168,57 +176,154 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">音频切换
-          <small>标签</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2025/04/30/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E4%BB%8EKITTI%E6%95%B0%E6%8D%AE%E9%9B%86%E4%B8%AD%E5%A4%84%E7%90%86-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhao Yuan Hang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【安装学习】从KITTI数据集中处理-1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-04-30 00:00:00 / 修改时间：14:17:09" itemprop="dateCreated datePublished" datetime="2025-04-30T00:00:00+08:00">2025-04-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">安装学习</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>775</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2025</span>
+        <h2 id="1、前期准备"><a href="#1、前期准备" class="headerlink" title="1、前期准备"></a>1、前期准备</h2><ul>
+<li><p>下载并解压缩KITTI中关于3D物体的数据集</p>
+</li>
+<li><p><strong>Step 1：</strong> 下载数据集<br><code>wget https://s3.eu-central-1.amazonaws.com/avg-kitti/data_object_velodyne.zip</code><br><code>wget https://s3.eu-central-1.amazonaws.com/avg-kitti/data_object_label_2.zip</code><br><code>wget https://s3.eu-central-1.amazonaws.com/avg-kitti/data_object_calib.zip</code></p>
+</li>
+<li><p><strong>Step 2：</strong> 解压数据集<br><code>unzip data_object_velodyne.zip -d kitti_dataset</code><br><code>unzip data_object_label_2.zip -d kitti_dataset</code><br><code>unzip data_object_calib.zip -d kitti_dataset</code></p>
+</li>
+</ul>
+<h2 id="2、检查是否已经安装好了训练环境"><a href="#2、检查是否已经安装好了训练环境" class="headerlink" title="2、检查是否已经安装好了训练环境"></a>2、检查是否已经安装好了训练环境</h2><ul>
+<li><p><strong>Step 1：</strong>配置对应conda环境，安装依赖</p>
+<p>这里我使用的是pointnet++的pytorch版本，参考了下面的仓库：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/yanx27/Pointnet_Pointnet2_pytorch.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Step 2：</strong>终端打开到虚拟环境，运行命令测试<br><code>import torch</code><br>输出空行<br><code>torch.cuda.is_available()</code><br>输出：True<br><code>torch.cuda.device_count()</code><br>输出：1<br><code>torch.cuda.device(0)</code><br>输出：&lt;torch.cuda.device object at 0x7fd95fd1fa90&gt;<br><code>torch.cuda.get_device_name(0)</code><br>输出：’NVIDIA GeForce RTX 4060 Laptop GPU’</p>
+</li>
+<li><p><strong>Step3：</strong>未完待续</p>
+</li>
+</ul>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+        
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2025-01-13T00:00:00+08:00"
-              content="2025-01-13">
-          01-13
-        </time>
-      </div>
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Zhao Yuan Hang
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://qianyuan1437.github.io/2025/04/30/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E4%BB%8EKITTI%E6%95%B0%E6%8D%AE%E9%9B%86%E4%B8%AD%E5%A4%84%E7%90%86-1/" title="【安装学习】从KITTI数据集中处理-1">https://qianyuan1437.github.io/2025/04/30/【安装学习】从KITTI数据集中处理-1/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2025/01/13/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu%E9%9F%B3%E9%A2%91%E5%88%87%E6%8D%A2%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="url">
-            <span itemprop="name">【技能学习】Ubuntu音频切换失败解决方案</span>
-          </a>
-      </div>
 
-    </header>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AE%89%E8%A3%85/" rel="tag"># 安装</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+              <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+              <a href="/tags/pytorch/" rel="tag"># pytorch</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/04/28/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85cmake-3.26/" rel="prev" title="【安装学习】安装cmake-3.26">
+      <i class="fa fa-chevron-left"></i> 【安装学习】安装cmake-3.26
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
 
           </div>
           
+    <div class="comments" id="utterances-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -265,6 +370,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87"><span class="nav-text">1、前期准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E5%B7%B2%E7%BB%8F%E5%AE%89%E8%A3%85%E5%A5%BD%E4%BA%86%E8%AE%AD%E7%BB%83%E7%8E%AF%E5%A2%83"><span class="nav-text">2、检查是否已经安装好了训练环境</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -420,6 +526,20 @@
 
   
 
+<script>
+NexT.utils.loadComments(document.querySelector('#utterances-container'), () => {
+    // if (typeof parcelRequire === 'function') { return; }
+    var js = document.createElement('script');
+    js.type = 'text/javascript';
+    js.src = 'https://utteranc.es/client.js';
+    js.async = true;
+    js.crossorigin = 'anonymous';
+    js.setAttribute('repo', 'QianYuan1437/blog-commit');
+    js.setAttribute('issue-term', 'pathname');
+    js.setAttribute('theme', 'github-light');
+    document.getElementById('utterances-container').appendChild(js);
+});
+</script>
 
 </body>
 </html>

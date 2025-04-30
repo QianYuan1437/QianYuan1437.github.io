@@ -981,4 +981,36 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
         <tag>Ubuntu</tag>
       </tags>
   </entry>
+  <entry>
+    <title>【安装学习】从KITTI数据集中处理-1</title>
+    <url>/2025/04/30/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E4%BB%8EKITTI%E6%95%B0%E6%8D%AE%E9%9B%86%E4%B8%AD%E5%A4%84%E7%90%86-1/</url>
+    <content><![CDATA[<h2 id="1、前期准备"><a href="#1、前期准备" class="headerlink" title="1、前期准备"></a>1、前期准备</h2><ul>
+<li><p>下载并解压缩KITTI中关于3D物体的数据集</p>
+</li>
+<li><p><strong>Step 1：</strong> 下载数据集<br><code>wget https://s3.eu-central-1.amazonaws.com/avg-kitti/data_object_velodyne.zip</code><br><code>wget https://s3.eu-central-1.amazonaws.com/avg-kitti/data_object_label_2.zip</code><br><code>wget https://s3.eu-central-1.amazonaws.com/avg-kitti/data_object_calib.zip</code></p>
+</li>
+<li><p><strong>Step 2：</strong> 解压数据集<br><code>unzip data_object_velodyne.zip -d kitti_dataset</code><br><code>unzip data_object_label_2.zip -d kitti_dataset</code><br><code>unzip data_object_calib.zip -d kitti_dataset</code></p>
+</li>
+</ul>
+<h2 id="2、检查是否已经安装好了训练环境"><a href="#2、检查是否已经安装好了训练环境" class="headerlink" title="2、检查是否已经安装好了训练环境"></a>2、检查是否已经安装好了训练环境</h2><ul>
+<li><p><strong>Step 1：</strong>配置对应conda环境，安装依赖</p>
+<p>这里我使用的是pointnet++的pytorch版本，参考了下面的仓库：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://github.com/yanx27/Pointnet_Pointnet2_pytorch.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Step 2：</strong>终端打开到虚拟环境，运行命令测试<br><code>import torch</code><br>输出空行<br><code>torch.cuda.is_available()</code><br>输出：True<br><code>torch.cuda.device_count()</code><br>输出：1<br><code>torch.cuda.device(0)</code><br>输出：&lt;torch.cuda.device object at 0x7fd95fd1fa90&gt;<br><code>torch.cuda.get_device_name(0)</code><br>输出：’NVIDIA GeForce RTX 4060 Laptop GPU’</p>
+</li>
+<li><p><strong>Step3：</strong>未完待续</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+        <tag>pytorch</tag>
+      </tags>
+  </entry>
 </search>
