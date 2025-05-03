@@ -174,6 +174,93 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2024/12/26/%E3%80%90%E7%B3%BB%E7%BB%9F%E4%BF%AE%E5%A4%8D%E3%80%91Ubuntu20.04%E8%A7%A3%E5%86%B3%E5%85%B3%E6%9C%BA%E6%85%A2%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhao Yuan Hang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/12/26/%E3%80%90%E7%B3%BB%E7%BB%9F%E4%BF%AE%E5%A4%8D%E3%80%91Ubuntu20.04%E8%A7%A3%E5%86%B3%E5%85%B3%E6%9C%BA%E6%85%A2%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">【系统修复】Ubuntu20.04解决关机慢问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-12-26 00:00:00 / 修改时间：08:33:11" itemprop="dateCreated datePublished" datetime="2024-12-26T00:00:00+08:00">2024-12-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%B3%BB%E7%BB%9F%E4%BF%AE%E5%A4%8D/" itemprop="url" rel="index"><span itemprop="name">系统修复</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>187</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1、问题描述："><a href="#1、问题描述：" class="headerlink" title="1、问题描述："></a>1、问题描述：</h2><p>Linux：关机慢等待 90 秒提示 a stop job is running for XXX</p>
+<h2 id="2、解决方法："><a href="#2、解决方法：" class="headerlink" title="2、解决方法："></a>2、解决方法：</h2><ul>
+<li>编辑配置文件：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/systemd/system.conf</span><br></pre></td></tr></table></figure>
+  修改以下两个参数，比如改为 5s  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DefaultTimeoutStartSec=5s</span><br><span class="line">DefaultTimeoutStopSec=5s</span><br></pre></td></tr></table></figure></li>
+<li>重启服务：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2024/12/24/%E3%80%90MSFL%E3%80%911%EF%BC%9AA-LOAM%EF%BC%9A%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E6%B5%8B%E8%AF%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1111,173 +1198,6 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Git%E4%B8%ADClone%E4%BB%93%E5%BA%93%E5%90%8E%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9C%AC%E4%BA%BA%E4%BB%93%E5%BA%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Zhao Yuan Hang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/12/23/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Git%E4%B8%ADClone%E4%BB%93%E5%BA%93%E5%90%8E%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8E%A8%E9%80%81%E6%9C%AC%E4%BA%BA%E4%BB%93%E5%BA%93/" class="post-title-link" itemprop="url">【技能学习】Git中Clone仓库后更新与推送本人仓库</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-12-23 00:00:00" itemprop="dateCreated datePublished" datetime="2024-12-23T00:00:00+08:00">2024-12-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-01-07 13:12:05" itemprop="dateModified" datetime="2025-01-07T13:12:05+08:00">2025-01-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">技能学习</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1、创建fork分支"><a href="#1、创建fork分支" class="headerlink" title="1、创建fork分支"></a>1、创建fork分支</h2><ul>
-<li><p>找到别人的仓库地址，创建fork分支</p>
-<p>以<a target="_blank" rel="noopener" href="https://github.com/HKUST-Aerial-Robotics/A-LOAM.git%E4%B8%BA%E4%BE%8B%EF%BC%8C%E5%88%9B%E5%BB%BA%E5%A6%82%E4%B8%8B%E5%9B%BE%E6%89%80%E7%A4%BAfork%EF%BC%9A">https://github.com/HKUST-Aerial-Robotics/A-LOAM.git为例，创建如下图所示fork：</a><br><img src="https://markdown-zyh.oss-cn-beijing.aliyuncs.com/picgo/image-20241223125247243.png" alt="image-20241223125247243"></p>
-</li>
-<li><p>在个人项目中的src&#x2F;中，下载项目代码并编译（依据个人工作空间环境作出适当修改）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/HKUST-Aerial-Robotics/A-LOAM.git</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="2、替换子模块的远程地址"><a href="#2、替换子模块的远程地址" class="headerlink" title="2、替换子模块的远程地址"></a>2、替换子模块的远程地址</h2><p>在<code>msfl_ws</code>工作空间中，将<code>A-LOAM-NOTED</code>子模块指向你 Fork 的版本。</p>
-<ul>
-<li>进入<code>A-LOAM-NOTED</code>子模块目录</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> src/A-LOAM-NOTED</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>修改远程地址</li>
-</ul>
-<p>​	将子模块的远程地址替换为你的 Fork 仓库地址（以下示例使用你的 GitHub 用户名<code>YourUsername</code>）：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin https://github.com/YourUsername/A-LOAM-NOTED.git</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>验证远程地址</li>
-</ul>
-<p>​	确认远程地址已被修改：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
-
-<p>​	输出应显示类似以下内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">origin  https://github.com/YourUsername/A-LOAM-NOTED.git (fetch)</span><br><span class="line">origin  https://github.com/YourUsername/A-LOAM-NOTED.git (push)</span><br></pre></td></tr></table></figure>
-
-<h2 id="3、修改提交到-Fork-仓库"><a href="#3、修改提交到-Fork-仓库" class="headerlink" title="3、修改提交到 Fork 仓库"></a>3、修改提交到 Fork 仓库</h2><ul>
-<li><p>在<code>A-LOAM-NOTED</code>目录中，确认当前分支：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>提交修改</p>
-<p>将本地的修改提交到当前分支，或创建一个新分支来提交：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b ubuntu20.04-mods</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;Adapted A-LOAM-NOTED for Ubuntu 20.04&quot;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>推送到你的 Fork 仓库</p>
-<p>将修改个体到 Fork 仓库的分支：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin ubuntu20.04-mods</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="4、更新主仓库对子模块的引用"><a href="#4、更新主仓库对子模块的引用" class="headerlink" title="4、更新主仓库对子模块的引用"></a>4、更新主仓库对子模块的引用</h2><p>在主仓库中，更新<code>A-LOAM-NOTED</code>的子引用模块，指向你的 Fork 仓库和分支</p>
-<ul>
-<li><p>返回主仓库目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../..</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>更新子模块引用</p>
-<p>修改子模块配置，导出指向你的Fork仓库和分支：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config -f .gitmodules submodule.src/A-LOAM-NOTED.url https://github.com/YourUsername/A-LOAM-NOTED.git</span><br><span class="line">git config -f .gitmodules submodule.src/A-LOAM-NOTED.branch ubuntu20.04-mods</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>同步子模块</p>
-<p>同步子模块的配置：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule <span class="built_in">sync</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>提交更新</p>
-<p>将主仓库对子模块的更新提交：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .gitmodules src/A-LOAM-NOTED</span><br><span class="line">git commit -m <span class="string">&quot;Updated submodule A-LOAM-NOTED to fork repository&quot;</span></span><br><span class="line">git push origin main</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="Tips：一般到这里就完成了"><a href="#Tips：一般到这里就完成了" class="headerlink" title="Tips：一般到这里就完成了"></a>Tips：一般到这里就完成了</h2><h2 id="5、验证-Fork-和更新"><a href="#5、验证-Fork-和更新" class="headerlink" title="5、验证 Fork 和更新"></a>5、验证 Fork 和更新</h2><ul>
-<li><p>验证主仓库对子模块的引用</p>
-<p>运行以下命令，确认子模块已指向你的Fork仓库和分支：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule status</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>验证远程仓库同步</p>
-<p>在其他工作空间中克隆主仓库时，确保正确取模块：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --recursive https://github.com/YourUsername/msfl_ws.git</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果已存在本地仓库，更新子模块：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule update --init --recursive</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="Tips：修改branch及同步"><a href="#Tips：修改branch及同步" class="headerlink" title="Tips：修改branch及同步"></a>Tips：修改branch及同步</h2><ul>
-<li><p>远程仓库设置：当<code>fork</code>的分支使用的是<code>master</code>等名称时，需要进入到项目的设置中，选择<code>branch</code>，点击<code>rename</code></p>
-</li>
-<li><p>本地仓库设置：在本地的子模块中，首先进行分支重命名，执行如下指令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -m master main</span><br></pre></td></tr></table></figure>
-
-<p>运行后执行<code>git branch</code>操作，输出会显示<code>*main</code>表示已经成功重命名本地分支，后续进行<code>push</code>操作即可</p>
-</li>
-<li><p>注意如果运行<code>git push</code>操作等其他操作时让你重新输出用户名和密码，证明之前检查<code>git remote -v</code>的输出是<code>https</code>链接的，已经被<code>github</code>弃用了，但之前肯定你配置了<code>ssh</code>链接，那就不需要重新配置，只需运行下述指令，重新将本地库链接修改为以<code>git</code>链接的即可，即修改下方的<code>QianYuan1437/LIO-SAM-Modified.git</code>为自己的<code>fork</code>仓库，其余信息与上方操作2提到的一致</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin git@github.com:QianYuan1437/LIO-SAM-Modified.git</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1347,7 +1267,7 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1359,7 +1279,7 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1403,13 +1323,13 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">34k</span>
+    <span title="站点总字数">35k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">31 分钟</span>
+    <span title="站点阅读时长">32 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
