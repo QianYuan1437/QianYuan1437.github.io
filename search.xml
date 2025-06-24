@@ -121,6 +121,55 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </tags>
   </entry>
   <entry>
+    <title>【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</title>
+    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/</url>
+    <content><![CDATA[<h2 id="1、依赖安装"><a href="#1、依赖安装" class="headerlink" title="1、依赖安装"></a>1、依赖安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install  liblapack-dev libsuitesparse-dev libcxsparse3 libgflags-dev libgoogle-glog-dev libgtest-dev</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、包下载与安装"><a href="#2、包下载与安装" class="headerlink" title="2、包下载与安装"></a>2、包下载与安装</h2><ul>
+<li>下载安装包：<a href="http://ceres-solver.org/ceres-solver-2.0.0.tar.gz">http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</a><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#1. 下载ceres2.0版本</span><br><span class="line"># 地址为 http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</span><br><span class="line">#2. 解压</span><br><span class="line">#3. 进入目录，然后编译</span><br><span class="line">cd ceres-solver</span><br><span class="line">mkdir build &amp;&amp; cd build </span><br><span class="line">cmake ..</span><br><span class="line">make -j3</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3、参考链接"><a href="#3、参考链接" class="headerlink" title="3、参考链接"></a>3、参考链接</h2><p><a href="https://blog.csdn.net/little_white138/article/details/142443296">https://blog.csdn.net/little_white138/article/details/142443296</a></p>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+        <tag>A-LOAM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【安装学习】ROS TF查询命令</title>
+    <url>/2025/06/24/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ROS%20TF%E6%9F%A5%E8%AF%A2%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="可视化查看TF关系树"><a href="#可视化查看TF关系树" class="headerlink" title="可视化查看TF关系树"></a>可视化查看TF关系树</h3><ul>
+<li><p>可视化TF树</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf view_frames</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在当前路径下生成pdf文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">evince frames.pdf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>单独查看两个坐标之间的发布状态</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf tf_monitor &lt;source_frame&gt; &lt;target_frame&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看两个坐标系的变换关系</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf tf_echo &lt;source_frame&gt; &lt;target_frame&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="https://blog.csdn.net/m0_56661101/article/details/123644158">07 ROS的TF坐标管理工具</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
+        <tag>TF</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【安装学习】Conda换源</title>
     <url>/2025/05/03/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91Linux%20Conda%E6%8D%A2%E6%BA%90/</url>
     <content><![CDATA[<h2 id="一、换源-Conda-镜像源方法"><a href="#一、换源-Conda-镜像源方法" class="headerlink" title="一、换源 Conda 镜像源方法"></a>一、换源 Conda 镜像源方法</h2><h3 id="1-创建或修改-condarc-文件"><a href="#1-创建或修改-condarc-文件" class="headerlink" title="1. 创建或修改 .condarc 文件"></a>1. 创建或修改 <code>.condarc</code> 文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nano ~/.condarc</span><br></pre></td></tr></table></figure>
@@ -171,38 +220,51 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
         <category>安装学习</category>
       </categories>
       <tags>
+        <tag>Linux</tag>
         <tag>Conda</tag>
         <tag>镜像源</tag>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
-    <title>【安装学习】ROS TF查询命令</title>
-    <url>/2025/06/24/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ROS%20TF%E6%9F%A5%E8%AF%A2%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h3 id="可视化查看TF关系树"><a href="#可视化查看TF关系树" class="headerlink" title="可视化查看TF关系树"></a>可视化查看TF关系树</h3><ul>
-<li><p>可视化TF树</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf view_frames</span><br></pre></td></tr></table></figure>
+    <title>【安装学习】ubuntu环境配置AMD显卡驱动</title>
+    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEAMD%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</url>
+    <content><![CDATA[<h1 id="ubuntu环境配置AMD显卡驱动"><a href="#ubuntu环境配置AMD显卡驱动" class="headerlink" title="ubuntu环境配置AMD显卡驱动"></a>ubuntu环境配置AMD显卡驱动</h1><p>本人买的AMD显卡，最近要在ubuntu环境做python深度学习，所以必须折腾一番，结果发现还不复杂。本人的系统是Ubuntu 20.04.6，显卡是RX6600，亲测有效。</p>
+<ul>
+<li><p>针对GEM12 MAX 板载的显卡680M，应当选择6.1版本的.deb文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://repo.radeon.com/amdgpu-install/6.1/ubuntu/focal/</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>在当前路径下生成pdf文件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">evince frames.pdf</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>单独查看两个坐标之间的发布状态</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf tf_monitor &lt;source_frame&gt; &lt;target_frame&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看两个坐标系的变换关系</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf tf_echo &lt;source_frame&gt; &lt;target_frame&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>对应的pytorch安装命令，应当修改为：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/rocm6.1</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="https://blog.csdn.net/m0_56661101/article/details/123644158">text</a></li>
-</ul>
+<h4 id="0-如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始："><a href="#0-如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始：" class="headerlink" title="(0) 如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始："></a>(0) 如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始：</h4><figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">~$ sudo amdgpu-install <span class="comment">--uninstall</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-在AMD官网下载需要的驱动包："><a href="#1-在AMD官网下载需要的驱动包：" class="headerlink" title="(1) 在AMD官网下载需要的驱动包："></a>(1) 在AMD官网下载需要的驱动包：</h4><p><a href="https://link.csdn.net/?target=https://www.amd.com/en/support/kb/release-notes/rn-amdgpu-unified-linux-22-20?login=from_csdn">驱动包链接</a><br>得到amdgpu-install_xxx_all.deb（xxx是版本号）</p>
+<h4 id="2-cd到驱动包路径下，安装驱动包："><a href="#2-cd到驱动包路径下，安装驱动包：" class="headerlink" title="(2) cd到驱动包路径下，安装驱动包："></a>(2) cd到驱动包路径下，安装驱动包：</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> apt install ./amdgpu-install_xxx_all.deb</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-更新软件："><a href="#3-更新软件：" class="headerlink" title="(3) 更新软件："></a>(3) 更新软件：</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>sudo apt update</span><br><span class="line">~<span class="variable">$ </span>sudo apt upgrade -y</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-安装驱动："><a href="#4-安装驱动：" class="headerlink" title="(4) 安装驱动："></a>(4) 安装驱动：</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>sudo amdgpu-install --no-dkms</span><br><span class="line">~<span class="variable">$ </span>sudo apt install rocm-dev</span><br><span class="line">~<span class="variable">$ </span>sudo reboot</span><br><span class="line"><span class="comment"># 等待重启</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="5-配置环境："><a href="#5-配置环境：" class="headerlink" title="(5)配置环境："></a>(5)配置环境：</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">ls</span> -l /dev/dri/render*</span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> usermod -a -G render <span class="variable">$LOGNAME</span></span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> usermod -a -G video <span class="variable">$LOGNAME</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="variable">$LOGNAME</span>不需要修改</span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> reboot</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">等待重启</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="6-理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证"><a href="#6-理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证" class="headerlink" title="(6) 理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证"></a>(6) 理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>rocm-smi</span><br><span class="line"><span class="comment"># 监控GPU性能</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~$ <span class="regexp">/opt/</span>rocm<span class="regexp">/bin/</span>rocminfo</span><br><span class="line"><span class="comment"># 可以查询到CPU、GPU信息</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~$ <span class="regexp">/opt/</span>rocm<span class="regexp">/opencl/</span>bin/clinfo</span><br><span class="line"><span class="comment"># 可以查询到GPU信息</span></span><br></pre></td></tr></table></figure>
+
+<p>若以上三条命令都有正常输出，便是配置成功了</p>
+<h4 id="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："><a href="#（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：" class="headerlink" title="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："></a>（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：</h4><figure class="highlight python-repl"><table><tr><td class="code"><pre><span class="line">python3</span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python"><span class="keyword">import</span> torch</span></span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">torch.cuda.is_available()</span></span><br></pre></td></tr></table></figure>
+
+<p>返回True就说明成功啦</p>
 ]]></content>
       <categories>
         <category>安装学习</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-        <tag>ROS</tag>
-        <tag>TF</tag>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -323,68 +385,6 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
         <tag>学习</tag>
         <tag>Ubuntu</tag>
         <tag>ORB_SLAM2</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</title>
-    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/</url>
-    <content><![CDATA[<h2 id="1、依赖安装"><a href="#1、依赖安装" class="headerlink" title="1、依赖安装"></a>1、依赖安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install  liblapack-dev libsuitesparse-dev libcxsparse3 libgflags-dev libgoogle-glog-dev libgtest-dev</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、包下载与安装"><a href="#2、包下载与安装" class="headerlink" title="2、包下载与安装"></a>2、包下载与安装</h2><ul>
-<li>下载安装包：<a href="http://ceres-solver.org/ceres-solver-2.0.0.tar.gz">http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</a><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#1. 下载ceres2.0版本</span><br><span class="line"># 地址为 http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</span><br><span class="line">#2. 解压</span><br><span class="line">#3. 进入目录，然后编译</span><br><span class="line">cd ceres-solver</span><br><span class="line">mkdir build &amp;&amp; cd build </span><br><span class="line">cmake ..</span><br><span class="line">make -j3</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="3、参考链接"><a href="#3、参考链接" class="headerlink" title="3、参考链接"></a>3、参考链接</h2><p><a href="https://blog.csdn.net/little_white138/article/details/142443296">https://blog.csdn.net/little_white138/article/details/142443296</a></p>
-]]></content>
-      <categories>
-        <category>安装学习</category>
-      </categories>
-      <tags>
-        <tag>安装</tag>
-        <tag>学习</tag>
-        <tag>Ubuntu</tag>
-        <tag>A-LOAM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【安装学习】ubuntu环境配置AMD显卡驱动</title>
-    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEAMD%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</url>
-    <content><![CDATA[<h1 id="ubuntu环境配置AMD显卡驱动"><a href="#ubuntu环境配置AMD显卡驱动" class="headerlink" title="ubuntu环境配置AMD显卡驱动"></a>ubuntu环境配置AMD显卡驱动</h1><p>本人买的AMD显卡，最近要在ubuntu环境做python深度学习，所以必须折腾一番，结果发现还不复杂。本人的系统是Ubuntu 20.04.6，显卡是RX6600，亲测有效。</p>
-<ul>
-<li><p>针对GEM12 MAX 板载的显卡680M，应当选择6.1版本的.deb文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://repo.radeon.com/amdgpu-install/6.1/ubuntu/focal/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>对应的pytorch安装命令，应当修改为：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/rocm6.1</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="0-如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始："><a href="#0-如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始：" class="headerlink" title="(0) 如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始："></a>(0) 如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始：</h4><figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">~$ sudo amdgpu-install <span class="comment">--uninstall</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="1-在AMD官网下载需要的驱动包："><a href="#1-在AMD官网下载需要的驱动包：" class="headerlink" title="(1) 在AMD官网下载需要的驱动包："></a>(1) 在AMD官网下载需要的驱动包：</h4><p><a href="https://link.csdn.net/?target=https://www.amd.com/en/support/kb/release-notes/rn-amdgpu-unified-linux-22-20?login=from_csdn">驱动包链接</a><br>得到amdgpu-install_xxx_all.deb（xxx是版本号）</p>
-<h4 id="2-cd到驱动包路径下，安装驱动包："><a href="#2-cd到驱动包路径下，安装驱动包：" class="headerlink" title="(2) cd到驱动包路径下，安装驱动包："></a>(2) cd到驱动包路径下，安装驱动包：</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> apt install ./amdgpu-install_xxx_all.deb</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="3-更新软件："><a href="#3-更新软件：" class="headerlink" title="(3) 更新软件："></a>(3) 更新软件：</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>sudo apt update</span><br><span class="line">~<span class="variable">$ </span>sudo apt upgrade -y</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-安装驱动："><a href="#4-安装驱动：" class="headerlink" title="(4) 安装驱动："></a>(4) 安装驱动：</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>sudo amdgpu-install --no-dkms</span><br><span class="line">~<span class="variable">$ </span>sudo apt install rocm-dev</span><br><span class="line">~<span class="variable">$ </span>sudo reboot</span><br><span class="line"><span class="comment"># 等待重启</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="5-配置环境："><a href="#5-配置环境：" class="headerlink" title="(5)配置环境："></a>(5)配置环境：</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">ls</span> -l /dev/dri/render*</span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> usermod -a -G render <span class="variable">$LOGNAME</span></span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> usermod -a -G video <span class="variable">$LOGNAME</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="variable">$LOGNAME</span>不需要修改</span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> reboot</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">等待重启</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="6-理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证"><a href="#6-理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证" class="headerlink" title="(6) 理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证"></a>(6) 理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>rocm-smi</span><br><span class="line"><span class="comment"># 监控GPU性能</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~$ <span class="regexp">/opt/</span>rocm<span class="regexp">/bin/</span>rocminfo</span><br><span class="line"><span class="comment"># 可以查询到CPU、GPU信息</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~$ <span class="regexp">/opt/</span>rocm<span class="regexp">/opencl/</span>bin/clinfo</span><br><span class="line"><span class="comment"># 可以查询到GPU信息</span></span><br></pre></td></tr></table></figure>
-
-<p>若以上三条命令都有正常输出，便是配置成功了</p>
-<h4 id="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："><a href="#（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：" class="headerlink" title="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："></a>（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：</h4><figure class="highlight python-repl"><table><tr><td class="code"><pre><span class="line">python3</span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python"><span class="keyword">import</span> torch</span></span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">torch.cuda.is_available()</span></span><br></pre></td></tr></table></figure>
-
-<p>返回True就说明成功啦</p>
-]]></content>
-      <categories>
-        <category>安装学习</category>
-      </categories>
-      <tags>
-        <tag>安装</tag>
-        <tag>学习</tag>
-        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
