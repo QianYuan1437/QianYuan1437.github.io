@@ -426,6 +426,131 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </tags>
   </entry>
   <entry>
+    <title>【安装学习】ROS rqt_graph保存.dot文件TypeError错误解决方案</title>
+    <url>/2025/07/04/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ROS%20rqt_graph%E4%BF%9D%E5%AD%98.dot%E6%96%87%E4%BB%B6TypeError%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在ROS Noetic中使用rqt_graph保存.dot类型的话题链接情况文件时，出现以下错误：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">zhao@zhao:~/WS/Now/demo_ws$ rosrun rqt_graph rqt_graph </span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;/opt/ros/noetic/lib/python3/dist-packages/rqt_graph/ros_graph.py&quot;</span>, line 414, <span class="keyword">in</span> save_dot</span><br><span class="line">    handle.write(self._current_dotcode)</span><br><span class="line">TypeError: write(self, Union[QByteArray, bytes, bytearray]): argument 1 has unexpected <span class="built_in">type</span> <span class="string">&#x27;str&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>问题特征</strong>：</p>
+<ul>
+<li>保存默认名称<code>frames.dot</code>可以正常工作</li>
+<li>保存自定义名称<code>LIO-SAM-Debug-Active.dot</code>时出现错误</li>
+<li>保存的文件无法正确打开</li>
+</ul>
+<h2 id="问题根本原因"><a href="#问题根本原因" class="headerlink" title="问题根本原因"></a>问题根本原因</h2><h3 id="1-编码类型不匹配"><a href="#1-编码类型不匹配" class="headerlink" title="1. 编码类型不匹配"></a>1. 编码类型不匹配</h3><p>在ROS Noetic（Python 3）中，<code>write()</code>方法期望接收字节类型数据（<code>bytes</code>、<code>bytearray</code>或<code>QByteArray</code>），但实际接收到的是字符串类型（<code>str</code>）。</p>
+<p><strong>根本原因</strong>：</p>
+<ul>
+<li>Python 3对字符串和字节的处理更加严格</li>
+<li><code>self._current_dotcode</code>是字符串类型</li>
+<li>文件句柄的<code>write()</code>方法期望字节类型数据</li>
+</ul>
+<h3 id="2-文件名特殊字符影响"><a href="#2-文件名特殊字符影响" class="headerlink" title="2. 文件名特殊字符影响"></a>2. 文件名特殊字符影响</h3><p>初步怀疑是文件名中的连字符（<code>-</code>）导致的问题，但实际上主要是编码转换问题。</p>
+<p><strong>验证方法</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 测试不同文件名</span></span><br><span class="line">frames.dot                    <span class="comment"># ✓ 正常</span></span><br><span class="line">LIO-SAM-Debug-Active.dot     <span class="comment"># ✗ 报错</span></span><br><span class="line">LIO_SAM_Debug_Active.dot     <span class="comment"># ✗ 同样报错（如果未修复编码问题）</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="方案一：源码修改（推荐）"><a href="#方案一：源码修改（推荐）" class="headerlink" title="方案一：源码修改（推荐）"></a>方案一：源码修改（推荐）</h3><p><strong>1. 备份原文件</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> /opt/ros/noetic/lib/python3/dist-packages/rqt_graph/ros_graph.py /opt/ros/noetic/lib/python3/dist-packages/rqt_graph/ros_graph.py.bak</span><br></pre></td></tr></table></figure>
+
+<p><strong>2. 修改源代码</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nano /opt/ros/noetic/lib/python3/dist-packages/rqt_graph/ros_graph.py</span><br></pre></td></tr></table></figure>
+
+<p><strong>3. 找到第414行，进行修改</strong></p>
+<p><strong>原代码：</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">handle.write(<span class="variable language_">self</span>._current_dotcode)</span><br></pre></td></tr></table></figure>
+
+<p><strong>修改为：</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">handle.write(<span class="variable language_">self</span>._current_dotcode.encode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<h3 id="方案二：更完整的修改（避免潜在问题）"><a href="#方案二：更完整的修改（避免潜在问题）" class="headerlink" title="方案二：更完整的修改（避免潜在问题）"></a>方案二：更完整的修改（避免潜在问题）</h3><p>如果需要更安全的修改，可以添加类型检查：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="built_in">isinstance</span>(<span class="variable language_">self</span>._current_dotcode, <span class="built_in">str</span>):</span><br><span class="line">    handle.write(<span class="variable language_">self</span>._current_dotcode.encode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    handle.write(<span class="variable language_">self</span>._current_dotcode)</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意事项</strong>：</p>
+<ul>
+<li>保持原有的缩进格式，避免TabError</li>
+<li>如果文件使用制表符缩进，修改时也要使用制表符</li>
+<li>如果文件使用空格缩进，修改时也要使用空格</li>
+</ul>
+<h2 id="调试过程中的错误"><a href="#调试过程中的错误" class="headerlink" title="调试过程中的错误"></a>调试过程中的错误</h2><h3 id="TabError-inconsistent-use-of-tabs-and-spaces"><a href="#TabError-inconsistent-use-of-tabs-and-spaces" class="headerlink" title="TabError: inconsistent use of tabs and spaces"></a>TabError: inconsistent use of tabs and spaces</h3><p>在修改过程中遇到的缩进错误：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">TabError: inconsistent use of tabs and spaces <span class="keyword">in</span> indentation</span><br></pre></td></tr></table></figure>
+
+<p><strong>解决方法</strong>：</p>
+<ol>
+<li>恢复备份文件</li>
+<li>使用与原文件相同的缩进方式</li>
+<li>检查编辑器设置，确保制表符和空格一致</li>
+</ol>
+<p><strong>检查缩进方式</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看文件缩进类型</span></span><br><span class="line">sed -n <span class="string">&#x27;410,420p&#x27;</span> /opt/ros/noetic/lib/python3/dist-packages/rqt_graph/ros_graph.py | <span class="built_in">cat</span> -A</span><br></pre></td></tr></table></figure>
+
+<h2 id="验证修复"><a href="#验证修复" class="headerlink" title="验证修复"></a>验证修复</h2><h3 id="测试步骤"><a href="#测试步骤" class="headerlink" title="测试步骤"></a>测试步骤</h3><p><strong>1. 基本功能测试</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rosrun rqt_graph rqt_graph</span><br></pre></td></tr></table></figure>
+
+<p><strong>2. 文件名测试</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 测试各种文件名</span></span><br><span class="line">frames.dot                    <span class="comment"># 默认名称</span></span><br><span class="line">test.dot                      <span class="comment"># 简单名称</span></span><br><span class="line">LIO_SAM_Debug_Active.dot     <span class="comment"># 下划线分隔</span></span><br><span class="line">LIO-SAM-Debug-Active.dot     <span class="comment"># 连字符分隔</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>3. 文件内容验证</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检查生成的.dot文件内容</span></span><br><span class="line"><span class="built_in">cat</span> your_file.dot</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用graphviz生成图像</span></span><br><span class="line">dot -Tpng your_file.dot -o output.png</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件命名建议"><a href="#文件命名建议" class="headerlink" title="文件命名建议"></a>文件命名建议</h2><p>虽然编码问题已解决，但为了避免潜在的兼容性问题，建议：</p>
+<h3 id="推荐的文件命名规范"><a href="#推荐的文件命名规范" class="headerlink" title="推荐的文件命名规范"></a>推荐的文件命名规范</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 推荐使用</span></span><br><span class="line">LIO_SAM_Debug_Active.dot</span><br><span class="line">rqt_graph_output.dot</span><br><span class="line">robot_tf_graph.dot</span><br><span class="line"></span><br><span class="line"><span class="comment"># 避免使用</span></span><br><span class="line">LIO-SAM-Debug-Active.dot  <span class="comment"># 连字符可能在某些系统中引起问题</span></span><br><span class="line">空格 文件名.dot           <span class="comment"># 空格需要转义</span></span><br><span class="line">特殊字符@#$.dot          <span class="comment"># 特殊字符可能引起解析问题</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="替代方案"><a href="#替代方案" class="headerlink" title="替代方案"></a>替代方案</h2><h3 id="使用命令行工具"><a href="#使用命令行工具" class="headerlink" title="使用命令行工具"></a>使用命令行工具</h3><p>如果不想修改源码，可以使用ROS的命令行工具：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看当前节点和话题</span></span><br><span class="line">rosnode list</span><br><span class="line">rostopic list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成节点图（需要先安装graphviz）</span></span><br><span class="line">rosrun rqt_graph rqt_graph_cmd --output=/tmp/graph.dot</span><br><span class="line"></span><br><span class="line"><span class="comment"># 手动转换为图片</span></span><br><span class="line">dot -Tpng /tmp/graph.dot -o /tmp/graph.png</span><br></pre></td></tr></table></figure>
+
+<h3 id="重新安装"><a href="#重新安装" class="headerlink" title="重新安装"></a>重新安装</h3><p>如果修改出现问题，可以重新安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install --reinstall ros-noetic-rqt-graph</span><br></pre></td></tr></table></figure>
+
+<h2 id="问题分析总结"><a href="#问题分析总结" class="headerlink" title="问题分析总结"></a>问题分析总结</h2><h3 id="技术原因"><a href="#技术原因" class="headerlink" title="技术原因"></a>技术原因</h3><ol>
+<li><strong>Python 2 → Python 3 迁移遗留问题</strong>：ROS Noetic使用Python 3，对字符串处理更严格</li>
+<li><strong>Qt文件处理接口变化</strong>：Qt的文件写入接口期望字节类型数据</li>
+<li><strong>编码转换缺失</strong>：源码中未处理字符串到字节的转换</li>
+</ol>
+<h3 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h3><ol>
+<li><strong>直接修复</strong>：在写入前进行编码转换</li>
+<li><strong>类型检查</strong>：添加类型判断以提高兼容性</li>
+<li><strong>频率对齐</strong>：确保文件操作的一致性</li>
+</ol>
+<h2 id="最佳实践建议"><a href="#最佳实践建议" class="headerlink" title="最佳实践建议"></a>最佳实践建议</h2><h3 id="开发建议"><a href="#开发建议" class="headerlink" title="开发建议"></a>开发建议</h3><ol>
+<li><strong>备份重要文件</strong>：修改系统文件前务必备份</li>
+<li><strong>渐进测试</strong>：从简单测试开始，逐步验证功能</li>
+<li><strong>记录修改</strong>：详细记录修改内容和原因</li>
+</ol>
+<h3 id="系统维护"><a href="#系统维护" class="headerlink" title="系统维护"></a>系统维护</h3><ol>
+<li><strong>定期更新</strong>：关注ROS官方更新，此类问题可能在后续版本中修复</li>
+<li><strong>环境一致性</strong>：确保开发环境与部署环境一致</li>
+<li><strong>文档记录</strong>：将解决方案记录在项目文档中</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个问题的核心是ROS Noetic中Python 3对字符串和字节类型的严格区分。通过简单的编码转换（<code>encode(&#39;utf-8&#39;)</code>）即可解决。</p>
+<p><strong>关键要点</strong>：</p>
+<ul>
+<li>问题出现在字符串到字节的类型转换上</li>
+<li>文件名的特殊字符不是主要原因</li>
+<li>修改时要注意保持原有的缩进格式</li>
+<li>建议在修改前备份原文件</li>
+</ul>
+<p><strong>修复后的效果</strong>：</p>
+<ul>
+<li>可以正常保存各种文件名的.dot文件</li>
+<li>生成的文件可以正确打开和处理</li>
+<li>不再出现TypeError错误</li>
+</ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://wiki.ros.org/rqt_graph">ROS rqt_graph Documentation</a></li>
+<li><a href="https://docs.python.org/3/howto/unicode.html">Python 3 String and Bytes</a></li>
+<li><a href="https://doc.qt.io/qt-5/qiodevice.html">Qt File I&#x2F;O Documentation</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
+        <tag>rqt_graph</tag>
+        <tag>Python3</tag>
+        <tag>编码问题</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</title>
     <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/</url>
     <content><![CDATA[<h2 id="1、依赖安装"><a href="#1、依赖安装" class="headerlink" title="1、依赖安装"></a>1、依赖安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install  liblapack-dev libsuitesparse-dev libcxsparse3 libgflags-dev libgoogle-glog-dev libgtest-dev</span><br></pre></td></tr></table></figure>
@@ -520,6 +645,32 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </tags>
   </entry>
   <entry>
+    <title>【安装学习】安装OpenSSH服务</title>
+    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85OpenSSH%E6%9C%8D%E5%8A%A1/</url>
+    <content><![CDATA[<ul>
+<li><p>安装服务端</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install openssh-server </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查是否开启服务</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ps -e | grep ssh</span><br></pre></td></tr></table></figure>
+
+<p>有输出则证明开启，没有的话手动开启</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> service ssh start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看IP地址</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ifconfig </span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【安装学习】安装Cartographer ROS（noetic）</title>
     <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85Cartographer%20ROS%EF%BC%88noetic%EF%BC%89/</url>
     <content><![CDATA[<h1 id="【安装学习】安装Cartographer-ROS（noetic）"><a href="#【安装学习】安装Cartographer-ROS（noetic）" class="headerlink" title="【安装学习】安装Cartographer ROS（noetic）"></a>【安装学习】安装Cartographer ROS（noetic）</h1><p> 参考链接：<a href="https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html">https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html</a></p>
@@ -555,32 +706,6 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
 </ul>
 <h2 id="8、构建"><a href="#8、构建" class="headerlink" title="8、构建"></a>8、构建</h2><p>在 <code>catkin_ws</code> 中清理 <code>build_isolated</code> 和 <code>devel_isolated</code> 文件夹后重新构建：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/WS/catkin_ws</span><br><span class="line"><span class="built_in">rm</span> -rf build_isolated devel_isolated install_isolated</span><br><span class="line">catkin_make_isolated --install --use-ninja</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>安装学习</category>
-      </categories>
-      <tags>
-        <tag>安装</tag>
-        <tag>学习</tag>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【安装学习】安装OpenSSH服务</title>
-    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85OpenSSH%E6%9C%8D%E5%8A%A1/</url>
-    <content><![CDATA[<ul>
-<li><p>安装服务端</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install openssh-server </span><br></pre></td></tr></table></figure>
-</li>
-<li><p>检查是否开启服务</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ps -e | grep ssh</span><br></pre></td></tr></table></figure>
-
-<p>有输出则证明开启，没有的话手动开启</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> service ssh start</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看IP地址</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ifconfig </span><br></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
       <categories>
         <category>安装学习</category>
       </categories>
