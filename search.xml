@@ -53,6 +53,62 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </tags>
   </entry>
   <entry>
+    <title>【安装学习】Conda换源</title>
+    <url>/2025/05/03/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91Linux%20Conda%E6%8D%A2%E6%BA%90/</url>
+    <content><![CDATA[<h2 id="一、换源-Conda-镜像源方法"><a href="#一、换源-Conda-镜像源方法" class="headerlink" title="一、换源 Conda 镜像源方法"></a>一、换源 Conda 镜像源方法</h2><h3 id="1-创建或修改-condarc-文件"><a href="#1-创建或修改-condarc-文件" class="headerlink" title="1. 创建或修改 .condarc 文件"></a>1. 创建或修改 <code>.condarc</code> 文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nano ~/.condarc</span><br></pre></td></tr></table></figure>
+
+<p>将内容替换为以下格式 (以 <strong>清华源</strong> 为例):</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">defaults</span></span><br><span class="line"><span class="attr">show_channel_urls:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>建议保留 <code>defaults</code> 作为备用源</p>
+</blockquote>
+<hr>
+<h2 id="二、常用镜像源列表"><a href="#二、常用镜像源列表" class="headerlink" title="二、常用镜像源列表"></a>二、常用镜像源列表</h2><table>
+<thead>
+<tr>
+<th>镜像站</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>清华大</td>
+<td><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/">https://mirrors.tuna.tsinghua.edu.cn/anaconda/</a></td>
+</tr>
+<tr>
+<td>中科大</td>
+<td><a href="https://mirrors.ustc.edu.cn/anaconda/">https://mirrors.ustc.edu.cn/anaconda/</a></td>
+</tr>
+<tr>
+<td>阿里云</td>
+<td><a href="https://mirrors.aliyun.com/anaconda/">https://mirrors.aliyun.com/anaconda/</a></td>
+</tr>
+<tr>
+<td>华为云</td>
+<td><a href="https://repo.huaweicloud.com/anaconda/">https://repo.huaweicloud.com/anaconda/</a></td>
+</tr>
+</tbody></table>
+<p>以中科大镜像为例：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.ustc.edu.cn/anaconda/pkgs/main/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.ustc.edu.cn/anaconda/pkgs/free/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.ustc.edu.cn/anaconda/pkgs/r/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">defaults</span></span><br><span class="line"><span class="attr">show_channel_urls:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="三、更新-Conda-缓存"><a href="#三、更新-Conda-缓存" class="headerlink" title="三、更新 Conda 缓存"></a>三、更新 Conda 缓存</h2><p>换源后建议清除并更新缓存:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda clean -i  <span class="comment"># 清除索引缓存</span></span><br><span class="line">conda update conda</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="四、配置-Conda-Forge-镜像-可选"><a href="#四、配置-Conda-Forge-镜像-可选" class="headerlink" title="四、配置 Conda Forge 镜像 (可选)"></a>四、配置 Conda Forge 镜像 (可选)</h2><p>如你使用 <code>conda-forge</code> 频道，也可配置为国内镜像：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>Conda</tag>
+        <tag>镜像源</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【MSFL】2：LIO-SAM：从安装到测试</title>
     <url>/2024/12/26/%E3%80%90MSFL%E3%80%912%EF%BC%9ALIO-SAM%EF%BC%9A%E4%BB%8E%E5%AE%89%E8%A3%85%E5%88%B0%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<h1 id="1、标定IMU-LiDAR"><a href="#1、标定IMU-LiDAR" class="headerlink" title="1、标定IMU+LiDAR"></a>1、标定IMU+LiDAR</h1><h2 id="1、录制ROS包"><a href="#1、录制ROS包" class="headerlink" title="1、录制ROS包"></a>1、录制ROS包</h2><ul>
@@ -121,59 +177,35 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </tags>
   </entry>
   <entry>
-    <title>【安装学习】Conda换源</title>
-    <url>/2025/05/03/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91Linux%20Conda%E6%8D%A2%E6%BA%90/</url>
-    <content><![CDATA[<h2 id="一、换源-Conda-镜像源方法"><a href="#一、换源-Conda-镜像源方法" class="headerlink" title="一、换源 Conda 镜像源方法"></a>一、换源 Conda 镜像源方法</h2><h3 id="1-创建或修改-condarc-文件"><a href="#1-创建或修改-condarc-文件" class="headerlink" title="1. 创建或修改 .condarc 文件"></a>1. 创建或修改 <code>.condarc</code> 文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nano ~/.condarc</span><br></pre></td></tr></table></figure>
-
-<p>将内容替换为以下格式 (以 <strong>清华源</strong> 为例):</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">defaults</span></span><br><span class="line"><span class="attr">show_channel_urls:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>建议保留 <code>defaults</code> 作为备用源</p>
-</blockquote>
-<hr>
-<h2 id="二、常用镜像源列表"><a href="#二、常用镜像源列表" class="headerlink" title="二、常用镜像源列表"></a>二、常用镜像源列表</h2><table>
-<thead>
-<tr>
-<th>镜像站</th>
-<th>地址</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>清华大</td>
-<td><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/">https://mirrors.tuna.tsinghua.edu.cn/anaconda/</a></td>
-</tr>
-<tr>
-<td>中科大</td>
-<td><a href="https://mirrors.ustc.edu.cn/anaconda/">https://mirrors.ustc.edu.cn/anaconda/</a></td>
-</tr>
-<tr>
-<td>阿里云</td>
-<td><a href="https://mirrors.aliyun.com/anaconda/">https://mirrors.aliyun.com/anaconda/</a></td>
-</tr>
-<tr>
-<td>华为云</td>
-<td><a href="https://repo.huaweicloud.com/anaconda/">https://repo.huaweicloud.com/anaconda/</a></td>
-</tr>
-</tbody></table>
-<p>以中科大镜像为例：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.ustc.edu.cn/anaconda/pkgs/main/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.ustc.edu.cn/anaconda/pkgs/free/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.ustc.edu.cn/anaconda/pkgs/r/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">defaults</span></span><br><span class="line"><span class="attr">show_channel_urls:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="三、更新-Conda-缓存"><a href="#三、更新-Conda-缓存" class="headerlink" title="三、更新 Conda 缓存"></a>三、更新 Conda 缓存</h2><p>换源后建议清除并更新缓存:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda clean -i  <span class="comment"># 清除索引缓存</span></span><br><span class="line">conda update conda</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="四、配置-Conda-Forge-镜像-可选"><a href="#四、配置-Conda-Forge-镜像-可选" class="headerlink" title="四、配置 Conda Forge 镜像 (可选)"></a>四、配置 Conda Forge 镜像 (可选)</h2><p>如你使用 <code>conda-forge</code> 频道，也可配置为国内镜像：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge</span><br></pre></td></tr></table></figure>
-]]></content>
+    <title>【安装学习】ROS TF查询命令</title>
+    <url>/2025/06/24/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ROS%20TF%E6%9F%A5%E8%AF%A2%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="批量录制-ROS-话题到-Bag-文件"><a href="#批量录制-ROS-话题到-Bag-文件" class="headerlink" title="批量录制 ROS 话题到 Bag 文件"></a>批量录制 ROS 话题到 Bag 文件</h2><ul>
+<li><p>确保目标目录存在</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /full/path/to/data</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从 <code>TopicsRecord.txt</code> 文件读取话题列表并录制到指定路径</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rosbag record -o /full/path/to/data/my_bag $(<span class="built_in">cat</span> TopicsRecord.txt)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查录制的 bag 文件内容</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rosbag info /full/path/to/data/my_bag_2025-07-04-16-54-00.bag</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用压缩选项录制以减少文件大小</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rosbag record -j -o /full/path/to/data/my_bag $(<span class="built_in">cat</span> TopicsRecord.txt)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>按文件大小分割录制（例如，每 1024 MB 分割）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rosbag record --<span class="built_in">split</span> --size=1024 -o /full/path/to/data/my_bag $(<span class="built_in">cat</span> TopicsRecord.txt)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>限制录制时长（例如，60 秒）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rosbag record --duration=60 -o /full/path/to/data/my_bag $(<span class="built_in">cat</span> TopicsRecord.txt)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="示例-TopicsRecord-txt-文件内容"><a href="#示例-TopicsRecord-txt-文件内容" class="headerlink" title="示例 TopicsRecord.txt 文件内容"></a>示例 <code>TopicsRecord.txt</code> 文件内容</h2>  <figure class="highlight text"><table><tr><td class="code"><pre><span class="line">/clock</span><br><span class="line">/imu</span><br><span class="line">/tf</span><br><span class="line">/tf_static</span><br><span class="line">/scan</span><br><span class="line">/d435_cam/color/camera_info</span><br><span class="line">/d435_cam/depth/camera_info</span><br><span class="line">/rgbd_lidar_node/rgbd_cloud_info</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>安装学习</category>
       </categories>
       <tags>
-        <tag>Conda</tag>
-        <tag>镜像源</tag>
         <tag>Linux</tag>
+        <tag>ROS</tag>
+        <tag>TF</tag>
       </tags>
   </entry>
   <entry>
@@ -274,35 +306,6 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
         <tag>Gazebo</tag>
         <tag>仿真</tag>
         <tag>故障排除</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【安装学习】ROS TF查询命令</title>
-    <url>/2025/06/24/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ROS%20TF%E6%9F%A5%E8%AF%A2%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h3 id="可视化查看TF关系树"><a href="#可视化查看TF关系树" class="headerlink" title="可视化查看TF关系树"></a>可视化查看TF关系树</h3><ul>
-<li><p>可视化TF树</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf view_frames</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在当前路径下生成pdf文件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">evince frames.pdf</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>单独查看两个坐标之间的发布状态</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf tf_monitor &lt;source_frame&gt; &lt;target_frame&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看两个坐标系的变换关系</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf tf_echo &lt;source_frame&gt; &lt;target_frame&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="https://blog.csdn.net/m0_56661101/article/details/123644158">07 ROS的TF坐标管理工具</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>安装学习</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>ROS</tag>
-        <tag>TF</tag>
       </tags>
   </entry>
   <entry>
@@ -428,6 +431,34 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
         <tag>rqt_graph</tag>
         <tag>Python3</tag>
         <tag>编码问题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【安装学习】ROSBag批量录制话题</title>
+    <url>/2025/07/04/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ROSBag%E6%89%B9%E9%87%8F%E5%BD%95%E5%88%B6%E8%AF%9D%E9%A2%98/</url>
+    <content><![CDATA[<h3 id="可视化查看TF关系树"><a href="#可视化查看TF关系树" class="headerlink" title="可视化查看TF关系树"></a>可视化查看TF关系树</h3><ul>
+<li><p>可视化TF树</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf view_frames</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在当前路径下生成pdf文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">evince frames.pdf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>单独查看两个坐标之间的发布状态</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf tf_monitor &lt;source_frame&gt; &lt;target_frame&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看两个坐标系的变换关系</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf tf_echo &lt;source_frame&gt; &lt;target_frame&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="https://blog.csdn.net/m0_56661101/article/details/123644158">07 ROS的TF坐标管理工具</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>ROSBag</tag>
       </tags>
   </entry>
   <entry>
