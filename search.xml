@@ -121,35 +121,6 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </tags>
   </entry>
   <entry>
-    <title>【安装学习】ROS TF查询命令</title>
-    <url>/2025/06/24/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ROS%20TF%E6%9F%A5%E8%AF%A2%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h3 id="可视化查看TF关系树"><a href="#可视化查看TF关系树" class="headerlink" title="可视化查看TF关系树"></a>可视化查看TF关系树</h3><ul>
-<li><p>可视化TF树</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf view_frames</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在当前路径下生成pdf文件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">evince frames.pdf</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>单独查看两个坐标之间的发布状态</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf tf_monitor &lt;source_frame&gt; &lt;target_frame&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看两个坐标系的变换关系</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf tf_echo &lt;source_frame&gt; &lt;target_frame&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="https://blog.csdn.net/m0_56661101/article/details/123644158">07 ROS的TF坐标管理工具</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>安装学习</category>
-      </categories>
-      <tags>
-        <tag>ROS</tag>
-        <tag>TF</tag>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【安装学习】Conda换源</title>
     <url>/2025/05/03/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91Linux%20Conda%E6%8D%A2%E6%BA%90/</url>
     <content><![CDATA[<h2 id="一、换源-Conda-镜像源方法"><a href="#一、换源-Conda-镜像源方法" class="headerlink" title="一、换源 Conda 镜像源方法"></a>一、换源 Conda 镜像源方法</h2><h3 id="1-创建或修改-condarc-文件"><a href="#1-创建或修改-condarc-文件" class="headerlink" title="1. 创建或修改 .condarc 文件"></a>1. 创建或修改 <code>.condarc</code> 文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nano ~/.condarc</span><br></pre></td></tr></table></figure>
@@ -200,9 +171,9 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
         <category>安装学习</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>Conda</tag>
         <tag>镜像源</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -303,6 +274,35 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
         <tag>Gazebo</tag>
         <tag>仿真</tag>
         <tag>故障排除</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【安装学习】ROS TF查询命令</title>
+    <url>/2025/06/24/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ROS%20TF%E6%9F%A5%E8%AF%A2%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="可视化查看TF关系树"><a href="#可视化查看TF关系树" class="headerlink" title="可视化查看TF关系树"></a>可视化查看TF关系树</h3><ul>
+<li><p>可视化TF树</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf view_frames</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在当前路径下生成pdf文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">evince frames.pdf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>单独查看两个坐标之间的发布状态</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf tf_monitor &lt;source_frame&gt; &lt;target_frame&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看两个坐标系的变换关系</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf tf_echo &lt;source_frame&gt; &lt;target_frame&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="https://blog.csdn.net/m0_56661101/article/details/123644158">07 ROS的TF坐标管理工具</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>ROS</tag>
+        <tag>TF</tag>
       </tags>
   </entry>
   <entry>
@@ -551,6 +551,26 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </tags>
   </entry>
   <entry>
+    <title>【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</title>
+    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/</url>
+    <content><![CDATA[<h2 id="1、依赖安装"><a href="#1、依赖安装" class="headerlink" title="1、依赖安装"></a>1、依赖安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install  liblapack-dev libsuitesparse-dev libcxsparse3 libgflags-dev libgoogle-glog-dev libgtest-dev</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、包下载与安装"><a href="#2、包下载与安装" class="headerlink" title="2、包下载与安装"></a>2、包下载与安装</h2><ul>
+<li>下载安装包：<a href="http://ceres-solver.org/ceres-solver-2.0.0.tar.gz">http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</a><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#1. 下载ceres2.0版本</span><br><span class="line"># 地址为 http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</span><br><span class="line">#2. 解压</span><br><span class="line">#3. 进入目录，然后编译</span><br><span class="line">cd ceres-solver</span><br><span class="line">mkdir build &amp;&amp; cd build </span><br><span class="line">cmake ..</span><br><span class="line">make -j3</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3、参考链接"><a href="#3、参考链接" class="headerlink" title="3、参考链接"></a>3、参考链接</h2><p><a href="https://blog.csdn.net/little_white138/article/details/142443296">https://blog.csdn.net/little_white138/article/details/142443296</a></p>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+        <tag>A-LOAM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【安装学习】ubuntu环境配置AMD显卡驱动</title>
     <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEAMD%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</url>
     <content><![CDATA[<h1 id="ubuntu环境配置AMD显卡驱动"><a href="#ubuntu环境配置AMD显卡驱动" class="headerlink" title="ubuntu环境配置AMD显卡驱动"></a>ubuntu环境配置AMD显卡驱动</h1><p>本人买的AMD显卡，最近要在ubuntu环境做python深度学习，所以必须折腾一番，结果发现还不复杂。本人的系统是Ubuntu 20.04.6，显卡是RX6600，亲测有效。</p>
@@ -590,26 +610,6 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
         <tag>安装</tag>
         <tag>学习</tag>
         <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</title>
-    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/</url>
-    <content><![CDATA[<h2 id="1、依赖安装"><a href="#1、依赖安装" class="headerlink" title="1、依赖安装"></a>1、依赖安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install  liblapack-dev libsuitesparse-dev libcxsparse3 libgflags-dev libgoogle-glog-dev libgtest-dev</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、包下载与安装"><a href="#2、包下载与安装" class="headerlink" title="2、包下载与安装"></a>2、包下载与安装</h2><ul>
-<li>下载安装包：<a href="http://ceres-solver.org/ceres-solver-2.0.0.tar.gz">http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</a><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#1. 下载ceres2.0版本</span><br><span class="line"># 地址为 http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</span><br><span class="line">#2. 解压</span><br><span class="line">#3. 进入目录，然后编译</span><br><span class="line">cd ceres-solver</span><br><span class="line">mkdir build &amp;&amp; cd build </span><br><span class="line">cmake ..</span><br><span class="line">make -j3</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="3、参考链接"><a href="#3、参考链接" class="headerlink" title="3、参考链接"></a>3、参考链接</h2><p><a href="https://blog.csdn.net/little_white138/article/details/142443296">https://blog.csdn.net/little_white138/article/details/142443296</a></p>
-]]></content>
-      <categories>
-        <category>安装学习</category>
-      </categories>
-      <tags>
-        <tag>安装</tag>
-        <tag>学习</tag>
-        <tag>Ubuntu</tag>
-        <tag>A-LOAM</tag>
       </tags>
   </entry>
   <entry>
@@ -795,51 +795,6 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
       </tags>
   </entry>
   <entry>
-    <title>【安装学习】设置对.mkv视频的播放支持</title>
-    <url>/2024/12/24/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E8%AE%BE%E7%BD%AE%E5%AF%B9.mkv%E8%A7%86%E9%A2%91%E7%9A%84%E6%92%AD%E6%94%BE%E6%94%AF%E6%8C%81/</url>
-    <content><![CDATA[<h2 id="1、安装依赖"><a href="#1、安装依赖" class="headerlink" title="1、安装依赖"></a>1、安装依赖</h2><p>安装 <code>ubuntu-restricted-extras</code>，<code>ubuntu-restricted-extras</code> 包含常用的多媒体编解码器，包括支持 MKV 格式的解码器。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install ubuntu-restricted-extras</span><br></pre></td></tr></table></figure>
-
-<p>注意！Ubuntu终端显示文本让选择确定，OK等等：首先按下”TAB”键,会看到选中文本”确定”,”OK”然后按下回车键,即可!</p>
-<h2 id="2、成功"><a href="#2、成功" class="headerlink" title="2、成功"></a>2、成功</h2><h2 id="3、变速保存"><a href="#3、变速保存" class="headerlink" title="3、变速保存"></a>3、变速保存</h2><p>可以使用 ffmpeg 将视频转换为3倍速播放的 mp4 格式。以下是具体操作步骤</p>
-<p>在终端中执行以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i 2024-12-24_15-32-53.mkv -filter:v &quot;setpts=PTS/3&quot; -an -c:v libx264 -preset fast -crf 23 2024-12-24_15-32-53_3x.mp4</span><br></pre></td></tr></table></figure>
-
-<p>解释</p>
-<ul>
-<li><strong><code>-i 2024-12-24_15-32-53.mkv</code></strong>: 指定输入文件。</li>
-<li><strong><code>-filter:v &quot;setpts=PTS/3&quot;</code></strong>: 使用 <code>setpts</code> 过滤器将视频播放速度调整为原来的3倍速。<code>PTS/3</code> 表示时间戳变为原来的1&#x2F;3。</li>
-<li><strong><code>-an</code></strong>: 删除音频轨道。如果需要加快音频速度，见下方。</li>
-<li><strong><code>-c:v libx264</code></strong>: 使用 H.264 编解码器。</li>
-<li><strong><code>-preset fast</code></strong>: 选择快速编码预设。</li>
-<li><strong><code>-crf 23</code></strong>: 设置视频质量，<code>23</code> 为默认值，数值越小质量越高（如需要更高质量可以调低）。</li>
-<li><strong><code>2024-12-24_15-32-53_3x.mp4</code></strong>: 指定输出文件名。</li>
-</ul>
-<hr>
-<p>如果需要保留并加速音频，音频也需要同步加速，可以使用以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i 2024-12-24_15-32-53.mkv -filter_complex &quot;[0:v]setpts=PTS/3[v];[0:a]atempo=3[a]&quot; -map &quot;[v]&quot; -map &quot;[a]&quot; -c:v libx264 -preset fast -crf 23 2024-12-24_15-32-53_3x.mp4</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong><code>[0:v]setpts=PTS/3[v]</code></strong>: 设置视频为3倍速。</li>
-<li><strong><code>[0:a]atempo=3[a]</code></strong>: 将音频加速3倍。<code>atempo</code> 最大支持2倍速，可多次链式叠加（例如 6倍速可用 <code>atempo=2,atempo=3</code>）。</li>
-</ul>
-<hr>
-<p>最终文件检查：转码完成后，可以使用以下命令检查输出文件信息：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i 2024-12-24_15-32-53_3x.mp4</span><br></pre></td></tr></table></figure>
-
-<p>这样可以确认视频和音频是否按预期处理。如果还有其他需求，随时告诉我！ 😊</p>
-]]></content>
-      <categories>
-        <category>安装学习</category>
-      </categories>
-      <tags>
-        <tag>安装</tag>
-        <tag>学习</tag>
-        <tag>Ubuntu</tag>
-        <tag>mkv</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【安装学习】安装cmake-3.26</title>
     <url>/2025/04/28/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85cmake-3.26/</url>
     <content><![CDATA[<h1 id="CMake-3-26-和-GCC-11-安装总结"><a href="#CMake-3-26-和-GCC-11-安装总结" class="headerlink" title="CMake 3.26 和 GCC 11 安装总结"></a>CMake 3.26 和 GCC 11 安装总结</h1><h2 id="1-手动从源码安装-CMake-3-26-版本"><a href="#1-手动从源码安装-CMake-3-26-版本" class="headerlink" title="1. 手动从源码安装 CMake 3.26 版本"></a>1. 手动从源码安装 CMake 3.26 版本</h2><p>为了安装 CMake 3.26，可以通过以下步骤手动编译安装：</p>
@@ -894,6 +849,51 @@ rosbag play ~/catkin_ws/src/data/下载的rosbag包.bag
         <tag>安装</tag>
         <tag>学习</tag>
         <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【安装学习】设置对.mkv视频的播放支持</title>
+    <url>/2024/12/24/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E8%AE%BE%E7%BD%AE%E5%AF%B9.mkv%E8%A7%86%E9%A2%91%E7%9A%84%E6%92%AD%E6%94%BE%E6%94%AF%E6%8C%81/</url>
+    <content><![CDATA[<h2 id="1、安装依赖"><a href="#1、安装依赖" class="headerlink" title="1、安装依赖"></a>1、安装依赖</h2><p>安装 <code>ubuntu-restricted-extras</code>，<code>ubuntu-restricted-extras</code> 包含常用的多媒体编解码器，包括支持 MKV 格式的解码器。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install ubuntu-restricted-extras</span><br></pre></td></tr></table></figure>
+
+<p>注意！Ubuntu终端显示文本让选择确定，OK等等：首先按下”TAB”键,会看到选中文本”确定”,”OK”然后按下回车键,即可!</p>
+<h2 id="2、成功"><a href="#2、成功" class="headerlink" title="2、成功"></a>2、成功</h2><h2 id="3、变速保存"><a href="#3、变速保存" class="headerlink" title="3、变速保存"></a>3、变速保存</h2><p>可以使用 ffmpeg 将视频转换为3倍速播放的 mp4 格式。以下是具体操作步骤</p>
+<p>在终端中执行以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i 2024-12-24_15-32-53.mkv -filter:v &quot;setpts=PTS/3&quot; -an -c:v libx264 -preset fast -crf 23 2024-12-24_15-32-53_3x.mp4</span><br></pre></td></tr></table></figure>
+
+<p>解释</p>
+<ul>
+<li><strong><code>-i 2024-12-24_15-32-53.mkv</code></strong>: 指定输入文件。</li>
+<li><strong><code>-filter:v &quot;setpts=PTS/3&quot;</code></strong>: 使用 <code>setpts</code> 过滤器将视频播放速度调整为原来的3倍速。<code>PTS/3</code> 表示时间戳变为原来的1&#x2F;3。</li>
+<li><strong><code>-an</code></strong>: 删除音频轨道。如果需要加快音频速度，见下方。</li>
+<li><strong><code>-c:v libx264</code></strong>: 使用 H.264 编解码器。</li>
+<li><strong><code>-preset fast</code></strong>: 选择快速编码预设。</li>
+<li><strong><code>-crf 23</code></strong>: 设置视频质量，<code>23</code> 为默认值，数值越小质量越高（如需要更高质量可以调低）。</li>
+<li><strong><code>2024-12-24_15-32-53_3x.mp4</code></strong>: 指定输出文件名。</li>
+</ul>
+<hr>
+<p>如果需要保留并加速音频，音频也需要同步加速，可以使用以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i 2024-12-24_15-32-53.mkv -filter_complex &quot;[0:v]setpts=PTS/3[v];[0:a]atempo=3[a]&quot; -map &quot;[v]&quot; -map &quot;[a]&quot; -c:v libx264 -preset fast -crf 23 2024-12-24_15-32-53_3x.mp4</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong><code>[0:v]setpts=PTS/3[v]</code></strong>: 设置视频为3倍速。</li>
+<li><strong><code>[0:a]atempo=3[a]</code></strong>: 将音频加速3倍。<code>atempo</code> 最大支持2倍速，可多次链式叠加（例如 6倍速可用 <code>atempo=2,atempo=3</code>）。</li>
+</ul>
+<hr>
+<p>最终文件检查：转码完成后，可以使用以下命令检查输出文件信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i 2024-12-24_15-32-53_3x.mp4</span><br></pre></td></tr></table></figure>
+
+<p>这样可以确认视频和音频是否按预期处理。如果还有其他需求，随时告诉我！ 😊</p>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+        <tag>mkv</tag>
       </tags>
   </entry>
   <entry>
