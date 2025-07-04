@@ -121,62 +121,6 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </tags>
   </entry>
   <entry>
-    <title>【安装学习】Conda换源</title>
-    <url>/2025/05/03/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91Linux%20Conda%E6%8D%A2%E6%BA%90/</url>
-    <content><![CDATA[<h2 id="一、换源-Conda-镜像源方法"><a href="#一、换源-Conda-镜像源方法" class="headerlink" title="一、换源 Conda 镜像源方法"></a>一、换源 Conda 镜像源方法</h2><h3 id="1-创建或修改-condarc-文件"><a href="#1-创建或修改-condarc-文件" class="headerlink" title="1. 创建或修改 .condarc 文件"></a>1. 创建或修改 <code>.condarc</code> 文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nano ~/.condarc</span><br></pre></td></tr></table></figure>
-
-<p>将内容替换为以下格式 (以 <strong>清华源</strong> 为例):</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">defaults</span></span><br><span class="line"><span class="attr">show_channel_urls:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>建议保留 <code>defaults</code> 作为备用源</p>
-</blockquote>
-<hr>
-<h2 id="二、常用镜像源列表"><a href="#二、常用镜像源列表" class="headerlink" title="二、常用镜像源列表"></a>二、常用镜像源列表</h2><table>
-<thead>
-<tr>
-<th>镜像站</th>
-<th>地址</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>清华大</td>
-<td><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/">https://mirrors.tuna.tsinghua.edu.cn/anaconda/</a></td>
-</tr>
-<tr>
-<td>中科大</td>
-<td><a href="https://mirrors.ustc.edu.cn/anaconda/">https://mirrors.ustc.edu.cn/anaconda/</a></td>
-</tr>
-<tr>
-<td>阿里云</td>
-<td><a href="https://mirrors.aliyun.com/anaconda/">https://mirrors.aliyun.com/anaconda/</a></td>
-</tr>
-<tr>
-<td>华为云</td>
-<td><a href="https://repo.huaweicloud.com/anaconda/">https://repo.huaweicloud.com/anaconda/</a></td>
-</tr>
-</tbody></table>
-<p>以中科大镜像为例：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.ustc.edu.cn/anaconda/pkgs/main/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.ustc.edu.cn/anaconda/pkgs/free/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.ustc.edu.cn/anaconda/pkgs/r/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">defaults</span></span><br><span class="line"><span class="attr">show_channel_urls:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="三、更新-Conda-缓存"><a href="#三、更新-Conda-缓存" class="headerlink" title="三、更新 Conda 缓存"></a>三、更新 Conda 缓存</h2><p>换源后建议清除并更新缓存:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda clean -i  <span class="comment"># 清除索引缓存</span></span><br><span class="line">conda update conda</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="四、配置-Conda-Forge-镜像-可选"><a href="#四、配置-Conda-Forge-镜像-可选" class="headerlink" title="四、配置 Conda Forge 镜像 (可选)"></a>四、配置 Conda Forge 镜像 (可选)</h2><p>如你使用 <code>conda-forge</code> 频道，也可配置为国内镜像：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>安装学习</category>
-      </categories>
-      <tags>
-        <tag>Conda</tag>
-        <tag>镜像源</tag>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【安装学习】ROS仿真中TF_REPEATED_DATA错误解决方案</title>
     <url>/2025/07/04/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ROS%20TF_REPEATED_DATA%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/</url>
     <content><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在ROS Noetic中仿真两轮差速小车时，出现以下错误信息：</p>
@@ -277,32 +221,59 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </tags>
   </entry>
   <entry>
-    <title>【安装学习】ROS TF查询命令</title>
-    <url>/2025/06/24/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ROS%20TF%E6%9F%A5%E8%AF%A2%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h3 id="可视化查看TF关系树"><a href="#可视化查看TF关系树" class="headerlink" title="可视化查看TF关系树"></a>可视化查看TF关系树</h3><ul>
-<li><p>可视化TF树</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf view_frames</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在当前路径下生成pdf文件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">evince frames.pdf</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>单独查看两个坐标之间的发布状态</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf tf_monitor &lt;source_frame&gt; &lt;target_frame&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看两个坐标系的变换关系</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf tf_echo &lt;source_frame&gt; &lt;target_frame&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="https://blog.csdn.net/m0_56661101/article/details/123644158">07 ROS的TF坐标管理工具</a></li>
-</ul>
+    <title>【安装学习】Conda换源</title>
+    <url>/2025/05/03/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91Linux%20Conda%E6%8D%A2%E6%BA%90/</url>
+    <content><![CDATA[<h2 id="一、换源-Conda-镜像源方法"><a href="#一、换源-Conda-镜像源方法" class="headerlink" title="一、换源 Conda 镜像源方法"></a>一、换源 Conda 镜像源方法</h2><h3 id="1-创建或修改-condarc-文件"><a href="#1-创建或修改-condarc-文件" class="headerlink" title="1. 创建或修改 .condarc 文件"></a>1. 创建或修改 <code>.condarc</code> 文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nano ~/.condarc</span><br></pre></td></tr></table></figure>
+
+<p>将内容替换为以下格式 (以 <strong>清华源</strong> 为例):</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">defaults</span></span><br><span class="line"><span class="attr">show_channel_urls:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>建议保留 <code>defaults</code> 作为备用源</p>
+</blockquote>
+<hr>
+<h2 id="二、常用镜像源列表"><a href="#二、常用镜像源列表" class="headerlink" title="二、常用镜像源列表"></a>二、常用镜像源列表</h2><table>
+<thead>
+<tr>
+<th>镜像站</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>清华大</td>
+<td><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/">https://mirrors.tuna.tsinghua.edu.cn/anaconda/</a></td>
+</tr>
+<tr>
+<td>中科大</td>
+<td><a href="https://mirrors.ustc.edu.cn/anaconda/">https://mirrors.ustc.edu.cn/anaconda/</a></td>
+</tr>
+<tr>
+<td>阿里云</td>
+<td><a href="https://mirrors.aliyun.com/anaconda/">https://mirrors.aliyun.com/anaconda/</a></td>
+</tr>
+<tr>
+<td>华为云</td>
+<td><a href="https://repo.huaweicloud.com/anaconda/">https://repo.huaweicloud.com/anaconda/</a></td>
+</tr>
+</tbody></table>
+<p>以中科大镜像为例：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.ustc.edu.cn/anaconda/pkgs/main/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.ustc.edu.cn/anaconda/pkgs/free/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.ustc.edu.cn/anaconda/pkgs/r/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">defaults</span></span><br><span class="line"><span class="attr">show_channel_urls:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="三、更新-Conda-缓存"><a href="#三、更新-Conda-缓存" class="headerlink" title="三、更新 Conda 缓存"></a>三、更新 Conda 缓存</h2><p>换源后建议清除并更新缓存:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda clean -i  <span class="comment"># 清除索引缓存</span></span><br><span class="line">conda update conda</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="四、配置-Conda-Forge-镜像-可选"><a href="#四、配置-Conda-Forge-镜像-可选" class="headerlink" title="四、配置 Conda Forge 镜像 (可选)"></a>四、配置 Conda Forge 镜像 (可选)</h2><p>如你使用 <code>conda-forge</code> 频道，也可配置为国内镜像：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>安装学习</category>
       </categories>
       <tags>
+        <tag>Conda</tag>
+        <tag>镜像源</tag>
         <tag>Linux</tag>
-        <tag>ROS</tag>
-        <tag>TF</tag>
       </tags>
   </entry>
   <entry>
@@ -571,6 +542,38 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </tags>
   </entry>
   <entry>
+    <title>【安装学习】从KITTI数据集中处理-1</title>
+    <url>/2025/04/30/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E4%BB%8EKITTI%E6%95%B0%E6%8D%AE%E9%9B%86%E4%B8%AD%E5%A4%84%E7%90%86-1/</url>
+    <content><![CDATA[<h2 id="1、前期准备"><a href="#1、前期准备" class="headerlink" title="1、前期准备"></a>1、前期准备</h2><ul>
+<li><p>下载并解压缩KITTI中关于3D物体的数据集</p>
+</li>
+<li><p><strong>Step 1：</strong> 下载数据集<br><code>wget https://s3.eu-central-1.amazonaws.com/avg-kitti/data_object_velodyne.zip</code><br><code>wget https://s3.eu-central-1.amazonaws.com/avg-kitti/data_object_label_2.zip</code><br><code>wget https://s3.eu-central-1.amazonaws.com/avg-kitti/data_object_calib.zip</code></p>
+</li>
+<li><p><strong>Step 2：</strong> 解压数据集<br><code>unzip data_object_velodyne.zip -d kitti_dataset</code><br><code>unzip data_object_label_2.zip -d kitti_dataset</code><br><code>unzip data_object_calib.zip -d kitti_dataset</code></p>
+</li>
+</ul>
+<h2 id="2、检查是否已经安装好了训练环境"><a href="#2、检查是否已经安装好了训练环境" class="headerlink" title="2、检查是否已经安装好了训练环境"></a>2、检查是否已经安装好了训练环境</h2><ul>
+<li><p><strong>Step 1：</strong>配置对应conda环境，安装依赖</p>
+<p>这里我使用的是pointnet++的pytorch版本，参考了下面的仓库：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://github.com/yanx27/Pointnet_Pointnet2_pytorch.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Step 2：</strong>终端打开到虚拟环境，运行命令测试<br><code>import torch</code><br>输出空行<br><code>torch.cuda.is_available()</code><br>输出：True<br><code>torch.cuda.device_count()</code><br>输出：1<br><code>torch.cuda.device(0)</code><br>输出：&lt;torch.cuda.device object at 0x7fd95fd1fa90&gt;<br><code>torch.cuda.get_device_name(0)</code><br>输出：’NVIDIA GeForce RTX 4060 Laptop GPU’</p>
+</li>
+<li><p><strong>Step3：</strong>未完待续</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+        <tag>pytorch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【安装学习】ubuntu环境配置AMD显卡驱动</title>
     <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEAMD%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</url>
     <content><![CDATA[<h1 id="ubuntu环境配置AMD显卡驱动"><a href="#ubuntu环境配置AMD显卡驱动" class="headerlink" title="ubuntu环境配置AMD显卡驱动"></a>ubuntu环境配置AMD显卡驱动</h1><p>本人买的AMD显卡，最近要在ubuntu环境做python深度学习，所以必须折腾一番，结果发现还不复杂。本人的系统是Ubuntu 20.04.6，显卡是RX6600，亲测有效。</p>
@@ -613,61 +616,32 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </tags>
   </entry>
   <entry>
-    <title>【安装学习】从KITTI数据集中处理-1</title>
-    <url>/2025/04/30/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E4%BB%8EKITTI%E6%95%B0%E6%8D%AE%E9%9B%86%E4%B8%AD%E5%A4%84%E7%90%86-1/</url>
-    <content><![CDATA[<h2 id="1、前期准备"><a href="#1、前期准备" class="headerlink" title="1、前期准备"></a>1、前期准备</h2><ul>
-<li><p>下载并解压缩KITTI中关于3D物体的数据集</p>
+    <title>【安装学习】ROS TF查询命令</title>
+    <url>/2025/06/24/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ROS%20TF%E6%9F%A5%E8%AF%A2%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="可视化查看TF关系树"><a href="#可视化查看TF关系树" class="headerlink" title="可视化查看TF关系树"></a>可视化查看TF关系树</h3><ul>
+<li><p>可视化TF树</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf view_frames</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>Step 1：</strong> 下载数据集<br><code>wget https://s3.eu-central-1.amazonaws.com/avg-kitti/data_object_velodyne.zip</code><br><code>wget https://s3.eu-central-1.amazonaws.com/avg-kitti/data_object_label_2.zip</code><br><code>wget https://s3.eu-central-1.amazonaws.com/avg-kitti/data_object_calib.zip</code></p>
+<li><p>在当前路径下生成pdf文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">evince frames.pdf</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>Step 2：</strong> 解压数据集<br><code>unzip data_object_velodyne.zip -d kitti_dataset</code><br><code>unzip data_object_label_2.zip -d kitti_dataset</code><br><code>unzip data_object_calib.zip -d kitti_dataset</code></p>
+<li><p>单独查看两个坐标之间的发布状态</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf tf_monitor &lt;source_frame&gt; &lt;target_frame&gt;</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>查看两个坐标系的变换关系</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf tf_echo &lt;source_frame&gt; &lt;target_frame&gt;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="2、检查是否已经安装好了训练环境"><a href="#2、检查是否已经安装好了训练环境" class="headerlink" title="2、检查是否已经安装好了训练环境"></a>2、检查是否已经安装好了训练环境</h2><ul>
-<li><p><strong>Step 1：</strong>配置对应conda环境，安装依赖</p>
-<p>这里我使用的是pointnet++的pytorch版本，参考了下面的仓库：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://github.com/yanx27/Pointnet_Pointnet2_pytorch.git</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>Step 2：</strong>终端打开到虚拟环境，运行命令测试<br><code>import torch</code><br>输出空行<br><code>torch.cuda.is_available()</code><br>输出：True<br><code>torch.cuda.device_count()</code><br>输出：1<br><code>torch.cuda.device(0)</code><br>输出：&lt;torch.cuda.device object at 0x7fd95fd1fa90&gt;<br><code>torch.cuda.get_device_name(0)</code><br>输出：’NVIDIA GeForce RTX 4060 Laptop GPU’</p>
-</li>
-<li><p><strong>Step3：</strong>未完待续</p>
-</li>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="https://blog.csdn.net/m0_56661101/article/details/123644158">07 ROS的TF坐标管理工具</a></li>
 </ul>
 ]]></content>
       <categories>
         <category>安装学习</category>
       </categories>
       <tags>
-        <tag>安装</tag>
-        <tag>学习</tag>
-        <tag>Ubuntu</tag>
-        <tag>pytorch</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【安装学习】安装OpenSSH服务</title>
-    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85OpenSSH%E6%9C%8D%E5%8A%A1/</url>
-    <content><![CDATA[<ul>
-<li><p>安装服务端</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install openssh-server </span><br></pre></td></tr></table></figure>
-</li>
-<li><p>检查是否开启服务</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ps -e | grep ssh</span><br></pre></td></tr></table></figure>
-
-<p>有输出则证明开启，没有的话手动开启</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> service ssh start</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看IP地址</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ifconfig </span><br></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
-      <categories>
-        <category>安装学习</category>
-      </categories>
-      <tags>
-        <tag>安装</tag>
-        <tag>学习</tag>
-        <tag>Ubuntu</tag>
+        <tag>ROS</tag>
+        <tag>TF</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -706,6 +680,32 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
 </ul>
 <h2 id="8、构建"><a href="#8、构建" class="headerlink" title="8、构建"></a>8、构建</h2><p>在 <code>catkin_ws</code> 中清理 <code>build_isolated</code> 和 <code>devel_isolated</code> 文件夹后重新构建：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/WS/catkin_ws</span><br><span class="line"><span class="built_in">rm</span> -rf build_isolated devel_isolated install_isolated</span><br><span class="line">catkin_make_isolated --install --use-ninja</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【安装学习】安装OpenSSH服务</title>
+    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85OpenSSH%E6%9C%8D%E5%8A%A1/</url>
+    <content><![CDATA[<ul>
+<li><p>安装服务端</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install openssh-server </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查是否开启服务</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ps -e | grep ssh</span><br></pre></td></tr></table></figure>
+
+<p>有输出则证明开启，没有的话手动开启</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> service ssh start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看IP地址</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ifconfig </span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
       <categories>
         <category>安装学习</category>
       </categories>
