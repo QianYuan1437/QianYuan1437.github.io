@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"qianyuan1437.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="问题描述在ROS Noetic中仿真两轮差速小车时，出现以下错误信息： 1234Warning: TF_REPEATED_DATA ignoring data with redundant timestamp for frame omni_b_link (parent car_base_link) at time 1488.072000 according to authority unknown">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【安装学习】ROS仿真中TF_REPEATED_DATA错误解决方案">
+<meta property="og:url" content="https://qianyuan1437.github.io/2025/07/04/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ROS%20TF_REPEATED_DATA%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="问题描述在ROS Noetic中仿真两轮差速小车时，出现以下错误信息： 1234Warning: TF_REPEATED_DATA ignoring data with redundant timestamp for frame omni_b_link (parent car_base_link) at time 1488.072000 according to authority unknown">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-07-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-07-04T05:48:19.645Z">
+<meta property="article:author" content="Zhao Yuan Hang">
+<meta property="article:tag" content="ROS">
+<meta property="article:tag" content="TF">
+<meta property="article:tag" content="Gazebo">
+<meta property="article:tag" content="仿真">
+<meta property="article:tag" content="故障排除">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://qianyuan1437.github.io/2025/07/04/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ROS%20TF_REPEATED_DATA%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【安装学习】ROS仿真中TF_REPEATED_DATA错误解决方案 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2025/07/04/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ROS%20TF_REPEATED_DATA%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhao Yuan Hang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【安装学习】ROS仿真中TF_REPEATED_DATA错误解决方案
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-07-04 00:00:00 / 修改时间：13:48:19" itemprop="dateCreated datePublished" datetime="2025-07-04T00:00:00+08:00">2025-07-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">安装学习</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在ROS Noetic中仿真两轮差速小车时，出现以下错误信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Warning: TF_REPEATED_DATA ignoring data with redundant timestamp for frame omni_b_link (parent car_base_link) at time 1488.072000 according to authority unknown_publisher</span><br><span class="line">Warning: TF_REPEATED_DATA ignoring data with redundant timestamp for frame omni_f_link (parent car_base_link) at time 1488.072000 according to authority unknown_publisher</span><br><span class="line">Warning: TF_REPEATED_DATA ignoring data with redundant timestamp for frame wheel_l_link (parent car_base_link) at time 1488.072000 according to authority unknown_publisher</span><br><span class="line">Warning: TF_REPEATED_DATA ignoring data with redundant timestamp for frame wheel_r_link (parent car_base_link) at time 1488.072000 according to authority unknown_publisher</span><br></pre></td></tr></table></figure>
+
+<p>同时发现：</p>
+<ul>
+<li><code>/gazebo</code>发布odom到base_footprint的频率为101.099Hz</li>
+<li><code>/robot_state_publisher</code>发布后续tf的频率为1000.00Hz</li>
+</ul>
+<h2 id="问题根本原因"><a href="#问题根本原因" class="headerlink" title="问题根本原因"></a>问题根本原因</h2><h3 id="TF-REPEATED-DATA错误原因"><a href="#TF-REPEATED-DATA错误原因" class="headerlink" title="TF_REPEATED_DATA错误原因"></a>TF_REPEATED_DATA错误原因</h3><p>该错误表明有多个发布者在相同时间戳为相同的tf变换发布数据，导致数据冲突。具体原因：</p>
+<ol>
+<li><strong>多个控制器冲突</strong>：<code>gazebo_ros_diff_drive</code>插件和<code>gazebo_ros_control</code>插件同时控制相同的关节</li>
+<li><strong>重复的tf发布</strong>：两个插件都在发布相同关节的tf变换</li>
+<li><strong>频率不匹配</strong>：不同发布者的更新频率不一致</li>
+</ol>
+<h3 id="Transmission配置的作用"><a href="#Transmission配置的作用" class="headerlink" title="Transmission配置的作用"></a>Transmission配置的作用</h3><p><strong>Transmission</strong>是ROS控制系统中定义执行器与关节连接关系的配置：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transmission</span> <span class="attr">name</span>=<span class="string">&quot;wheel_l_trans&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">type</span>&gt;</span>transmission_interface/SimpleTransmission<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">joint</span> <span class="attr">name</span>=<span class="string">&quot;wheel_l_joint&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hardwareInterface</span>&gt;</span>hardware_interface/VelocityJointInterface<span class="tag">&lt;/<span class="name">hardwareInterface</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">joint</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">actuator</span> <span class="attr">name</span>=<span class="string">&quot;wheel_l_motor&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hardwareInterface</span>&gt;</span>hardware_interface/VelocityJointInterface<span class="tag">&lt;/<span class="name">hardwareInterface</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mechanicalReduction</span>&gt;</span>1<span class="tag">&lt;/<span class="name">mechanicalReduction</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">actuator</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transmission</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>工作流程</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">命令输入 → 控制器 → 传动系统 → 执行器 → 关节 → 链接运动</span><br><span class="line">cmd_vel → diff_drive → transmission → motor → joint → link</span><br></pre></td></tr></table></figure>
+
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="方案一：使用gazebo-ros-diff-drive（推荐用于简单差分驱动）"><a href="#方案一：使用gazebo-ros-diff-drive（推荐用于简单差分驱动）" class="headerlink" title="方案一：使用gazebo_ros_diff_drive（推荐用于简单差分驱动）"></a>方案一：使用gazebo_ros_diff_drive（推荐用于简单差分驱动）</h3><p><strong>1. 删除gazebo_ros_control插件</strong></p>
+<p>在主URDF文件中注释或删除：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 删除这部分配置 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">&lt;gazebo&gt;</span></span><br><span class="line"><span class="comment">    &lt;plugin name=&quot;gazebo_ros_control&quot; filename=&quot;libgazebo_ros_control.so&quot;&gt;</span></span><br><span class="line"><span class="comment">        &lt;robotNamespace&gt;/zeus_s1&lt;/robotNamespace&gt;</span></span><br><span class="line"><span class="comment">        &lt;robotParam&gt;robot_description&lt;/robotParam&gt;</span></span><br><span class="line"><span class="comment">        &lt;robotSimType&gt;gazebo_ros_control/DefaultRobotHWSim&lt;/robotSimType&gt;</span></span><br><span class="line"><span class="comment">        &lt;legacyModeNS&gt;true&lt;/legacyModeNS&gt;</span></span><br><span class="line"><span class="comment">    &lt;/plugin&gt;</span></span><br><span class="line"><span class="comment">&lt;/gazebo&gt;</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>2. 优化gazebo_ros_diff_drive配置</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">gazebo</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugin</span> <span class="attr">filename</span>=<span class="string">&quot;libgazebo_ros_diff_drive.so&quot;</span> <span class="attr">name</span>=<span class="string">&quot;differential_drive_controller&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">robotNamespace</span>&gt;</span>/<span class="tag">&lt;/<span class="name">robotNamespace</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">rosDebugLevel</span>&gt;</span>Error<span class="tag">&lt;/<span class="name">rosDebugLevel</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">publishWheelTF</span>&gt;</span>false<span class="tag">&lt;/<span class="name">publishWheelTF</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">publishTf</span>&gt;</span>1<span class="tag">&lt;/<span class="name">publishTf</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">publishOdomTF</span>&gt;</span>1<span class="tag">&lt;/<span class="name">publishOdomTF</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">odometrySource</span>&gt;</span>world<span class="tag">&lt;/<span class="name">odometrySource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">publishWheelJointState</span>&gt;</span>true<span class="tag">&lt;/<span class="name">publishWheelJointState</span>&gt;</span>  <span class="comment">&lt;!-- 改为true --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">alwaysOn</span>&gt;</span>true<span class="tag">&lt;/<span class="name">alwaysOn</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">updateRate</span>&gt;</span>50.0<span class="tag">&lt;/<span class="name">updateRate</span>&gt;</span>  <span class="comment">&lt;!-- 与robot_state_publisher同步 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">legacyMode</span>&gt;</span>true<span class="tag">&lt;/<span class="name">legacyMode</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">leftJoint</span>&gt;</span>wheel_l_joint<span class="tag">&lt;/<span class="name">leftJoint</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">rightJoint</span>&gt;</span>wheel_r_joint<span class="tag">&lt;/<span class="name">rightJoint</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">wheelSeparation</span>&gt;</span>0.33<span class="tag">&lt;/<span class="name">wheelSeparation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">wheelDiameter</span>&gt;</span>0.125<span class="tag">&lt;/<span class="name">wheelDiameter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">broadcastTF</span>&gt;</span>1<span class="tag">&lt;/<span class="name">broadcastTF</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">wheelTorque</span>&gt;</span>6.5<span class="tag">&lt;/<span class="name">wheelTorque</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">wheelAcceleration</span>&gt;</span>0.5<span class="tag">&lt;/<span class="name">wheelAcceleration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">commandTopic</span>&gt;</span>cmd_vel<span class="tag">&lt;/<span class="name">commandTopic</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">odometryFrame</span>&gt;</span>odom<span class="tag">&lt;/<span class="name">odometryFrame</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">odometryTopic</span>&gt;</span>odom<span class="tag">&lt;/<span class="name">odometryTopic</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">robotBaseFrame</span>&gt;</span>base_footprint<span class="tag">&lt;/<span class="name">robotBaseFrame</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">gazebo</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>3. 删除wheel的transmission配置</strong></p>
+<p>在wheel_125mm.xacro中注释：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 删除或注释掉wheel的transmission --&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">&lt;transmission name=&quot;$&#123;wheel_prefix&#125;_wheel_trans&quot;&gt;</span></span><br><span class="line"><span class="comment">    &lt;type&gt;transmission_interface/SimpleTransmission&lt;/type&gt;</span></span><br><span class="line"><span class="comment">    &lt;joint name=&quot;$&#123;wheel_prefix&#125;_joint&quot;&gt;</span></span><br><span class="line"><span class="comment">        &lt;hardwareInterface&gt;hardware_interface/VelocityJointInterface&lt;/hardwareInterface&gt;</span></span><br><span class="line"><span class="comment">    &lt;/joint&gt;</span></span><br><span class="line"><span class="comment">    &lt;actuator name=&quot;$&#123;wheel_prefix&#125;_wheel_motor&quot;&gt;</span></span><br><span class="line"><span class="comment">        &lt;hardwareInterface&gt;hardware_interface/VelocityJointInterface&lt;/hardwareInterface&gt;</span></span><br><span class="line"><span class="comment">        &lt;mechanicalReduction&gt;1&lt;/mechanicalReduction&gt;</span></span><br><span class="line"><span class="comment">    &lt;/actuator&gt;</span></span><br><span class="line"><span class="comment">&lt;/transmission&gt;</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>4. 调整robot_state_publisher频率</strong></p>
+<p>在launch文件中：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">node</span> <span class="attr">name</span>=<span class="string">&quot;robot_state_publisher&quot;</span> <span class="attr">pkg</span>=<span class="string">&quot;robot_state_publisher&quot;</span> <span class="attr">type</span>=<span class="string">&quot;robot_state_publisher&quot;</span> <span class="attr">output</span>=<span class="string">&quot;screen&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">&quot;publish_frequency&quot;</span> <span class="attr">type</span>=<span class="string">&quot;double&quot;</span> <span class="attr">value</span>=<span class="string">&quot;50.0&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">node</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="方案二：使用gazebo-ros-control（适用于复杂控制需求）"><a href="#方案二：使用gazebo-ros-control（适用于复杂控制需求）" class="headerlink" title="方案二：使用gazebo_ros_control（适用于复杂控制需求）"></a>方案二：使用gazebo_ros_control（适用于复杂控制需求）</h3><p><strong>1. 删除gazebo_ros_diff_drive插件</strong></p>
+<p><strong>2. 修改gazebo_ros_control配置</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">gazebo</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugin</span> <span class="attr">name</span>=<span class="string">&quot;gazebo_ros_control&quot;</span> <span class="attr">filename</span>=<span class="string">&quot;libgazebo_ros_control.so&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">robotNamespace</span>&gt;</span>/<span class="tag">&lt;/<span class="name">robotNamespace</span>&gt;</span>  <span class="comment">&lt;!-- 移除zeus_s1 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">robotParam</span>&gt;</span>robot_description<span class="tag">&lt;/<span class="name">robotParam</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">robotSimType</span>&gt;</span>gazebo_ros_control/DefaultRobotHWSim<span class="tag">&lt;/<span class="name">robotSimType</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">legacyModeNS</span>&gt;</span>true<span class="tag">&lt;/<span class="name">legacyModeNS</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">updateRate</span>&gt;</span>50.0<span class="tag">&lt;/<span class="name">updateRate</span>&gt;</span>  <span class="comment">&lt;!-- 添加更新频率 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">gazebo</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>3. 修正transmission配置</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transmission</span> <span class="attr">name</span>=<span class="string">&quot;$&#123;wheel_prefix&#125;_wheel_trans&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">type</span>&gt;</span>transmission_interface/SimpleTransmission<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">joint</span> <span class="attr">name</span>=<span class="string">&quot;$&#123;wheel_prefix&#125;_joint&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hardwareInterface</span>&gt;</span>hardware_interface/VelocityJointInterface<span class="tag">&lt;/<span class="name">hardwareInterface</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">joint</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">actuator</span> <span class="attr">name</span>=<span class="string">&quot;$&#123;wheel_prefix&#125;_wheel_motor&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hardwareInterface</span>&gt;</span>hardware_interface/VelocityJointInterface<span class="tag">&lt;/<span class="name">hardwareInterface</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mechanicalReduction</span>&gt;</span>1<span class="tag">&lt;/<span class="name">mechanicalReduction</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">actuator</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transmission</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>4. 添加控制器配置</strong></p>
+<p>在launch文件中：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">rosparam</span> <span class="attr">file</span>=<span class="string">&quot;$(find zeus_s1_description)/config/control.yaml&quot;</span> <span class="attr">command</span>=<span class="string">&quot;load&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">node</span> <span class="attr">name</span>=<span class="string">&quot;controller_spawner&quot;</span> <span class="attr">pkg</span>=<span class="string">&quot;controller_manager&quot;</span> <span class="attr">type</span>=<span class="string">&quot;spawner&quot;</span> <span class="attr">respawn</span>=<span class="string">&quot;false&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">output</span>=<span class="string">&quot;screen&quot;</span> <span class="attr">args</span>=<span class="string">&quot;joint_state_controller diff_drive_controller&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>control.yaml文件内容：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Joint state controller</span></span><br><span class="line"><span class="attr">joint_state_controller:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">joint_state_controller/JointStateController</span></span><br><span class="line">  <span class="attr">publish_rate:</span> <span class="number">50</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Differential drive controller</span></span><br><span class="line"><span class="attr">diff_drive_controller:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">diff_drive_controller/DiffDriveController</span></span><br><span class="line">  <span class="attr">left_wheel:</span> <span class="string">&#x27;wheel_l_joint&#x27;</span></span><br><span class="line">  <span class="attr">right_wheel:</span> <span class="string">&#x27;wheel_r_joint&#x27;</span></span><br><span class="line">  <span class="attr">publish_rate:</span> <span class="number">50</span></span><br><span class="line">  <span class="attr">pose_covariance_diagonal:</span> [<span class="number">0.001</span>, <span class="number">0.001</span>, <span class="number">1000000.0</span>, <span class="number">1000000.0</span>, <span class="number">1000000.0</span>, <span class="number">1000.0</span>]</span><br><span class="line">  <span class="attr">twist_covariance_diagonal:</span> [<span class="number">0.001</span>, <span class="number">0.001</span>, <span class="number">1000000.0</span>, <span class="number">1000000.0</span>, <span class="number">1000000.0</span>, <span class="number">1000.0</span>]</span><br><span class="line">  <span class="attr">wheel_separation:</span> <span class="number">0.33</span></span><br><span class="line">  <span class="attr">wheel_radius:</span> <span class="number">0.0625</span></span><br><span class="line">  <span class="attr">base_frame_id:</span> <span class="string">base_footprint</span></span><br><span class="line">  <span class="attr">odom_frame_id:</span> <span class="string">odom</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="调试和验证方法"><a href="#调试和验证方法" class="headerlink" title="调试和验证方法"></a>调试和验证方法</h2><h3 id="检查TF发布状态"><a href="#检查TF发布状态" class="headerlink" title="检查TF发布状态"></a>检查TF发布状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看TF树结构</span></span><br><span class="line">rosrun tf view_frames</span><br><span class="line">evince frames.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 监控特定TF变换</span></span><br><span class="line">rosrun tf tf_monitor odom base_footprint</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看TF变换关系</span></span><br><span class="line">rosrun tf tf_echo odom base_footprint</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查当前运行的节点</span></span><br><span class="line">rosnode list | grep -E <span class="string">&quot;(robot_state_publisher|gazebo)&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看tf话题内容</span></span><br><span class="line">rostopic <span class="built_in">echo</span> /tf | grep frame_id</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证关节状态发布"><a href="#验证关节状态发布" class="headerlink" title="验证关节状态发布"></a>验证关节状态发布</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看关节状态话题</span></span><br><span class="line">rostopic <span class="built_in">echo</span> /joint_states</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查话题发布频率</span></span><br><span class="line">rostopic hz /joint_states</span><br><span class="line">rostopic hz /tf</span><br></pre></td></tr></table></figure>
+
+<h2 id="最佳实践建议"><a href="#最佳实践建议" class="headerlink" title="最佳实践建议"></a>最佳实践建议</h2><h3 id="何时使用Transmission配置"><a href="#何时使用Transmission配置" class="headerlink" title="何时使用Transmission配置"></a>何时使用Transmission配置</h3><p><strong>需要使用的场景</strong>：</p>
+<ul>
+<li>复杂控制需求（PID调节、轨迹跟踪）</li>
+<li>多种控制模式切换（位置、速度、力矩）</li>
+<li>存在机械减速的真实情况</li>
+<li>自定义控制器开发</li>
+<li>多关节协调控制（如机械臂）</li>
+</ul>
+<p><strong>不需要使用的场景</strong>：</p>
+<ul>
+<li>简单差分驱动机器人</li>
+<li>固定关节连接</li>
+<li>基础仿真演示</li>
+</ul>
+<h3 id="频率同步建议"><a href="#频率同步建议" class="headerlink" title="频率同步建议"></a>频率同步建议</h3><ol>
+<li><strong>统一更新频率</strong>：将所有相关组件设置为相同频率（推荐50-100Hz）</li>
+<li><strong>避免过高频率</strong>：1000Hz通常不必要，会增加计算负担</li>
+<li><strong>渐进调试</strong>：从低频率开始，逐步优化</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>对于简单的差分驱动机器人仿真，<strong>推荐使用方案一</strong>（gazebo_ros_diff_drive），因为：</p>
+<ol>
+<li><strong>配置简单</strong>：无需复杂的transmission和控制器配置</li>
+<li><strong>功能完整</strong>：自动处理差分驱动逻辑和里程计</li>
+<li><strong>稳定可靠</strong>：减少配置冲突的可能性</li>
+<li><strong>易于调试</strong>：问题定位更直接</li>
+</ol>
+<p>TF_REPEATED_DATA错误的核心是避免多个发布者控制相同的关节，选择合适的控制架构是关键。</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://wiki.ros.org/ros_control">ROS Control Documentation</a></li>
+<li><a target="_blank" rel="noopener" href="http://gazebosim.org/tutorials?tut=ros_control">Gazebo ROS Control Tutorial</a></li>
+<li><a target="_blank" rel="noopener" href="http://wiki.ros.org/tf/Debugging%20tools">TF Troubleshooting Guide</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Zhao Yuan Hang
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://qianyuan1437.github.io/2025/07/04/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ROS%20TF_REPEATED_DATA%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/" title="【安装学习】ROS仿真中TF_REPEATED_DATA错误解决方案">https://qianyuan1437.github.io/2025/07/04/【安装学习】ROS TF_REPEATED_DATA错误解决/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ROS/" rel="tag"># ROS</a>
+              <a href="/tags/TF/" rel="tag"># TF</a>
+              <a href="/tags/Gazebo/" rel="tag"># Gazebo</a>
+              <a href="/tags/%E4%BB%BF%E7%9C%9F/" rel="tag"># 仿真</a>
+              <a href="/tags/%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4/" rel="tag"># 故障排除</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/06/24/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ROS%20TF%E6%9F%A5%E8%AF%A2%E5%91%BD%E4%BB%A4/" rel="prev" title="【安装学习】ROS TF查询命令">
+      <i class="fa fa-chevron-left"></i> 【安装学习】ROS TF查询命令
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="utterances-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%A0%B9%E6%9C%AC%E5%8E%9F%E5%9B%A0"><span class="nav-text">问题根本原因</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TF-REPEATED-DATA%E9%94%99%E8%AF%AF%E5%8E%9F%E5%9B%A0"><span class="nav-text">TF_REPEATED_DATA错误原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transmission%E9%85%8D%E7%BD%AE%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-text">Transmission配置的作用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%B8%80%EF%BC%9A%E4%BD%BF%E7%94%A8gazebo-ros-diff-drive%EF%BC%88%E6%8E%A8%E8%8D%90%E7%94%A8%E4%BA%8E%E7%AE%80%E5%8D%95%E5%B7%AE%E5%88%86%E9%A9%B1%E5%8A%A8%EF%BC%89"><span class="nav-text">方案一：使用gazebo_ros_diff_drive（推荐用于简单差分驱动）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%BA%8C%EF%BC%9A%E4%BD%BF%E7%94%A8gazebo-ros-control%EF%BC%88%E9%80%82%E7%94%A8%E4%BA%8E%E5%A4%8D%E6%9D%82%E6%8E%A7%E5%88%B6%E9%9C%80%E6%B1%82%EF%BC%89"><span class="nav-text">方案二：使用gazebo_ros_control（适用于复杂控制需求）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E8%AF%95%E5%92%8C%E9%AA%8C%E8%AF%81%E6%96%B9%E6%B3%95"><span class="nav-text">调试和验证方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5TF%E5%8F%91%E5%B8%83%E7%8A%B6%E6%80%81"><span class="nav-text">检查TF发布状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81%E5%85%B3%E8%8A%82%E7%8A%B6%E6%80%81%E5%8F%91%E5%B8%83"><span class="nav-text">验证关节状态发布</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E5%BB%BA%E8%AE%AE"><span class="nav-text">最佳实践建议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8Transmission%E9%85%8D%E7%BD%AE"><span class="nav-text">何时使用Transmission配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%91%E7%8E%87%E5%90%8C%E6%AD%A5%E5%BB%BA%E8%AE%AE"><span class="nav-text">频率同步建议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Zhao Yuan Hang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhao Yuan Hang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">42k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">38 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+NexT.utils.loadComments(document.querySelector('#utterances-container'), () => {
+    // if (typeof parcelRequire === 'function') { return; }
+    var js = document.createElement('script');
+    js.type = 'text/javascript';
+    js.src = 'https://utteranc.es/client.js';
+    js.async = true;
+    js.crossorigin = 'anonymous';
+    js.setAttribute('repo', 'QianYuan1437/blog-commit');
+    js.setAttribute('issue-term', 'pathname');
+    js.setAttribute('theme', 'github-light');
+    document.getElementById('utterances-container').appendChild(js);
+});
+</script>
+
+</body>
+</html>

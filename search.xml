@@ -121,55 +121,6 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </tags>
   </entry>
   <entry>
-    <title>【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</title>
-    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/</url>
-    <content><![CDATA[<h2 id="1、依赖安装"><a href="#1、依赖安装" class="headerlink" title="1、依赖安装"></a>1、依赖安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install  liblapack-dev libsuitesparse-dev libcxsparse3 libgflags-dev libgoogle-glog-dev libgtest-dev</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、包下载与安装"><a href="#2、包下载与安装" class="headerlink" title="2、包下载与安装"></a>2、包下载与安装</h2><ul>
-<li>下载安装包：<a href="http://ceres-solver.org/ceres-solver-2.0.0.tar.gz">http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</a><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#1. 下载ceres2.0版本</span><br><span class="line"># 地址为 http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</span><br><span class="line">#2. 解压</span><br><span class="line">#3. 进入目录，然后编译</span><br><span class="line">cd ceres-solver</span><br><span class="line">mkdir build &amp;&amp; cd build </span><br><span class="line">cmake ..</span><br><span class="line">make -j3</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="3、参考链接"><a href="#3、参考链接" class="headerlink" title="3、参考链接"></a>3、参考链接</h2><p><a href="https://blog.csdn.net/little_white138/article/details/142443296">https://blog.csdn.net/little_white138/article/details/142443296</a></p>
-]]></content>
-      <categories>
-        <category>安装学习</category>
-      </categories>
-      <tags>
-        <tag>安装</tag>
-        <tag>学习</tag>
-        <tag>Ubuntu</tag>
-        <tag>A-LOAM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【安装学习】ROS TF查询命令</title>
-    <url>/2025/06/24/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ROS%20TF%E6%9F%A5%E8%AF%A2%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h3 id="可视化查看TF关系树"><a href="#可视化查看TF关系树" class="headerlink" title="可视化查看TF关系树"></a>可视化查看TF关系树</h3><ul>
-<li><p>可视化TF树</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf view_frames</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在当前路径下生成pdf文件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">evince frames.pdf</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>单独查看两个坐标之间的发布状态</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf tf_monitor &lt;source_frame&gt; &lt;target_frame&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看两个坐标系的变换关系</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf tf_echo &lt;source_frame&gt; &lt;target_frame&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="https://blog.csdn.net/m0_56661101/article/details/123644158">07 ROS的TF坐标管理工具</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>安装学习</category>
-      </categories>
-      <tags>
-        <tag>ROS</tag>
-        <tag>TF</tag>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【安装学习】Conda换源</title>
     <url>/2025/05/03/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91Linux%20Conda%E6%8D%A2%E6%BA%90/</url>
     <content><![CDATA[<h2 id="一、换源-Conda-镜像源方法"><a href="#一、换源-Conda-镜像源方法" class="headerlink" title="一、换源 Conda 镜像源方法"></a>一、换源 Conda 镜像源方法</h2><h3 id="1-创建或修改-condarc-文件"><a href="#1-创建或修改-condarc-文件" class="headerlink" title="1. 创建或修改 .condarc 文件"></a>1. 创建或修改 <code>.condarc</code> 文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nano ~/.condarc</span><br></pre></td></tr></table></figure>
@@ -220,51 +171,138 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
         <category>安装学习</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>Conda</tag>
         <tag>镜像源</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
-    <title>【安装学习】ubuntu环境配置AMD显卡驱动</title>
-    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEAMD%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</url>
-    <content><![CDATA[<h1 id="ubuntu环境配置AMD显卡驱动"><a href="#ubuntu环境配置AMD显卡驱动" class="headerlink" title="ubuntu环境配置AMD显卡驱动"></a>ubuntu环境配置AMD显卡驱动</h1><p>本人买的AMD显卡，最近要在ubuntu环境做python深度学习，所以必须折腾一番，结果发现还不复杂。本人的系统是Ubuntu 20.04.6，显卡是RX6600，亲测有效。</p>
+    <title>【安装学习】ROS仿真中TF_REPEATED_DATA错误解决方案</title>
+    <url>/2025/07/04/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ROS%20TF_REPEATED_DATA%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/</url>
+    <content><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在ROS Noetic中仿真两轮差速小车时，出现以下错误信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Warning: TF_REPEATED_DATA ignoring data with redundant timestamp for frame omni_b_link (parent car_base_link) at time 1488.072000 according to authority unknown_publisher</span><br><span class="line">Warning: TF_REPEATED_DATA ignoring data with redundant timestamp for frame omni_f_link (parent car_base_link) at time 1488.072000 according to authority unknown_publisher</span><br><span class="line">Warning: TF_REPEATED_DATA ignoring data with redundant timestamp for frame wheel_l_link (parent car_base_link) at time 1488.072000 according to authority unknown_publisher</span><br><span class="line">Warning: TF_REPEATED_DATA ignoring data with redundant timestamp for frame wheel_r_link (parent car_base_link) at time 1488.072000 according to authority unknown_publisher</span><br></pre></td></tr></table></figure>
+
+<p>同时发现：</p>
 <ul>
-<li><p>针对GEM12 MAX 板载的显卡680M，应当选择6.1版本的.deb文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://repo.radeon.com/amdgpu-install/6.1/ubuntu/focal/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>对应的pytorch安装命令，应当修改为：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/rocm6.1</span><br></pre></td></tr></table></figure></li>
+<li><code>/gazebo</code>发布odom到base_footprint的频率为101.099Hz</li>
+<li><code>/robot_state_publisher</code>发布后续tf的频率为1000.00Hz</li>
 </ul>
-<h4 id="0-如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始："><a href="#0-如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始：" class="headerlink" title="(0) 如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始："></a>(0) 如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始：</h4><figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">~$ sudo amdgpu-install <span class="comment">--uninstall</span></span><br></pre></td></tr></table></figure>
+<h2 id="问题根本原因"><a href="#问题根本原因" class="headerlink" title="问题根本原因"></a>问题根本原因</h2><h3 id="TF-REPEATED-DATA错误原因"><a href="#TF-REPEATED-DATA错误原因" class="headerlink" title="TF_REPEATED_DATA错误原因"></a>TF_REPEATED_DATA错误原因</h3><p>该错误表明有多个发布者在相同时间戳为相同的tf变换发布数据，导致数据冲突。具体原因：</p>
+<ol>
+<li><strong>多个控制器冲突</strong>：<code>gazebo_ros_diff_drive</code>插件和<code>gazebo_ros_control</code>插件同时控制相同的关节</li>
+<li><strong>重复的tf发布</strong>：两个插件都在发布相同关节的tf变换</li>
+<li><strong>频率不匹配</strong>：不同发布者的更新频率不一致</li>
+</ol>
+<h3 id="Transmission配置的作用"><a href="#Transmission配置的作用" class="headerlink" title="Transmission配置的作用"></a>Transmission配置的作用</h3><p><strong>Transmission</strong>是ROS控制系统中定义执行器与关节连接关系的配置：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transmission</span> <span class="attr">name</span>=<span class="string">&quot;wheel_l_trans&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">type</span>&gt;</span>transmission_interface/SimpleTransmission<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">joint</span> <span class="attr">name</span>=<span class="string">&quot;wheel_l_joint&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hardwareInterface</span>&gt;</span>hardware_interface/VelocityJointInterface<span class="tag">&lt;/<span class="name">hardwareInterface</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">joint</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">actuator</span> <span class="attr">name</span>=<span class="string">&quot;wheel_l_motor&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hardwareInterface</span>&gt;</span>hardware_interface/VelocityJointInterface<span class="tag">&lt;/<span class="name">hardwareInterface</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mechanicalReduction</span>&gt;</span>1<span class="tag">&lt;/<span class="name">mechanicalReduction</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">actuator</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transmission</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="1-在AMD官网下载需要的驱动包："><a href="#1-在AMD官网下载需要的驱动包：" class="headerlink" title="(1) 在AMD官网下载需要的驱动包："></a>(1) 在AMD官网下载需要的驱动包：</h4><p><a href="https://link.csdn.net/?target=https://www.amd.com/en/support/kb/release-notes/rn-amdgpu-unified-linux-22-20?login=from_csdn">驱动包链接</a><br>得到amdgpu-install_xxx_all.deb（xxx是版本号）</p>
-<h4 id="2-cd到驱动包路径下，安装驱动包："><a href="#2-cd到驱动包路径下，安装驱动包：" class="headerlink" title="(2) cd到驱动包路径下，安装驱动包："></a>(2) cd到驱动包路径下，安装驱动包：</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> apt install ./amdgpu-install_xxx_all.deb</span></span><br></pre></td></tr></table></figure>
+<p><strong>工作流程</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">命令输入 → 控制器 → 传动系统 → 执行器 → 关节 → 链接运动</span><br><span class="line">cmd_vel → diff_drive → transmission → motor → joint → link</span><br></pre></td></tr></table></figure>
 
-<h4 id="3-更新软件："><a href="#3-更新软件：" class="headerlink" title="(3) 更新软件："></a>(3) 更新软件：</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>sudo apt update</span><br><span class="line">~<span class="variable">$ </span>sudo apt upgrade -y</span><br></pre></td></tr></table></figure>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="方案一：使用gazebo-ros-diff-drive（推荐用于简单差分驱动）"><a href="#方案一：使用gazebo-ros-diff-drive（推荐用于简单差分驱动）" class="headerlink" title="方案一：使用gazebo_ros_diff_drive（推荐用于简单差分驱动）"></a>方案一：使用gazebo_ros_diff_drive（推荐用于简单差分驱动）</h3><p><strong>1. 删除gazebo_ros_control插件</strong></p>
+<p>在主URDF文件中注释或删除：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 删除这部分配置 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">&lt;gazebo&gt;</span></span><br><span class="line"><span class="comment">    &lt;plugin name=&quot;gazebo_ros_control&quot; filename=&quot;libgazebo_ros_control.so&quot;&gt;</span></span><br><span class="line"><span class="comment">        &lt;robotNamespace&gt;/zeus_s1&lt;/robotNamespace&gt;</span></span><br><span class="line"><span class="comment">        &lt;robotParam&gt;robot_description&lt;/robotParam&gt;</span></span><br><span class="line"><span class="comment">        &lt;robotSimType&gt;gazebo_ros_control/DefaultRobotHWSim&lt;/robotSimType&gt;</span></span><br><span class="line"><span class="comment">        &lt;legacyModeNS&gt;true&lt;/legacyModeNS&gt;</span></span><br><span class="line"><span class="comment">    &lt;/plugin&gt;</span></span><br><span class="line"><span class="comment">&lt;/gazebo&gt;</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="4-安装驱动："><a href="#4-安装驱动：" class="headerlink" title="(4) 安装驱动："></a>(4) 安装驱动：</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>sudo amdgpu-install --no-dkms</span><br><span class="line">~<span class="variable">$ </span>sudo apt install rocm-dev</span><br><span class="line">~<span class="variable">$ </span>sudo reboot</span><br><span class="line"><span class="comment"># 等待重启</span></span><br></pre></td></tr></table></figure>
+<p><strong>2. 优化gazebo_ros_diff_drive配置</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">gazebo</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugin</span> <span class="attr">filename</span>=<span class="string">&quot;libgazebo_ros_diff_drive.so&quot;</span> <span class="attr">name</span>=<span class="string">&quot;differential_drive_controller&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">robotNamespace</span>&gt;</span>/<span class="tag">&lt;/<span class="name">robotNamespace</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">rosDebugLevel</span>&gt;</span>Error<span class="tag">&lt;/<span class="name">rosDebugLevel</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">publishWheelTF</span>&gt;</span>false<span class="tag">&lt;/<span class="name">publishWheelTF</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">publishTf</span>&gt;</span>1<span class="tag">&lt;/<span class="name">publishTf</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">publishOdomTF</span>&gt;</span>1<span class="tag">&lt;/<span class="name">publishOdomTF</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">odometrySource</span>&gt;</span>world<span class="tag">&lt;/<span class="name">odometrySource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">publishWheelJointState</span>&gt;</span>true<span class="tag">&lt;/<span class="name">publishWheelJointState</span>&gt;</span>  <span class="comment">&lt;!-- 改为true --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">alwaysOn</span>&gt;</span>true<span class="tag">&lt;/<span class="name">alwaysOn</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">updateRate</span>&gt;</span>50.0<span class="tag">&lt;/<span class="name">updateRate</span>&gt;</span>  <span class="comment">&lt;!-- 与robot_state_publisher同步 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">legacyMode</span>&gt;</span>true<span class="tag">&lt;/<span class="name">legacyMode</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">leftJoint</span>&gt;</span>wheel_l_joint<span class="tag">&lt;/<span class="name">leftJoint</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">rightJoint</span>&gt;</span>wheel_r_joint<span class="tag">&lt;/<span class="name">rightJoint</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">wheelSeparation</span>&gt;</span>0.33<span class="tag">&lt;/<span class="name">wheelSeparation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">wheelDiameter</span>&gt;</span>0.125<span class="tag">&lt;/<span class="name">wheelDiameter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">broadcastTF</span>&gt;</span>1<span class="tag">&lt;/<span class="name">broadcastTF</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">wheelTorque</span>&gt;</span>6.5<span class="tag">&lt;/<span class="name">wheelTorque</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">wheelAcceleration</span>&gt;</span>0.5<span class="tag">&lt;/<span class="name">wheelAcceleration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">commandTopic</span>&gt;</span>cmd_vel<span class="tag">&lt;/<span class="name">commandTopic</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">odometryFrame</span>&gt;</span>odom<span class="tag">&lt;/<span class="name">odometryFrame</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">odometryTopic</span>&gt;</span>odom<span class="tag">&lt;/<span class="name">odometryTopic</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">robotBaseFrame</span>&gt;</span>base_footprint<span class="tag">&lt;/<span class="name">robotBaseFrame</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">gazebo</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="5-配置环境："><a href="#5-配置环境：" class="headerlink" title="(5)配置环境："></a>(5)配置环境：</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">ls</span> -l /dev/dri/render*</span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> usermod -a -G render <span class="variable">$LOGNAME</span></span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> usermod -a -G video <span class="variable">$LOGNAME</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="variable">$LOGNAME</span>不需要修改</span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> reboot</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">等待重启</span></span><br></pre></td></tr></table></figure>
+<p><strong>3. 删除wheel的transmission配置</strong></p>
+<p>在wheel_125mm.xacro中注释：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 删除或注释掉wheel的transmission --&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">&lt;transmission name=&quot;$&#123;wheel_prefix&#125;_wheel_trans&quot;&gt;</span></span><br><span class="line"><span class="comment">    &lt;type&gt;transmission_interface/SimpleTransmission&lt;/type&gt;</span></span><br><span class="line"><span class="comment">    &lt;joint name=&quot;$&#123;wheel_prefix&#125;_joint&quot;&gt;</span></span><br><span class="line"><span class="comment">        &lt;hardwareInterface&gt;hardware_interface/VelocityJointInterface&lt;/hardwareInterface&gt;</span></span><br><span class="line"><span class="comment">    &lt;/joint&gt;</span></span><br><span class="line"><span class="comment">    &lt;actuator name=&quot;$&#123;wheel_prefix&#125;_wheel_motor&quot;&gt;</span></span><br><span class="line"><span class="comment">        &lt;hardwareInterface&gt;hardware_interface/VelocityJointInterface&lt;/hardwareInterface&gt;</span></span><br><span class="line"><span class="comment">        &lt;mechanicalReduction&gt;1&lt;/mechanicalReduction&gt;</span></span><br><span class="line"><span class="comment">    &lt;/actuator&gt;</span></span><br><span class="line"><span class="comment">&lt;/transmission&gt;</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="6-理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证"><a href="#6-理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证" class="headerlink" title="(6) 理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证"></a>(6) 理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>rocm-smi</span><br><span class="line"><span class="comment"># 监控GPU性能</span></span><br></pre></td></tr></table></figure>
+<p><strong>4. 调整robot_state_publisher频率</strong></p>
+<p>在launch文件中：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">node</span> <span class="attr">name</span>=<span class="string">&quot;robot_state_publisher&quot;</span> <span class="attr">pkg</span>=<span class="string">&quot;robot_state_publisher&quot;</span> <span class="attr">type</span>=<span class="string">&quot;robot_state_publisher&quot;</span> <span class="attr">output</span>=<span class="string">&quot;screen&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">&quot;publish_frequency&quot;</span> <span class="attr">type</span>=<span class="string">&quot;double&quot;</span> <span class="attr">value</span>=<span class="string">&quot;50.0&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">node</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~$ <span class="regexp">/opt/</span>rocm<span class="regexp">/bin/</span>rocminfo</span><br><span class="line"><span class="comment"># 可以查询到CPU、GPU信息</span></span><br></pre></td></tr></table></figure>
+<h3 id="方案二：使用gazebo-ros-control（适用于复杂控制需求）"><a href="#方案二：使用gazebo-ros-control（适用于复杂控制需求）" class="headerlink" title="方案二：使用gazebo_ros_control（适用于复杂控制需求）"></a>方案二：使用gazebo_ros_control（适用于复杂控制需求）</h3><p><strong>1. 删除gazebo_ros_diff_drive插件</strong></p>
+<p><strong>2. 修改gazebo_ros_control配置</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">gazebo</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugin</span> <span class="attr">name</span>=<span class="string">&quot;gazebo_ros_control&quot;</span> <span class="attr">filename</span>=<span class="string">&quot;libgazebo_ros_control.so&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">robotNamespace</span>&gt;</span>/<span class="tag">&lt;/<span class="name">robotNamespace</span>&gt;</span>  <span class="comment">&lt;!-- 移除zeus_s1 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">robotParam</span>&gt;</span>robot_description<span class="tag">&lt;/<span class="name">robotParam</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">robotSimType</span>&gt;</span>gazebo_ros_control/DefaultRobotHWSim<span class="tag">&lt;/<span class="name">robotSimType</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">legacyModeNS</span>&gt;</span>true<span class="tag">&lt;/<span class="name">legacyModeNS</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">updateRate</span>&gt;</span>50.0<span class="tag">&lt;/<span class="name">updateRate</span>&gt;</span>  <span class="comment">&lt;!-- 添加更新频率 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">gazebo</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~$ <span class="regexp">/opt/</span>rocm<span class="regexp">/opencl/</span>bin/clinfo</span><br><span class="line"><span class="comment"># 可以查询到GPU信息</span></span><br></pre></td></tr></table></figure>
+<p><strong>3. 修正transmission配置</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transmission</span> <span class="attr">name</span>=<span class="string">&quot;$&#123;wheel_prefix&#125;_wheel_trans&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">type</span>&gt;</span>transmission_interface/SimpleTransmission<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">joint</span> <span class="attr">name</span>=<span class="string">&quot;$&#123;wheel_prefix&#125;_joint&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hardwareInterface</span>&gt;</span>hardware_interface/VelocityJointInterface<span class="tag">&lt;/<span class="name">hardwareInterface</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">joint</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">actuator</span> <span class="attr">name</span>=<span class="string">&quot;$&#123;wheel_prefix&#125;_wheel_motor&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hardwareInterface</span>&gt;</span>hardware_interface/VelocityJointInterface<span class="tag">&lt;/<span class="name">hardwareInterface</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mechanicalReduction</span>&gt;</span>1<span class="tag">&lt;/<span class="name">mechanicalReduction</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">actuator</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transmission</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>若以上三条命令都有正常输出，便是配置成功了</p>
-<h4 id="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："><a href="#（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：" class="headerlink" title="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："></a>（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：</h4><figure class="highlight python-repl"><table><tr><td class="code"><pre><span class="line">python3</span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python"><span class="keyword">import</span> torch</span></span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">torch.cuda.is_available()</span></span><br></pre></td></tr></table></figure>
+<p><strong>4. 添加控制器配置</strong></p>
+<p>在launch文件中：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">rosparam</span> <span class="attr">file</span>=<span class="string">&quot;$(find zeus_s1_description)/config/control.yaml&quot;</span> <span class="attr">command</span>=<span class="string">&quot;load&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">node</span> <span class="attr">name</span>=<span class="string">&quot;controller_spawner&quot;</span> <span class="attr">pkg</span>=<span class="string">&quot;controller_manager&quot;</span> <span class="attr">type</span>=<span class="string">&quot;spawner&quot;</span> <span class="attr">respawn</span>=<span class="string">&quot;false&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">output</span>=<span class="string">&quot;screen&quot;</span> <span class="attr">args</span>=<span class="string">&quot;joint_state_controller diff_drive_controller&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>返回True就说明成功啦</p>
+<p>control.yaml文件内容：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Joint state controller</span></span><br><span class="line"><span class="attr">joint_state_controller:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">joint_state_controller/JointStateController</span></span><br><span class="line">  <span class="attr">publish_rate:</span> <span class="number">50</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Differential drive controller</span></span><br><span class="line"><span class="attr">diff_drive_controller:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">diff_drive_controller/DiffDriveController</span></span><br><span class="line">  <span class="attr">left_wheel:</span> <span class="string">&#x27;wheel_l_joint&#x27;</span></span><br><span class="line">  <span class="attr">right_wheel:</span> <span class="string">&#x27;wheel_r_joint&#x27;</span></span><br><span class="line">  <span class="attr">publish_rate:</span> <span class="number">50</span></span><br><span class="line">  <span class="attr">pose_covariance_diagonal:</span> [<span class="number">0.001</span>, <span class="number">0.001</span>, <span class="number">1000000.0</span>, <span class="number">1000000.0</span>, <span class="number">1000000.0</span>, <span class="number">1000.0</span>]</span><br><span class="line">  <span class="attr">twist_covariance_diagonal:</span> [<span class="number">0.001</span>, <span class="number">0.001</span>, <span class="number">1000000.0</span>, <span class="number">1000000.0</span>, <span class="number">1000000.0</span>, <span class="number">1000.0</span>]</span><br><span class="line">  <span class="attr">wheel_separation:</span> <span class="number">0.33</span></span><br><span class="line">  <span class="attr">wheel_radius:</span> <span class="number">0.0625</span></span><br><span class="line">  <span class="attr">base_frame_id:</span> <span class="string">base_footprint</span></span><br><span class="line">  <span class="attr">odom_frame_id:</span> <span class="string">odom</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="调试和验证方法"><a href="#调试和验证方法" class="headerlink" title="调试和验证方法"></a>调试和验证方法</h2><h3 id="检查TF发布状态"><a href="#检查TF发布状态" class="headerlink" title="检查TF发布状态"></a>检查TF发布状态</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看TF树结构</span></span><br><span class="line">rosrun tf view_frames</span><br><span class="line">evince frames.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 监控特定TF变换</span></span><br><span class="line">rosrun tf tf_monitor odom base_footprint</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看TF变换关系</span></span><br><span class="line">rosrun tf tf_echo odom base_footprint</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查当前运行的节点</span></span><br><span class="line">rosnode list | grep -E <span class="string">&quot;(robot_state_publisher|gazebo)&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看tf话题内容</span></span><br><span class="line">rostopic <span class="built_in">echo</span> /tf | grep frame_id</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证关节状态发布"><a href="#验证关节状态发布" class="headerlink" title="验证关节状态发布"></a>验证关节状态发布</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看关节状态话题</span></span><br><span class="line">rostopic <span class="built_in">echo</span> /joint_states</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查话题发布频率</span></span><br><span class="line">rostopic hz /joint_states</span><br><span class="line">rostopic hz /tf</span><br></pre></td></tr></table></figure>
+
+<h2 id="最佳实践建议"><a href="#最佳实践建议" class="headerlink" title="最佳实践建议"></a>最佳实践建议</h2><h3 id="何时使用Transmission配置"><a href="#何时使用Transmission配置" class="headerlink" title="何时使用Transmission配置"></a>何时使用Transmission配置</h3><p><strong>需要使用的场景</strong>：</p>
+<ul>
+<li>复杂控制需求（PID调节、轨迹跟踪）</li>
+<li>多种控制模式切换（位置、速度、力矩）</li>
+<li>存在机械减速的真实情况</li>
+<li>自定义控制器开发</li>
+<li>多关节协调控制（如机械臂）</li>
+</ul>
+<p><strong>不需要使用的场景</strong>：</p>
+<ul>
+<li>简单差分驱动机器人</li>
+<li>固定关节连接</li>
+<li>基础仿真演示</li>
+</ul>
+<h3 id="频率同步建议"><a href="#频率同步建议" class="headerlink" title="频率同步建议"></a>频率同步建议</h3><ol>
+<li><strong>统一更新频率</strong>：将所有相关组件设置为相同频率（推荐50-100Hz）</li>
+<li><strong>避免过高频率</strong>：1000Hz通常不必要，会增加计算负担</li>
+<li><strong>渐进调试</strong>：从低频率开始，逐步优化</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>对于简单的差分驱动机器人仿真，<strong>推荐使用方案一</strong>（gazebo_ros_diff_drive），因为：</p>
+<ol>
+<li><strong>配置简单</strong>：无需复杂的transmission和控制器配置</li>
+<li><strong>功能完整</strong>：自动处理差分驱动逻辑和里程计</li>
+<li><strong>稳定可靠</strong>：减少配置冲突的可能性</li>
+<li><strong>易于调试</strong>：问题定位更直接</li>
+</ol>
+<p>TF_REPEATED_DATA错误的核心是避免多个发布者控制相同的关节，选择合适的控制架构是关键。</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://wiki.ros.org/ros_control">ROS Control Documentation</a></li>
+<li><a href="http://gazebosim.org/tutorials?tut=ros_control">Gazebo ROS Control Tutorial</a></li>
+<li><a href="http://wiki.ros.org/tf/Debugging%20tools">TF Troubleshooting Guide</a></li>
+</ul>
 ]]></content>
       <categories>
         <category>安装学习</category>
       </categories>
       <tags>
-        <tag>安装</tag>
-        <tag>学习</tag>
-        <tag>Ubuntu</tag>
+        <tag>ROS</tag>
+        <tag>TF</tag>
+        <tag>Gazebo</tag>
+        <tag>仿真</tag>
+        <tag>故障排除</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【安装学习】ROS TF查询命令</title>
+    <url>/2025/06/24/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ROS%20TF%E6%9F%A5%E8%AF%A2%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="可视化查看TF关系树"><a href="#可视化查看TF关系树" class="headerlink" title="可视化查看TF关系树"></a>可视化查看TF关系树</h3><ul>
+<li><p>可视化TF树</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf view_frames</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在当前路径下生成pdf文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">evince frames.pdf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>单独查看两个坐标之间的发布状态</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf tf_monitor &lt;source_frame&gt; &lt;target_frame&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看两个坐标系的变换关系</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rosrun tf tf_echo &lt;source_frame&gt; &lt;target_frame&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="https://blog.csdn.net/m0_56661101/article/details/123644158">07 ROS的TF坐标管理工具</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>ROS</tag>
+        <tag>TF</tag>
       </tags>
   </entry>
   <entry>
@@ -385,6 +423,68 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
         <tag>学习</tag>
         <tag>Ubuntu</tag>
         <tag>ORB_SLAM2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【安装学习】ubuntu20.04与A-LOAM：01-安装ceres-solver</title>
+    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu20.04%E4%B8%8EA-LOAM%EF%BC%9A01-%E5%AE%89%E8%A3%85ceres-solver/</url>
+    <content><![CDATA[<h2 id="1、依赖安装"><a href="#1、依赖安装" class="headerlink" title="1、依赖安装"></a>1、依赖安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install  liblapack-dev libsuitesparse-dev libcxsparse3 libgflags-dev libgoogle-glog-dev libgtest-dev</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、包下载与安装"><a href="#2、包下载与安装" class="headerlink" title="2、包下载与安装"></a>2、包下载与安装</h2><ul>
+<li>下载安装包：<a href="http://ceres-solver.org/ceres-solver-2.0.0.tar.gz">http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</a><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#1. 下载ceres2.0版本</span><br><span class="line"># 地址为 http://ceres-solver.org/ceres-solver-2.0.0.tar.gz</span><br><span class="line">#2. 解压</span><br><span class="line">#3. 进入目录，然后编译</span><br><span class="line">cd ceres-solver</span><br><span class="line">mkdir build &amp;&amp; cd build </span><br><span class="line">cmake ..</span><br><span class="line">make -j3</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3、参考链接"><a href="#3、参考链接" class="headerlink" title="3、参考链接"></a>3、参考链接</h2><p><a href="https://blog.csdn.net/little_white138/article/details/142443296">https://blog.csdn.net/little_white138/article/details/142443296</a></p>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
+        <tag>A-LOAM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【安装学习】ubuntu环境配置AMD显卡驱动</title>
+    <url>/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEAMD%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</url>
+    <content><![CDATA[<h1 id="ubuntu环境配置AMD显卡驱动"><a href="#ubuntu环境配置AMD显卡驱动" class="headerlink" title="ubuntu环境配置AMD显卡驱动"></a>ubuntu环境配置AMD显卡驱动</h1><p>本人买的AMD显卡，最近要在ubuntu环境做python深度学习，所以必须折腾一番，结果发现还不复杂。本人的系统是Ubuntu 20.04.6，显卡是RX6600，亲测有效。</p>
+<ul>
+<li><p>针对GEM12 MAX 板载的显卡680M，应当选择6.1版本的.deb文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://repo.radeon.com/amdgpu-install/6.1/ubuntu/focal/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对应的pytorch安装命令，应当修改为：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/rocm6.1</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="0-如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始："><a href="#0-如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始：" class="headerlink" title="(0) 如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始："></a>(0) 如果已经配置了显卡驱动但是没有成功，或配置成功想更换版本，则先卸载原有的驱动，重新开始：</h4><figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">~$ sudo amdgpu-install <span class="comment">--uninstall</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-在AMD官网下载需要的驱动包："><a href="#1-在AMD官网下载需要的驱动包：" class="headerlink" title="(1) 在AMD官网下载需要的驱动包："></a>(1) 在AMD官网下载需要的驱动包：</h4><p><a href="https://link.csdn.net/?target=https://www.amd.com/en/support/kb/release-notes/rn-amdgpu-unified-linux-22-20?login=from_csdn">驱动包链接</a><br>得到amdgpu-install_xxx_all.deb（xxx是版本号）</p>
+<h4 id="2-cd到驱动包路径下，安装驱动包："><a href="#2-cd到驱动包路径下，安装驱动包：" class="headerlink" title="(2) cd到驱动包路径下，安装驱动包："></a>(2) cd到驱动包路径下，安装驱动包：</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> apt install ./amdgpu-install_xxx_all.deb</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-更新软件："><a href="#3-更新软件：" class="headerlink" title="(3) 更新软件："></a>(3) 更新软件：</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>sudo apt update</span><br><span class="line">~<span class="variable">$ </span>sudo apt upgrade -y</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-安装驱动："><a href="#4-安装驱动：" class="headerlink" title="(4) 安装驱动："></a>(4) 安装驱动：</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>sudo amdgpu-install --no-dkms</span><br><span class="line">~<span class="variable">$ </span>sudo apt install rocm-dev</span><br><span class="line">~<span class="variable">$ </span>sudo reboot</span><br><span class="line"><span class="comment"># 等待重启</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="5-配置环境："><a href="#5-配置环境：" class="headerlink" title="(5)配置环境："></a>(5)配置环境：</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">ls</span> -l /dev/dri/render*</span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> usermod -a -G render <span class="variable">$LOGNAME</span></span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> usermod -a -G video <span class="variable">$LOGNAME</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="variable">$LOGNAME</span>不需要修改</span></span><br><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">sudo</span> reboot</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">等待重启</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="6-理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证"><a href="#6-理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证" class="headerlink" title="(6) 理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证"></a>(6) 理论上如果一路上没有报错，便配置成功了，可以输入下列命令验证</h4><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">~<span class="variable">$ </span>rocm-smi</span><br><span class="line"><span class="comment"># 监控GPU性能</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~$ <span class="regexp">/opt/</span>rocm<span class="regexp">/bin/</span>rocminfo</span><br><span class="line"><span class="comment"># 可以查询到CPU、GPU信息</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~$ <span class="regexp">/opt/</span>rocm<span class="regexp">/opencl/</span>bin/clinfo</span><br><span class="line"><span class="comment"># 可以查询到GPU信息</span></span><br></pre></td></tr></table></figure>
+
+<p>若以上三条命令都有正常输出，便是配置成功了</p>
+<h4 id="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："><a href="#（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：" class="headerlink" title="（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如："></a>（7）接下来，如果有利用GPU进行pytorch深度学习的需求，可以进行python程序验证，简单的指令例如：</h4><figure class="highlight python-repl"><table><tr><td class="code"><pre><span class="line">python3</span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python"><span class="keyword">import</span> torch</span></span><br><span class="line"><span class="meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">torch.cuda.is_available()</span></span><br></pre></td></tr></table></figure>
+
+<p>返回True就说明成功啦</p>
+]]></content>
+      <categories>
+        <category>安装学习</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>学习</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
