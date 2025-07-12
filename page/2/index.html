@@ -174,6 +174,133 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2025/02/24/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91%E8%BF%81%E7%A7%BBBlogs%E5%88%B0%E5%85%B6%E4%BB%96Ubuntu%E7%B3%BB%E7%BB%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhao Yuan Hang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Yuan Hang's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/02/24/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91%E8%BF%81%E7%A7%BBBlogs%E5%88%B0%E5%85%B6%E4%BB%96Ubuntu%E7%B3%BB%E7%BB%9F/" class="post-title-link" itemprop="url">【技能学习】迁移Blogs到其他Ubuntu系统.md</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-02-24 00:00:00 / 修改时间：20:53:10" itemprop="dateCreated datePublished" datetime="2025-02-24T00:00:00+08:00">2025-02-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">技能学习</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1、问题描述"><a href="#1、问题描述" class="headerlink" title="1、问题描述"></a>1、问题描述</h2><p>在 Ubuntu 旧环境下，博客文件夹位于 <code>/home/zhao/Blog</code>，该目录已连接到 GitHub 仓库，并包含 Hexo 相关的配置文件和依赖。希望在 <strong>新 Ubuntu 系统</strong> 下重建该博客环境，并确保与 GitHub 仓库保持同步。然而，在执行 <code>hexo</code> 相关命令时遇到了一些问题，主要包括：</p>
+<ol>
+<li><code>.gitignore</code> 配置可能导致部分文件未被同步。</li>
+<li><code>npx hexo generate</code> 报错 <code>TypeError: Object.fromEntries is not a function</code>，怀疑是 <strong>Node.js 版本过旧</strong>。</li>
+<li><code>hexo clean</code> 报错 <code>Command &#39;hexo&#39; not found</code>，怀疑是 <strong>Hexo 未全局安装</strong>。</li>
+</ol>
+<hr>
+<h2 id="2、问题分析与解决方案"><a href="#2、问题分析与解决方案" class="headerlink" title="2、问题分析与解决方案"></a>2、问题分析与解决方案</h2><h3 id="2-1-gitignore-配置检查"><a href="#2-1-gitignore-配置检查" class="headerlink" title="2.1 .gitignore 配置检查"></a><strong>2.1 .gitignore 配置检查</strong></h3><p>在 <code>.gitignore</code> 文件中，以下内容可能影响同步：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">.DS_Store</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Thumbs.db</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">db.json</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">*.<span class="built_in">log</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">node_modules/</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">public/</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">.deploy*/</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">_multiconfig.yml</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>node_modules/</code> 和 <code>public/</code> 目录可以忽略，因为它们可以通过 <code>npm install</code> 和 <code>hexo generate</code> 重新生成。</li>
+<li><code>db.json</code> 可能包含 Hexo 的数据缓存，忽略它不会影响博客功能。</li>
+</ul>
+<p><strong>结论</strong>：<code>.gitignore</code> 并未影响关键文件的同步，因此问题可能出现在 Node.js 版本或 Hexo 安装上。</p>
+<hr>
+<h3 id="2-2-解决-Node-js-版本过旧问题"><a href="#2-2-解决-Node-js-版本过旧问题" class="headerlink" title="2.2 解决 Node.js 版本过旧问题"></a><strong>2.2 解决 Node.js 版本过旧问题</strong></h3><p><strong>错误信息：</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: Object.fromEntries is not a function</span><br></pre></td></tr></table></figure>
+
+<p><strong>原因：</strong> <code>Object.fromEntries</code> 需要 Node.js 12+，而旧版本 Node.js 可能低于 12.0.0。</p>
+<p><strong>解决方案：</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">检查当前 Node.js 版本</span></span><br><span class="line">node -v</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新 Node.js（推荐使用官方 PPA）</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y curl</span><br><span class="line">curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -</span><br><span class="line">sudo apt install -y nodejs</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">确保安装成功</span></span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="2-3-解决-Hexo-未全局安装问题"><a href="#2-3-解决-Hexo-未全局安装问题" class="headerlink" title="2.3 解决 Hexo 未全局安装问题"></a><strong>2.3 解决 Hexo 未全局安装问题</strong></h3><p><strong>错误信息：</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Command &#x27;hexo&#x27; not found</span><br></pre></td></tr></table></figure>
+
+<p><strong>原因：</strong> Hexo 可能只作为 <strong>本地依赖</strong> 存在于 <code>node_modules/</code> 目录中，而没有全局安装。</p>
+<p><strong>解决方案 1（推荐）：使用 <code>npx</code> 运行 Hexo</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npx hexo clean</span><br><span class="line">npx hexo generate</span><br><span class="line">npx hexo server</span><br></pre></td></tr></table></figure>
+
+<p><strong>解决方案 2（可选）：全局安装 Hexo</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">确保安装成功</span></span><br><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3、完整的博客环境恢复步骤"><a href="#3、完整的博客环境恢复步骤" class="headerlink" title="3、完整的博客环境恢复步骤"></a>3、完整的博客环境恢复步骤</h2><ol>
+<li><strong>安装 Node.js 和 npm</strong>（参考 2.2 章节）。</li>
+<li><strong>进入博客目录</strong> 并安装依赖： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /home/zhao/Blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></li>
+<li><strong>清理缓存并重新生成博客</strong>： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure></li>
+<li><strong>本地访问博客</strong>：<br> 在浏览器中打开 <code>http://localhost:4000</code>，检查博客是否正常显示。</li>
+<li><strong>同步 GitHub 远程仓库（可选）</strong>： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote -v  # 确保远程仓库正确</span><br><span class="line">git pull origin main  # 拉取最新代码</span><br></pre></td></tr></table></figure></li>
+<li><strong>配置DNS解析</strong><br> 添加CNAME文件到仓库中，内容书写个人网站，此处我的为<code>zhaoyuanhangblogs.top</code>，然后进入仓库设置，选择<code>Pages</code>选项，下滑到DNS解析部分，开启强制HTTPS，并在上方添加同样的网站地址，然后Save，就会自动解析</li>
+</ol>
+<hr>
+<h2 id="4、总结"><a href="#4、总结" class="headerlink" title="4、总结"></a>4、总结</h2><p>在新 Ubuntu 系统下迁移 Hexo 博客时，可能会遇到 <strong>Node.js 版本过旧</strong> 和 <strong>Hexo 未全局安装</strong> 的问题。通过升级 Node.js、安装 Hexo 依赖以及正确执行 Hexo 命令，可以成功恢复博客环境并同步 GitHub 仓库。</p>
+<p>至此，Hexo 博客已成功在新系统下恢复并可正常使用！🎉</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2025/01/13/%E3%80%90%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E3%80%91Ubuntu%E5%88%A0%E9%99%A4%E5%BA%94%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1142,119 +1269,6 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://qianyuan1437.github.io/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85Cartographer%20ROS%EF%BC%88noetic%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Zhao Yuan Hang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Yuan Hang's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/12/23/%E3%80%90%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0%E3%80%91%E5%AE%89%E8%A3%85Cartographer%20ROS%EF%BC%88noetic%EF%BC%89/" class="post-title-link" itemprop="url">【安装学习】安装Cartographer ROS（noetic）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2024-12-23 00:00:00 / 修改时间：16:09:01" itemprop="dateCreated datePublished" datetime="2024-12-23T00:00:00+08:00">2024-12-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">安装学习</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="【安装学习】安装Cartographer-ROS（noetic）"><a href="#【安装学习】安装Cartographer-ROS（noetic）" class="headerlink" title="【安装学习】安装Cartographer ROS（noetic）"></a>【安装学习】安装Cartographer ROS（noetic）</h1><p> 参考链接：<a target="_blank" rel="noopener" href="https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html">https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html</a></p>
-<h2 id="1、创建工作空间"><a href="#1、创建工作空间" class="headerlink" title="1、创建工作空间"></a>1、创建工作空间</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/catkin_google_ws/src</span><br><span class="line"><span class="built_in">cd</span> catkin_google_ws/src</span><br><span class="line">catkin_init_workspace</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、安装工具"><a href="#2、安装工具" class="headerlink" title="2、安装工具"></a>2、安装工具</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install -y python3-wstool python3-rosdep ninja-build stow</span><br></pre></td></tr></table></figure>
-
-<h2 id="3、初始化工作空间"><a href="#3、初始化工作空间" class="headerlink" title="3、初始化工作空间"></a>3、初始化工作空间</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> catkin_google_ws</span><br><span class="line">wstool init src</span><br><span class="line">wstool merge -t src https://raw.githubusercontent.com/cartographer-project/cartographer_ros/master/cartographer_ros.rosinstall</span><br><span class="line">wstool update -t src</span><br></pre></td></tr></table></figure>
-
-<h2 id="4、安装依赖"><a href="#4、安装依赖" class="headerlink" title="4、安装依赖"></a>4、安装依赖</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pip install rosdepc</span><br><span class="line"><span class="built_in">sudo</span> rosdepc init</span><br><span class="line">rosdepc update</span><br></pre></td></tr></table></figure>
-
-<h2 id="5、Libabsl-dev处理"><a href="#5、Libabsl-dev处理" class="headerlink" title="5、Libabsl-dev处理"></a>5、Libabsl-dev处理</h2><p>进行XML文件修改，路径为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cartographer_ws/src/cartographer/package.xml</span><br></pre></td></tr></table></figure>
-
-<p>找到第46行<code>&lt;depend&gt;libabsl-dev&lt;/depend&gt;</code>删掉</p>
-<h2 id="6、执行rosdep-install命令"><a href="#6、执行rosdep-install命令" class="headerlink" title="6、执行rosdep install命令"></a>6、执行rosdep install命令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rosdep update</span><br><span class="line">rosdep install --from-paths src --ignore-src --rosdistro=$&#123;ROS_DISTRO&#125; -y</span><br></pre></td></tr></table></figure>
-
-<h2 id="7、安装abseil库"><a href="#7、安装abseil库" class="headerlink" title="7、安装abseil库"></a>7、安装abseil库</h2><ul>
-<li><p>先删除本地abseil库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get remove ros-<span class="variable">$&#123;ROS_DISTRO&#125;</span>-abseil-cpp</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>再运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src/cartographer/scripts/install_abseil.sh</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>这时发现可能会报错，类型如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* existing target is neither a <span class="built_in">link</span> nor a directory: include/absl/base/internal/sysinfo.h</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>定位到上方.sh脚本运行后下载的文件夹，与src文件夹同级，进行如下操作：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/path/to/abseil-cpp</span><br><span class="line"><span class="built_in">mkdir</span> build &amp;&amp; <span class="built_in">cd</span> build</span><br><span class="line">cmake -DCMAKE_POSITION_INDEPENDENT_CODE=TRUE -DCMAKE_BUILD_TYPE=Release ..</span><br><span class="line">make -j$(<span class="built_in">nproc</span>)</span><br><span class="line"><span class="built_in">sudo</span> make install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>确保编译器可以找到安装的 <code>abseil-cpp</code> 库。检查 <code>LD_LIBRARY_PATH</code> 和 <code>CMAKE_PREFIX_PATH</code> 中是否包含 <code>/usr/local/lib</code> 和 <code>/usr/local</code>，以确保 CMake 和 linker 能找到 <code>abseil-cpp</code> 库。请在终端中执行下方命令，以将这些变量永久添加到 <code>~/.bashrc</code> 里：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export CMAKE_PREFIX_PATH=/usr/local:$CMAKE_PREFIX_PATH&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="8、构建"><a href="#8、构建" class="headerlink" title="8、构建"></a>8、构建</h2><p>在 <code>catkin_ws</code> 中清理 <code>build_isolated</code> 和 <code>devel_isolated</code> 文件夹后重新构建：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/WS/catkin_ws</span><br><span class="line"><span class="built_in">rm</span> -rf build_isolated devel_isolated install_isolated</span><br><span class="line">catkin_make_isolated --install --use-ninja</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1324,7 +1338,7 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1336,7 +1350,7 @@ pcd点云地图转ply格式<figure class="highlight plaintext"><table><tr><td cl
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
