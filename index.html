@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
@@ -6,64 +6,192 @@
   <title>QianYuan1437 · 站点导航</title>
   <style>
     :root{
-      --bg:#edf1fb;
-      --ink:#0f1b33;
-      --muted:#5f7394;
-      --line:#c8d5ee;
-      --chip:#e9effb;
-      --chip-active:#0f2554;
-      --hero-a:#1e8f8f;
-      --hero-b:#31a8ea;
+      --bg:#eef3fb;
+      --ink:#101c33;
+      --muted:#5f7091;
+      --line:#d5e0f2;
+      --card:#ffffffd8;
+      --navy:#112a5c;
+      --hero-a:#198a8f;
+      --hero-b:#2f93f2;
+      --chip:#edf2fb;
+      --chip-on:#132c61;
+      --shadow:0 16px 40px rgba(31,56,103,.14);
+      --radius:22px;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:radial-gradient(900px 420px at 100% -10%,#c6f0d7 0%,transparent 60%),var(--bg);color:var(--ink)}
-    .wrap{width:min(1450px,90vw);margin:0 auto;padding:34px 0 56px}
 
-    .hero{background:linear-gradient(135deg,var(--hero-a),var(--hero-b));border-radius:34px;padding:46px 48px;color:#f6fbff;box-shadow:0 12px 34px rgba(18,67,123,.22)}
-    .hero h1{font-size:68px;line-height:1.03;letter-spacing:.2px;font-weight:800}
-    .hero p{margin-top:18px;font-size:37px;opacity:.95;line-height:1.35}
-    .hero .meta{margin-top:16px;font-size:30px;opacity:.9}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1000px 520px at -15% -10%, #d9e9ff 0%, transparent 65%),
+        radial-gradient(900px 500px at 115% -20%, #d4f3df 0%, transparent 65%),
+        var(--bg);
+      min-height:100vh;
+    }
 
-    .section{margin-top:36px}
-    .section-title{display:flex;align-items:center;gap:10px;font-size:44px;font-weight:800;color:#102243}
-    .chips{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
-    .chip{border:2px solid var(--line);background:var(--chip);color:#223d68;border-radius:999px;padding:10px 18px;font-size:25px;font-weight:700;cursor:pointer}
-    .chip.active{background:var(--chip-active);border-color:var(--chip-active);color:#fff}
+    .wrap{width:min(1200px,92vw);margin:0 auto;padding:34px 0 56px}
+    .hero{
+      background:linear-gradient(130deg,var(--hero-a),var(--hero-b));
+      border-radius:30px;
+      color:#f7fbff;
+      padding:34px 34px 30px;
+      box-shadow:0 20px 45px rgba(17,49,95,.25);
+    }
+    .hero-top{display:flex;align-items:center;gap:16px}
+    .avatar{
+      width:58px;height:58px;border-radius:50%;
+      display:grid;place-items:center;
+      background:#ffffff2b;border:1px solid #ffffff59;
+      font-weight:800;font-size:20px;letter-spacing:.5px;
+      backdrop-filter:blur(3px);
+    }
+    .hero h1{margin:0;font-size:42px;line-height:1.14;letter-spacing:.2px}
+    .hero p{margin:14px 0 0;font-size:20px;line-height:1.55;opacity:.95}
+    .hero .meta{margin-top:14px;font-size:16px;opacity:.9}
 
-    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:18px}
-    .card{display:block;background:#fff;border:2px solid var(--line);border-radius:22px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .18s,border-color .18s,box-shadow .18s}
-    .card:hover{transform:translateY(-4px);border-color:#95b3e8;box-shadow:0 12px 24px rgba(24,45,86,.12)}
-    .card-top{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;background:linear-gradient(90deg,#d3e8f8,#d3efd9);min-height:86px}
-    .icon{font-size:34px}
-    .tag{border:2px solid #9dc3e8;border-radius:999px;padding:6px 12px;font-size:24px;color:#26517f;background:#f5fbff;font-weight:700}
-    .card-body{padding:20px 22px 24px}
-    .card h3{font-size:45px;line-height:1.15;letter-spacing:.2px}
-    .card p{margin-top:12px;font-size:34px;line-height:1.45;color:var(--muted);min-height:112px}
-    .path{display:inline-flex;margin-top:14px;border:2px solid var(--line);border-radius:13px;padding:6px 12px;font-size:26px;color:#335175;background:#f8fbff}
+    .section{margin-top:30px}
+    .section-title{font-size:30px;font-weight:800;letter-spacing:.2px}
 
+    .toolbar{
+      margin-top:14px;
+      display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+    }
+    .search{
+      flex:1 1 320px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:12px;
+      height:42px;
+      padding:0 12px;
+      font-size:15px;
+      color:var(--ink);
+      outline:none;
+    }
+    .search:focus{border-color:#9fb8e6;box-shadow:0 0 0 3px #aac4f133}
+
+    .select{
+      border:1px solid var(--line);
+      border-radius:12px;
+      height:42px;
+      padding:0 12px;
+      background:#fff;
+      font-size:14px;
+      color:#1e345f;
+      outline:none;
+      cursor:pointer;
+    }
+
+    .chips{display:flex;gap:10px;flex-wrap:wrap}
+    .chip{
+      border:1px solid #cdd9ee;
+      background:var(--chip);
+      color:#27426c;
+      border-radius:999px;
+      padding:8px 14px;
+      font-size:14px;
+      font-weight:700;
+      cursor:pointer;
+      transition:all .2s ease;
+    }
+    .chip:hover{border-color:#adc2e6}
+    .chip.active{background:var(--chip-on);color:#fff;border-color:var(--chip-on)}
+
+    .grid{
+      margin-top:14px;
+      display:grid;
+      gap:16px;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+    }
+    .card{
+      display:flex;flex-direction:column;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      overflow:hidden;
+      text-decoration:none;color:inherit;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(5px);
+      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      min-height:230px;
+    }
+    .card:hover{
+      transform:translateY(-4px);
+      border-color:#a9bfe7;
+      box-shadow:0 20px 36px rgba(28,53,98,.17);
+    }
+    .card-top{
+      display:flex;align-items:center;justify-content:space-between;
+      min-height:74px;
+      padding:14px 16px;
+      background:linear-gradient(90deg,#d8e9fb,#d5f1df);
+      border-bottom:1px solid #d8e4f4;
+    }
+    .icon{font-size:28px}
+    .tag{
+      border:1px solid #a8c3e6;
+      background:#f3f9ff;
+      color:#2d5686;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+      padding:4px 10px;
+    }
+    .card-body{padding:16px 16px 18px;display:flex;flex-direction:column;flex:1}
+    .card h3{margin:0;font-size:26px;line-height:1.2}
+    .desc{
+      margin-top:10px;
+      color:var(--muted);
+      line-height:1.55;
+      font-size:15px;
+      flex:1;
+    }
+    .meta-line{
+      margin-top:12px;
+      display:flex;justify-content:space-between;align-items:center;gap:8px;
+      color:#58729a;
+      font-size:12px;
+    }
+    .path{
+      display:inline-block;
+      border:1px solid #cfdbef;
+      background:#f8fbff;
+      border-radius:10px;
+      padding:4px 8px;
+      color:#31527e;
+    }
+    .updated{white-space:nowrap}
     .hidden{display:none}
+    .footer{margin-top:22px;color:#70809b;font-size:13px}
 
-    .footer{margin-top:28px;color:#74849d;font-size:22px}
-
-    @media (max-width:1100px){
-      .wrap{width:94vw}
-      .hero h1{font-size:50px}
-      .hero p{font-size:28px}
-      .hero .meta{font-size:22px}
-      .section-title{font-size:34px}
-      .chip{font-size:19px}
+    @media (max-width:980px){
+      .hero h1{font-size:34px}
+      .hero p{font-size:17px}
+      .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media (max-width:720px){
+      .wrap{width:94vw;padding-top:22px}
+      .hero{padding:24px 20px}
+      .hero-top{gap:12px}
+      .avatar{width:46px;height:46px;font-size:16px}
+      .hero h1{font-size:27px}
+      .hero p{font-size:15px}
+      .section-title{font-size:24px}
       .grid{grid-template-columns:1fr}
-      .card h3{font-size:34px}
-      .card p{font-size:24px;min-height:auto}
-      .tag,.path{font-size:18px}
+      .card h3{font-size:22px}
     }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header class="hero">
-      <h1>QianYuan1437 · 站点导航</h1>
-      <p>一个入口，直达所有项目页面。主页按分组展示，并优先置顶推荐页面。</p>
+      <div class="hero-top">
+        <div class="avatar">QY</div>
+        <h1>QianYuan1437 · 站点导航</h1>
+      </div>
+      <p>一个入口直达我的项目页面与仓库。支持分类筛选、关键词搜索与排序。</p>
       <div class="meta" id="hero-meta">共 0 个可用页面 · 最近生成 --</div>
     </header>
 
@@ -74,7 +202,14 @@
 
     <section class="section">
       <div class="section-title">🧭 全部页面</div>
-      <div class="chips" id="chips"></div>
+      <div class="toolbar">
+        <input id="search" class="search" type="search" placeholder="搜索项目名或描述..." />
+        <select id="sort" class="select">
+          <option value="updated">按最近更新</option>
+          <option value="name">按名称</option>
+        </select>
+        <div class="chips" id="chips"></div>
+      </div>
       <div class="grid" id="all-grid"></div>
     </section>
 
@@ -82,53 +217,57 @@
   </div>
 
   <script>
-    const USER = 'QianYuan1437';
-
-    // 手工置顶项（你可继续加）
+    const USER = "QianYuan1437";
     const MANUAL_PAGES = [
       {
-        name: 'Arxiv每日更新',
-        desc: '控制障碍函数（CBF）相关论文每日更新与分栏浏览。',
-        url: 'https://qianyuan1437.github.io/ArxivCBF/',
-        path: '/ArxivCBF/',
-        type: '研究',
-        icon: '🧠',
-        badge: '追踪',
-        featured: true
+        name: "Arxiv每日更新",
+        desc: "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
+        url: "https://qianyuan1437.github.io/ArxivCBF/",
+        path: "/ArxivCBF/",
+        type: "研究",
+        icon: "🧠",
+        badge: "追踪",
+        featured: true,
+        updated_at: new Date().toISOString()
       },
       {
-        name: 'GitHub仓库总览',
-        desc: '查看我的所有公开仓库与持续更新项目。',
-        url: 'https://github.com/QianYuan1437?tab=repositories',
-        path: '/repositories/',
-        type: '内容',
-        icon: '📰',
-        badge: '资讯站',
-        featured: true
+        name: "GitHub仓库总览",
+        desc: "查看我的所有公开仓库与持续更新项目。",
+        url: "https://github.com/QianYuan1437?tab=repositories",
+        path: "/repositories/",
+        type: "内容",
+        icon: "📰",
+        badge: "资讯站",
+        featured: true,
+        updated_at: new Date().toISOString()
       },
       {
-        name: 'CBF源码仓库',
-        desc: 'ArxivCBF 的抓取、构建与自动更新源码。',
-        url: 'https://github.com/QianYuan1437/ArxivCBF',
-        path: '/ArxivCBF(repo)/',
-        type: '工具',
-        icon: '📊',
-        badge: '数据看板',
-        featured: true
+        name: "CBF源码仓库",
+        desc: "ArxivCBF 的抓取、构建与自动更新源码。",
+        url: "https://github.com/QianYuan1437/ArxivCBF",
+        path: "/ArxivCBF(repo)/",
+        type: "工具",
+        icon: "📊",
+        badge: "数据看板",
+        featured: true,
+        updated_at: new Date().toISOString()
       }
     ];
 
     const TYPE_STYLE = {
-      '内容': { icon: '📰', badge: '资讯站' },
-      '工具': { icon: '📊', badge: '数据看板' },
-      '研究': { icon: '🧠', badge: '追踪' }
+      "内容": { icon: "📰", badge: "资讯站" },
+      "工具": { icon: "📊", badge: "数据看板" },
+      "研究": { icon: "🧠", badge: "追踪" }
     };
 
+    let allPages = [];
+    let currentType = "全部";
+
     function inferType(repo){
-      const t = `${repo.name} ${repo.description || ''}`.toLowerCase();
-      if (/(tracker|arxiv|paper|research|robot|cbf|learning)/.test(t)) return '研究';
-      if (/(monitor|tool|dashboard|script|sync|api)/.test(t)) return '工具';
-      return '内容';
+      const t = `${repo.name} ${repo.description || ""}`.toLowerCase();
+      if (/(tracker|arxiv|paper|research|robot|cbf|learning|control)/.test(t)) return "研究";
+      if (/(monitor|tool|dashboard|script|sync|api|bot)/.test(t)) return "工具";
+      return "内容";
     }
 
     function repoToPage(repo){
@@ -140,77 +279,117 @@
         : `https://${USER.toLowerCase()}.github.io/${repo.name}/`;
       return {
         name: repo.name,
-        desc: repo.description || '暂无仓库描述。',
+        desc: repo.description || "暂无仓库描述。",
         url: pageUrl,
-        path: isUserSiteRepo ? '/' : `/${repo.name}/`,
-        type,
+        path: isUserSiteRepo ? "/" : `/${repo.name}/`,
+        type: type,
         icon: sty.icon,
         badge: sty.badge,
         featured: false,
-        updated_at: repo.updated_at
+        updated_at: repo.updated_at || repo.pushed_at || new Date().toISOString()
       };
+    }
+
+    function fmtDate(iso){
+      const d = new Date(iso);
+      if (Number.isNaN(d.getTime())) return "--";
+      return d.toLocaleDateString("zh-CN");
+    }
+
+    function escapeHtml(text){
+      return String(text || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
     }
 
     function card(page){
       return `
-      <a class="card" href="${page.url}" target="_blank" data-type="${page.type}">
+      <a class="card" href="${escapeHtml(page.url)}" target="_blank" data-type="${escapeHtml(page.type)}">
         <div class="card-top">
-          <span class="icon">${page.icon}</span>
-          <span class="tag">${page.badge}</span>
+          <span class="icon">${escapeHtml(page.icon)}</span>
+          <span class="tag">${escapeHtml(page.badge)}</span>
         </div>
         <div class="card-body">
-          <h3>${page.name}</h3>
-          <p>${page.desc}</p>
-          <span class="path">${page.path}</span>
+          <h3>${escapeHtml(page.name)}</h3>
+          <div class="desc">${escapeHtml(page.desc)}</div>
+          <div class="meta-line">
+            <span class="path">${escapeHtml(page.path)}</span>
+            <span class="updated">${fmtDate(page.updated_at)}</span>
+          </div>
         </div>
       </a>`;
     }
 
     function renderChips(types){
-      const chips = document.getElementById('chips');
-      const allTypes = ['全部', ...types];
-      chips.innerHTML = allTypes.map((t,idx)=>`<button class="chip ${idx===0?'active':''}" data-type="${t}">${t}</button>`).join('');
-      chips.addEventListener('click', (e)=>{
-        const btn = e.target.closest('.chip');
-        if(!btn) return;
-        document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
-        btn.classList.add('active');
-        const type = btn.dataset.type;
-        document.querySelectorAll('#all-grid .card').forEach(c=>{
-          c.classList.toggle('hidden', type!=='全部' && c.dataset.type!==type);
-        });
+      const chips = document.getElementById("chips");
+      const allTypes = ["全部", ...types];
+      chips.innerHTML = allTypes.map((t, i) =>
+        `<button class="chip ${i === 0 ? "active" : ""}" data-type="${t}">${t}</button>`
+      ).join("");
+      chips.addEventListener("click", (e) => {
+        const btn = e.target.closest(".chip");
+        if (!btn) return;
+        chips.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+        btn.classList.add("active");
+        currentType = btn.dataset.type;
+        renderAllGrid();
       });
     }
 
+    function getFilteredPages(){
+      const q = document.getElementById("search").value.trim().toLowerCase();
+      const sort = document.getElementById("sort").value;
+      let list = allPages.filter(p => currentType === "全部" || p.type === currentType);
+      if (q){
+        list = list.filter(p => (`${p.name} ${p.desc}`).toLowerCase().includes(q));
+      }
+      if (sort === "name"){
+        list.sort((a,b) => a.name.localeCompare(b.name, "zh-CN"));
+      }else{
+        list.sort((a,b) => new Date(b.updated_at) - new Date(a.updated_at));
+      }
+      return list;
+    }
+
+    function renderAllGrid(){
+      const allGrid = document.getElementById("all-grid");
+      allGrid.innerHTML = getFilteredPages().map(card).join("");
+    }
+
     async function load(){
-      const featuredGrid = document.getElementById('featured-grid');
-      const allGrid = document.getElementById('all-grid');
+      const featuredGrid = document.getElementById("featured-grid");
       let pages = [...MANUAL_PAGES];
       try{
         const url = `https://api.github.com/users/${USER}/repos?per_page=100&sort=updated`;
-        const res = await fetch(url, { headers:{ 'Accept':'application/vnd.github+json' } });
-        if(res.ok){
+        const res = await fetch(url, { headers: { Accept: "application/vnd.github+json" } });
+        if (res.ok){
           const repos = await res.json();
           const repoPages = repos
             .filter(r => !MANUAL_PAGES.some(p => p.name.toLowerCase() === r.name.toLowerCase()))
             .map(repoToPage);
           pages = pages.concat(repoPages);
         }
-      }catch(err){/* ignore and fallback to manual cards */}
+      }catch(_err){
+        // fallback to manual pages when network/API is unavailable
+      }
 
-      const featured = pages.filter(p => p.featured);
-      const normal = pages;
+      allPages = pages;
+      const featured = allPages.filter(p => p.featured);
+      featuredGrid.innerHTML = featured.map(card).join("");
 
-      featuredGrid.innerHTML = featured.map(card).join('');
-      allGrid.innerHTML = normal.map(card).join('');
-
-      const types = [...new Set(normal.map(p=>p.type))];
+      const types = [...new Set(allPages.map(p => p.type))];
       renderChips(types);
+      renderAllGrid();
 
-      document.getElementById('hero-meta').textContent = `共 ${normal.length} 个可用页面 · 最近生成 ${new Date().toLocaleString()}`;
-      document.getElementById('now').textContent = new Date().toLocaleString();
+      const now = new Date().toLocaleString("zh-CN");
+      document.getElementById("hero-meta").textContent = `共 ${allPages.length} 个可用页面 · 最近生成 ${now}`;
+      document.getElementById("now").textContent = now;
     }
 
+    document.getElementById("search").addEventListener("input", renderAllGrid);
+    document.getElementById("sort").addEventListener("change", renderAllGrid);
     load();
   </script>
 </body>
