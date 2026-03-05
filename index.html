@@ -72,31 +72,30 @@
     }
     .search:focus{border-color:#9fb8e6;box-shadow:0 0 0 3px #aac4f133}
 
-    .select-wrap{
+    .sort-wrap{
       position:relative;
       display:inline-flex;
       align-items:center;
       height:42px;
+    }
+    .sort-trigger{
+      height:42px;
+      padding:0 36px 0 14px;
       border:1px solid var(--line);
       border-radius:999px;
       background:#fff;
-      overflow:hidden;
-    }
-    .select{
-      height:42px;
-      padding:0 34px 0 14px;
-      border:none;
-      border-radius:999px;
-      background:transparent;
       font-size:14px;
       color:#1e345f;
       outline:none;
       cursor:pointer;
-      appearance:none;
-      -webkit-appearance:none;
-      -moz-appearance:none;
+      min-width:130px;
+      text-align:left;
     }
-    .select-wrap::after{
+    .sort-trigger:focus-visible{
+      border-color:#9fb8e6;
+      box-shadow:0 0 0 3px #aac4f133;
+    }
+    .sort-wrap::after{
       content:"";
       position:absolute;
       right:14px;
@@ -106,6 +105,36 @@
       border-bottom:2px solid #5f78a3;
       transform:rotate(45deg) translateY(-2px);
       pointer-events:none;
+    }
+    .sort-menu{
+      position:absolute;
+      top:calc(100% + 8px);
+      left:0;
+      width:180px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:14px;
+      box-shadow:0 14px 28px rgba(22,46,92,.14);
+      padding:6px;
+      display:none;
+      z-index:20;
+    }
+    .sort-wrap.open .sort-menu{display:block}
+    .sort-item{
+      width:100%;
+      border:none;
+      background:transparent;
+      border-radius:10px;
+      padding:9px 10px;
+      text-align:left;
+      font-size:14px;
+      color:#1e345f;
+      cursor:pointer;
+    }
+    .sort-item:hover{background:#edf3ff}
+    .sort-item.active{
+      background:#132c61;
+      color:#fff;
     }
 
     .chips{display:flex;gap:10px;flex-wrap:wrap}
@@ -228,11 +257,12 @@
       <div class="section-title">🧭 全部页面</div>
       <div class="toolbar">
         <input id="search" class="search" type="search" placeholder="搜索项目名或描述..." />
-        <div class="select-wrap">
-          <select id="sort" class="select">
-            <option value="updated">按最近更新</option>
-            <option value="name">按名称</option>
-          </select>
+        <div class="sort-wrap" id="sortWrap">
+          <button class="sort-trigger" id="sortTrigger" type="button">按最近更新</button>
+          <div class="sort-menu" id="sortMenu">
+            <button class="sort-item active" type="button" data-sort="updated">按最近更新</button>
+            <button class="sort-item" type="button" data-sort="name">按名称</button>
+          </div>
         </div>
         <div class="chips" id="chips"></div>
       </div>
@@ -299,6 +329,7 @@
 
     let allPages = [];
     let currentType = "全部";
+    let currentSort = "updated";
 
     function inferType(repo){
       const t = `${repo.name} ${repo.description || ""}`.toLowerCase();
@@ -377,7 +408,7 @@
 
     function getFilteredPages(){
       const q = document.getElementById("search").value.trim().toLowerCase();
-      const sort = document.getElementById("sort").value;
+      const sort = currentSort;
       let list = allPages.filter(p => currentType === "全部" || p.type === currentType);
       if (q){
         list = list.filter(p => (`${p.name} ${p.desc}`).toLowerCase().includes(q));
@@ -425,8 +456,32 @@
       document.getElementById("now").textContent = now;
     }
 
+    const sortWrap = document.getElementById("sortWrap");
+    const sortTrigger = document.getElementById("sortTrigger");
+    const sortMenu = document.getElementById("sortMenu");
+
+    sortTrigger.addEventListener("click", () => {
+      sortWrap.classList.toggle("open");
+    });
+
+    sortMenu.addEventListener("click", (e) => {
+      const btn = e.target.closest(".sort-item");
+      if (!btn) return;
+      currentSort = btn.dataset.sort;
+      sortTrigger.textContent = btn.textContent;
+      sortMenu.querySelectorAll(".sort-item").forEach(i => i.classList.remove("active"));
+      btn.classList.add("active");
+      sortWrap.classList.remove("open");
+      renderAllGrid();
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!sortWrap.contains(e.target)) {
+        sortWrap.classList.remove("open");
+      }
+    });
+
     document.getElementById("search").addEventListener("input", renderAllGrid);
-    document.getElementById("sort").addEventListener("change", renderAllGrid);
     load();
   </script>
 </body>
