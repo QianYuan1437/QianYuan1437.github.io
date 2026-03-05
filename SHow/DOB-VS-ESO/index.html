@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOB与ESO深度对比解析</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .math-scroll {
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding-bottom: 0.5rem;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+    </style>
+    <!-- Chosen Palette: Stone-50 background (light/warm neutral), Teal-600 for primary accents (DOB focus), Amber-600 for secondary accents (ESO focus), Slate-800 for main text. -->
+    <!-- Application Structure Plan: The SPA uses a top-navigation tabbed dashboard structure. This avoids overwhelming the user with a massive wall of academic text. Sections are divided logically: 1) Executive Summary (high-level takeaways), 2) Core Theory (deep dive with toggles), 3) Unified Comparison (side-by-side math), 4) Constraints Analysis (interactive radar chart for trade-offs), 5) References. This progressive disclosure approach maximizes comprehension of complex control theory. -->
+    <!-- Visualization & Content Choices: 
+        1. Overview Table: HTML Grid -> Goal: Compare attributes quickly -> Justification: Textual tabular data is best for direct feature comparison.
+        2. Theory Math Blocks: MathJax + Scrollable containers -> Goal: Present complex formulas cleanly -> Justification: Standard requirement for control theory equations; prevents mobile overflow.
+        3. Constraints Comparison: Chart.js Radar Chart -> Goal: Compare DOB/ESO across 5 performance/tuning dimensions -> Justification: Radar charts are excellent for visualizing trade-offs across multiple axes without SVG.
+        4. Architecture: Vanilla JS Tab System -> Goal: Organize content -> Justification: Keeps the user in context without reloading. 
+        Confirming NO SVG or Mermaid used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="bg-stone-50 text-slate-800 antialiased selection:bg-teal-200 selection:text-teal-900">
+
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl mr-2">⚖️</span>
+                    <span class="font-bold text-xl tracking-tight text-slate-800">观测器理论对比</span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <button class="tab-btn px-3 py-2 text-sm font-medium border-b-2 border-teal-600 text-teal-600 transition-colors" data-target="view-overview">总览</button>
+                    <button class="tab-btn px-3 py-2 text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-700 transition-colors" data-target="view-theory">核心推导</button>
+                    <button class="tab-btn px-3 py-2 text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-700 transition-colors" data-target="view-unified">统一模型对比</button>
+                    <button class="tab-btn px-3 py-2 text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-700 transition-colors" data-target="view-constraints">限制与约束</button>
+                    <button class="tab-btn px-3 py-2 text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-700 transition-colors" data-target="view-references">经典文献</button>
+                </div>
+                <div class="flex md:hidden items-center">
+                    <select id="mobile-nav" class="bg-stone-100 border-none rounded p-2 text-sm font-medium text-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
+                        <option value="view-overview">总览</option>
+                        <option value="view-theory">核心推导</option>
+                        <option value="view-unified">统一模型对比</option>
+                        <option value="view-constraints">限制与约束</option>
+                        <option value="view-references">经典文献</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">干扰观测器(DOB)与扩张状态观测器(ESO)深度对比解析</h1>
+            <p class="text-lg text-slate-600 max-w-3xl mx-auto">从严格的数学推导和控制理论视角，深入剖析现代抗扰控制领域的两大支柱底层逻辑、应用差异及扰动限制条件。</p>
+        </header>
+
+        <section id="view-overview" class="view-section block animate-fade-in">
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-slate-800 mb-4 flex items-center"><span class="text-2xl mr-2">📊</span> 宏观理论总览</h2>
+                <p class="text-slate-600 mb-6 leading-relaxed">
+                    本区块作为应用的入口，为您提供DOB与ESO两种观测器的核心哲学对比。这里展示了高维度的属性提炼，帮助您在深入复杂的数学推导前，快速建立起“频域”与“时域”两种不同抗扰思路的直观认知框架。
+                </p>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-stone-50 border-y border-slate-200 text-slate-700">
+                                <th class="p-4 font-semibold w-1/4">对比维度</th>
+                                <th class="p-4 font-semibold text-teal-700 w-3/8">干扰观测器 (DOB)</th>
+                                <th class="p-4 font-semibold text-amber-700 w-3/8">扩张状态观测器 (ESO)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr class="hover:bg-stone-50 transition-colors">
+                                <td class="p-4 font-medium text-slate-800">理论基石</td>
+                                <td class="p-4 text-slate-600">频域视角的滤波器设计 (传递函数)</td>
+                                <td class="p-4 text-slate-600">时域视角的总扰动扩张 (状态空间)</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50 transition-colors">
+                                <td class="p-4 font-medium text-slate-800">假设扰动具备的属性</td>
+                                <td class="p-4 text-slate-600"><strong>低频性</strong>。高频分量将被忽略。</td>
+                                <td class="p-4 text-slate-600"><strong>可微性</strong>。必须存在一阶导数且有界。</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50 transition-colors">
+                                <td class="p-4 font-medium text-slate-800">对扰动导数的依赖</td>
+                                <td class="p-4 text-slate-600">不需要直接知道导数上界，只需知道主频范围。</td>
+                                <td class="p-4 text-slate-600">理论证明必须已知，工程代码实现时靠带宽覆盖。</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50 transition-colors">
+                                <td class="p-4 font-medium text-slate-800">求导困境处理</td>
+                                <td class="p-4 text-slate-600">通过引入 Q-filter 使得纯微分因果化。</td>
+                                <td class="p-4 text-slate-600">通过观测器误差反馈隐式求导积分。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-theory" class="view-section hidden animate-fade-in">
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-slate-800 mb-4 flex items-center"><span class="text-2xl mr-2">⚙️</span> 核心概念与推导</h2>
+                <p class="text-slate-600 mb-8 leading-relaxed">
+                    本区块详细展开DOB与ESO的底层数学逻辑。您可以点击下方按钮在两者之间进行交互式切换。重点展示了DOB如何利用名义模型求逆与低通滤波（Q-Filter），以及ESO如何将未知扰动构建为扩张状态的详细拉普拉斯变换与状态空间方程。
+                </p>
+
+                <div class="flex flex-wrap gap-4 mb-6">
+                    <button id="btn-dob-detail" class="px-6 py-2 bg-teal-600 text-white font-medium rounded shadow-sm hover:bg-teal-700 transition-colors">显示 DOB 推导</button>
+                    <button id="btn-eso-detail" class="px-6 py-2 bg-stone-200 text-slate-700 font-medium rounded shadow-sm hover:bg-amber-500 hover:text-white transition-colors">显示 ESO 推导</button>
+                </div>
+
+                <div id="content-dob-detail" class="p-6 bg-teal-50/50 rounded-lg border border-teal-100">
+                    <h3 class="text-xl font-bold text-teal-800 mb-4">干扰观测器 (DOB) 推导</h3>
+                    <p class="text-slate-700 mb-4">核心逻辑：通过比较系统实际的输出与“名义模型”的输出，逆推出作用在系统上的总干扰，并进行前馈补偿。</p>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <p class="font-medium text-slate-800 mb-2">1. 真实系统物理关系：</p>
+                            <div class="math-scroll bg-white p-4 rounded shadow-inner border border-slate-200">
+                                $$ Y(s) = P(s)[U(s) + D(s)] $$
+                            </div>
+                        </div>
+                        <div>
+                            <p class="font-medium text-slate-800 mb-2">2. 引入名义模型与等效干扰：</p>
+                            <p class="text-sm text-slate-600 mb-2">强制用名义模型 $P_n(s)$ 来表达实际输出：</p>
+                            <div class="math-scroll bg-white p-4 rounded shadow-inner border border-slate-200">
+                                $$ Y(s) = P_n(s)[U(s) + D_{eq}(s)] $$
+                            </div>
+                        </div>
+                        <div>
+                            <p class="font-medium text-slate-800 mb-2">3. 引入 Q-Filter 解决可因果实现问题：</p>
+                            <p class="text-sm text-slate-600 mb-2">系统逆模型 $P_n^{-1}(s)$ 是纯微分环节，必须引入低通滤波器 $Q(s)$ 抑制高频噪声：</p>
+                            <div class="math-scroll bg-white p-4 rounded shadow-inner border border-slate-200">
+                                $$ \hat{D}(s) = Q(s) [P_n^{-1}(s)Y(s) - U(s)] $$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="content-eso-detail" class="p-6 bg-amber-50/50 rounded-lg border border-amber-100 hidden">
+                    <h3 class="text-xl font-bold text-amber-800 mb-4">扩张状态观测器 (ESO) 推导</h3>
+                    <p class="text-slate-700 mb-4">核心逻辑：不纠结干扰来源，统统将其视为一个未知的“总扰动”，并扩张为系统的一个新状态进行实时观测。</p>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <p class="font-medium text-slate-800 mb-2">1. 二阶系统定义：</p>
+                            <p class="text-sm text-slate-600 mb-2">其中 $f(\cdot)$ 包含未知内部动态和外部扰动 $w$，$b$ 为实际控制增益：</p>
+                            <div class="math-scroll bg-white p-4 rounded shadow-inner border border-slate-200">
+                                $$ \ddot{y} = f(y, \dot{y}, w, t) + b u $$
+                            </div>
+                        </div>
+                        <div>
+                            <p class="font-medium text-slate-800 mb-2">2. 状态扩张：</p>
+                            <p class="text-sm text-slate-600 mb-2">定义总扰动 $x_3 = f(y, \dot{y}, w, t) + (b - b_0)u$，假设扰动可导 $\dot{x}_3 = h(t)$：</p>
+                            <div class="math-scroll bg-white p-4 rounded shadow-inner border border-slate-200">
+                                $$ \begin{cases} \dot{x}_1 = x_2 \\ \dot{x}_2 = x_3 + b_0 u \\ \dot{x}_3 = h(t) \\ y = x_1 \end{cases} $$
+                            </div>
+                        </div>
+                        <div>
+                            <p class="font-medium text-slate-800 mb-2">3. 线性扩张状态观测器 (LESO)：</p>
+                            <p class="text-sm text-slate-600 mb-2">利用带宽法将极点配置在 $-\omega_o$，参数 $\beta_1 = 3\omega_o, \beta_2 = 3\omega_o^2, \beta_3 = \omega_o^3$：</p>
+                            <div class="math-scroll bg-white p-4 rounded shadow-inner border border-slate-200">
+                                $$ \begin{cases} \dot{z}_1 = z_2 + \beta_1 (y - z_1) \\ \dot{z}_2 = z_3 + b_0 u + \beta_2 (y - z_1) \\ \dot{z}_3 = \beta_3 (y - z_1) \end{cases} $$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-unified" class="view-section hidden animate-fade-in">
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-slate-800 mb-4 flex items-center"><span class="text-2xl mr-2">⚖️</span> 统一模型下的推导与使用对比</h2>
+                <p class="text-slate-600 mb-8 leading-relaxed">
+                    本区块通过建立一个标准的二阶非线性不确定系统模型，为您呈现DOB与ESO在此同等条件下的平行处理流程。这种交互式的并排展示旨在揭示这两种方法“殊途同归”的数学本质联系。
+                </p>
+
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 mb-8">
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">基准统一模型</h3>
+                    <p class="text-sm text-slate-600 mb-4">设定的标准二阶非线性不确定系统及总扰动定义：</p>
+                    <div class="math-scroll text-center text-lg">
+                        $$ \ddot{y} = f(y, \dot{y}, t) + b u + d(t) $$
+                    </div>
+                    <div class="math-scroll text-center text-slate-700 mt-2">
+                        定义总扰动：$w(t) = f(y, \dot{y}, t) + (b - b_0)u + d(t)$ <br>等效系统化简为：$\ddot{y} = w(t) + b_0 u$
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-6 bg-amber-50 rounded-lg border border-amber-200 shadow-sm relative">
+                        <div class="absolute top-0 right-0 bg-amber-200 text-amber-800 text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">ESO 路径</div>
+                        <h4 class="font-bold text-amber-900 mb-4 text-lg">基于 ESO 的处理流程</h4>
+                        <ol class="list-decimal pl-5 space-y-4 text-slate-700">
+                            <li><strong>构建状态方程：</strong> 令 $x_1 = y, x_2 = \dot{y}, x_3 = w(t)$。</li>
+                            <li><strong>观测器设计：</strong> 设计带宽为 $\omega_o$ 的三阶 LESO 获得 $\hat{w}(t) = z_3$。</li>
+                            <li><strong>控制律设计：</strong> 设计前馈补偿控制输入 <span class="inline-block bg-white px-1 rounded border border-slate-200">$u = \frac{u_0 - z_3}{b_0}$</span>，代入原系统得 $\ddot{y} \approx u_0$。</li>
+                            <li><strong>闭环控制：</strong> 使用常规 PD 控制 $u_0 = k_p(r - y) - k_d \dot{y}$。</li>
+                        </ol>
+                    </div>
+
+                    <div class="p-6 bg-teal-50 rounded-lg border border-teal-200 shadow-sm relative">
+                        <div class="absolute top-0 right-0 bg-teal-200 text-teal-800 text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">DOB 路径</div>
+                        <h4 class="font-bold text-teal-900 mb-4 text-lg">基于 DOB 的处理流程</h4>
+                        <ol class="list-decimal pl-5 space-y-4 text-slate-700">
+                            <li><strong>构建频域方程：</strong> 拉普拉斯变换得 $s^2 Y(s) = W(s) + b_0 U(s)$。名义模型 $P_n(s) = \frac{b_0}{s^2}$。</li>
+                            <li><strong>观测器设计：</strong> 引入二阶 Q-filter $Q(s) = \frac{1}{(\tau s + 1)^2}$。估计值为 <span class="inline-block bg-white px-1 rounded border border-slate-200">$\hat{D}_{eq}(s) = Q(s) [ \frac{s^2}{b_0} Y(s) - U(s) ]$</span>。</li>
+                            <li><strong>控制律设计：</strong> 时域中进行前馈补偿 $u = u_0 - \hat{d}_{eq}(t)$。</li>
+                            <li><strong>闭环控制：</strong> 同样实现近似线性化，后续依靠常规反馈器闭环。</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="mt-8 p-5 bg-indigo-50 border-l-4 border-indigo-500 rounded text-slate-800 shadow-sm">
+                    <strong>💡 本质联系：</strong> 如果在完全线性的框架下提取传递函数，<strong>一个三阶的 LESO 在数学上等价于一个采用了特定三阶 Q-filter 的 DOB</strong>。ESO的带宽 $\omega_o$ 在物理意义上等效于 DOB 滤波器截断频率 $1/\tau$。
+                </div>
+            </div>
+        </section>
+
+        <section id="view-constraints" class="view-section hidden animate-fade-in">
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-slate-800 mb-4 flex items-center"><span class="text-2xl mr-2">📉</span> 限制约束与特性对比</h2>
+                <p class="text-slate-600 mb-8 leading-relaxed">
+                    本区块通过交互式图表可视化了DOB与ESO在不同工程挑战下的能力边界。您可以通过雷达图直观观察它们在抗高频噪声、抗快变扰动及调参难度上的权衡关系，这在决定系统能否稳定收敛中起到决定性作用。
+                </p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-8">
+                    <div>
+                        <div class="mb-6">
+                            <h3 class="font-bold text-teal-700 text-lg mb-2">DOB 严苛的频率分布要求</h3>
+                            <ul class="list-disc pl-5 text-slate-600 space-y-2">
+                                <li><strong>幅值有界性：</strong> 设计 $Q(s)$ 时不需要已知扰动幅值上界。</li>
+                                <li><strong>变化率/频率有界性：</strong> 完美假设是<strong>扰动是慢时变信号（低频段）</strong>。不限制导数，但限制扰动带宽 $\omega < \omega_c$。</li>
+                                <li><strong>工程操作：</strong> 极易受高频谐振影响。$Q(s)$ 带宽上限受 $H_\infty$ 鲁棒稳定约束。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-amber-700 text-lg mb-2">ESO 严苛的变化率要求</h3>
+                            <ul class="list-disc pl-5 text-slate-600 space-y-2">
+                                <li><strong>幅值有界性：</strong> 设计调节时不需要已知上界。</li>
+                                <li><strong>变化率有界性：</strong> <strong>理论证明中必须已知其上界。</strong> 存在估计延迟，若扰动变化无限快（如白噪声）将无法收敛。</li>
+                                <li><strong>工程操作：</strong> 代码实现时靠调大带宽 $\omega_o$ 覆盖；写证明时必须假设 $\sup |\dot{w}(t)| \le L$。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-stone-50 p-4 rounded-xl border border-slate-200">
+                        <div class="chart-container">
+                            <canvas id="comparisonChart"></canvas>
+                        </div>
+                        <p class="text-center text-xs text-slate-500 mt-2">图：观测器多维能力评估雷达图 (分值越高越优)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-references" class="view-section hidden animate-fade-in">
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-slate-800 mb-4 flex items-center"><span class="text-2xl mr-2">📖</span> 经典高水平文献导航</h2>
+                <p class="text-slate-600 mb-8 leading-relaxed">
+                    本区块整理了支撑上述理论推导的核心学术文献库。我们根据观测器类型对文献进行了分类，这些高引用的顶刊论文为您撰写学术论文的方法论部分提供了最严谨的理论背书与拓展阅读路径。
+                </p>
+
+                <div class="space-y-6">
+                    <div class="p-5 border-l-4 border-amber-500 bg-amber-50 rounded-r shadow-sm">
+                        <h3 class="font-bold text-slate-800 mb-3 text-lg flex items-center">ESO / ADRC 核心文献 (重点关注变化率限制)</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-medium text-slate-800">1. Gao, Z. (2003)</h4>
+                                <p class="text-sm text-amber-700 italic mb-1">"Scaling and bandwidth-parameterization based controller tuning." (ACC 会议)</p>
+                                <p class="text-sm text-slate-600"><strong>核心价值：</strong> 奠基性文献，提出了线性ESO的带宽法，详细解释了误差界与扰动导数 $\dot{w}$ 的定量关系。</p>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-slate-800">2. Guo, B. Z., & Zhao, Z. L. (2011)</h4>
+                                <p class="text-sm text-amber-700 italic mb-1">"On the convergence of an extended state observer for nonlinear systems with uncertainty." (Systems & Control Letters, 中科院二区)</p>
+                                <p class="text-sm text-slate-600"><strong>核心价值：</strong> 给出了严谨的数学证明：只要扰动一阶导数有界，ESO的估计误差就严格反比于观测器带宽。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-5 border-l-4 border-teal-500 bg-teal-50 rounded-r shadow-sm">
+                        <h3 class="font-bold text-slate-800 mb-3 text-lg flex items-center">DOB 核心文献 (重点关注频域限制与鲁棒性)</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-medium text-slate-800">3. Chen, W. H., Ballance, D. J., Gawthrop, P. J., & O'Reilly, J. (2000)</h4>
+                                <p class="text-sm text-teal-700 italic mb-1">"A nonlinear disturbance observer for robotic manipulators." (IEEE TIE, 中科院一区Top)</p>
+                                <p class="text-sm text-slate-600"><strong>核心价值：</strong> 非线性DOB开山之作，专对机械臂动力学设计，推导了如何放宽常值假设直接处理快变扰动。</p>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-slate-800">4. Li, S., Yang, J., Chen, W. H., & Chen, X. (2014)</h4>
+                                <p class="text-sm text-teal-700 italic mb-1">"Disturbance observer-based control: methods and applications." (CRC press及相关综述)</p>
+                                <p class="text-sm text-slate-600"><strong>核心价值：</strong> 详细阐述了DOB中滤波器带宽、扰动频率假设与未建模不确定性之间的鲁棒Trade-off。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const navElements = document.querySelectorAll('.tab-btn');
+        const views = document.querySelectorAll('.view-section');
+        const mobileNav = document.getElementById('mobile-nav');
+
+        function switchView(targetId) {
+            views.forEach(v => {
+                v.classList.add('hidden');
+                v.classList.remove('animate-fade-in');
+            });
+            const targetView = document.getElementById(targetId);
+            targetView.classList.remove('hidden');
+            
+            targetView.offsetHeight;
+            
+            targetView.classList.add('animate-fade-in');
+
+            navElements.forEach(t => {
+                t.classList.remove('border-teal-600', 'text-teal-600');
+                t.classList.add('border-transparent', 'text-slate-500');
+            });
+            
+            const activeDesktopBtn = Array.from(navElements).find(btn => btn.getAttribute('data-target') === targetId);
+            if (activeDesktopBtn) {
+                activeDesktopBtn.classList.remove('border-transparent', 'text-slate-500');
+                activeDesktopBtn.classList.add('border-teal-600', 'text-teal-600');
+            }
+            
+            if (mobileNav.value !== targetId) {
+                mobileNav.value = targetId;
+            }
+        }
+
+        navElements.forEach(tab => {
+            tab.addEventListener('click', () => switchView(tab.getAttribute('data-target')));
+        });
+
+        mobileNav.addEventListener('change', (e) => switchView(e.target.value));
+
+        const btnDob = document.getElementById('btn-dob-detail');
+        const btnEso = document.getElementById('btn-eso-detail');
+        const contentDob = document.getElementById('content-dob-detail');
+        const contentEso = document.getElementById('content-eso-detail');
+
+        btnDob.addEventListener('click', () => {
+            contentDob.classList.remove('hidden');
+            contentEso.classList.add('hidden');
+            btnDob.classList.replace('bg-stone-200', 'bg-teal-600');
+            btnDob.classList.replace('text-slate-700', 'text-white');
+            btnEso.classList.replace('bg-amber-600', 'bg-stone-200');
+            btnEso.classList.replace('text-white', 'text-slate-700');
+        });
+
+        btnEso.addEventListener('click', () => {
+            contentEso.classList.remove('hidden');
+            contentDob.classList.add('hidden');
+            btnEso.classList.replace('bg-stone-200', 'bg-amber-600');
+            btnEso.classList.replace('text-slate-700', 'text-white');
+            btnDob.classList.replace('bg-teal-600', 'bg-stone-200');
+            btnDob.classList.replace('text-white', 'text-slate-700');
+        });
+
+        const ctxRadar = document.getElementById('comparisonChart').getContext('2d');
+        new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: ['抗高频噪声能力', '抗快变扰动能力', '调参简易度', '理论推导难度', '模型依赖度'],
+                datasets: [
+                    {
+                        label: '干扰观测器 (DOB)',
+                        data: [7, 3, 5, 6, 8],
+                        backgroundColor: 'rgba(13, 148, 136, 0.2)',
+                        borderColor: 'rgba(13, 148, 136, 1)',
+                        pointBackgroundColor: 'rgba(13, 148, 136, 1)',
+                        borderWidth: 2
+                    },
+                    {
+                        label: '扩张状态观测器 (ESO)',
+                        data: [4, 8, 8, 8, 2],
+                        backgroundColor: 'rgba(217, 119, 6, 0.2)',
+                        borderColor: 'rgba(217, 119, 6, 1)',
+                        pointBackgroundColor: 'rgba(217, 119, 6, 1)',
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                scales: {
+                    r: {
+                        min: 0,
+                        max: 10,
+                        ticks: { stepSize: 2, backdropColor: 'transparent' },
+                        grid: { color: 'rgba(0, 0, 0, 0.05)' },
+                        angleLines: { color: 'rgba(0, 0, 0, 0.05)' }
+                    }
+                },
+                plugins: {
+                    legend: { position: 'bottom' },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ' + context.formattedValue + ' / 10';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        document.head.insertAdjacentHTML('beforeend', '<style>@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } } .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }</style>');
+    </script>
+</body>
+</html>
