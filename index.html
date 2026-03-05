@@ -72,16 +72,35 @@
     }
     .search:focus{border-color:#9fb8e6;box-shadow:0 0 0 3px #aac4f133}
 
+    .select-wrap{
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+    }
     .select{
       border:1px solid var(--line);
-      border-radius:12px;
+      border-radius:999px;
       height:42px;
-      padding:0 12px;
+      padding:0 34px 0 14px;
       background:#fff;
       font-size:14px;
       color:#1e345f;
       outline:none;
       cursor:pointer;
+      appearance:none;
+      -webkit-appearance:none;
+      -moz-appearance:none;
+    }
+    .select-wrap::after{
+      content:"";
+      position:absolute;
+      right:14px;
+      width:8px;
+      height:8px;
+      border-right:2px solid #5f78a3;
+      border-bottom:2px solid #5f78a3;
+      transform:rotate(45deg) translateY(-2px);
+      pointer-events:none;
     }
 
     .chips{display:flex;gap:10px;flex-wrap:wrap}
@@ -204,10 +223,12 @@
       <div class="section-title">🧭 全部页面</div>
       <div class="toolbar">
         <input id="search" class="search" type="search" placeholder="搜索项目名或描述..." />
-        <select id="sort" class="select">
-          <option value="updated">按最近更新</option>
-          <option value="name">按名称</option>
-        </select>
+        <div class="select-wrap">
+          <select id="sort" class="select">
+            <option value="updated">按最近更新</option>
+            <option value="name">按名称</option>
+          </select>
+        </div>
         <div class="chips" id="chips"></div>
       </div>
       <div class="grid" id="all-grid"></div>
@@ -228,6 +249,17 @@
         icon: "🧠",
         badge: "追踪",
         featured: true,
+        updated_at: new Date().toISOString()
+      },
+      {
+        name: "DOB-VS-ESO",
+        desc: "DOB 与 ESO 相关项目页面导航。",
+        url: "https://qianyuan1437.github.io/DOB-VS-ESO/",
+        path: "/DOB-VS-ESO/",
+        type: "研究",
+        icon: "🧠",
+        badge: "追踪",
+        featured: false,
         updated_at: new Date().toISOString()
       },
       {
