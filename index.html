@@ -70,7 +70,8 @@
       display:flex;flex-wrap:wrap;gap:10px;align-items:center;
     }
     .search{
-      flex:1 1 320px;
+      flex:1 1 240px;
+      max-width:400px;
       background:#fff;
       border:1px solid var(--line);
       border-radius:12px;
@@ -333,6 +334,7 @@
 
     let allPages = [];
     let currentType = "全部";
+    let currentOrigin = "全部";
     let currentSort = "updated";
 
     function inferType(repo){
@@ -398,15 +400,24 @@
     function renderChips(types){
       const chips = document.getElementById("chips");
       const allTypes = ["全部", ...types];
-      chips.innerHTML = allTypes.map((t, i) =>
-        `<button class="chip ${i === 0 ? "active" : ""}" data-type="${t}">${t}</button>`
+      const typeChips = allTypes.map((t, i) =>
+        `<button class="chip ${i === 0 ? "active" : ""}" data-type="${t}" data-filter="type">${t}</button>`
       ).join("");
+      const originChips = `<button class="chip active" data-origin="全部" data-filter="origin">全部</button><button class="chip" data-origin="原生" data-filter="origin">原生</button><button class="chip" data-origin="Fork" data-filter="origin">Fork</button>`;
+      chips.innerHTML = typeChips + originChips;
       chips.addEventListener("click", (e) => {
         const btn = e.target.closest(".chip");
         if (!btn) return;
-        chips.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
-        btn.classList.add("active");
-        currentType = btn.dataset.type;
+        const filter = btn.dataset.filter;
+        if (filter === "type"){
+          chips.querySelectorAll('[data-filter="type"]').forEach(c => c.classList.remove("active"));
+          btn.classList.add("active");
+          currentType = btn.dataset.type;
+        }else if (filter === "origin"){
+          chips.querySelectorAll('[data-filter="origin"]').forEach(c => c.classList.remove("active"));
+          btn.classList.add("active");
+          currentOrigin = btn.dataset.origin;
+        }
         renderAllGrid();
       });
     }
@@ -415,6 +426,11 @@
       const q = document.getElementById("search").value.trim().toLowerCase();
       const sort = currentSort;
       let list = allPages.filter(p => currentType === "全部" || p.type === currentType);
+      if (currentOrigin === "原生"){
+        list = list.filter(p => !p.isFork);
+      }else if (currentOrigin === "Fork"){
+        list = list.filter(p => p.isFork);
+      }
       if (q){
         list = list.filter(p => (`${p.name} ${p.desc}`).toLowerCase().includes(q));
       }
