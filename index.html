@@ -407,6 +407,10 @@
       ).join("");
       const originChips = `<button class="chip active" data-origin="全部" data-filter="origin">全部</button><button class="chip" data-origin="原生" data-filter="origin">原生</button><button class="chip" data-origin="Fork" data-filter="origin">Fork</button>`;
       chips.innerHTML = typeChips + originChips;
+    }
+
+    function setupChipsListener(){
+      const chips = document.getElementById("chips");
       chips.addEventListener("click", (e) => {
         const btn = e.target.closest(".chip");
         if (!btn) return;
@@ -484,6 +488,7 @@
 
       const types = [...new Set(allPages.map(p => p.type))];
       renderChips(types);
+      setupChipsListener();
       renderAllGrid();
 
       const now = new Date().toLocaleString("zh-CN");
