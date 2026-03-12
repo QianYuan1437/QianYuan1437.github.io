@@ -436,6 +436,14 @@
       if (q){
         list = list.filter(p => (`${p.name} ${p.desc}`).toLowerCase().includes(q));
       }
+      if (currentOrigin !== "全部"){
+        if (sort === "name"){
+          list.sort((a,b) => a.name.localeCompare(b.name, "zh-CN"));
+        }else{
+          list.sort((a,b) => new Date(b.updated_at) - new Date(a.updated_at));
+        }
+        return list;
+      }
       const original = list.filter(p => !p.isFork);
       const forked = list.filter(p => p.isFork);
       if (sort === "name"){
