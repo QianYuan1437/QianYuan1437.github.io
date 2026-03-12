@@ -419,10 +419,13 @@
           chips.querySelectorAll('[data-filter="type"]').forEach(c => c.classList.remove("active"));
           btn.classList.add("active");
           currentType = btn.dataset.type;
+          console.log("类型切换:", currentType);
         }else if (filter === "origin"){
           chips.querySelectorAll('[data-filter="origin"]').forEach(c => c.classList.remove("active"));
           btn.classList.add("active");
           currentOrigin = btn.dataset.origin;
+          console.log("来源切换:", currentOrigin);
+          console.log("所有页面isFork状态:", allPages.map(p => ({name: p.name, isFork: p.isFork})));
         }
         renderAllGrid();
       });
@@ -432,10 +435,13 @@
       const q = document.getElementById("search").value.trim().toLowerCase();
       const sort = currentSort;
       let list = allPages.filter(p => currentType === "全部" || p.type === currentType);
+      console.log("筛选前:", list.length, "currentOrigin:", currentOrigin);
       if (currentOrigin === "原生"){
         list = list.filter(p => !p.isFork);
+        console.log("原生筛选后:", list.length, list.map(p => ({name: p.name, isFork: p.isFork})));
       }else if (currentOrigin === "Fork"){
         list = list.filter(p => p.isFork);
+        console.log("Fork筛选后:", list.length, list.map(p => ({name: p.name, isFork: p.isFork})));
       }
       if (q){
         list = list.filter(p => (`${p.name} ${p.desc}`).toLowerCase().includes(q));
