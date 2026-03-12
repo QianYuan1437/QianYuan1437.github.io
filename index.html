@@ -465,24 +465,50 @@
       allGrid.innerHTML = getFilteredPages().map(card).join("");
     }
 
+    async function fetchAllRepos(user){
+      const all = [];
+      for (let page = 1; page <= 10; page++){
+        const url = `https://api.github.com/users/${user}/repos?type=all&per_page=100&sort=updated&page=${page}`;
+        const res = await fetch(url, { headers: { Accept: "application/vnd.github+json" } });
+        if (!res.ok){
+          throw new Error(`GitHub API error ${res.status}`);
+        }
+        const repos = await res.json();
+        if (!Array.isArray(repos) || repos.length === 0){
+          break;
+        }
+        all.push(...repos);
+        if (repos.length < 100){
+          break;
+        }
+      }
+
+      const seen = new Set();
+      return all.filter(repo => {
+        const key = String(repo.id || repo.full_name || repo.name || "");
+        if (!key || seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+    }
+
     async function load(){
       const featuredGrid = document.getElementById("featured-grid");
       let pages = [...MANUAL_PAGES];
       try{
-        const url = `https://api.github.com/users/${USER}/repos?per_page=100&sort=updated`;
-        const res = await fetch(url, { headers: { Accept: "application/vnd.github+json" } });
-        if (res.ok){
-          const repos = await res.json();
-          const repoPages = repos
-            .filter(r => !MANUAL_PAGES.some(p => p.name.toLowerCase() === r.name.toLowerCase()))
-            .map(repoToPage);
-          pages = pages.concat(repoPages);
-        }
+        const repos = await fetchAllRepos(USER);
+        const repoPages = repos
+          .filter(r => !MANUAL_PAGES.some(p => p.name.toLowerCase() === r.name.toLowerCase()))
+          .map(repoToPage);
+        pages = pages.concat(repoPages);
       }catch(_err){
         // fallback to manual pages when network/API is unavailable
       }
 
       allPages = pages;
+      console.log("总页面数:", allPages.length);
+      console.log("原生仓库:", allPages.filter(p => !p.isFork).map(p => p.name));
+      console.log("Fork仓库:", allPages.filter(p => p.isFork).map(p => p.name));
       const featured = allPages.filter(p => p.featured);
       featuredGrid.innerHTML = featured.map(card).join("");
 
