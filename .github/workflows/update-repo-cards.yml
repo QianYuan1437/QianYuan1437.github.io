@@ -1,0 +1,51 @@
+name: Update Repository Cards
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+  push:
+    branches:
+      - main
+    paths:
+      - "docs/index.html"
+      - "scripts/generate_repo_data.py"
+      - ".github/workflows/update-repo-cards.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-repo-cards
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Generate repository data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/generate_repo_data.py
+
+      - name: Commit updated repository data
+        run: |
+          if git diff --quiet -- docs/repos-data.json; then
+            echo "No repository card changes."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/repos-data.json
+          git commit -m "chore: refresh repository cards data"
+          git push

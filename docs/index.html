@@ -297,8 +297,10 @@
 
   <script>
     const USER = "QianYuan1437";
+    const DATA_URL = "./repos-data.json";
     const MANUAL_PAGES = [
       {
+        repoName: "ArxivCBF",
         name: "Arxiv每日更新",
         desc: "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
         url: "https://qianyuan1437.github.io/ArxivCBF/",
@@ -311,6 +313,7 @@
         isFork: false
       },
       {
+        repoName: "osssync",
         name: "osssync",
         desc: "对象存储同步工具，支持多种云存储服务间的文件同步。",
         url: "https://github.com/QianYuan1437/osssync",
@@ -323,6 +326,7 @@
         isFork: false
       },
       {
+        repoName: "DOB-VS-ESO",
         name: "DOB-VS-ESO",
         desc: "DOB 与 ESO 相关项目页面导航。",
         url: "https://qianyuan1437.github.io/DOB-VS-ESO/",
@@ -347,6 +351,14 @@
     let currentOrigin = "全部";
     let currentSort = "updated";
 
+    function normalizeRepoName(value){
+      return String(value || "").trim().toLowerCase();
+    }
+
+    function getPageKey(page){
+      return normalizeRepoName(page.repoName || page.name);
+    }
+
     function inferType(repo){
       const t = `${repo.name} ${repo.description || ""}`.toLowerCase();
       if (/(tracker|arxiv|paper|research|robot|cbf|learning|control|dob|eso)/.test(t)) return "研究";
@@ -365,6 +377,7 @@
           ? `https://${USER.toLowerCase()}.github.io/`
           : `https://${USER.toLowerCase()}.github.io/${repo.name}/`);
       return {
+        repoName: repo.name,
         name: repo.name,
         desc: repo.description || "暂无仓库描述。",
         url: repo.has_pages ? pageUrl : repoUrl,
@@ -372,10 +385,33 @@
         type: type,
         icon: sty.icon,
         badge: sty.badge,
-        featured: false,
+        featured: repo.has_pages || false,
         updated_at: repo.pushed_at || repo.updated_at || new Date().toISOString(),
         isFork: repo.fork || false
       };
+    }
+
+    function mergeManualPages(repoPages){
+      const manualMap = new Map(MANUAL_PAGES.map(page => [getPageKey(page), page]));
+      const mergedPages = repoPages.map(page => {
+        const manualPage = manualMap.get(getPageKey(page));
+        if (!manualPage) return page;
+        return {
+          ...page,
+          ...manualPage,
+          repoName: manualPage.repoName || page.repoName,
+          featured: Boolean(page.featured || manualPage.featured)
+        };
+      });
+
+      const existingKeys = new Set(mergedPages.map(getPageKey));
+      MANUAL_PAGES.forEach(page => {
+        if (!existingKeys.has(getPageKey(page))){
+          mergedPages.unshift({ ...page });
+        }
+      });
+
+      return mergedPages;
     }
 
     function fmtDate(iso){
@@ -503,23 +539,41 @@
       });
     }
 
+    async function loadStaticPages(){
+      const res = await fetch(DATA_URL, { cache: "no-store" });
+      if (!res.ok){
+        throw new Error(`Static data load failed: ${res.status}`);
+      }
+      const payload = await res.json();
+      const pages = Array.isArray(payload) ? payload : payload.pages;
+      if (!Array.isArray(pages)){
+        throw new Error("Static data format is invalid");
+      }
+      return {
+        generatedAt: payload.generated_at || new Date().toISOString(),
+        pages: pages
+      };
+    }
+
     async function load(){
       const featuredGrid = document.getElementById("featured-grid");
       let pages = [...MANUAL_PAGES];
+      let generatedAt = new Date().toISOString();
       try{
-        const repos = await fetchAllRepos(USER);
-        const repoPages = repos
-          .filter(r => !MANUAL_PAGES.some(p => p.name.toLowerCase() === r.name.toLowerCase()))
-          .map(repoToPage);
-        pages = pages.concat(repoPages);
+        const staticData = await loadStaticPages();
+        pages = staticData.pages;
+        generatedAt = staticData.generatedAt;
       }catch(_err){
-        // fallback to manual pages when network/API is unavailable
+        try{
+          const repos = await fetchAllRepos(USER);
+          const repoPages = repos.map(repoToPage);
+          pages = mergeManualPages(repoPages);
+        }catch(_fallbackErr){
+          // fallback to manual pages when both static data and runtime API are unavailable
+        }
       }
 
       allPages = pages;
-      console.log("总页面数:", allPages.length);
-      console.log("原生仓库:", allPages.filter(p => !p.isFork).map(p => p.name));
-      console.log("Fork仓库:", allPages.filter(p => p.isFork).map(p => p.name));
       const featured = allPages.filter(p => p.featured);
       featuredGrid.innerHTML = featured.map(card).join("");
 
@@ -528,7 +582,7 @@
       setupChipsListener();
       renderAllGrid();
 
-      const now = new Date().toLocaleString("zh-CN");
+      const now = new Date(generatedAt).toLocaleString("zh-CN");
       document.getElementById("hero-meta").textContent = `共 ${allPages.length} 个可用页面 · 最近生成 ${now}`;
       document.getElementById("now").textContent = now;
     }
