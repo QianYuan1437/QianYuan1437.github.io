@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-16T13:40:54.741572+00:00",
+  "generated_at": "2026-03-16T13:44:29.601296+00:00",
   "pages": [
     {
       "repoName": "QianYuan1437.github.io",
@@ -11,7 +11,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-03-16T13:40:45Z",
+      "updated_at": "2026-03-16T13:40:55Z",
       "isFork": false
     },
     {
@@ -548,19 +548,6 @@
       "isFork": true
     },
     {
-      "repoName": "docker-image",
-      "name": "docker-image",
-      "desc": "build gcr.io/quay.io images by aliyun",
-      "url": "https://github.com/QianYuan1437/docker-image",
-      "path": "/docker-image/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": false,
-      "updated_at": "2024-08-17T11:20:42Z",
-      "isFork": false
-    },
-    {
       "repoName": "calibration_camera_lidar",
       "name": "calibration_camera_lidar",
       "desc": "从autoware分离出来的相机雷达联合标定ros包",
@@ -585,19 +572,6 @@
       "featured": false,
       "updated_at": "2023-04-25T06:00:41Z",
       "isFork": true
-    },
-    {
-      "repoName": "SHUJUJI",
-      "name": "SHUJUJI",
-      "desc": "VOC2012",
-      "url": "https://github.com/QianYuan1437/SHUJUJI",
-      "path": "/SHUJUJI/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": false,
-      "updated_at": "2022-09-15T06:31:34Z",
-      "isFork": false
     },
     {
       "repoName": "yolov5",
