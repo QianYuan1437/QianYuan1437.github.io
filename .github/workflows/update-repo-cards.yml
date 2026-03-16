@@ -39,7 +39,7 @@ jobs:
 
       - name: Commit updated repository data
         run: |
-          if git diff --quiet -- docs/repos-data.json; then
+          if [ -z "$(git status --porcelain -- docs/repos-data.json)" ]; then
             echo "No repository card changes."
             exit 0
           fi
