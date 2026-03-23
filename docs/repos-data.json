@@ -1,17 +1,30 @@
 {
-  "generated_at": "2026-03-23T13:22:41.309668+00:00",
+  "generated_at": "2026-03-23T15:02:48.039389+00:00",
   "pages": [
     {
       "repoName": "FreeType-Whisper-Studio",
       "name": "FreeType-Whisper-Studio",
       "desc": "暂无仓库描述。",
-      "url": "https://github.com/QianYuan1437/FreeType-Whisper-Studio",
+      "url": "https://qianyuan1437.github.io/FreeType-Whisper-Studio/",
       "path": "/FreeType-Whisper-Studio/",
       "type": "内容",
       "icon": "📰",
       "badge": "内容",
-      "featured": false,
-      "updated_at": "2026-03-23T13:13:20Z",
+      "featured": true,
+      "updated_at": "2026-03-23T14:34:58Z",
+      "isFork": false
+    },
+    {
+      "repoName": "QianYuan1437.github.io",
+      "name": "QianYuan1437.github.io",
+      "desc": "暂无仓库描述。",
+      "url": "https://qianyuan1437.github.io/",
+      "path": "/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-03-23T13:22:41Z",
       "isFork": false
     },
     {
@@ -25,19 +38,6 @@
       "badge": "内容",
       "featured": true,
       "updated_at": "2026-03-23T11:57:44Z",
-      "isFork": false
-    },
-    {
-      "repoName": "QianYuan1437.github.io",
-      "name": "QianYuan1437.github.io",
-      "desc": "暂无仓库描述。",
-      "url": "https://qianyuan1437.github.io/",
-      "path": "/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": true,
-      "updated_at": "2026-03-23T11:51:28Z",
       "isFork": false
     },
     {
