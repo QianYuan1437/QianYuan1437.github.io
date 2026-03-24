@@ -1,6 +1,19 @@
 {
-  "generated_at": "2026-03-24T11:51:23.053398+00:00",
+  "generated_at": "2026-03-24T13:26:29.461623+00:00",
   "pages": [
+    {
+      "repoName": "tech-news",
+      "name": "tech-news",
+      "desc": "每日科技新闻 - 自动更新",
+      "url": "https://zhaorunrunrun.github.io/tech-news/",
+      "path": "/tech-news/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-03-24T12:01:03Z",
+      "isFork": false
+    },
     {
       "repoName": "QianYuan1437.github.io",
       "name": "QianYuan1437.github.io",
@@ -11,7 +24,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-03-24T10:57:24Z",
+      "updated_at": "2026-03-24T11:51:23Z",
       "isFork": false
     },
     {
@@ -38,19 +51,6 @@
       "badge": "研究",
       "featured": true,
       "updated_at": "2026-03-24T10:04:25Z",
-      "isFork": false
-    },
-    {
-      "repoName": "tech-news",
-      "name": "tech-news",
-      "desc": "每日科技新闻 - 自动更新",
-      "url": "https://zhaorunrunrun.github.io/tech-news/",
-      "path": "/tech-news/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": true,
-      "updated_at": "2026-03-24T08:07:33Z",
       "isFork": false
     },
     {
