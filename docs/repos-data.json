@@ -1,6 +1,32 @@
 {
-  "generated_at": "2026-03-25T10:03:06.340903+00:00",
+  "generated_at": "2026-03-25T11:47:03.399237+00:00",
   "pages": [
+    {
+      "repoName": "PositionsTracking",
+      "name": "PositionsTracking",
+      "desc": "暂无仓库描述。",
+      "url": "https://qianyuan1437.github.io/PositionsTracking/",
+      "path": "/PositionsTracking/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-03-25T10:38:05Z",
+      "isFork": false
+    },
+    {
+      "repoName": "ArxivCBF",
+      "name": "Arxiv每日更新",
+      "desc": "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
+      "url": "https://qianyuan1437.github.io/ArxivCBF/",
+      "path": "/ArxivCBF/",
+      "type": "研究",
+      "icon": "🧠",
+      "badge": "研究",
+      "featured": true,
+      "updated_at": "2026-03-25T10:03:26Z",
+      "isFork": false
+    },
     {
       "repoName": "QianYuan1437.github.io",
       "name": "QianYuan1437.github.io",
@@ -11,7 +37,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-03-25T08:59:05Z",
+      "updated_at": "2026-03-25T10:03:14Z",
       "isFork": false
     },
     {
@@ -25,32 +51,6 @@
       "badge": "内容",
       "featured": true,
       "updated_at": "2026-03-25T08:06:24Z",
-      "isFork": false
-    },
-    {
-      "repoName": "ArxivCBF",
-      "name": "Arxiv每日更新",
-      "desc": "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
-      "url": "https://qianyuan1437.github.io/ArxivCBF/",
-      "path": "/ArxivCBF/",
-      "type": "研究",
-      "icon": "🧠",
-      "badge": "研究",
-      "featured": true,
-      "updated_at": "2026-03-25T05:26:34Z",
-      "isFork": false
-    },
-    {
-      "repoName": "PositionsTracking",
-      "name": "PositionsTracking",
-      "desc": "暂无仓库描述。",
-      "url": "https://qianyuan1437.github.io/PositionsTracking/",
-      "path": "/PositionsTracking/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": true,
-      "updated_at": "2026-03-25T05:18:21Z",
       "isFork": false
     },
     {
