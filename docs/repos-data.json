@@ -1,6 +1,19 @@
 {
-  "generated_at": "2026-04-21T06:06:44.611604+00:00",
+  "generated_at": "2026-04-21T08:55:51.987752+00:00",
   "pages": [
+    {
+      "repoName": "QianYuan1437.github.io",
+      "name": "QianYuan1437.github.io",
+      "desc": "暂无仓库描述。",
+      "url": "https://qianyuan1437.github.io/",
+      "path": "/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-04-21T06:06:45Z",
+      "isFork": false
+    },
     {
       "repoName": "ArxivCBF",
       "name": "Arxiv每日更新",
@@ -38,19 +51,6 @@
       "badge": "内容",
       "featured": true,
       "updated_at": "2026-04-21T05:56:01Z",
-      "isFork": false
-    },
-    {
-      "repoName": "QianYuan1437.github.io",
-      "name": "QianYuan1437.github.io",
-      "desc": "暂无仓库描述。",
-      "url": "https://qianyuan1437.github.io/",
-      "path": "/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": true,
-      "updated_at": "2026-04-21T03:26:07Z",
       "isFork": false
     },
     {
