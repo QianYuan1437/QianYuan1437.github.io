@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-04-23T22:57:21.632365+00:00",
+  "generated_at": "2026-04-23T23:55:40.533132+00:00",
   "pages": [
     {
-      "repoName": "tech-news",
-      "name": "tech-news",
-      "desc": "每日科技新闻 - 自动更新",
-      "url": "https://zhaorunrunrun.github.io/tech-news/",
-      "path": "/tech-news/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
+      "repoName": "ArxivCBF",
+      "name": "Arxiv每日更新",
+      "desc": "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
+      "url": "https://qianyuan1437.github.io/ArxivCBF/",
+      "path": "/ArxivCBF/",
+      "type": "研究",
+      "icon": "🧠",
+      "badge": "研究",
       "featured": true,
-      "updated_at": "2026-04-23T22:52:09Z",
+      "updated_at": "2026-04-23T23:46:56Z",
       "isFork": false
     },
     {
@@ -24,7 +24,20 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-04-23T21:56:25Z",
+      "updated_at": "2026-04-23T22:57:22Z",
+      "isFork": false
+    },
+    {
+      "repoName": "tech-news",
+      "name": "tech-news",
+      "desc": "每日科技新闻 - 自动更新",
+      "url": "https://zhaorunrunrun.github.io/tech-news/",
+      "path": "/tech-news/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-04-23T22:52:09Z",
       "isFork": false
     },
     {
@@ -51,19 +64,6 @@
       "badge": "内容",
       "featured": true,
       "updated_at": "2026-04-23T11:00:04Z",
-      "isFork": false
-    },
-    {
-      "repoName": "ArxivCBF",
-      "name": "Arxiv每日更新",
-      "desc": "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
-      "url": "https://qianyuan1437.github.io/ArxivCBF/",
-      "path": "/ArxivCBF/",
-      "type": "研究",
-      "icon": "🧠",
-      "badge": "研究",
-      "featured": true,
-      "updated_at": "2026-04-23T10:29:45Z",
       "isFork": false
     },
     {
