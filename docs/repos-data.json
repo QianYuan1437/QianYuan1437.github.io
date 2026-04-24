@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-24T13:51:58.560614+00:00",
+  "generated_at": "2026-04-24T15:13:32.526661+00:00",
   "pages": [
     {
       "repoName": "tech-news",
@@ -11,7 +11,33 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-04-24T13:45:22Z",
+      "updated_at": "2026-04-24T15:11:21Z",
+      "isFork": false
+    },
+    {
+      "repoName": "ChatLab",
+      "name": "ChatLab",
+      "desc": "本地化的聊天记录分析工具，通过 SQL 和AI Agent 回顾你的聊天记录。 A local-first chat analysis tool: Relive and explore your chat history powered by SQL and AI Agents.",
+      "url": "https://github.com/QianYuan1437/ChatLab",
+      "path": "/ChatLab/",
+      "type": "工具",
+      "icon": "🔧",
+      "badge": "工具",
+      "featured": false,
+      "updated_at": "2026-01-21T06:49:53Z",
+      "isFork": true
+    },
+    {
+      "repoName": "osssync",
+      "name": "osssync",
+      "desc": "对象存储同步工具，支持多种云存储服务间的文件同步。",
+      "url": "https://github.com/QianYuan1437/osssync",
+      "path": "/osssync/",
+      "type": "工具",
+      "icon": "🔧",
+      "badge": "工具",
+      "featured": true,
+      "updated_at": "2026-04-24T14:13:20Z",
       "isFork": false
     },
     {
@@ -24,7 +50,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-04-24T11:11:42Z",
+      "updated_at": "2026-04-24T13:51:59Z",
       "isFork": false
     },
     {
@@ -77,19 +103,6 @@
       "badge": "内容",
       "featured": true,
       "updated_at": "2026-04-24T01:24:06Z",
-      "isFork": false
-    },
-    {
-      "repoName": "osssync",
-      "name": "osssync",
-      "desc": "对象存储同步工具，支持多种云存储服务间的文件同步。",
-      "url": "https://github.com/QianYuan1437/osssync",
-      "path": "/osssync/",
-      "type": "工具",
-      "icon": "🔧",
-      "badge": "工具",
-      "featured": true,
-      "updated_at": "2026-04-23T13:50:57Z",
       "isFork": false
     },
     {
@@ -220,19 +233,6 @@
       "badge": "工具",
       "featured": false,
       "updated_at": "2026-02-28T08:58:51Z",
-      "isFork": true
-    },
-    {
-      "repoName": "ChatLab",
-      "name": "ChatLab",
-      "desc": "本地化的聊天记录分析工具，通过 SQL 和AI Agent 回顾你的聊天记录。 A local-first chat analysis tool: Relive and explore your chat history powered by SQL and AI Agents.",
-      "url": "https://github.com/QianYuan1437/ChatLab",
-      "path": "/ChatLab/",
-      "type": "工具",
-      "icon": "🔧",
-      "badge": "工具",
-      "featured": false,
-      "updated_at": "2026-01-21T06:49:53Z",
       "isFork": true
     },
     {
