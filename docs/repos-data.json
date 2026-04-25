@@ -1,6 +1,32 @@
 {
-  "generated_at": "2026-04-25T05:51:08.291510+00:00",
+  "generated_at": "2026-04-25T07:37:55.754449+00:00",
   "pages": [
+    {
+      "repoName": "tech-news",
+      "name": "tech-news",
+      "desc": "每日科技新闻 - 自动更新",
+      "url": "https://zhaorunrunrun.github.io/tech-news/",
+      "path": "/tech-news/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-04-25T07:24:25Z",
+      "isFork": false
+    },
+    {
+      "repoName": "QianYuan1437.github.io",
+      "name": "QianYuan1437.github.io",
+      "desc": "暂无仓库描述。",
+      "url": "https://qianyuan1437.github.io/",
+      "path": "/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-04-25T05:51:09Z",
+      "isFork": false
+    },
     {
       "repoName": "ArxivCBF",
       "name": "Arxiv每日更新",
@@ -15,19 +41,6 @@
       "isFork": false
     },
     {
-      "repoName": "tech-news",
-      "name": "tech-news",
-      "desc": "每日科技新闻 - 自动更新",
-      "url": "https://zhaorunrunrun.github.io/tech-news/",
-      "path": "/tech-news/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": true,
-      "updated_at": "2026-04-25T05:50:03Z",
-      "isFork": false
-    },
-    {
       "repoName": "PositionsTracking",
       "name": "PositionsTracking",
       "desc": "暂无仓库描述。",
@@ -38,19 +51,6 @@
       "badge": "内容",
       "featured": true,
       "updated_at": "2026-04-25T05:42:27Z",
-      "isFork": false
-    },
-    {
-      "repoName": "QianYuan1437.github.io",
-      "name": "QianYuan1437.github.io",
-      "desc": "暂无仓库描述。",
-      "url": "https://qianyuan1437.github.io/",
-      "path": "/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": true,
-      "updated_at": "2026-04-25T03:15:12Z",
       "isFork": false
     },
     {
