@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26T05:07:22.873961+00:00",
+  "generated_at": "2026-05-26T10:08:16.335415+00:00",
   "pages": [
     {
       "repoName": "WeatherGet",
@@ -11,7 +11,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-05-26T04:58:54Z",
+      "updated_at": "2026-05-26T08:35:25Z",
       "isFork": false
     },
     {
@@ -24,7 +24,46 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-05-26T03:57:47Z",
+      "updated_at": "2026-05-26T07:57:13Z",
+      "isFork": false
+    },
+    {
+      "repoName": "ArxivCBF",
+      "name": "Arxiv每日更新",
+      "desc": "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
+      "url": "https://qianyuan1437.github.io/ArxivCBF/",
+      "path": "/ArxivCBF/",
+      "type": "研究",
+      "icon": "🧠",
+      "badge": "研究",
+      "featured": true,
+      "updated_at": "2026-05-26T07:40:50Z",
+      "isFork": false
+    },
+    {
+      "repoName": "PositionsTracking",
+      "name": "PositionsTracking",
+      "desc": "暂无仓库描述。",
+      "url": "https://qianyuan1437.github.io/PositionsTracking/",
+      "path": "/PositionsTracking/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-05-26T07:33:01Z",
+      "isFork": false
+    },
+    {
+      "repoName": "QianYuan1437.github.io",
+      "name": "QianYuan1437.github.io",
+      "desc": "暂无仓库描述。",
+      "url": "https://qianyuan1437.github.io/",
+      "path": "/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-05-26T05:07:24Z",
       "isFork": false
     },
     {
@@ -41,19 +80,6 @@
       "isFork": false
     },
     {
-      "repoName": "PositionsTracking",
-      "name": "PositionsTracking",
-      "desc": "暂无仓库描述。",
-      "url": "https://qianyuan1437.github.io/PositionsTracking/",
-      "path": "/PositionsTracking/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": true,
-      "updated_at": "2026-05-26T02:31:35Z",
-      "isFork": false
-    },
-    {
       "repoName": "TechNews",
       "name": "TechNews",
       "desc": "每日科技圈新闻自动聚合，GitHub Actions 驱动，发布于 GitHub Pages",
@@ -64,32 +90,6 @@
       "badge": "内容",
       "featured": true,
       "updated_at": "2026-05-26T01:59:09Z",
-      "isFork": false
-    },
-    {
-      "repoName": "QianYuan1437.github.io",
-      "name": "QianYuan1437.github.io",
-      "desc": "暂无仓库描述。",
-      "url": "https://qianyuan1437.github.io/",
-      "path": "/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": true,
-      "updated_at": "2026-05-26T00:11:33Z",
-      "isFork": false
-    },
-    {
-      "repoName": "ArxivCBF",
-      "name": "Arxiv每日更新",
-      "desc": "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
-      "url": "https://qianyuan1437.github.io/ArxivCBF/",
-      "path": "/ArxivCBF/",
-      "type": "研究",
-      "icon": "🧠",
-      "badge": "研究",
-      "featured": true,
-      "updated_at": "2026-05-26T00:07:12Z",
       "isFork": false
     },
     {
