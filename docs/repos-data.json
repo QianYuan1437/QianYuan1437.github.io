@@ -1,19 +1,6 @@
 {
-  "generated_at": "2026-06-01T10:26:38.515334+00:00",
+  "generated_at": "2026-06-01T16:43:03.058572+00:00",
   "pages": [
-    {
-      "repoName": "ArxivCBF",
-      "name": "Arxiv每日更新",
-      "desc": "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
-      "url": "https://qianyuan1437.github.io/ArxivCBF/",
-      "path": "/ArxivCBF/",
-      "type": "研究",
-      "icon": "🧠",
-      "badge": "研究",
-      "featured": true,
-      "updated_at": "2026-06-01T09:14:27Z",
-      "isFork": false
-    },
     {
       "repoName": "PositionsTracking",
       "name": "PositionsTracking",
@@ -24,33 +11,20 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-06-01T09:07:03Z",
+      "updated_at": "2026-06-01T15:46:21Z",
       "isFork": false
     },
     {
-      "repoName": "WeatherGet",
-      "name": "WeatherGet",
-      "desc": "天气信息抓取与显示",
-      "url": "https://qianyuan1437.github.io/WeatherGet/",
-      "path": "/WeatherGet/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
+      "repoName": "ArxivCBF",
+      "name": "Arxiv每日更新",
+      "desc": "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
+      "url": "https://qianyuan1437.github.io/ArxivCBF/",
+      "path": "/ArxivCBF/",
+      "type": "研究",
+      "icon": "🧠",
+      "badge": "研究",
       "featured": true,
-      "updated_at": "2026-06-01T05:57:04Z",
-      "isFork": false
-    },
-    {
-      "repoName": "QianYuan1437.github.io",
-      "name": "QianYuan1437.github.io",
-      "desc": "暂无仓库描述。",
-      "url": "https://qianyuan1437.github.io/",
-      "path": "/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": true,
-      "updated_at": "2026-06-01T04:54:31Z",
+      "updated_at": "2026-06-01T15:05:41Z",
       "isFork": false
     },
     {
@@ -63,7 +37,33 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-06-01T04:41:38Z",
+      "updated_at": "2026-06-01T11:42:54Z",
+      "isFork": false
+    },
+    {
+      "repoName": "WeatherGet",
+      "name": "WeatherGet",
+      "desc": "天气信息抓取与显示",
+      "url": "https://qianyuan1437.github.io/WeatherGet/",
+      "path": "/WeatherGet/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-06-01T11:34:09Z",
+      "isFork": false
+    },
+    {
+      "repoName": "QianYuan1437.github.io",
+      "name": "QianYuan1437.github.io",
+      "desc": "暂无仓库描述。",
+      "url": "https://qianyuan1437.github.io/",
+      "path": "/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-06-01T10:26:39Z",
       "isFork": false
     },
     {
