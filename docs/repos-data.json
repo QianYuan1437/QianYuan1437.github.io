@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-04T16:23:38.232813+00:00",
+  "generated_at": "2026-06-04T19:25:48.036360+00:00",
   "pages": [
     {
       "repoName": "tech-news",
@@ -11,7 +11,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-06-04T16:19:44Z",
+      "updated_at": "2026-06-04T18:22:06Z",
       "isFork": false
     },
     {
@@ -24,7 +24,33 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-06-04T14:46:44Z",
+      "updated_at": "2026-06-04T17:41:29Z",
+      "isFork": false
+    },
+    {
+      "repoName": "chinese-buy-us-stock-guide",
+      "name": "chinese-buy-us-stock-guide",
+      "desc": "美股指南",
+      "url": "https://github.com/QianYuan1437/chinese-buy-us-stock-guide",
+      "path": "/chinese-buy-us-stock-guide/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": false,
+      "updated_at": "2026-06-04T16:54:32Z",
+      "isFork": true
+    },
+    {
+      "repoName": "QianYuan1437.github.io",
+      "name": "QianYuan1437.github.io",
+      "desc": "暂无仓库描述。",
+      "url": "https://qianyuan1437.github.io/",
+      "path": "/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-06-04T16:23:39Z",
       "isFork": false
     },
     {
@@ -38,19 +64,6 @@
       "badge": "内容",
       "featured": true,
       "updated_at": "2026-06-04T12:36:28Z",
-      "isFork": false
-    },
-    {
-      "repoName": "QianYuan1437.github.io",
-      "name": "QianYuan1437.github.io",
-      "desc": "暂无仓库描述。",
-      "url": "https://qianyuan1437.github.io/",
-      "path": "/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": true,
-      "updated_at": "2026-06-04T12:06:13Z",
       "isFork": false
     },
     {
