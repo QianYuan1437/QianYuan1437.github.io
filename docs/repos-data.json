@@ -1,6 +1,19 @@
 {
-  "generated_at": "2026-06-23T21:02:29.471051+00:00",
+  "generated_at": "2026-06-23T23:12:09.340749+00:00",
   "pages": [
+    {
+      "repoName": "tech-news",
+      "name": "tech-news",
+      "desc": "每日科技新闻 - 自动更新",
+      "url": "https://zhaorunrunrun.github.io/tech-news/",
+      "path": "/tech-news/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-06-23T23:10:40Z",
+      "isFork": false
+    },
     {
       "repoName": "WeatherGet",
       "name": "WeatherGet",
@@ -11,7 +24,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-06-23T19:07:16Z",
+      "updated_at": "2026-06-23T23:04:22Z",
       "isFork": false
     },
     {
@@ -24,20 +37,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-06-23T18:04:18Z",
-      "isFork": false
-    },
-    {
-      "repoName": "tech-news",
-      "name": "tech-news",
-      "desc": "每日科技新闻 - 自动更新",
-      "url": "https://zhaorunrunrun.github.io/tech-news/",
-      "path": "/tech-news/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": true,
-      "updated_at": "2026-06-23T18:01:06Z",
+      "updated_at": "2026-06-23T21:02:30Z",
       "isFork": false
     },
     {
