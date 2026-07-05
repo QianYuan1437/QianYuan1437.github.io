@@ -1,6 +1,19 @@
 {
-  "generated_at": "2026-07-04T22:02:44.670617+00:00",
+  "generated_at": "2026-07-05T00:05:20.030953+00:00",
   "pages": [
+    {
+      "repoName": "ArxivCBF",
+      "name": "Arxiv每日更新",
+      "desc": "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
+      "url": "https://qianyuan1437.github.io/ArxivCBF/",
+      "path": "/ArxivCBF/",
+      "type": "研究",
+      "icon": "🧠",
+      "badge": "研究",
+      "featured": true,
+      "updated_at": "2026-07-05T00:03:19Z",
+      "isFork": false
+    },
     {
       "repoName": "WeatherGet",
       "name": "WeatherGet",
@@ -11,7 +24,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-07-04T21:53:16Z",
+      "updated_at": "2026-07-04T23:56:55Z",
       "isFork": false
     },
     {
@@ -24,7 +37,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-07-04T21:01:18Z",
+      "updated_at": "2026-07-04T23:00:17Z",
       "isFork": false
     },
     {
@@ -37,7 +50,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-07-04T20:11:43Z",
+      "updated_at": "2026-07-04T22:02:45Z",
       "isFork": false
     },
     {
@@ -51,19 +64,6 @@
       "badge": "内容",
       "featured": true,
       "updated_at": "2026-07-04T11:15:46Z",
-      "isFork": false
-    },
-    {
-      "repoName": "ArxivCBF",
-      "name": "Arxiv每日更新",
-      "desc": "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
-      "url": "https://qianyuan1437.github.io/ArxivCBF/",
-      "path": "/ArxivCBF/",
-      "type": "研究",
-      "icon": "🧠",
-      "badge": "研究",
-      "featured": true,
-      "updated_at": "2026-07-04T11:00:49Z",
       "isFork": false
     },
     {
