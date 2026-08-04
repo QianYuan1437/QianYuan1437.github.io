@@ -1,6 +1,58 @@
 {
-  "generated_at": "2026-08-04T12:04:36.166173+00:00",
+  "generated_at": "2026-08-04T15:27:03.965127+00:00",
   "pages": [
+    {
+      "repoName": "WeatherGet",
+      "name": "WeatherGet",
+      "desc": "天气信息抓取与显示",
+      "url": "https://qianyuan1437.github.io/WeatherGet/",
+      "path": "/WeatherGet/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-08-04T15:21:56Z",
+      "isFork": false
+    },
+    {
+      "repoName": "tech-news",
+      "name": "tech-news",
+      "desc": "每日科技新闻 - 自动更新",
+      "url": "https://zhaorunrunrun.github.io/tech-news/",
+      "path": "/tech-news/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-08-04T15:22:31Z",
+      "isFork": false
+    },
+    {
+      "repoName": "IsaacGym",
+      "name": "IsaacGym",
+      "desc": "机器人强化学习环境配置与训练指南 (IsaacGym + RSL-RL + Unitree RL Gym + MuJoCo)",
+      "url": "https://github.com/QianYuan1437/IsaacGym",
+      "path": "/IsaacGym/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": false,
+      "updated_at": "2026-08-04T13:34:35Z",
+      "isFork": false
+    },
+    {
+      "repoName": "QianYuan1437.github.io",
+      "name": "QianYuan1437.github.io",
+      "desc": "暂无仓库描述。",
+      "url": "https://qianyuan1437.github.io/",
+      "path": "/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-08-04T12:04:37Z",
+      "isFork": false
+    },
     {
       "repoName": "PositionsTracking",
       "name": "PositionsTracking",
@@ -38,45 +90,6 @@
       "badge": "研究",
       "featured": true,
       "updated_at": "2026-08-04T11:23:45Z",
-      "isFork": false
-    },
-    {
-      "repoName": "tech-news",
-      "name": "tech-news",
-      "desc": "每日科技新闻 - 自动更新",
-      "url": "https://zhaorunrunrun.github.io/tech-news/",
-      "path": "/tech-news/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": true,
-      "updated_at": "2026-08-04T10:42:27Z",
-      "isFork": false
-    },
-    {
-      "repoName": "WeatherGet",
-      "name": "WeatherGet",
-      "desc": "天气信息抓取与显示",
-      "url": "https://qianyuan1437.github.io/WeatherGet/",
-      "path": "/WeatherGet/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": true,
-      "updated_at": "2026-08-04T10:31:37Z",
-      "isFork": false
-    },
-    {
-      "repoName": "QianYuan1437.github.io",
-      "name": "QianYuan1437.github.io",
-      "desc": "暂无仓库描述。",
-      "url": "https://qianyuan1437.github.io/",
-      "path": "/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": true,
-      "updated_at": "2026-08-04T09:41:05Z",
       "isFork": false
     },
     {
