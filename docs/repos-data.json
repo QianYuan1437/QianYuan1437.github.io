@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-08-05T14:22:20.808022+00:00",
+  "generated_at": "2026-08-05T16:45:03.757680+00:00",
   "pages": [
     {
-      "repoName": "tech-news",
-      "name": "tech-news",
-      "desc": "每日科技新闻 - 自动更新",
-      "url": "https://zhaorunrunrun.github.io/tech-news/",
-      "path": "/tech-news/",
+      "repoName": "IsaacGym",
+      "name": "IsaacGym",
+      "desc": "机器人强化学习环境配置与训练指南 (IsaacGym + RSL-RL + Unitree RL Gym + MuJoCo)",
+      "url": "https://qianyuan1437.github.io/IsaacGym/",
+      "path": "/IsaacGym/",
       "type": "内容",
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-08-05T14:17:21Z",
+      "updated_at": "2026-08-05T16:37:36Z",
       "isFork": false
     },
     {
@@ -24,7 +24,33 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-08-05T13:54:01Z",
+      "updated_at": "2026-08-05T15:58:44Z",
+      "isFork": false
+    },
+    {
+      "repoName": "tech-news",
+      "name": "tech-news",
+      "desc": "每日科技新闻 - 自动更新",
+      "url": "https://zhaorunrunrun.github.io/tech-news/",
+      "path": "/tech-news/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-08-05T15:11:31Z",
+      "isFork": false
+    },
+    {
+      "repoName": "QianYuan1437.github.io",
+      "name": "QianYuan1437.github.io",
+      "desc": "暂无仓库描述。",
+      "url": "https://qianyuan1437.github.io/",
+      "path": "/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-08-05T14:22:21Z",
       "isFork": false
     },
     {
@@ -51,19 +77,6 @@
       "badge": "研究",
       "featured": true,
       "updated_at": "2026-08-05T11:26:46Z",
-      "isFork": false
-    },
-    {
-      "repoName": "QianYuan1437.github.io",
-      "name": "QianYuan1437.github.io",
-      "desc": "暂无仓库描述。",
-      "url": "https://qianyuan1437.github.io/",
-      "path": "/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": true,
-      "updated_at": "2026-08-05T11:24:39Z",
       "isFork": false
     },
     {
@@ -103,19 +116,6 @@
       "badge": "内容",
       "featured": true,
       "updated_at": "2026-08-05T01:22:44Z",
-      "isFork": false
-    },
-    {
-      "repoName": "IsaacGym",
-      "name": "IsaacGym",
-      "desc": "机器人强化学习环境配置与训练指南 (IsaacGym + RSL-RL + Unitree RL Gym + MuJoCo)",
-      "url": "https://github.com/QianYuan1437/IsaacGym",
-      "path": "/IsaacGym/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": false,
-      "updated_at": "2026-08-04T13:34:35Z",
       "isFork": false
     },
     {
