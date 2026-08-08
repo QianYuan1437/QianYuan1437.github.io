@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-08-08T08:49:08.306618+00:00",
+  "generated_at": "2026-08-08T09:43:13.381873+00:00",
   "pages": [
     {
-      "repoName": "tech-news",
-      "name": "tech-news",
-      "desc": "每日科技新闻 - 自动更新",
-      "url": "https://zhaorunrunrun.github.io/tech-news/",
-      "path": "/tech-news/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
+      "repoName": "IEEECBF",
+      "name": "IEEECBF",
+      "desc": "IEEE CBF Paper Tracker: CBF papers from top IEEE journals (L-CSS, TAC, Automatica, TRO) with PTC focused real-time search",
+      "url": "https://qianyuan1437.github.io/IEEECBF/",
+      "path": "/IEEECBF/",
+      "type": "研究",
+      "icon": "🧠",
+      "badge": "研究",
       "featured": true,
-      "updated_at": "2026-08-08T08:46:04Z",
+      "updated_at": "2026-08-08T09:36:36Z",
       "isFork": false
     },
     {
@@ -24,7 +24,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-08-08T08:32:53Z",
+      "updated_at": "2026-08-08T09:31:46Z",
       "isFork": false
     },
     {
@@ -37,20 +37,20 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-08-08T07:01:36Z",
+      "updated_at": "2026-08-08T08:49:09Z",
       "isFork": false
     },
     {
-      "repoName": "IEEECBF",
-      "name": "IEEECBF",
-      "desc": "IEEE CBF Paper Tracker: CBF papers from top IEEE journals (L-CSS, TAC, Automatica, TRO) with PTC focused real-time search",
-      "url": "https://qianyuan1437.github.io/IEEECBF/",
-      "path": "/IEEECBF/",
-      "type": "研究",
-      "icon": "🧠",
-      "badge": "研究",
+      "repoName": "tech-news",
+      "name": "tech-news",
+      "desc": "每日科技新闻 - 自动更新",
+      "url": "https://zhaorunrunrun.github.io/tech-news/",
+      "path": "/tech-news/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
       "featured": true,
-      "updated_at": "2026-08-08T05:03:06Z",
+      "updated_at": "2026-08-08T08:46:04Z",
       "isFork": false
     },
     {
