@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-08-16T14:28:01.277904+00:00",
+  "generated_at": "2026-08-16T15:26:21.560141+00:00",
   "pages": [
     {
-      "repoName": "tech-news",
-      "name": "tech-news",
-      "desc": "每日科技新闻 - 自动更新",
-      "url": "https://zhaorunrunrun.github.io/tech-news/",
-      "path": "/tech-news/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
+      "repoName": "embodied-interview-qa-learning",
+      "name": "embodied-interview-qa-learning",
+      "desc": "具身智能面试题库顺序学习版：前置知识、依赖路线、移动端复习与进度标记",
+      "url": "https://qianyuan1437.github.io/embodied-interview-qa-learning/",
+      "path": "/embodied-interview-qa-learning/",
+      "type": "研究",
+      "icon": "🧠",
+      "badge": "研究",
       "featured": true,
-      "updated_at": "2026-08-16T14:26:17Z",
+      "updated_at": "2026-08-16T15:25:42Z",
       "isFork": false
     },
     {
@@ -24,7 +24,20 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-08-16T13:35:14Z",
+      "updated_at": "2026-08-16T14:28:02Z",
+      "isFork": false
+    },
+    {
+      "repoName": "tech-news",
+      "name": "tech-news",
+      "desc": "每日科技新闻 - 自动更新",
+      "url": "https://zhaorunrunrun.github.io/tech-news/",
+      "path": "/tech-news/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-08-16T14:26:17Z",
       "isFork": false
     },
     {
