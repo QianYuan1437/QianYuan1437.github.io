@@ -1,6 +1,32 @@
 {
-  "generated_at": "2026-08-17T22:29:22.937803+00:00",
+  "generated_at": "2026-08-17T23:27:20.796249+00:00",
   "pages": [
+    {
+      "repoName": "ArxivCBF",
+      "name": "Arxiv每日更新",
+      "desc": "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
+      "url": "https://qianyuan1437.github.io/ArxivCBF/",
+      "path": "/ArxivCBF/",
+      "type": "研究",
+      "icon": "🧠",
+      "badge": "研究",
+      "featured": true,
+      "updated_at": "2026-08-17T23:24:48Z",
+      "isFork": false
+    },
+    {
+      "repoName": "QianYuan1437.github.io",
+      "name": "QianYuan1437.github.io",
+      "desc": "暂无仓库描述。",
+      "url": "https://qianyuan1437.github.io/",
+      "path": "/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-08-17T22:29:24Z",
+      "isFork": false
+    },
     {
       "repoName": "tech-news",
       "name": "tech-news",
@@ -15,19 +41,6 @@
       "isFork": false
     },
     {
-      "repoName": "QianYuan1437.github.io",
-      "name": "QianYuan1437.github.io",
-      "desc": "暂无仓库描述。",
-      "url": "https://qianyuan1437.github.io/",
-      "path": "/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": true,
-      "updated_at": "2026-08-17T21:29:59Z",
-      "isFork": false
-    },
-    {
       "repoName": "PositionsTracking",
       "name": "PositionsTracking",
       "desc": "暂无仓库描述。",
@@ -38,19 +51,6 @@
       "badge": "内容",
       "featured": true,
       "updated_at": "2026-08-17T10:19:55Z",
-      "isFork": false
-    },
-    {
-      "repoName": "ArxivCBF",
-      "name": "Arxiv每日更新",
-      "desc": "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
-      "url": "https://qianyuan1437.github.io/ArxivCBF/",
-      "path": "/ArxivCBF/",
-      "type": "研究",
-      "icon": "🧠",
-      "badge": "研究",
-      "featured": true,
-      "updated_at": "2026-08-17T09:47:46Z",
       "isFork": false
     },
     {
