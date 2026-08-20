@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T01:36:37.650388+00:00",
+  "generated_at": "2026-08-20T03:01:39.605243+00:00",
   "pages": [
     {
       "repoName": "tech-news",
@@ -11,7 +11,33 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-08-20T01:24:17Z",
+      "updated_at": "2026-08-20T02:59:30Z",
+      "isFork": false
+    },
+    {
+      "repoName": "CBF-Embodied-Intelligence",
+      "name": "CBF-Embodied-Intelligence",
+      "desc": "Achieving full-body safety in embodied intelligent robots",
+      "url": "https://github.com/QianYuan1437/CBF-Embodied-Intelligence",
+      "path": "/CBF-Embodied-Intelligence/",
+      "type": "研究",
+      "icon": "🧠",
+      "badge": "研究",
+      "featured": false,
+      "updated_at": "2026-08-20T02:52:03Z",
+      "isFork": false
+    },
+    {
+      "repoName": "QianYuan1437.github.io",
+      "name": "QianYuan1437.github.io",
+      "desc": "暂无仓库描述。",
+      "url": "https://qianyuan1437.github.io/",
+      "path": "/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-08-20T01:36:38Z",
       "isFork": false
     },
     {
@@ -64,19 +90,6 @@
       "badge": "研究",
       "featured": true,
       "updated_at": "2026-08-19T23:33:29Z",
-      "isFork": false
-    },
-    {
-      "repoName": "QianYuan1437.github.io",
-      "name": "QianYuan1437.github.io",
-      "desc": "暂无仓库描述。",
-      "url": "https://qianyuan1437.github.io/",
-      "path": "/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": true,
-      "updated_at": "2026-08-19T23:27:15Z",
       "isFork": false
     },
     {
