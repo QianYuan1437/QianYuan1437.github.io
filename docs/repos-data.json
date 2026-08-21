@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T13:51:30.727735+00:00",
+  "generated_at": "2026-08-21T14:40:19.026176+00:00",
   "pages": [
     {
       "repoName": "tech-news",
@@ -11,7 +11,20 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-08-21T13:41:09Z",
+      "updated_at": "2026-08-21T14:38:07Z",
+      "isFork": false
+    },
+    {
+      "repoName": "Q2A2Control",
+      "name": "Q2A2Control",
+      "desc": "按前置知识依赖组织的自动控制原理顺序学习与折叠自测题库",
+      "url": "https://qianyuan1437.github.io/Q2A2Control/",
+      "path": "/Q2A2Control/",
+      "type": "研究",
+      "icon": "🧠",
+      "badge": "研究",
+      "featured": true,
+      "updated_at": "2026-08-21T13:59:41Z",
       "isFork": false
     },
     {
@@ -24,7 +37,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-08-21T12:58:03Z",
+      "updated_at": "2026-08-21T13:51:31Z",
       "isFork": false
     },
     {
@@ -142,19 +155,6 @@
       "badge": "研究",
       "featured": true,
       "updated_at": "2026-08-17T08:13:29Z",
-      "isFork": false
-    },
-    {
-      "repoName": "Q2A2Control",
-      "name": "Q2A2Control",
-      "desc": "按前置知识依赖组织的自动控制原理顺序学习与折叠自测题库",
-      "url": "https://qianyuan1437.github.io/Q2A2Control/",
-      "path": "/Q2A2Control/",
-      "type": "研究",
-      "icon": "🧠",
-      "badge": "研究",
-      "featured": true,
-      "updated_at": "2026-08-17T04:02:25Z",
       "isFork": false
     },
     {
