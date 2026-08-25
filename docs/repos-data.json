@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T03:03:34.617989+00:00",
+  "generated_at": "2026-08-25T04:44:20.285570+00:00",
   "pages": [
     {
       "repoName": "tech-news",
@@ -11,7 +11,33 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-08-25T03:01:27Z",
+      "updated_at": "2026-08-25T04:41:25Z",
+      "isFork": false
+    },
+    {
+      "repoName": "ArxivCBF",
+      "name": "Arxiv每日更新",
+      "desc": "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
+      "url": "https://qianyuan1437.github.io/ArxivCBF/",
+      "path": "/ArxivCBF/",
+      "type": "研究",
+      "icon": "🧠",
+      "badge": "研究",
+      "featured": true,
+      "updated_at": "2026-08-25T04:33:27Z",
+      "isFork": false
+    },
+    {
+      "repoName": "PositionsTracking",
+      "name": "PositionsTracking",
+      "desc": "暂无仓库描述。",
+      "url": "https://qianyuan1437.github.io/PositionsTracking/",
+      "path": "/PositionsTracking/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-08-25T04:25:21Z",
       "isFork": false
     },
     {
@@ -24,7 +50,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-08-25T01:37:36Z",
+      "updated_at": "2026-08-25T03:03:35Z",
       "isFork": false
     },
     {
@@ -38,19 +64,6 @@
       "badge": "内容",
       "featured": true,
       "updated_at": "2026-08-25T01:15:38Z",
-      "isFork": false
-    },
-    {
-      "repoName": "PositionsTracking",
-      "name": "PositionsTracking",
-      "desc": "暂无仓库描述。",
-      "url": "https://qianyuan1437.github.io/PositionsTracking/",
-      "path": "/PositionsTracking/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": true,
-      "updated_at": "2026-08-25T00:47:22Z",
       "isFork": false
     },
     {
@@ -77,19 +90,6 @@
       "badge": "研究",
       "featured": true,
       "updated_at": "2026-08-24T23:32:21Z",
-      "isFork": false
-    },
-    {
-      "repoName": "ArxivCBF",
-      "name": "Arxiv每日更新",
-      "desc": "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
-      "url": "https://qianyuan1437.github.io/ArxivCBF/",
-      "path": "/ArxivCBF/",
-      "type": "研究",
-      "icon": "🧠",
-      "badge": "研究",
-      "featured": true,
-      "updated_at": "2026-08-24T23:24:16Z",
       "isFork": false
     },
     {
