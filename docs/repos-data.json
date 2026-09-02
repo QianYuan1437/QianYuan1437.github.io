@@ -1,17 +1,30 @@
 {
-  "generated_at": "2026-09-02T13:28:45.021076+00:00",
+  "generated_at": "2026-09-02T17:47:42.726866+00:00",
   "pages": [
     {
-      "repoName": "IEEECBF",
-      "name": "IEEECBF",
-      "desc": "IEEE CBF Paper Tracker: CBF papers from top IEEE journals (L-CSS, TAC, Automatica, TRO) with PTC focused real-time search",
-      "url": "https://qianyuan1437.github.io/IEEECBF/",
-      "path": "/IEEECBF/",
-      "type": "研究",
-      "icon": "🧠",
-      "badge": "研究",
+      "repoName": "tech-news",
+      "name": "tech-news",
+      "desc": "每日科技新闻 - 自动更新",
+      "url": "https://zhaorunrunrun.github.io/tech-news/",
+      "path": "/tech-news/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
       "featured": true,
-      "updated_at": "2026-09-02T13:14:24Z",
+      "updated_at": "2026-09-02T16:58:23Z",
+      "isFork": false
+    },
+    {
+      "repoName": "PositionsTracking",
+      "name": "PositionsTracking",
+      "desc": "暂无仓库描述。",
+      "url": "https://qianyuan1437.github.io/PositionsTracking/",
+      "path": "/PositionsTracking/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-09-02T13:55:52Z",
       "isFork": false
     },
     {
@@ -24,20 +37,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-09-02T08:42:33Z",
-      "isFork": false
-    },
-    {
-      "repoName": "tech-news",
-      "name": "tech-news",
-      "desc": "每日科技新闻 - 自动更新",
-      "url": "https://zhaorunrunrun.github.io/tech-news/",
-      "path": "/tech-news/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": true,
-      "updated_at": "2026-09-02T08:35:29Z",
+      "updated_at": "2026-09-02T13:28:46Z",
       "isFork": false
     },
     {
@@ -54,16 +54,16 @@
       "isFork": false
     },
     {
-      "repoName": "PositionsTracking",
-      "name": "PositionsTracking",
-      "desc": "暂无仓库描述。",
-      "url": "https://qianyuan1437.github.io/PositionsTracking/",
-      "path": "/PositionsTracking/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
+      "repoName": "IEEECBF",
+      "name": "IEEECBF",
+      "desc": "IEEE CBF Paper Tracker: CBF papers from top IEEE journals (L-CSS, TAC, Automatica, TRO) with PTC focused real-time search",
+      "url": "https://qianyuan1437.github.io/IEEECBF/",
+      "path": "/IEEECBF/",
+      "type": "研究",
+      "icon": "🧠",
+      "badge": "研究",
       "featured": true,
-      "updated_at": "2026-09-02T08:09:53Z",
+      "updated_at": "2026-09-02T13:14:24Z",
       "isFork": false
     },
     {
