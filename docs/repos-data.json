@@ -1,19 +1,6 @@
 {
-  "generated_at": "2026-09-12T10:27:15.629506+00:00",
+  "generated_at": "2026-09-12T13:56:45.021571+00:00",
   "pages": [
-    {
-      "repoName": "IEEECBF",
-      "name": "IEEECBF",
-      "desc": "IEEE CBF Paper Tracker: CBF papers from top IEEE journals (L-CSS, TAC, Automatica, TRO) with PTC focused real-time search",
-      "url": "https://qianyuan1437.github.io/IEEECBF/",
-      "path": "/IEEECBF/",
-      "type": "研究",
-      "icon": "🧠",
-      "badge": "研究",
-      "featured": true,
-      "updated_at": "2026-09-12T08:30:47Z",
-      "isFork": false
-    },
     {
       "repoName": "tech-news",
       "name": "tech-news",
@@ -24,20 +11,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-09-12T08:30:01Z",
-      "isFork": false
-    },
-    {
-      "repoName": "ArxivCBF",
-      "name": "Arxiv每日更新",
-      "desc": "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
-      "url": "https://qianyuan1437.github.io/ArxivCBF/",
-      "path": "/ArxivCBF/",
-      "type": "研究",
-      "icon": "🧠",
-      "badge": "研究",
-      "featured": true,
-      "updated_at": "2026-09-12T08:17:44Z",
+      "updated_at": "2026-09-12T13:26:31Z",
       "isFork": false
     },
     {
@@ -50,7 +24,33 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-09-12T08:09:19Z",
+      "updated_at": "2026-09-12T13:12:36Z",
+      "isFork": false
+    },
+    {
+      "repoName": "ArxivCBF",
+      "name": "Arxiv每日更新",
+      "desc": "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
+      "url": "https://qianyuan1437.github.io/ArxivCBF/",
+      "path": "/ArxivCBF/",
+      "type": "研究",
+      "icon": "🧠",
+      "badge": "研究",
+      "featured": true,
+      "updated_at": "2026-09-12T12:45:42Z",
+      "isFork": false
+    },
+    {
+      "repoName": "IEEECBF",
+      "name": "IEEECBF",
+      "desc": "IEEE CBF Paper Tracker: CBF papers from top IEEE journals (L-CSS, TAC, Automatica, TRO) with PTC focused real-time search",
+      "url": "https://qianyuan1437.github.io/IEEECBF/",
+      "path": "/IEEECBF/",
+      "type": "研究",
+      "icon": "🧠",
+      "badge": "研究",
+      "featured": true,
+      "updated_at": "2026-09-12T12:39:13Z",
       "isFork": false
     },
     {
@@ -63,7 +63,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-09-12T05:31:36Z",
+      "updated_at": "2026-09-12T10:27:16Z",
       "isFork": false
     },
     {
