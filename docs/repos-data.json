@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-23T11:13:33.050691+00:00",
+  "generated_at": "2026-09-23T16:35:25.957832+00:00",
   "pages": [
     {
-      "repoName": "IEEECBF",
-      "name": "IEEECBF",
-      "desc": "IEEE CBF Paper Tracker: CBF papers from top IEEE journals (L-CSS, TAC, Automatica, TRO) with PTC focused real-time search",
-      "url": "https://qianyuan1437.github.io/IEEECBF/",
-      "path": "/IEEECBF/",
-      "type": "研究",
-      "icon": "🧠",
-      "badge": "研究",
+      "repoName": "PositionsTracking",
+      "name": "PositionsTracking",
+      "desc": "暂无仓库描述。",
+      "url": "https://qianyuan1437.github.io/PositionsTracking/",
+      "path": "/PositionsTracking/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
       "featured": true,
-      "updated_at": "2026-09-23T09:13:32Z",
+      "updated_at": "2026-09-23T14:29:53Z",
       "isFork": false
     },
     {
@@ -24,20 +24,20 @@
       "icon": "🧠",
       "badge": "研究",
       "featured": true,
-      "updated_at": "2026-09-23T08:59:16Z",
+      "updated_at": "2026-09-23T14:12:58Z",
       "isFork": false
     },
     {
-      "repoName": "PositionsTracking",
-      "name": "PositionsTracking",
-      "desc": "暂无仓库描述。",
-      "url": "https://qianyuan1437.github.io/PositionsTracking/",
-      "path": "/PositionsTracking/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
+      "repoName": "IEEECBF",
+      "name": "IEEECBF",
+      "desc": "IEEE CBF Paper Tracker: CBF papers from top IEEE journals (L-CSS, TAC, Automatica, TRO) with PTC focused real-time search",
+      "url": "https://qianyuan1437.github.io/IEEECBF/",
+      "path": "/IEEECBF/",
+      "type": "研究",
+      "icon": "🧠",
+      "badge": "研究",
       "featured": true,
-      "updated_at": "2026-09-23T08:51:44Z",
+      "updated_at": "2026-09-23T14:06:56Z",
       "isFork": false
     },
     {
@@ -50,7 +50,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-09-23T07:32:52Z",
+      "updated_at": "2026-09-23T13:27:57Z",
       "isFork": false
     },
     {
@@ -63,7 +63,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-09-23T05:43:34Z",
+      "updated_at": "2026-09-23T11:13:34Z",
       "isFork": false
     },
     {
