@@ -1,19 +1,6 @@
 {
-  "generated_at": "2026-10-10T15:09:27.717967+00:00",
+  "generated_at": "2026-10-10T19:55:32.062756+00:00",
   "pages": [
-    {
-      "repoName": "IEEECBF",
-      "name": "IEEECBF",
-      "desc": "IEEE CBF Paper Tracker: CBF papers from top IEEE journals (L-CSS, TAC, Automatica, TRO) with PTC focused real-time search",
-      "url": "https://qianyuan1437.github.io/IEEECBF/",
-      "path": "/IEEECBF/",
-      "type": "研究",
-      "icon": "🧠",
-      "badge": "研究",
-      "featured": true,
-      "updated_at": "2026-10-10T15:03:06Z",
-      "isFork": false
-    },
     {
       "repoName": "tech-news",
       "name": "tech-news",
@@ -24,20 +11,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-10-10T12:08:56Z",
-      "isFork": false
-    },
-    {
-      "repoName": "ArxivCBF",
-      "name": "Arxiv每日更新",
-      "desc": "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
-      "url": "https://qianyuan1437.github.io/ArxivCBF/",
-      "path": "/ArxivCBF/",
-      "type": "研究",
-      "icon": "🧠",
-      "badge": "研究",
-      "featured": true,
-      "updated_at": "2026-10-10T10:18:29Z",
+      "updated_at": "2026-10-10T18:19:00Z",
       "isFork": false
     },
     {
@@ -50,7 +24,20 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-10-10T10:09:27Z",
+      "updated_at": "2026-10-10T15:37:29Z",
+      "isFork": false
+    },
+    {
+      "repoName": "ArxivCBF",
+      "name": "Arxiv每日更新",
+      "desc": "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
+      "url": "https://qianyuan1437.github.io/ArxivCBF/",
+      "path": "/ArxivCBF/",
+      "type": "研究",
+      "icon": "🧠",
+      "badge": "研究",
+      "featured": true,
+      "updated_at": "2026-10-10T15:11:39Z",
       "isFork": false
     },
     {
@@ -63,7 +50,20 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-10-10T08:18:07Z",
+      "updated_at": "2026-10-10T15:09:28Z",
+      "isFork": false
+    },
+    {
+      "repoName": "IEEECBF",
+      "name": "IEEECBF",
+      "desc": "IEEE CBF Paper Tracker: CBF papers from top IEEE journals (L-CSS, TAC, Automatica, TRO) with PTC focused real-time search",
+      "url": "https://qianyuan1437.github.io/IEEECBF/",
+      "path": "/IEEECBF/",
+      "type": "研究",
+      "icon": "🧠",
+      "badge": "研究",
+      "featured": true,
+      "updated_at": "2026-10-10T15:03:06Z",
       "isFork": false
     },
     {
