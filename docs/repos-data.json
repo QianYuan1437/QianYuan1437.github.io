@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T23:22:58.620964+00:00",
+  "generated_at": "2026-10-11T05:12:40.565448+00:00",
   "pages": [
     {
       "repoName": "tech-news",
@@ -11,59 +11,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-10-10T23:20:12Z",
-      "isFork": false
-    },
-    {
-      "repoName": "QianYuan1437.github.io",
-      "name": "QianYuan1437.github.io",
-      "desc": "暂无仓库描述。",
-      "url": "https://qianyuan1437.github.io/",
-      "path": "/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": true,
-      "updated_at": "2026-10-10T19:55:33Z",
-      "isFork": false
-    },
-    {
-      "repoName": "PositionsTracking",
-      "name": "PositionsTracking",
-      "desc": "暂无仓库描述。",
-      "url": "https://qianyuan1437.github.io/PositionsTracking/",
-      "path": "/PositionsTracking/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": true,
-      "updated_at": "2026-10-10T15:37:29Z",
-      "isFork": false
-    },
-    {
-      "repoName": "ArxivCBF",
-      "name": "Arxiv每日更新",
-      "desc": "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
-      "url": "https://qianyuan1437.github.io/ArxivCBF/",
-      "path": "/ArxivCBF/",
-      "type": "研究",
-      "icon": "🧠",
-      "badge": "研究",
-      "featured": true,
-      "updated_at": "2026-10-10T15:11:39Z",
-      "isFork": false
-    },
-    {
-      "repoName": "IEEECBF",
-      "name": "IEEECBF",
-      "desc": "IEEE CBF Paper Tracker: CBF papers from top IEEE journals (L-CSS, TAC, Automatica, TRO) with PTC focused real-time search",
-      "url": "https://qianyuan1437.github.io/IEEECBF/",
-      "path": "/IEEECBF/",
-      "type": "研究",
-      "icon": "🧠",
-      "badge": "研究",
-      "featured": true,
-      "updated_at": "2026-10-10T15:03:06Z",
+      "updated_at": "2026-10-11T04:55:07Z",
       "isFork": false
     },
     {
@@ -76,7 +24,20 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-10-10T04:40:38Z",
+      "updated_at": "2026-10-11T04:25:51Z",
+      "isFork": false
+    },
+    {
+      "repoName": "PositionsTracking",
+      "name": "PositionsTracking",
+      "desc": "暂无仓库描述。",
+      "url": "https://qianyuan1437.github.io/PositionsTracking/",
+      "path": "/PositionsTracking/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-10-11T03:09:53Z",
       "isFork": false
     },
     {
@@ -89,7 +50,46 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-10-10T03:04:44Z",
+      "updated_at": "2026-10-11T02:36:06Z",
+      "isFork": false
+    },
+    {
+      "repoName": "IEEECBF",
+      "name": "IEEECBF",
+      "desc": "IEEE CBF Paper Tracker: CBF papers from top IEEE journals (L-CSS, TAC, Automatica, TRO) with PTC focused real-time search",
+      "url": "https://qianyuan1437.github.io/IEEECBF/",
+      "path": "/IEEECBF/",
+      "type": "研究",
+      "icon": "🧠",
+      "badge": "研究",
+      "featured": true,
+      "updated_at": "2026-10-11T01:49:27Z",
+      "isFork": false
+    },
+    {
+      "repoName": "ArxivCBF",
+      "name": "Arxiv每日更新",
+      "desc": "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
+      "url": "https://qianyuan1437.github.io/ArxivCBF/",
+      "path": "/ArxivCBF/",
+      "type": "研究",
+      "icon": "🧠",
+      "badge": "研究",
+      "featured": true,
+      "updated_at": "2026-10-11T01:34:34Z",
+      "isFork": false
+    },
+    {
+      "repoName": "QianYuan1437.github.io",
+      "name": "QianYuan1437.github.io",
+      "desc": "暂无仓库描述。",
+      "url": "https://qianyuan1437.github.io/",
+      "path": "/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-10-10T23:22:59Z",
       "isFork": false
     },
     {
