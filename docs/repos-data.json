@@ -1,19 +1,6 @@
 {
-  "generated_at": "2026-11-09T20:34:08.071001+00:00",
+  "generated_at": "2026-11-10T12:22:12.889292+00:00",
   "pages": [
-    {
-      "repoName": "ArxivCBF",
-      "name": "Arxiv每日更新",
-      "desc": "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
-      "url": "https://qianyuan1437.github.io/ArxivCBF/",
-      "path": "/ArxivCBF/",
-      "type": "研究",
-      "icon": "🧠",
-      "badge": "研究",
-      "featured": true,
-      "updated_at": "2026-11-09T19:38:07Z",
-      "isFork": false
-    },
     {
       "repoName": "IEEECBF",
       "name": "IEEECBF",
@@ -24,7 +11,20 @@
       "icon": "🧠",
       "badge": "研究",
       "featured": true,
-      "updated_at": "2026-11-09T19:28:31Z",
+      "updated_at": "2026-11-10T12:18:38Z",
+      "isFork": false
+    },
+    {
+      "repoName": "ArxivCBF",
+      "name": "Arxiv每日更新",
+      "desc": "控制障碍函数（CBF）相关论文每日更新与分栏浏览。",
+      "url": "https://qianyuan1437.github.io/ArxivCBF/",
+      "path": "/ArxivCBF/",
+      "type": "研究",
+      "icon": "🧠",
+      "badge": "研究",
+      "featured": true,
+      "updated_at": "2026-11-10T12:02:14Z",
       "isFork": false
     },
     {
@@ -37,20 +37,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-11-09T15:39:41Z",
-      "isFork": false
-    },
-    {
-      "repoName": "QianYuan1437.github.io",
-      "name": "QianYuan1437.github.io",
-      "desc": "暂无仓库描述。",
-      "url": "https://qianyuan1437.github.io/",
-      "path": "/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": true,
-      "updated_at": "2026-11-09T09:30:32Z",
+      "updated_at": "2026-11-10T09:27:55Z",
       "isFork": false
     },
     {
@@ -63,7 +50,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-11-09T04:57:50Z",
+      "updated_at": "2026-11-10T06:13:52Z",
       "isFork": false
     },
     {
@@ -76,7 +63,20 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-11-09T03:23:17Z",
+      "updated_at": "2026-11-10T04:59:20Z",
+      "isFork": false
+    },
+    {
+      "repoName": "QianYuan1437.github.io",
+      "name": "QianYuan1437.github.io",
+      "desc": "暂无仓库描述。",
+      "url": "https://qianyuan1437.github.io/",
+      "path": "/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-11-09T20:34:09Z",
       "isFork": false
     },
     {
