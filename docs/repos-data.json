@@ -1,6 +1,19 @@
 {
-  "generated_at": "2026-11-12T23:25:11.312472+00:00",
+  "generated_at": "2026-11-13T06:01:26.086915+00:00",
   "pages": [
+    {
+      "repoName": "RC-Show",
+      "name": "RC-Show",
+      "desc": "暂无仓库描述。",
+      "url": "https://qianyuan1437.github.io/RC-Show/",
+      "path": "/RC-Show/",
+      "type": "内容",
+      "icon": "📰",
+      "badge": "内容",
+      "featured": true,
+      "updated_at": "2026-11-13T03:18:48Z",
+      "isFork": false
+    },
     {
       "repoName": "IK-Show",
       "name": "IK-Show",
@@ -11,20 +24,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-11-12T14:22:47Z",
-      "isFork": false
-    },
-    {
-      "repoName": "RC-Show",
-      "name": "RC-Show",
-      "desc": "暂无仓库描述。",
-      "url": "https://github.com/QianYuan1437/RC-Show",
-      "path": "/RC-Show/",
-      "type": "内容",
-      "icon": "📰",
-      "badge": "内容",
-      "featured": false,
-      "updated_at": "2026-11-12T14:42:11Z",
+      "updated_at": "2026-11-13T03:18:43Z",
       "isFork": false
     },
     {
@@ -37,7 +37,7 @@
       "icon": "🧠",
       "badge": "研究",
       "featured": true,
-      "updated_at": "2026-11-12T17:23:15Z",
+      "updated_at": "2026-11-13T03:25:11Z",
       "isFork": false
     },
     {
@@ -50,7 +50,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-11-12T21:21:31Z",
+      "updated_at": "2026-11-13T02:28:28Z",
       "isFork": false
     },
     {
@@ -63,7 +63,7 @@
       "icon": "🧠",
       "badge": "研究",
       "featured": true,
-      "updated_at": "2026-11-12T17:28:52Z",
+      "updated_at": "2026-11-13T03:13:55Z",
       "isFork": false
     },
     {
@@ -76,7 +76,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-11-12T17:28:42Z",
+      "updated_at": "2026-11-12T23:25:14Z",
       "isFork": false
     },
     {
@@ -89,7 +89,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-11-12T06:01:18Z",
+      "updated_at": "2026-11-13T05:26:18Z",
       "isFork": false
     },
     {
@@ -102,7 +102,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-11-12T04:40:40Z",
+      "updated_at": "2026-11-13T03:53:11Z",
       "isFork": false
     },
     {
