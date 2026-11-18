@@ -1,30 +1,30 @@
 {
-  "generated_at": "2026-11-18T12:51:28.122011+00:00",
+  "generated_at": "2026-11-18T21:14:47.658043+00:00",
   "pages": [
     {
       "repoName": "SuperMimic-Auto",
       "name": "SuperMimic-Auto",
-      "desc": "暂无仓库描述。",
+      "desc": "SuperMimic 快速上手方案",
       "url": "https://qianyuan1437.github.io/SuperMimic-Auto/",
       "path": "/SuperMimic-Auto/",
       "type": "内容",
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-11-18T10:24:56Z",
+      "updated_at": "2026-11-18T14:20:57Z",
       "isFork": false
     },
     {
       "repoName": "OpenSpeak",
       "name": "OpenSpeak",
-      "desc": "暂无仓库描述。",
+      "desc": "本地语音转文字快速输入软件",
       "url": "https://qianyuan1437.github.io/OpenSpeak/",
       "path": "/OpenSpeak/",
       "type": "内容",
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-11-18T12:35:36Z",
+      "updated_at": "2026-11-18T14:34:51Z",
       "isFork": false
     },
     {
@@ -76,7 +76,7 @@
       "icon": "🧠",
       "badge": "研究",
       "featured": true,
-      "updated_at": "2026-11-18T12:48:49Z",
+      "updated_at": "2026-11-18T17:47:54Z",
       "isFork": false
     },
     {
@@ -89,7 +89,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-11-18T12:46:57Z",
+      "updated_at": "2026-11-18T21:04:00Z",
       "isFork": false
     },
     {
@@ -102,7 +102,7 @@
       "icon": "🧠",
       "badge": "研究",
       "featured": true,
-      "updated_at": "2026-11-18T12:30:33Z",
+      "updated_at": "2026-11-18T17:56:06Z",
       "isFork": false
     },
     {
@@ -115,7 +115,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-11-18T03:30:19Z",
+      "updated_at": "2026-11-18T12:51:29Z",
       "isFork": false
     },
     {
