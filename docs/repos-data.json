@@ -1,19 +1,6 @@
 {
-  "generated_at": "2026-11-21T17:14:54.159865+00:00",
+  "generated_at": "2026-11-21T22:57:23.445045+00:00",
   "pages": [
-    {
-      "repoName": "IEEECBF",
-      "name": "IEEECBF",
-      "desc": "IEEE CBF Paper Tracker: CBF papers from top IEEE journals (L-CSS, TAC, Automatica, TRO) with PTC focused real-time search",
-      "url": "https://qianyuan1437.github.io/IEEECBF/",
-      "path": "/IEEECBF/",
-      "type": "研究",
-      "icon": "🧠",
-      "badge": "研究",
-      "featured": true,
-      "updated_at": "2026-11-21T16:36:51Z",
-      "isFork": false
-    },
     {
       "repoName": "SuperMimic-Auto",
       "name": "SuperMimic-Auto",
@@ -25,6 +12,19 @@
       "badge": "内容",
       "featured": true,
       "updated_at": "2026-11-18T14:20:57Z",
+      "isFork": false
+    },
+    {
+      "repoName": "IEEECBF",
+      "name": "IEEECBF",
+      "desc": "IEEE CBF Paper Tracker: CBF papers from top IEEE journals (L-CSS, TAC, Automatica, TRO) with PTC focused real-time search",
+      "url": "https://qianyuan1437.github.io/IEEECBF/",
+      "path": "/IEEECBF/",
+      "type": "研究",
+      "icon": "🧠",
+      "badge": "研究",
+      "featured": true,
+      "updated_at": "2026-11-21T16:36:51Z",
       "isFork": false
     },
     {
@@ -89,7 +89,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-11-21T12:17:28Z",
+      "updated_at": "2026-11-21T20:24:27Z",
       "isFork": false
     },
     {
@@ -115,7 +115,7 @@
       "icon": "📰",
       "badge": "内容",
       "featured": true,
-      "updated_at": "2026-11-21T09:28:24Z",
+      "updated_at": "2026-11-21T17:14:55Z",
       "isFork": false
     },
     {
